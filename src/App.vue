@@ -1,21 +1,18 @@
 <template>
   <div id="app">
     <header id="header">cars</header>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
-      <footer id="footer">
-        <div class="menu"></div>
-        <div class="menu"></div>
-        <div class="menu"></div>
-        <div class="menu"></div>
-      </footer>
+
+    <footer id="footer">
+      <router-link to="/" class="menu">首页</router-link>
+      <router-link to="/about" class="menu">哈</router-link>
+      <router-link to="/carList" class="menu">啊</router-link>
+      <router-link to="/user" class="menu">我</router-link>
+    </footer>
   </div>
 </template>
 
-<style>
+<style lang="less">
 body{
   margin: 0;
 }
@@ -47,5 +44,13 @@ body{
   width: 100%;
   height: 60px;
   background: #ccc;
+  .menu{
+    width: 25%;
+    line-height: 60px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+  }
 }
 </style>
