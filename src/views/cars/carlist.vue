@@ -1,10 +1,14 @@
 <template>
-    <div class="list">
+    <div class="carlist">
         车辆列表
-        <div class="ff" v-for="list of lists" :key="list.id">
-            <img src="list.url" alt="车辆外观">
+        <div class="lists" v-for="list of lists" :key="list.id">
+            <div class="imgarea">
+                <router-link :to="'cardetail/'+list.id">
+                    <img :src="list.url" :alt="list.title">
+                </router-link>
+            </div>
             <div class="intro">
-                <h4><router-link to="/cardetail/list.id">{{list.title}}</router-link></h4>
+                <h4><router-link :to="'cardetail/'+list.id">{{list.title}}</router-link></h4>
                 <p>{{list.introduction}}</p>
             </div>
         </div>
@@ -19,19 +23,49 @@ export default {
                 {
                     id:"1",
                     title:"奥迪A6",
-                    url:"",
+                    url:"/images/audi1.jpg",
                     introduction:"gagagag"
                 },
                 {
                     id:"2",
                     title:"奥迪A6",
-                    url:"",
+                    url:"/images/audi2.jpg",
                     introduction:"gagagag"
                 },
                 {
                     id:"3",
                     title:"奥迪A6",
-                    url:"",
+                    url:"/images/audi3.jpg",
+                    introduction:"gagagag"
+                },
+                {
+                    id:"4",
+                    title:"奥迪A6",
+                    url:"/images/audi4.jpg",
+                    introduction:"gagagag"
+                },
+                {
+                    id:"5",
+                    title:"奥迪A6",
+                    url:"/images/audi5.jpg",
+                    introduction:"gagagag"
+                },
+                {
+                    id:"6",
+                    title:"奥迪A6",
+                    url:"/images/audi6.jpg",
+                    introduction:"gagagag"
+                },
+                {
+                    id:"7",
+                    title:"奥迪A6",
+                    url:"/images/audi7.jpg",
+                    introduction:"gagagag"
+                },
+                {
+                    id:"8",
+                    title:"奥迪A6",
+                    url:"/images/audi8.jpg",
                     introduction:"gagagag"
                 }
             ]
@@ -40,13 +74,16 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-    .ff{
+    .lists{
         display:  flex;
         padding: 5px 0;
         border-bottom:1px solid rgba(100, 100, 100, 0.6); 
-        img{
+        .imgarea{
             width: 35%;
-            min-height: 100px;
+        }
+        img{
+            width: 100%;
+            height: auto;
         }
         .intro{
             text-align: left;
@@ -55,6 +92,10 @@ export default {
         }
         h4{
             margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color:#000;
         }
         p{
             margin: 6px 0 0 0;
