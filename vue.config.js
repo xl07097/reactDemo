@@ -5,7 +5,7 @@ module.exports = {
         hotOnly: true
         // proxy: {
         //     '/api':{
-        //         target: 'http://163.music.com',
+        //         target: 'http://music.163.com',
         //         ws: true,
         //         changeOrigin: true,
         //         pathRewrite: {
