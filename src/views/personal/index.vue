@@ -4,8 +4,24 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
-    name:"person"
+    name:"person",
+    data(){
+        return {
+            
+        }
+    },
+    methods:{
+        getInfo(){
+            axios.get("http://192.168.1.49:3000/api/user/info").then(function(data){
+                console.log(data);
+            })
+        }
+    },
+    created(){
+        this.getInfo();
+    }
 }
 </script>
 
