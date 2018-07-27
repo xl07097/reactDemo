@@ -5,6 +5,7 @@
 </template>
 <script>
 import axios from 'axios'
+import Cookies from 'js-cookie'
 export default {
     name:"person",
     data(){
@@ -20,6 +21,7 @@ export default {
         }
     },
     created(){
+        console.dir(Cookies)
         this.getInfo();
     }
 }
