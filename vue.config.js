@@ -4,17 +4,17 @@ module.exports = {
     devServer: {
         open: true,
         port: 8990,
-        hotOnly: true,
-        proxy: {
-            '/api': {
-                target: 'http://163.music.com',
-                ws: true,
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/api': ""
-                }
-            }
-        }
+        hotOnly: true
+        // proxy: {
+        //     '/api': {
+        //         target: 'http://163.music.com',
+        //         ws: true,
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/api': ""
+        //         }
+        //     }
+        // }
     },
     css: {
         loaderOptions: {

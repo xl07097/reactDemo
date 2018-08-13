@@ -15,61 +15,28 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
+
 export default {
     name:"carList",
     data(){
         return {
-            lists:[
-                {
-                    id:"1",
-                    title:"奥迪A6",
-                    url:"/images/audi1.jpg",
-                    introduction:"gagagag"
-                },
-                {
-                    id:"2",
-                    title:"奥迪A6",
-                    url:"/images/audi2.jpg",
-                    introduction:"gagagag"
-                },
-                {
-                    id:"3",
-                    title:"奥迪A6",
-                    url:"/images/audi3.jpg",
-                    introduction:"gagagag"
-                },
-                {
-                    id:"4",
-                    title:"奥迪A6",
-                    url:"/images/audi4.jpg",
-                    introduction:"gagagag"
-                },
-                {
-                    id:"5",
-                    title:"奥迪A6",
-                    url:"/images/audi5.jpg",
-                    introduction:"gagagag"
-                },
-                {
-                    id:"6",
-                    title:"奥迪A6",
-                    url:"/images/audi6.jpg",
-                    introduction:"gagagag"
-                },
-                {
-                    id:"7",
-                    title:"奥迪A6",
-                    url:"/images/audi7.jpg",
-                    introduction:"gagagag"
-                },
-                {
-                    id:"8",
-                    title:"奥迪A6",
-                    url:"/images/audi8.jpg",
-                    introduction:"gagagag"
-                }
-            ]
+            lists:[]
         }
+    },
+    methods:{
+        getCarList(){
+            axios.get('/data/carList.json').then(data => {
+                let json = data.data;
+                if(json.code === 200){
+                    this.lists = json.data;
+                }
+                
+            })
+        }
+    },
+    created(){
+        this.getCarList();
     }
 }
 </script>
