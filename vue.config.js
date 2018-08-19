@@ -1,20 +1,25 @@
+const path = require('path')
+const debug = process.env.NODE_ENV !== 'production'
+
 module.exports = {
-    outputDir:"dist",
+    outputDir: "dist",
     devServer: {
-        port:8990,
-        hotOnly: true
-        // proxy: {
-        //     '/api':{
-        //         target: 'http://music.163.com',
-        //         ws: true,
-        //         changeOrigin: true,
-        //         pathRewrite: {
-        //             '^/api':""
-        //         }
-        //     }
-        // }
+
+        open: true,
+        port: 8990,
+        hotOnly: true,
+        proxy: {
+            '/api': {
+                target: 'http://163.music.com',
+                ws: true,
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': ""
+                }
+            }
+        }
     },
-    css:{
+    css: {
         loaderOptions: {
             css: {
                 // options here will be passed to css-loader
