@@ -1,5 +1,3 @@
-const path = require('path')
-const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
     outputDir: "dist",
@@ -7,17 +5,17 @@ module.exports = {
 
         open: true,
         port: 8990,
-        hotOnly: true,
-        proxy: {
-            '/api': {
-                target: 'http://163.music.com',
-                ws: true,
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/api': ""
-                }
-            }
-        }
+        hotOnly: true
+        // proxy: {
+        //     '/api': {
+        //         target: 'http://163.music.com',
+        //         ws: true,
+        //         changeOrigin: true,
+        //         pathRewrite: {
+        //             '^/api': ""
+        //         }
+        //     }
+        // }
     },
     css: {
         loaderOptions: {

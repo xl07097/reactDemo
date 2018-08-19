@@ -4,12 +4,27 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
+
 export default {
     name:"carDetail",
     data(){
         return {
-            id:this.$route.params.id
+            id:this.$route.params.id,
+            carInfo:{}
         }
+    },
+    methods:{
+        getCarInfo(){
+            axios.get('/data/'+this.id+'.json').then(data => {
+                console.log(data)
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+    },
+    created(){
+        this.getCarInfo();
     }
 }
 </script>
