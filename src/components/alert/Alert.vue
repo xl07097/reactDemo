@@ -54,12 +54,11 @@ export default {
     }
     button {
       display: inline-block;
-      padding: 6px 14px;
-      font-size: 14px;
-      background-color: #4caf50;
+      padding: 4px 10px;
+      font-size: 12px;
+      background-color: #89af4c;
       color: white;
       text-align: center;
-      text-decoration: none;
       border: none;
       outline: none;
       cursor: pointer;
