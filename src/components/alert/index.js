@@ -12,10 +12,8 @@ plugin.install = function (Vue) {
 
         const div = document.createElement("div");
         instance.$mount(div);
-
         document.body.appendChild(instance.$el);
 
-        console.log(div)
         interl = setTimeout(function () {
             document.body.removeChild(instance.$el)
         }, 3000)
