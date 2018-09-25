@@ -38,7 +38,7 @@ export default {
         }
     },
     created(){
-        console.log(this.pageConfig);
+        window.console.log(this.pageConfig);
         this.getCarList();
     }
 }

@@ -17,9 +17,9 @@ export default {
     methods:{
         getCarInfo(){
             axios.get('/data/'+this.id+'.json').then(data => {
-                console.log(data)
+                window.console.log(data)
             }).catch(err => {
-                console.log(err);
+                window.console.log(err)
             })
         }
     },

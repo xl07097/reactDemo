@@ -7,6 +7,10 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "repository": {
+    "type": "Git",
+    "url": "git@github.com:xl07097/cars.git"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "js-cookie": "^2.2.0",
