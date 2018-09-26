@@ -1,6 +1,6 @@
 <template>
     <div id="header">
-cars
+        <h4>cars</h4>
     </div>
 </template>
 <script>
@@ -20,6 +20,10 @@ export default {
   line-height: 54px;
   font-size: 24px;
   text-align: left;
+  h4{
+      margin: 0;
+      padding: 0;
+  }
 }
 </style>
 

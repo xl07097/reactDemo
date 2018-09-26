@@ -16,9 +16,11 @@
 </template>
 <script>
 import axios from 'axios'
+import page from '@/mixins/page'
 
 export default {
     name:"carList",
+    mixins: [page],
     data(){
         return {
             lists:[]
@@ -36,6 +38,7 @@ export default {
         }
     },
     created(){
+        window.console.log(this.pageConfig);
         this.getCarList();
     }
 }

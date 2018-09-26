@@ -14,7 +14,7 @@ export default {
   methods: {
     getInfo() {
       axios.get("http://192.168.1.49:3000/api/user/info").then(function(data) {
-        console.log(data)
+        window.console.log(data)
       });
     },
     tan(){
