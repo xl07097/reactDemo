@@ -5,7 +5,8 @@
     </div>
 </template>
 <script>
-import axios from "axios";
+import fetch from "@/utils/fetch";
+
 export default {
   name: "person",
   data() {
@@ -13,7 +14,7 @@ export default {
   },
   methods: {
     getInfo() {
-      axios.get("http://192.168.1.49:3000/api/user/info").then(function(data) {
+      fetch.get("http://192.168.1.49:9669/api/user/info").then((data) => {
         window.console.log(data)
       });
     },

@@ -9,23 +9,22 @@ let instance = axios.create({
 instance.interceptors.request.use(config => { // 请求拦截器
     let params = {};
 
-    for (let key of config.data){
-        params[key] = config.data[key]
-    }
-
+    // for (let key of config.data){
+    //     params[key] = config.data[key]
+    // }
+    console.log(config);
     return config
 },err => {
     Promise.reject(err)
 })
 
-instance.interceptors.responce.use(res => {
+instance.interceptors.response.use(res => {
     let data = res.data;
 
     switch(res.code){
         case 200:
             break;
         case 300:
-            showMessage('会话超时')
             localStorage.clear();
             //router.push('/login');
         break;
@@ -33,6 +32,8 @@ instance.interceptors.responce.use(res => {
             alert(res.msg);
             break;
     }
+
+    return data
 
 },err => {
     Promise.reject(err)

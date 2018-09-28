@@ -15,7 +15,7 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
+import fetch from '@/utils/fetch'
 import page from '@/mixins/page'
 
 export default {
@@ -28,10 +28,10 @@ export default {
     },
     methods:{
         getCarList(){
-            axios.get('/data/carList.json').then(data => {
-                let json = data.data;
-                if(json.code === 200){
-                    this.lists = json.data;
+            fetch.get('/data/carList.json').then(data => {
+                console.log(data)
+                if(data.code === 200){
+                    this.lists = data.data;
                 }
                 
             })
