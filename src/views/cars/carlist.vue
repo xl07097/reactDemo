@@ -29,7 +29,7 @@ export default {
     methods:{
         getCarList(){
             fetch.get('/data/carList.json').then(data => {
-                console.log(data)
+                window.console.log(data)
                 if(data.code === 200){
                     this.lists = data.data;
                 }
