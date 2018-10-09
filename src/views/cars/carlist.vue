@@ -15,7 +15,7 @@
     </div>
 </template>
 <script>
-import fetch from '@/utils/fetch'
+import $fetch from '@/utils/fetch'
 import page from '@/mixins/page'
 
 export default {
@@ -28,7 +28,7 @@ export default {
     },
     methods:{
         getCarList(){
-            fetch.get('/data/carList.json').then(data => {
+            $fetch.get('/data/carList.json').then(data => {
                 window.console.log(data)
                 if(data.code === 200){
                     this.lists = data.data;

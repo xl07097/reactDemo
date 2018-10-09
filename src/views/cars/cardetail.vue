@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
+import $fetch from '@/utils/fetch'
 
 export default {
     name:"carDetail",
@@ -16,7 +16,7 @@ export default {
     },
     methods:{
         getCarInfo(){
-            axios.get('/data/'+this.id+'.json').then(data => {
+            $fetch.get('/data/'+this.id+'.json').then(data => {
                 window.console.log(data)
             }).catch(err => {
                 window.console.log(err)

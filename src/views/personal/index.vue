@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import fetch from "@/utils/fetch";
+import $fetch from "@/utils/fetch";
 
 export default {
   name: "person",
@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     getInfo() {
-      fetch.get("http://192.168.1.49:9669/api/user/info").then((data) => {
+      $fetch.get("http://192.168.1.49:9669/api/user/info").then((data) => {
         window.console.log(data)
       });
     },
