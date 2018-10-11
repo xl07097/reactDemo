@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     getInfo() {
-      $fetch.get("http://192.168.1.49:9669/api/user/info").then((data) => {
+      $fetch.get("user/info").then((data) => {
         window.console.log(data)
       });
     },

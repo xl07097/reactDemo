@@ -28,17 +28,15 @@ export default {
     },
     methods:{
         getCarList(){
-            $fetch.get('/data/carList.json').then(data => {
+            $fetch.get('/cars/lists').then(data => {
                 window.console.log(data)
                 if(data.code === 200){
                     this.lists = data.data;
                 }
-                
             })
         }
     },
     created(){
-        window.console.log(this.pageConfig);
         this.getCarList();
     }
 }

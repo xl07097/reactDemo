@@ -1,9 +1,12 @@
 import axios from "axios";
 
 let instance = axios.create({
-    baseURL: process.env.Base_URL,
+    baseURL: 'http://192.168.1.49:9669/api/',
     withCredentials: true,
-    timeout: 10000
+    timeout: 10000,
+    headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+    }
 })
 
 instance.interceptors.request.use(config => { // 请求拦截器
@@ -14,20 +17,20 @@ instance.interceptors.request.use(config => { // 请求拦截器
     // }
     console.log(config);
     return config
-},err => {
+}, err => {
     Promise.reject(err)
 })
 
 instance.interceptors.response.use(res => {
     let data = res.data;
 
-    switch(res.code){
+    switch (res.code) {
         case 200:
             break;
         case 300:
             localStorage.clear();
             //router.push('/login');
-        break;
+            break;
         case 500:
             alert(res.msg);
             break;
@@ -35,7 +38,7 @@ instance.interceptors.response.use(res => {
 
     return data
 
-},err => {
+}, err => {
     Promise.reject(err)
 })
 
