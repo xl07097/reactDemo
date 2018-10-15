@@ -21,7 +21,6 @@ export default {
   width: 100%;
   height: 3.45rem;
   background: #ccc;
-  cursor: pointer;
   .menu {
     display: block;
     width: 25%;
@@ -30,7 +29,8 @@ export default {
     text-decoration: none;
     color: #000;
     text-align: center;
-    font-family: '微软雅黑'
+    font-family: '微软雅黑';
+    cursor: pointer;
   }
 }
 </style>

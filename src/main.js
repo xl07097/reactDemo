@@ -4,6 +4,8 @@ import router from '@/router/router'
 import store from '@/store/store'
 import Alert from '@/components/alert/index'
 
+import './common.less'
+
 Vue.use(Alert)
 
 Vue.config.productionTip = false
