@@ -17,14 +17,6 @@ export default {
 </script>
 
 <style lang="less">
-*{
-  box-sizing: border-box;
-}
-html,body{
-  margin: 0;
-  padding: 0;
-}
-
 #app {
   padding: 60px 0;
   color: #2c3e50; 
