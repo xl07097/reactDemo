@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     getInfo() {
-      $fetch.post("user/info",{
+      $fetch.post("/cars/lists",{
         id:1
       }).then((data) => {
         window.console.log(data)
