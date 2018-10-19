@@ -4,17 +4,7 @@ module.exports = {
     devServer: {
         open: true,
         port: 8990,
-        hotOnly: true,
-        // proxy: {
-        //     '/api': {
-        //         target: 'http://192.168.1.49:3000',
-        //         ws: true,
-        //         changeOrigin: true,
-        //         // pathRewrite: {
-        //         //     '^/api': ""
-        //         // }
-        //     }
-        // }
+        hotOnly: true
     },
     css: {
         loaderOptions: {
