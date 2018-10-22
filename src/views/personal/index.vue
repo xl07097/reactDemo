@@ -10,7 +10,9 @@ import $fetch from "@/utils/fetch";
 export default {
   name: "person",
   data() {
-    return {};
+    return {
+      user: {}
+    };
   },
   methods: {
     getInfo() {

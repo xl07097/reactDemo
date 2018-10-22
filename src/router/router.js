@@ -9,7 +9,7 @@ import carDetail from "@/views/cars/cardetail.vue"
 Vue.use(Router)
 
 export default new Router({
-  mode:"history",
+  mode: "history",
   routes: [
     {
       path: '/',
@@ -22,15 +22,16 @@ export default new Router({
       component: About
     },
     {
-      path:"/user",
-      name:"user",
+      path: "/user",
+      name: "user",
       component: person
     },
     {
       path: "/carList",
       name: "carlist",
       component: carlist
-    }, {
+    }, 
+    {
       path: "/cardetail/:id",
       name: "cardetail",
       component: carDetail

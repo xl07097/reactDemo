@@ -3,12 +3,12 @@
         车辆列表
         <div class="lists" v-for="list of lists" :key="list.id">
             <div class="imgarea">
-                <router-link :to="'cardetail/'+list.id">
+                <router-link :to="'/cardetail/'+list.id">
                     <img :src="list.url" :alt="list.title">
                 </router-link>
             </div>
             <div class="intro">
-                <h4><router-link :to="'cardetail/'+list.id">{{list.title}}</router-link></h4>
+                <h4><router-link :to="'/cardetail/'+list.id">{{list.title}}</router-link></h4>
                 <p>{{list.introduction}}</p>
             </div>
         </div>
