@@ -8,11 +8,12 @@
         <router-link to="/cardetail/6" class="ro">6</router-link>
     </div>
 </template>
+
 <script>
 import $fetch from "@/utils/fetch";
 
 export default {
-  name: "carDetail",
+  name: "CarInfo",
   data() {
     return {
       id: this.$route.params.id,
@@ -22,7 +23,16 @@ export default {
   methods: {
     getCarInfo() {
       $fetch
-        .get("/api/cars/" + this.id)
+        .get("/cars/getInfoById?id=" + this.id)
+        .then(data => {
+          window.console.log(data);
+        })
+        .catch(err => {
+          window.console.log(err);
+        });
+        
+        $fetch
+        .get("/cars/" + this.id)
         .then(data => {
           window.console.log(data);
         })
@@ -32,14 +42,15 @@ export default {
     }
   },
   beforeRouteUpdate(to, from, next) {
-    console.log({...to});
+    this.getCarInfo();
     next();
   },
   created() {
-    // this.getCarInfo();
+    this.getCarInfo();
   }
 };
 </script>
+
 <style lang="less" scoped>
 .ro {
   display: inline-block;

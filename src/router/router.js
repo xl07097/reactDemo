@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
-import person from "@/views/personal/index.vue"
-import carlist from '@/views/cars/carlist.vue'
-import carDetail from "@/views/cars/cardetail.vue"
+import Person from "@/views/users/index.vue"
+import Carlist from '@/views/cars/carlist.vue'
+import CarInfo from "@/views/cars/cardetail.vue"
 
 Vue.use(Router)
 
@@ -24,17 +24,17 @@ export default new Router({
     {
       path: "/user",
       name: "user",
-      component: person
+      component: Person
     },
     {
       path: "/carList",
       name: "carlist",
-      component: carlist
+      component: Carlist
     }, 
     {
       path: "/cardetail/:id",
       name: "cardetail",
-      component: carDetail
+      component: CarInfo
     }
   ]
 })

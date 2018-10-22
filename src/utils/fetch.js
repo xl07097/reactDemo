@@ -10,12 +10,6 @@ let instance = axios.create({
 })
 
 instance.interceptors.request.use(config => { // 请求拦截器
-    let params = {};
-
-    // for (let key of config.data){
-    //     params[key] = config.data[key]
-    // }
-    console.log(config);
     return config
 }, err => {
     Promise.reject(err)
