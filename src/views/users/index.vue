@@ -1,7 +1,7 @@
 <template>
     <div class="users">
       <div class="avatar">
-        <Avatar class="avatar" icon="ios-person" size="large" />
+        <Avatar class="avatar" :src="user.avatar" size="large" />
       </div>
 
       <Form ref="form" :model="req" :rules="rule">
@@ -63,7 +63,9 @@ export default {
     getInfo() {
       $fetch.get('users/info').then(data => {
         if(data.code === 200){
-          this.info = data.data;
+          this.user = data.data;
+          // this.$store.state.user.commit("LOGIN_STATE",data.data)
+          console.log(this.$store);
         }
       })
     },
