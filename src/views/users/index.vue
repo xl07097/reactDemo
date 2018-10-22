@@ -1,15 +1,24 @@
 <template>
-    <div class="person">
-      <form>
-        <div>
-          <input type="text" v-model="req.username">
-        </div>
-        <div>
-          <input type="password" v-model="req.password">
-        </div>
-        <button type="button" @click="login">登录</button>
-      </form>
-      <button type="button" @click="tan">弹出</button>
+    <div class="users">
+      <div class="avatar">
+        <Avatar class="avatar" icon="ios-person" size="large" />
+      </div>
+
+      <Form ref="form" :model="req" :rules="rule">
+        <FormItem prop="name">
+          <i-input v-model="req.name">
+            <Icon type="ios-person-outline" slot="prepend"></Icon>
+          </i-input>
+        </FormItem>
+        <FormItem prop="password">
+          <i-input type="password" v-model="req.password">
+            <Icon type="ios-lock-outline" slot="prepend"></Icon>
+          </i-input>
+        </FormItem>
+         <FormItem>
+            <Button type="success" @click="login" long>登录</Button>
+        </FormItem>
+      </Form>
     </div>
 </template>
 <script>
@@ -20,8 +29,20 @@ export default {
   data() {
     return {
       req: {
-        username: "xueliang",
+        name: "xueliang",
         password: "123456"
+      },
+      rule: {
+        name: [
+          {
+            required: true,
+            message: "请输入用户名",
+            trigger: "blur"
+          }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+        ]
       },
       user: {}
     };
@@ -33,10 +54,19 @@ export default {
           params: this.req
         })
         .then(data => {
-          window.console.log(data);
+          if(data.code === 200){
+            this.$Message.success('登录成功');
+            this.getInfo();
+          }
         });
     },
-    getInfo() {},
+    getInfo() {
+      $fetch.get('users/info').then(data => {
+        if(data.code === 200){
+          this.info = data.data;
+        }
+      })
+    },
     tan() {
       this.$alert({
         title: "haha",
@@ -45,12 +75,19 @@ export default {
     }
   },
   created() {
-    this.getInfo();
+    
   }
 };
 </script>
 
 <style scoped lang="less">
+.users {
+  padding: 0 15px;
+  .avatar {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
 </style>
 
 

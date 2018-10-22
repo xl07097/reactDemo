@@ -18,15 +18,18 @@ instance.interceptors.request.use(config => { // 请求拦截器
 instance.interceptors.response.use(res => {
     let data = res.data;
 
-    switch (res.code) {
+    switch (data.code) {
         case 200:
+            break;
+        case 201:
+            alert(data.msg);
             break;
         case 300:
             localStorage.clear();
             //router.push('/login');
             break;
         case 500:
-            alert(res.msg);
+            alert(data.msg);
             break;
     }
 
