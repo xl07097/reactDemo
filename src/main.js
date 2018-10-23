@@ -7,6 +7,7 @@ import store from '@/store/store'
 import iView from 'iview'
 
 import 'iview/dist/styles/iview.css';
+import 'font-awesome/css/font-awesome.css'
 import './common.less'
 
 Vue.use(iView)

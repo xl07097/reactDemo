@@ -16,16 +16,15 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
+  right: 0;
   display: flex;
   align-items:stretch;
-  width: 100%;
-  height: 3.45rem;
   background: #ccc;
   .menu {
-    display: block;
-    width: 25%;
-    line-height: 3.45rem;
-    font-size: 1.325rem;
+    display: table;
+    flex: 1;
+    line-height: 60px;
+    font-size: 24px;
     text-decoration: none;
     color: #000;
     text-align: center;

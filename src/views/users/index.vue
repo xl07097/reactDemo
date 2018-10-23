@@ -40,11 +40,10 @@ export default {
             trigger: "blur"
           }
         ],
-        password: [
-          { required: true, message: '请输入密码', trigger: 'blur' },
-        ]
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
       },
-      user: {}
+      user: {},
+      
     };
   },
   methods: {
@@ -54,20 +53,21 @@ export default {
           params: this.req
         })
         .then(data => {
-          if(data.code === 200){
-            this.$Message.success('登录成功');
+          if (data.code === 200) {
+            this.$Message.success("登录成功");
             this.getInfo();
           }
         });
     },
     getInfo() {
-      $fetch.get('users/info').then(data => {
-        if(data.code === 200){
+      $fetch.get("users/info").then(data => {
+        if (data.code === 200) {
           this.user = data.data;
+          sessionStorage.setItem("isLogin", true);
           // this.$store.state.user.commit("LOGIN_STATE",data.data)
           console.log(this.$store);
         }
-      })
+      });
     },
     tan() {
       this.$alert({
@@ -76,9 +76,7 @@ export default {
       });
     }
   },
-  created() {
-    
-  }
+  created() {}
 };
 </script>
 
