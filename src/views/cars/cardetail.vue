@@ -1,11 +1,7 @@
 <template>
     <div class="detail">
         {{id}}
-        <router-link to="/cardetail/2" class="ro">2</router-link>
-        <router-link to="/cardetail/3" class="ro">3</router-link>
-        <router-link to="/cardetail/4" class="ro">4</router-link>
-        <router-link to="/cardetail/5" class="ro">5</router-link>
-        <router-link to="/cardetail/6" class="ro">6</router-link>
+        <router-link v-for="n of 6" :key="n" :to="'/cardetail/'+n" class="ro">{{n}}</router-link>
     </div>
 </template>
 
@@ -16,9 +12,14 @@ export default {
   name: "CarInfo",
   data() {
     return {
-      id: this.$route.params.id,
+      // id: this.$route.params.id,
       carInfo: {}
     };
+  },
+  computed: {
+    id() {
+      return this.$route.params.id;
+    }
   },
   methods: {
     getCarInfo() {
@@ -30,8 +31,8 @@ export default {
         .catch(err => {
           window.console.log(err);
         });
-        
-        $fetch
+
+      $fetch
         .get("/cars/" + this.id)
         .then(data => {
           window.console.log(data);
@@ -42,6 +43,7 @@ export default {
     }
   },
   beforeRouteUpdate(to, from, next) {
+    console.log(this.$route.params);
     this.getCarInfo();
     next();
   },
@@ -52,11 +54,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.ro {
-  display: inline-block;
-  width: 30px;
-  height: 20px;
-  text-align: center;
+.detail {
+  font-size: 24px;
+  .ro {
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    text-align: center;
+  }
 }
 </style>
 

@@ -23,6 +23,7 @@
 </template>
 <script>
 import $fetch from "@/utils/fetch";
+import {userLogin} from '@/api/user';
 
 export default {
   name: "person",
@@ -64,15 +65,7 @@ export default {
         if (data.code === 200) {
           this.user = data.data;
           sessionStorage.setItem("isLogin", true);
-          // this.$store.state.user.commit("LOGIN_STATE",data.data)
-          console.log(this.$store);
         }
-      });
-    },
-    tan() {
-      this.$alert({
-        title: "haha",
-        info: "gaga"
       });
     }
   },

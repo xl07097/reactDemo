@@ -15,60 +15,66 @@
     </div>
 </template>
 <script>
-import $fetch from '@/utils/fetch'
-import page from '@/mixins/page'
+import $fetch from "@/utils/fetch";
+import page from "@/mixins/page";
 
 export default {
-    name:"carList",
-    mixins: [page],
-    data(){
-        return {
-            lists:[]
+  name: "carList",
+  mixins: [page],
+  data() {
+    return {
+      lists: []
+    };
+  },
+  methods: {
+    getCarList() {
+      $fetch.get("/cars/lists").then(data => {
+        window.console.log(data);
+        if (data.code === 200) {
+          this.lists = data.data;
         }
-    },
-    methods:{
-        getCarList(){
-            $fetch.get('/cars/lists').then(data => {
-                window.console.log(data)
-                if(data.code === 200){
-                    this.lists = data.data;
-                }
-            })
-        }
-    },
-    created(){
-        this.getCarList();
+      });
     }
-}
+  },
+  created() {
+    this.getCarList();
+  }
+};
 </script>
 <style lang="less" scoped>
-    .lists{
-        display:  flex;
-        padding: 5px 0;
-        border-bottom:1px solid rgba(100, 100, 100, 0.6); 
-        .imgarea{
-            width: 35%;
-        }
-        img{
-            width: 100%;
-            height: auto;
-        }
-        .intro{
-            text-align: left;
-            padding: 0 10px;
-            width: 60%;
-        }
-        h4{
-            margin: 0;
-        }
-        a{
-            text-decoration: none;
-            color:#000;
-        }
-        p{
-            margin: 6px 0 0 0;
-        }
+.carlist{
+    padding: 0 10px
+}
+.lists {
+  display: flex;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.6);
+  .imgarea {
+    width: 35%;
+  }
+  img {
+    display: block;
+    width: 100%;
+  }
+  .intro {
+    flex: 1;
+    text-align: left;
+    padding: 0 10px;
+    width: 60%;
+    h4 {
+      margin: 0;
+      font-size: 20px;
     }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    p {
+      margin: 6px 0 0 0;
+      font-size: 16px;
+    }
+  }
+}
 </style>
 
 
