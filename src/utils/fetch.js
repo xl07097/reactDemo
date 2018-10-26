@@ -11,19 +11,20 @@ let instance = axios.create({
 
 instance.interceptors.request.use(config => { // 请求拦截器
     let params = {};
-
-    // if(config.method.toLowerCase() === 'get' && config.data){
-    //     for(let i in config.data){
-    //         params[i] = config.data[i]
-    //     }
-    //     config.params = params;
-    // }
+    if(config.method.toLowerCase() === 'get' && config.data){
+        let json = config.data;
+        for(let i in json){
+            params[i] = json[i]
+        }    
+        // config.params = params
+    }
     return config
 }, err => {
     Promise.reject(err)
 })
 
 instance.interceptors.response.use(res => {
+    window.console.log(res);
     let data = res.data;
 
     switch (data.code) {
