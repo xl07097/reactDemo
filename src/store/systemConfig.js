@@ -6,3 +6,4 @@ const state = {
         appKey:'abcdefg1234567890',
     }
 }
+export default state

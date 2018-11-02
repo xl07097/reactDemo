@@ -5,7 +5,7 @@
             <button>手机</button>
             <button>设置</button>
             <button>房子</button>
-            <button>马</button>
+            <button>车马</button>
             <button>钱</button>
             <label class="label" for="checkbox">Click Me</label>
         </div>
@@ -17,29 +17,15 @@ export default {};
 </script>
 
 <style lang="less" scoped>
-// 此处要sass
-$d: 9em;
-*,
-*::before,
-*::aftre {
-  padding: 0;
-  margin: 0;
-}
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .popping-menu {
   position: relative;
+  left: 200px;
   width: 10em;
   height: 10em;
   display: flex;
   justify-content: center;
   align-items: center;
-  button {
+  .item {
     position: absolute;
     display: block;
     width: 4em;
@@ -59,29 +45,36 @@ body {
   .checkbox {
     display: none;
   }
-  .checkbox:checked {
-    ~button {
-      $per: 180 / 4;
-      @for $i from 1 through 6 {
-        &:nth-of-type(#{$i}) {
-          $angle: $per * ($i - 1) * 1deg + 180deg;
-          $x: cos($angle) * $d;
-          $y: sin($angle) * $d;
-          opacity: 1;
-          transition-delay: 0.1s * $i;
-          transform: translate($x, $y) rotate(0deg) ;
-        }
-      }
-    }
+  .checkbox:checked ~.item:nth-of-type(1){
+    opacity: 1;
+    transition-delay: 0.1s;
+    transform: translate(-9em, 0) rotate(0deg);
   }
-// .checkbox:checked ~button:nth-of-type(1){
-
-// }
-
+  .checkbox:checked ~.item:nth-of-type(2){
+    opacity: 1;
+    transition-delay: 0.2s;
+    transform: translate(-6em, -6em) rotate(0deg);
+  }
+  .checkbox:checked ~.item:nth-of-type(3){
+    opacity: 1;
+    transition-delay: 0.3s;
+    transform: translate(0, -9em) rotate(0deg);
+  }
+  .checkbox:checked ~.item:nth-of-type(4){
+    opacity: 1;
+    transition-delay: 0.4s;
+    transform: translate(6em, -6em) rotate(0deg);
+  }
+  .checkbox:checked ~.item:nth-of-type(5){
+    opacity: 1;
+    transition-delay: 0.5s;
+    transform: translate(9em, 0) rotate(0deg);
+  }
 }
 
 .popping-menu {
   .label {
+    left: 200px;
     z-index: 10;
     border-radius: 50%;
     background: #4791FF;
