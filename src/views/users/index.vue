@@ -50,8 +50,8 @@ export default {
   methods: {
     login() {
       $fetch
-        .get("users/login", {
-          params: this.req
+        .post("users/login", {
+          data: this.req
         })
         .then(data => {
           if (data.code === 200) {
@@ -61,7 +61,7 @@ export default {
         });
     },
     getInfo() {
-      $fetch.get("users/info").then(data => {
+      $fetch.post("users/info").then(data => {
         if (data.code === 200) {
           this.user = data.data;
           sessionStorage.setItem("isLogin", true);

@@ -2,7 +2,7 @@
   <div class="about">
     <label>
       <span>上传</span>
-      <input ref="file" type="file" name="file" id="file" @change="change">
+      <input ref="file" type="file" multiple name="file" id="file" @change="change">
     </label>
     <button class="button button1">确定</button>
   </div>
@@ -13,14 +13,17 @@ export default {
   name: "About",
   methods: {
     change() {
-      console.log(this.$refs.file);
-      var file = this.$refs.file.files[0];
-      if (!file) {
+      console.dir(this.$refs.file.files);
+      var file = this.$refs.file.files;
+      if (!file.length) {
         return;
       }
       var form = new FormData();
-      form.append("file", file);
-      this.$refs.file.value = ""; //虽然file的value不能设为有字符的值，但是可以设置为空值
+      for(let i = 0;i < file.length;i++){
+        form.append("file", file[i]);
+      }
+
+      // this.$refs.file.value = ""; //虽然file的value不能设为有字符的值，但是可以设置为空值
       fetch("http://192.168.1.49:9100/api/upload/uploadfile", {
         method: "post",
         body:form

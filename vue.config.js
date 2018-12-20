@@ -3,28 +3,9 @@ module.exports = {
     baseUrl: './',
     outputDir: "dist",
     devServer: {
+        host: 'http://192.168.1.49',
         open: true,
-        port: 8990,
+        port: 9001,
         hotOnly: true
-    },
-    css: {
-        loaderOptions: {
-            css: {
-                // options here will be passed to css-loader
-                rules: [{
-                    test: /\.less$/,
-                    use: [{
-                        loader: 'style-loader' // creates style nodes from JS strings
-                    }, {
-                        loader: 'css-loader' // translates CSS into CommonJS
-                    }, {
-                        loader: 'less-loader' // compiles Less to CSS
-                    }]
-                }]
-            },
-            postcss: {
-                // options here will be passed to postcss-loader
-            }
-        }
     }
 }

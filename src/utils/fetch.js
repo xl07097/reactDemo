@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let instance = axios.create({
-    baseURL: 'http://192.168.1.49:3000/api',
+    baseURL: 'http://192.168.1.49:9100/api',
     withCredentials: true,
     timeout: 10000,
     headers: {
@@ -10,6 +10,7 @@ let instance = axios.create({
 })
 
 instance.interceptors.request.use(config => { // 请求拦截器
+    window.console.log(process.env.BASE_URL)
     let params = {};
     if(config.method.toLowerCase() === 'get' && config.data){
         let json = config.data;
