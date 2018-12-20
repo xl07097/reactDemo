@@ -28,20 +28,6 @@ export default {
   },
   methods: {
     getCarList() {
-      $fetch.get("/cars/lists",{
-        data:{
-          name: 'json',
-          age: 25,
-          sex: 1,
-          job: 'engine'
-        }
-      }).then(data => {
-        window.console.log(data);
-        if (data.code === 200) {
-          this.lists = data.data;
-        }
-      });
-
       $fetch.post("/cars/lists",{
         name: 'json',
         age: 25,

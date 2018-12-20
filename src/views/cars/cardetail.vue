@@ -31,19 +31,9 @@ export default {
         .catch(err => {
           window.console.log(err);
         });
-
-      $fetch
-        .get("/cars/" + this.id)
-        .then(data => {
-          window.console.log(data);
-        })
-        .catch(err => {
-          window.console.log(err);
-        });
     }
   },
   beforeRouteUpdate(to, from, next) {
-    console.log(this.$route.params);
     this.getCarInfo();
     next();
   },
