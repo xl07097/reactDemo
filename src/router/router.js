@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
-import Person from "@/views/users/index.vue"
-import Carlist from '@/views/cars/carlist.vue'
-import CarInfo from "@/views/cars/cardetail.vue"
 
 Vue.use(Router)
 
@@ -14,27 +9,27 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: (resolve) => require(['@/views/Home.vue'],resolve)
     },
     {
       path: '/about',
       name: 'about',
-      component: About
+      component: (resolve) => require(['@/views/About.vue'],resolve)
     },
     {
       path: "/user",
       name: "user",
-      component: Person
+      component: (resolve) => require(['@/views/users/index.vue'],resolve)
     },
     {
       path: "/carList",
       name: "carlist",
-      component: Carlist
+      component: (resolve) => require(['@/views/cars/carlist.vue'],resolve)
     }, 
     {
       path: "/cardetail/:id",
       name: "cardetail",
-      component: CarInfo
+      component: (resolve) => require(['@/views/cars/cardetail.vue'],resolve)
     }
   ]
 })

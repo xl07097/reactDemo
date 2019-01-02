@@ -10,15 +10,15 @@ let instance = axios.create({
 })
 
 instance.interceptors.request.use(config => { // 请求拦截器
-    window.console.log(process.env.BASE_URL)
-    let params = {};
-    if(config.method.toLowerCase() === 'get' && config.data){
-        let json = config.data;
-        for(let i in json){
-            params[i] = json[i]
-        }    
-        // config.params = params
-    }
+    // window.console.log(process.env.BASE_URL)
+    // let params = {};
+    // if(config.method.toLowerCase() === 'get' && config.data){
+    //     let json = config.data;
+    //     for(let i in json){
+    //         params[i] = json[i]
+    //     }    
+    //     // config.params = params
+    // }
     return config
 }, err => {
     Promise.reject(err)
