@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let instance = axios.create({
-    baseURL: 'http://192.168.1.49:3000/api',
+    baseURL: 'http://192.168.1.49:9100/api',
     withCredentials: true,
     timeout: 10000,
     headers: {
@@ -10,29 +10,36 @@ let instance = axios.create({
 })
 
 instance.interceptors.request.use(config => { // 请求拦截器
-    let params = {};
-
-    // for (let key of config.data){
-    //     params[key] = config.data[key]
+    // window.console.log(process.env.BASE_URL)
+    // let params = {};
+    // if(config.method.toLowerCase() === 'get' && config.data){
+    //     let json = config.data;
+    //     for(let i in json){
+    //         params[i] = json[i]
+    //     }    
+    //     // config.params = params
     // }
-    console.log(config);
     return config
 }, err => {
     Promise.reject(err)
 })
 
 instance.interceptors.response.use(res => {
+    window.console.log(res);
     let data = res.data;
 
-    switch (res.code) {
+    switch (data.code) {
         case 200:
+            break;
+        case 201:
+            alert(data.msg);
             break;
         case 300:
             localStorage.clear();
             //router.push('/login');
             break;
         case 500:
-            alert(res.msg);
+            alert(data.msg);
             break;
     }
 

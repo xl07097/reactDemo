@@ -4,7 +4,7 @@ import path from '@/utils/path';
 export function userLogin(data){
     return $fetch({
         url: path.userLogin,
-        data: data
+        data: data.data
     })
 }
 

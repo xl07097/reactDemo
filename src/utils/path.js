@@ -1,8 +1,8 @@
 let path  = {
-    userLogin: 'api/user/login', // 登录
-    getLoginUserInfo: 'api/user/loginUserInfo',// 当前登录用户信息
-    userLogout: 'api/user/logout', //退出登录
-    getUser: 'api/user/checkuser'
+    userLogin: '/user/login', // 登录
+    getLoginUserInfo: '/user/loginUserInfo',// 当前登录用户信息
+    userLogout: '/user/logout', //退出登录
+    getUser: '/user/checkuser'
 }
 
 export default path
