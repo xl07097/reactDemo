@@ -4,7 +4,7 @@ import Header from './header/header'
 import Content from './content/Content'
 import { Button } from 'antd'
 
-class HelloMessage extends React.Component {
+class App extends React.Component {
     cancel(){
         console.log(this)
         console.log(90)
@@ -20,4 +20,4 @@ class HelloMessage extends React.Component {
     }
 }
 
-export default HelloMessage
+export default App
