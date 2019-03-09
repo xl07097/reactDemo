@@ -1,7 +1,7 @@
 import React, {
     Component
 } from 'react';
-
+import {Button} from 'antd';
 class Content extends Component {
     constructor(props) {
         super(props);
@@ -23,7 +23,7 @@ class Content extends Component {
        return (
             <div>
                 <span> {this.state.name} </span>
-                <button onClick={this.props.cancel.bind(this)}>hahahah</button>
+                <Button type="primary" onClick={this.props.cancel.bind(this)}>hahahah</Button>
                 <textarea value={this.state.name} onChange={this.textareaChange.bind(this)}></textarea>
                 {this.props.children}
             </div>
