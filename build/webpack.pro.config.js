@@ -27,6 +27,24 @@ module.exports = merge(baseConfig, {
             }
         ]
     },
+    optimization: {
+        splitChunks: {
+            chunks: "async",
+            minSize: 20000,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            name: true,
+            cacheGroups: {
+                vendor: {
+                    name: 'vendor',
+                    test: /[\\/]node_modules[\\/]/,
+                    chunks: 'all',
+                    priority: 10
+                }
+            }
+        }
+    },
     plugins: [
         new CleanWebpackPlugin(['dist/'], {
             root: path.resolve(__dirname, '../'),

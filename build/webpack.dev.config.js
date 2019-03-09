@@ -14,15 +14,32 @@ module.exports = merge(base,{
         rules:[
             {
                 test: /\.css$/,
-                use:['style-loader','css-loader','postcss-loader']
+                use:[{
+                    loader: 'style-loader',
+                },{
+                    loader: 'css-loader',
+                },{
+                    loader: 'postcss-loader',
+                }]
             },
             {
                 test: /\.less$/,
-                use:['style-loader','css-loader','less-loader','postcss-loader']
+                use:[{
+                    loader: 'style-loader',
+                },{
+                    loader: 'css-loader',
+                },{
+                    loader: 'postcss-loader',
+                },{
+                    loader: 'less-loader',
+                    options:{
+                        javascriptEnabled: true
+                    }
+                }]
             },
             {
                 test: /\.(scss|sass)$/,
-                use:['style-loader','css-loader','sass-loader','postcss-loader']
+                use:['style-loader', 'css-loader','sass-loader','postcss-loader']
             }
         ]
     },
