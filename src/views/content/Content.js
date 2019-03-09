@@ -21,10 +21,10 @@ class Content extends Component {
 
     render() { 
        return (
-            <div>
-                <span> {this.state.name} </span>
-                <Button type="primary" onClick={this.props.cancel.bind(this)}>hahahah</Button>
-                <textarea value={this.state.name} onChange={this.textareaChange.bind(this)}></textarea>
+            <div style={{width:800,margin: 'auto'}}>
+                <span> {this.state.name} </span> <br />
+                <Button type="primary" onClick={this.props.cancel.bind(this)}>hahahah</Button> <br />
+                <textarea value={this.state.name} onChange={this.textareaChange.bind(this)}></textarea> <br />
                 {this.props.children}
             </div>
         )

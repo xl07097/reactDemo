@@ -9,4 +9,4 @@ moment.locale('zh-cn');
 import App from './views/app';
 
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('root'));
