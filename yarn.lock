@@ -4375,7 +4375,7 @@ opn@^5.1.0:
   dependencies:
     is-wsl "^1.1.0"
 
-ora@^3.1.0:
+ora@^3.2.0:
   version "3.2.0"
   resolved "http://registry.npm.taobao.org/ora/download/ora-3.2.0.tgz#67e98a7e11f7f0ac95deaaaf11bb04de3d09e481"
   integrity sha1-Z+mKfhH38KyV3qqvEbsE3j0J5IE=
