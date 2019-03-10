@@ -39,7 +39,7 @@ module.exports = merge(base,{
             },
             {
                 test: /\.(scss|sass)$/,
-                use:['style-loader', 'css-loader','sass-loader','postcss-loader']
+                use:['style-loader', 'css-loader','postcss-loader','sass-loader']
             }
         ]
     },
