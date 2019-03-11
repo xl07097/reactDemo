@@ -5,7 +5,7 @@ const ora = require('ora');
 const rm = require('rimraf')
 const path = require('path')
 
-const spinner = ora('building is start...');
+const spinner = ora('building is start...\n');
 
 spinner.start();
 rm(path.join(path.resolve(__dirname, '../dist'), 'static'), err => {
