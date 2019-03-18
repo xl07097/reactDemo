@@ -19,9 +19,14 @@ class Header extends React.Component {
         }))
     }
     render() {
-        return (<header className="header">
-            <h2>创客</h2> 
-        </header>)
+        return (
+        <header className="App-header">
+            <h1 className="App-title">创客</h1>
+            <ul className="app-logout">
+                <li>退出</li>
+            </ul>
+        </header>
+        )
     }
 }
 export default Header
