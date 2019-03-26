@@ -23,7 +23,7 @@ module.exports = {
       host : '47.112.201.121',
       ref  : 'origin/xueliang',
       repo : 'git@github.com:xl07097/reactDemo.git',
-      path : '/home/xueliang',
+      path : '/home/webapp/react',
       'post-deploy' : 'npm install && npm run build'
 
       // 'post-deploy' : 'npm install && npm run build pm2 reload ecosystem.config.js --env production'
