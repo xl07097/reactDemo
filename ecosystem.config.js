@@ -21,7 +21,7 @@ module.exports = {
     production : {
       user : 'root',
       host : '47.112.201.121',
-      ref  : 'origin/master',
+      ref  : 'origin/xueliang',
       repo : 'git@github.com:xl07097/reactDemo.git',
       path : '/home/xueliang',
       'post-deploy' : 'npm install && npm run build'
