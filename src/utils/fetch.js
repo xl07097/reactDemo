@@ -1,11 +1,12 @@
 import axios from "axios";
+import {message} from 'antd';
 
 let instance = axios.create({
     baseURL: 'http://192.168.1.49:9100/api',
-    withCredentials: true,
     timeout: 10000,
     headers: {
-        'Content-Type': 'application/json;charset=utf-8'
+        'Content-Type': 'application/json;charset=utf-8',
+        'auth_token': sessionStorage.getItem('token')
     }
 })
 
@@ -17,7 +18,7 @@ instance.interceptors.request.use(config => { // 请求拦截器
     //     for(let i in json){
     //         params[i] = json[i]
     //     }    
-    //     // config.params = params
+    //     config.params = params
     // }
     return config
 }, err => {
@@ -32,14 +33,14 @@ instance.interceptors.response.use(res => {
         case 200:
             break;
         case 201:
-            alert(data.msg);
+            message.error(data.msg);
             break;
         case 300:
+            message.error(data.msg);
             localStorage.clear();
-            //router.push('/login');
             break;
         case 500:
-            alert(data.msg);
+            message.error(data.msg);
             break;
     }
 
