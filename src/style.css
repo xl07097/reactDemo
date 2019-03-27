@@ -1218,7 +1218,7 @@ button.dim:active:before {
 .chosen-container-single .chosen-single {
   background: #ffffff;
   box-shadow: none;
-  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 2px;
   cursor: text;
   height: auto !important;
@@ -2035,7 +2035,7 @@ div.dt-button-info {
 }
 /* jqGrid */
 .ui-jqgrid {
-  -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }
 .ui-jqgrid-btable {
   border-collapse: separate;
@@ -2170,7 +2170,7 @@ div.dt-button-info {
 .ui-jqgrid .form-control {
   height: 10px;
   width: auto;
-  display: inline;
+  display: inline-block;
   padding: 10px 12px;
 }
 .ui-jqgrid-pager {
@@ -2780,8 +2780,8 @@ a.forum-item-title:hover {
     height: 50px;
     left: 50%;
     margin-left: -25px;
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    backface-visibility: hidden;
     font-size: 19px;
   }
   .center-orientation .vertical-timeline-icon i {
@@ -3492,9 +3492,7 @@ body.full-height-layout #page-wrapper {
 #page-wrapper {
   min-height: auto;
 }
-body.boxed-layout {
-  /* background: url('patterns/shattered.png'); */
-}
+
 body.boxed-layout #wrapper {
   background-color: #2f4050;
   max-width: 1200px;
@@ -3989,7 +3987,7 @@ table.table-mail tr td {
   font-size: 24px;
 }
 .ibox-title h5 {
-  display: inline-block;
+  display: block;
   font-size: 14px;
   margin: 0 0 7px;
   padding: 0;
