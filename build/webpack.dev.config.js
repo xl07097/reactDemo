@@ -13,16 +13,7 @@ module.exports = merge(base, {
     module: {
         rules: [{
                 test: /\.css$/,
-                use: [{
-                        loader: 'style-loader',
-                    },
-                    {
-                        loader: 'css-loader',
-                    },
-                    {
-                        loader: 'postcss-loader',
-                    }
-                ]
+                use: ['style-loader','css-loader','postcss-loader',]
             },
             {
                 test: /\.less$/,
