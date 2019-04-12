@@ -8,9 +8,10 @@ class Content extends Component {
         this.state = {
             name: props.name
         }
+        this.cancel = this.props.cancel;
     }
 
-    textareaChange(e){
+    textareaChange = e =>{
         this.setState({
             name: e.target.value
         })
@@ -23,8 +24,8 @@ class Content extends Component {
        return (
             <div style={{width:800,margin: 'auto'}}>
                 <span> {this.state.name} </span> <br />
-                <Button type="primary" onClick={this.props.cancel.bind(this)}>hahahah</Button> <br />
-                <textarea value={this.state.name} onChange={this.textareaChange.bind(this)}></textarea> <br />
+                <Button type="primary" onClick={this.props.cancel}>hahahah</Button> <br />
+                <textarea value={this.state.name} onChange={this.textareaChange}></textarea> <br />
                 {this.props.children}
             </div>
         )

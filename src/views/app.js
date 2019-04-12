@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Header from './header/header'
-import Content from './content/Content'
+import Content from './content/Content.jsx'
 import { Button } from 'antd'
 
 class App extends React.Component {
