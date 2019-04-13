@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
     "build": "node ./build/build.js"
   },
-  "author": "",
+  "author": "xueliang",
   "license": "MIT",
   "dependencies": {
     "antd": "^3.13.6",
