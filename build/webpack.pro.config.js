@@ -3,6 +3,7 @@ const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.config')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(baseConfig, {
     mode: 'production',
@@ -14,35 +15,35 @@ module.exports = merge(baseConfig, {
     },
     module: {
         rules: [{
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
-            },
+            test: /\.css$/,
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+        },
 
-            {
-                test: /.less$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                    },
-                    {
-                        loader: 'css-loader',
-                    },
-                    {
-                        loader: 'postcss-loader',
-                    },
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            javascriptEnabled: true
-                        }
+        {
+            test: /.less$/,
+            use: [
+                {
+                    loader: MiniCssExtractPlugin.loader,
+                },
+                {
+                    loader: 'css-loader',
+                },
+                {
+                    loader: 'postcss-loader',
+                },
+                {
+                    loader: 'less-loader',
+                    options: {
+                        javascriptEnabled: true
                     }
-                ]
-                // use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
-            },
-            {
-                test: /\.(scss|sass)$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
-            }
+                }
+            ]
+            // use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
+        },
+        {
+            test: /\.(scss|sass)$/,
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
+        }
         ]
     },
     optimization: {
@@ -72,6 +73,14 @@ module.exports = merge(baseConfig, {
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css'
+        }),
+        new OptimizeCssAssetsWebpackPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+                preset: ['default', { discardComments: { removeAll: true } }],
+            },
+            canPrint: true
         })
     ]
 })
