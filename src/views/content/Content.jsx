@@ -1,8 +1,6 @@
-import React, {
-    Component
-} from 'react';
+import React from 'react';
 import {Button} from 'antd';
-class Content extends Component {
+class Content extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
