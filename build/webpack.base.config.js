@@ -18,7 +18,7 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 10240,
-                        name: path.posix.join('static', 'img/[name].[hash].[ext]')
+                        name: path.posix.join('img/[name].[hash].[ext]')
                     }
                 }]
 
@@ -29,7 +29,7 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        name: path.posix.join('static', 'fonts/[name].[hash].[ext]')
+                        name: path.posix.join('fonts/[name].[hash].[ext]')
                     }
                 }]
             }
@@ -40,13 +40,12 @@ module.exports = {
             filename: path.resolve(__dirname, '../dist/index.html'),
             template: path.resolve(__dirname, '../public/index.html')
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.optimize.SplitChunksPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
         alias: {
             '@': path.resolve(__dirname, '../src')
         },
-        extensions: ['.js', '.json']
+        extensions: ['.js','.jsx', '.json']
     }
 }
