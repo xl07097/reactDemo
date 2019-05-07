@@ -1,5 +1,7 @@
 import React from 'react';
 import {Button} from 'antd';
+import Chart from '@/components/Chart.js';
+
 class Content extends React.Component {
     constructor(props) {
         super(props);
@@ -25,6 +27,7 @@ class Content extends React.Component {
                 <Button type="primary" onClick={this.props.cancel}>hahahah</Button> <br />
                 <textarea value={this.state.name} onChange={this.textareaChange}></textarea> <br />
                 {this.props.children}
+                <Chart></Chart>
             </div>
         )
     }

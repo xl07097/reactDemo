@@ -10,6 +10,7 @@
   "author": "xueliang",
   "license": "MIT",
   "dependencies": {
+    "@antv/g2": "^3.5.3",
     "antd": "^3.13.6",
     "moment": "^2.24.0",
     "react": "^16.6.3",
