@@ -8,7 +8,6 @@ class Content extends React.Component {
         this.state = {
             name: props.name
         }
-        this.cancel = this.props.cancel;
     }
 
     textareaChange = e =>{
