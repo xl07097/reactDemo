@@ -16,7 +16,8 @@ class Chart extends React.Component{
             height: 300
         });
 
-        const data = [{ genre: 'Sports', sold: 275 },
+        const data = [
+            { genre: 'Sports', sold: 275 },
             { genre: 'Strategy', sold: 115 },
             { genre: 'Action', sold: 120 },
             { genre: 'Shooter', sold: 350 },
