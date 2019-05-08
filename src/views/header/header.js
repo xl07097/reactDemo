@@ -22,11 +22,12 @@ class Header extends React.Component {
         return (
         <header className="App-header">
             <h1 className="App-title">创客</h1>
-            <ul className="app-logout">
-                <li>退出</li>
-            </ul>
         </header>
         )
     }
 }
+      // <ul className="app-logout">
+            //     <li>退出</li>
+            // </ul>
+
 export default Header

@@ -19,14 +19,17 @@ class Content extends React.Component {
         console.log(this.props)
     }
 
+    cancel = () => {
+        this.props.cancel();
+    }
+
     render() { 
        return (
             <div style={{width:800,margin: 'auto'}}>
                 <span> {this.state.name} </span> <br />
-                <Button type="primary" onClick={this.props.cancel}>hahahah</Button> <br />
+                <Button type="primary" onClick={this.cancel}>hahahah</Button> <br />
                 <textarea value={this.state.name} onChange={this.textareaChange}></textarea> <br />
                 {this.props.children}
-                <Chart></Chart>
             </div>
         )
     }
