@@ -1,3 +1,18 @@
+import { func } from "prop-types";
+
+let HOST = '';
+
+if(window.location.hostname === 'localhost'){ // 本地开发状态
+    HOST = 'http://192.168.1.49:9100/';
+}else{
+    HOST = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port;
+}
+
+function getApiUri(){
+    return HOST + '/api/'
+}
+
+
 let path  = {
     userLogin: '/user/login', // 登录
     getLoginUserInfo: '/user/loginUserInfo',// 当前登录用户信息
