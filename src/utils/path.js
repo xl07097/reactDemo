@@ -1,4 +1,3 @@
-import { func } from "prop-types";
 
 let HOST = '';
 
