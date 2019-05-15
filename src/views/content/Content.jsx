@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'antd';
-import Chart from '@/components/Chart.js';
+// import Chart from '@/components/Chart.js';
 
 class Content extends React.Component {
     constructor(props) {
