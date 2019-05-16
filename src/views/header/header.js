@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, IndexLink} from 'react-router-dom';
 import './header.less'
 
 class Header extends React.Component {
@@ -24,7 +24,7 @@ class Header extends React.Component {
         <header className="header">
             <div className="header-left">
                 <h1 className="header-title">创客</h1>
-                <Link to='/'>index</Link>
+                    <IndexLink to="/">index</IndexLink>
                 <Link to='/chart'>chart</Link>
                 <Link to='/other'>other</Link>
                 <Link to='/other/chart'>link4</Link>

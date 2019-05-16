@@ -9,7 +9,6 @@ class Chart extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.myRef)
         this.chart = new G2.Chart({
             container: this.myRef.current,
             width: 600,
