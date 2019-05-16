@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, IndexRoute } from 'react-router-dom'
 import Chart from '@/components/Chart.js';
 
 import './content.less';
@@ -41,15 +41,18 @@ class Content extends React.Component {
         return (
             <main className="main-container">
                 <Switch>
-                    <Route exact path="/">首页</Route>
-                    <Route path="/chart" component={Chart}></Route>
-                    <Route path="/other">
+                    <Route exact path="/">
                         <div style={{ width: 800, margin: 'auto' }}>
                             <span> {this.state.name} </span> <br />
                             <Button type="primary" onClick={this.cancel}>hahahah</Button> <br />
                             <textarea value={this.state.name} onChange={this.textareaChange}></textarea> <br />
                             {this.props.children}
                         </div>
+                    </Route>
+                    <Route path="/chart" component={Chart}></Route>
+                    <Route path="/other">
+                        <IndexRoute>hahahah</IndexRoute>
+                        <Route path="chart" component={Chart}></Route>
                     </Route>
                 </Switch>
             </main>

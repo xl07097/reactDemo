@@ -11,7 +11,7 @@
 .header .header-left {
   display: flex;
   justify-content: flex-start;
-  width: 200px;
+  width: 250px;
 }
 .header .header-left a {
   width: 40px;
