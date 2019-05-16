@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { browserHistory, Router, Route, IndexRoute } from 'react-router'
-import createHistory from 'history/createBrowserHistory';
-import routes from '@/router/index'
+import { BrowserRouter} from "react-router-dom";
 
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import moment from 'moment';
@@ -12,7 +10,7 @@ import "./common.less";
 
 moment.locale('zh-cn');
 
-// import App from './views/app';
+import App from './views/app';
 
 
-ReactDOM.render(<Router history={browserHistory} routes={routes}></Router>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));

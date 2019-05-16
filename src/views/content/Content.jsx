@@ -1,6 +1,9 @@
 import React from 'react';
-import {Button} from 'antd';
-// import Chart from '@/components/Chart.js';
+import { Button } from 'antd';
+import { Switch, Route } from 'react-router-dom'
+import Chart from '@/components/Chart.js';
+
+import './content.less';
 
 class Content extends React.Component {
     constructor(props) {
@@ -10,20 +13,20 @@ class Content extends React.Component {
         }
     }
 
-    textareaChange = e =>{
+    textareaChange = e => {
         this.setState({
             name: e.target.value
         })
     }
-    componentDidMount(){
+    componentDidMount() {
         console.log(this.props)
-        let arr = [12,12,13,2,6,5,2,3,6,56,23,126,2,6,5,2];
+        let arr = [12, 12, 13, 2, 6, 5, 2, 3, 6, 56, 23, 126, 2, 6, 5, 2];
 
         console.log(Array.from(new Set([...arr])));
 
         let tObj = {};
 
-        arr.forEach((item,index) => {
+        arr.forEach((item, index) => {
             tObj[item] = item;
         })
 
@@ -34,14 +37,22 @@ class Content extends React.Component {
         this.props.cancel();
     }
 
-    render() { 
-       return (
-            <div style={{width:800,margin: 'auto'}}>
-                <span> {this.state.name} </span> <br />
-                <Button type="primary" onClick={this.cancel}>hahahah</Button> <br />
-                <textarea value={this.state.name} onChange={this.textareaChange}></textarea> <br />
-                {this.props.children}
-            </div>
+    render() {
+        return (
+            <main className="main-container">
+                <Switch>
+                    <Route exact path="/">首页</Route>
+                    <Route path="/chart" component={Chart}></Route>
+                    <Route path="/other">
+                        <div style={{ width: 800, margin: 'auto' }}>
+                            <span> {this.state.name} </span> <br />
+                            <Button type="primary" onClick={this.cancel}>hahahah</Button> <br />
+                            <textarea value={this.state.name} onChange={this.textareaChange}></textarea> <br />
+                            {this.props.children}
+                        </div>
+                    </Route>
+                </Switch>
+            </main>
         )
     }
 }

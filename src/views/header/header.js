@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './header.less'
 
 class Header extends React.Component {
@@ -20,8 +21,14 @@ class Header extends React.Component {
     }
     render() {
         return (
-        <header className="App-header">
-            <h1 className="App-title">创客</h1>
+        <header className="header">
+            <div className="header-left">
+                <h1 className="header-title">创客</h1>
+                <Link to='/'>link1</Link>
+                <Link to='/chart'>link2</Link>
+                <Link to='/other'>link3</Link>
+            </div>
+           
         </header>
         )
     }

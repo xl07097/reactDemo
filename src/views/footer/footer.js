@@ -8,7 +8,7 @@ function Footer (){
     })
 
     return (
-        <footer onClick={() => setCount(count+1)}>{count}</footer>
+        <footer className="footer" onClick={() => setCount(count+1)}>{count}</footer>
     )
 }
 
