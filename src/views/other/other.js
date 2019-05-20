@@ -1,7 +1,6 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { Button } from 'antd';
-import Chart from '@/components/Chart.js';
 
 class Other extends React.Component {
     constructor(props) {
@@ -28,10 +27,9 @@ class Other extends React.Component {
 
                 <Button type="primary">hahahah</Button>
                 {this.props.children}
-
             </div>
         )
     }
 }
 
-export default withRouter(Other)
+export default Other

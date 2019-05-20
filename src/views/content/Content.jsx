@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom'
 import Chart from '@/components/Chart.js';
-import Other from '@/views/other/other';
+import Other from '@/views/other/other.js';
 
 import './content.less';
 
@@ -46,8 +46,9 @@ class Content extends React.Component {
                     </Route>
                     <Route path="/chart" component={Chart}></Route>
                     <Route path="/other" component={Other}>
-                        <Route path="chart" component={Chart}></Route>
+                        
                     </Route>
+                    <Route path="/other/chart" component={Chart}></Route>
                 </Switch>
             </main>
         )
