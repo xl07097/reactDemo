@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@antv/g2": "^3.5.3",
+    "@babel/polyfill": "^7.4.4",
     "antd": "^3.13.6",
     "moment": "^2.24.0",
     "react": "^16.6.3",
@@ -28,7 +29,6 @@
     "autoprefixer-loader": "^3.2.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-import": "^1.11.0",
-    "babel-polyfill": "^6.26.0",
     "chalk": "^2.4.2",
     "clean-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.6.0",
