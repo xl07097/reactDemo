@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 import Header from './header/header'
 import Content from './content/Content.jsx'
@@ -19,4 +18,4 @@ function App(){
     )
 }
 
-export default withRouter(App);
+export default App;
