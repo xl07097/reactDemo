@@ -46,9 +46,9 @@ class Content extends React.Component {
                         index
                     </Route>
                     <Route path="/chart" component={Chart}></Route>
-                    <Route path="/other" component={Other}>
+                    <Route path="/other" render={props => <Route {...props} path="chart" children>chui</Route>}>
                         hhh
-                        <Route path="chart" component={Chart}></Route>
+                        
                     </Route>
                     
                 </Switch>

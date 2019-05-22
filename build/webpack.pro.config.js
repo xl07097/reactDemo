@@ -72,7 +72,7 @@ module.exports = merge(baseConfig, {
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
-            chunkFilename: 'css/[id].[hash].css'
+            // chunkFilename: 'css/[name].[hash].css'
         }),
         new OptimizeCssAssetsWebpackPlugin({
             assetNameRegExp: /\.css$/g,
