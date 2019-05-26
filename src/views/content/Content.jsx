@@ -31,6 +31,16 @@ class Content extends React.Component {
         })
 
         console.log(Object.values(tObj));  // 改变数组顺序
+
+        fetch("/api/cars/lists",{
+            method: "POST",
+            headers:{
+                "token": "12345678"
+            }
+        }).then(data => data.json()).then(data => {
+            
+            console.log(data)
+        })
     }
 
     cancel = () => {

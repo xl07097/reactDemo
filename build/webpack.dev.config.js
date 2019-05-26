@@ -45,6 +45,15 @@ module.exports = merge(base, {
         open: true,
         hot: true,
         historyApiFallback: true,
-        contentBase: path.join(__dirname, "../dist")
+        contentBase: path.join(__dirname, "../dist"),
+        proxy:{
+            '/api':{
+                target: "http://localhost:3002",
+                changeOrigin: true,
+                // pathRewrite: {
+                //     "/api": ""
+                // },
+            }
+        }
     }
 })
