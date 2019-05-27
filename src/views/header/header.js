@@ -3,22 +3,7 @@ import {Link, IndexLink} from 'react-router-dom';
 import './header.less'
 
 class Header extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-            count: 0 
-        }
-    }
-    componentDidMount(){
-        setInterval(()=> {
-           this.tick();
-        },1000)
-    }
-    tick(){
-        this.setState((prev,props) =>({
-            count: prev.count+1
-        }))
-    }
+    
     render() {
         return (
         <header className="header">
@@ -34,8 +19,5 @@ class Header extends React.Component {
         )
     }
 }
-      // <ul className="app-logout">
-            //     <li>退出</li>
-            // </ul>
 
 export default Header

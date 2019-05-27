@@ -37,6 +37,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            title: '创客',
             filename: path.resolve(__dirname, '../dist/index.html'),
             template: path.resolve(__dirname, '../public/index.html')
         }),

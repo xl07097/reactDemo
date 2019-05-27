@@ -8,16 +8,8 @@ import './content.less';
 class Content extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            name: props.name
-        }
     }
 
-    textareaChange = e => {
-        this.setState({
-            name: e.target.value
-        })
-    }
     componentDidMount() {
         console.log(this.props)
         let arr = [12, 12, 13, 2, 6, 5, 2, 3, 6, 56, 23, 126, 2, 6, 5, 2];
@@ -41,10 +33,6 @@ class Content extends React.Component {
             
             console.log(data)
         })
-    }
-
-    cancel = () => {
-        this.props.cancel();
     }
 
     render() {
