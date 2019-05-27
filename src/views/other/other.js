@@ -1,10 +1,20 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
 import { Button } from 'antd';
 
 class Other extends React.Component {
     constructor(props) {
         super(props);
+    }
+    componentDidMount(){
+        fetch("/api/cars/lists", {
+            method: "POST",
+            headers: {
+                "token": "12345678"
+            }
+        }).then(data => data.json()).then(data => {
+
+            console.log(data)
+        })
     }
     render() {
         return (

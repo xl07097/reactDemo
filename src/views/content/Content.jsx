@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom'
-import Chart from '@/components/Chart.js';
-import Other from '@/views/other/other.js';
+import Chart from '@/components/Chart';
+import Other from '@/views/other/other';
 
 import './content.less';
 
@@ -23,16 +23,6 @@ class Content extends React.Component {
         })
 
         console.log(Object.values(tObj));  // 改变数组顺序
-
-        fetch("/api/cars/lists",{
-            method: "POST",
-            headers:{
-                "token": "12345678"
-            }
-        }).then(data => data.json()).then(data => {
-            
-            console.log(data)
-        })
     }
 
     render() {
@@ -44,10 +34,7 @@ class Content extends React.Component {
                         index
                     </Route>
                     <Route path="/chart" component={Chart}></Route>
-                    <Route path="/other" render={props => <Route {...props} path="chart" children>chui</Route>}>
-                        hhh
-                        
-                    </Route>
+                    <Route path="/other" component={Other}></Route>
                     
                 </Switch>
                 
