@@ -1,0 +1,7 @@
+{
+    "extends": "exlint:recommended",
+    "rules": {
+        "indent": [4],
+        "semi": "error"
+    }
+}
