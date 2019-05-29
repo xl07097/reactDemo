@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import Chart from '@/components/Chart';
 import Other from '@/views/other/other';
@@ -25,8 +25,8 @@ class Content extends React.Component {
                     <Route exact path="/">
                         index
                     </Route>
-                    <Route path="/chart" component={Chart}></Route>
-                    <Route path="/other" component={Other}></Route>
+                    <Route path="/chart" component={Chart}/>
+                    <Route path="/other" component={Other}/>
                     
                 </Switch>
                 
