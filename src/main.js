@@ -7,6 +7,7 @@ import zhCN from 'antd/lib/locale-provider/zh_CN';
 // import 'moment/locale/zh-cn';
 import "./common.less";
 import App from './views/app';
+import Test from '@/views/routerTest/Test'
 
 // moment.locale('zh-cn');
 

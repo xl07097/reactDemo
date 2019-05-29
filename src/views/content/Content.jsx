@@ -47,8 +47,13 @@ class Content extends React.Component {
             <main className="main-container">
                 {this.props.children}
                 <Switch>
-                    {this.renderRouter(routes)}
+                    <Route key='/' exact path="/">index</Route>
+                    <Route path="/chart" exact component={Chart}></Route>
+                    
+                    <Route path="/other" exact component={Other}></Route>
+                    <Route path="/other/chart" exact component={Chart}></Route>
                 </Switch>
+             
             </main>
         )
     }
