@@ -1,6 +1,9 @@
+import '@babel/polyfill'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter} from "react-router-dom";
+
+
 
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 // import moment from 'moment';
