@@ -1,4 +1,15 @@
 {
+    "root": true,
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 7,
+      "ecmaFeatures": { 
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "html"
+    ],
     "env": {
         "browser": true
     },
