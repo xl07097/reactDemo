@@ -38,6 +38,8 @@ module.exports = merge(base, {
     },
     devServer: {
         port: '9000',
+        host:"localhost",
+        allowedHosts: ['0.0.0.0','192.168.1.49'],
         open: true,
         hot: true,
         historyApiFallback: true,

@@ -15,7 +15,15 @@ class Other extends React.Component {
 
             console.log(data)
         })
-
+        $axios({
+            url: '/cars/lists',
+            method: 'POST',
+            headers:{
+                "token": '123456'
+            }
+        }).then(data => {
+            console.log(data)
+        })
         console.dir($axios);
     }
     render() {
