@@ -11,6 +11,9 @@ import zhCN from 'antd/lib/locale-provider/zh_CN';
 import "./common.less";
 import App from './views/app';
 import Test from '@/views/routerTest/Test'
+import $axios from '@/utils/fetch'
+
+window.$axios = $axios;
 
 // moment.locale('zh-cn');
 

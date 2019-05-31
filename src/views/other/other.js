@@ -15,6 +15,8 @@ class Other extends React.Component {
 
             console.log(data)
         })
+
+        console.dir($axios);
     }
     render() {
         return (
