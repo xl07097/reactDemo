@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import Chart from '@/components/Chart';
+import Charts from '@/components/Charts';
 import Other from '@/views/other/other';
 import routes from '@/router/index'
 
@@ -51,7 +52,7 @@ class Content extends React.Component {
                     <Route path="/chart" exact component={Chart}></Route>
                     
                     <Route path="/other" exact component={Other}></Route>
-                    <Route path="/other/chart" exact component={Chart}></Route>
+                    <Route path="/other/chart" exact component={Charts}></Route>
                 </Switch>
              
             </main>
