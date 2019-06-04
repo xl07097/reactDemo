@@ -1,16 +1,25 @@
 {
-  "presets": [
-    ["@babel/preset-env", {
-      "modules": false
-    }],
-    "@babel/preset-react"
-  ],
-  "plugins": [
-    "@babel/plugin-proposal-class-properties",
-    ["import", {
-      "libraryName": "antd",
-      "libraryDirectory": "es",
-      "style": true
-    }]
-  ]
+  	"presets": [
+    	"@babel/preset-react",
+    	["@babel/preset-env", {
+        	"useBuiltIns": "usage",
+        	"corejs": 3,
+        	"modules": false,
+        	"targets": {
+          		"browsers": [
+            		"> 1%",
+            		"last 2 versions",
+            		"not ie <= 8"
+          		]
+        	}
+      	}]
+  	],
+  	"plugins": [
+    	"@babel/plugin-proposal-class-properties",
+    	["import", {
+      		"libraryName": "antd",
+      		"libraryDirectory": "es",
+      		"style": true
+    	}]
+  	]
 }
