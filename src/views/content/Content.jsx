@@ -1,5 +1,6 @@
-import React from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import routes from '@/router/index';
 import Chart from '@/components/Chart';
 import Charts from '@/components/Charts';
 import Other from '@/views/other/other';

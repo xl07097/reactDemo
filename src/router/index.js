@@ -9,6 +9,21 @@ const routes = [
         path: '/'
     },
     {
+        path: '/dashboard'
+    },
+    {
+        path: '/button'
+    },
+    {
+        path: '/icon'
+    },
+    {
+        path: '/card'
+    },
+    {
+        path: '/form'
+    },
+    {
         path: '/chart',
         // component: r => require.ensure([], () => r(require('@/components/Chart')), 'Chart'),
         component: Chart
