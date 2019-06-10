@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { Suspense, lazy} from 'react';
 import { Switch, Route } from 'react-router-dom';
-import routes from '@/router/index';
-import Chart from '@/components/Chart';
-import Charts from '@/components/Charts';
-import Other from '@/views/other/other';
-import routes from '@/router/index'
+
+const Chart = lazy(() => import('@/components/Chart'));
+const Charts = lazy(() => import('@/components/Charts'));
+const Other = lazy(() => import('@/views/other/other'));
+
+// import routes from '@/router/index';
+
+// import Chart from '@/components/Chart';
+// import Charts from '@/components/Charts';
+// import Other from '@/views/other/other';
 
 import './content.less';
 
@@ -47,15 +52,16 @@ class Content extends React.Component {
     render() {
         return (
             <main className="main-container">
-                {this.props.children}
-                <Switch>
-                    <Route key='/' exact path="/">index</Route>
-                    <Route path="/chart" exact component={Chart}></Route>
+                <Suspense fallback={<div>Loading...</div>}>
+                    {this.props.children}
+                    <Switch>
+                        <Route key='/' exact path="/">index</Route>
+                        <Route path="/chart" exact component={Chart}></Route>
                     
-                    <Route path="/other" exact component={Other}></Route>
-                    <Route path="/other/chart" exact component={Charts}></Route>
-                </Switch>
-             
+                        <Route path="/other" exact component={Other}></Route>
+                        <Route path="/other/chart" exact component={Charts}></Route>
+                    </Switch>
+                </Suspense>
             </main>
         )
     }

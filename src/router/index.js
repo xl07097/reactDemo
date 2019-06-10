@@ -1,4 +1,7 @@
-import Chart from '@/components/Chart';
+
+import { lazy } from 'react';
+const Chart = lazy(() => import('../components/Chart'));
+// import Chart from '@/components/Chart';
 import Other from '@/views/other/other';
 import Product1 from '@/views/product/product1/product1';
 import Product2 from '@/views/product/product2/product1';
