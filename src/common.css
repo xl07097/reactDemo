@@ -3,40 +3,31 @@
   display: table;
   content: " ";
 }
-
 .clearfix:after {
   clear: both;
 }
-
-
-*{
+* {
   box-sizing: border-box;
 }
-html,body{
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
-#root{
+#root {
   height: 100%;
 }
-ul{
+ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  li{
-      list-style-type: none;
-  }
 }
-
-
+ul li {
+  list-style-type: none;
+}
 /* ================= start antd 样式重写==================  */
-
 .ant-layout-content .main-container {
-  min-height: calc(100% - 40px);
+  min-height: calc(60%);
 }
-
-
-
 /* ================= end antd 样式重写 ====================  */
-

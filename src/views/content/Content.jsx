@@ -1,6 +1,7 @@
 import React, { Suspense, lazy} from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+
 const Chart = lazy(() => import('@/components/Chart'));
 const Charts = lazy(() => import('@/components/Charts'));
 const Other = lazy(() => import('@/views/other/other'));
@@ -56,10 +57,10 @@ class Content extends React.Component {
                     {this.props.children}
                     <Switch>
                         <Route key='/' exact path="/">index</Route>
-                        <Route path="/chart" exact component={Chart}></Route>
+                        <Route path="/chart" component={Chart}></Route>
                     
-                        <Route path="/other" exact component={Other}></Route>
-                        <Route path="/other/chart" exact component={Charts}></Route>
+                        <Route path="/other" component={Other}></Route>
+                        <Route path="/other/chart" component={Charts}></Route>
                     </Switch>
                 </Suspense>
             </main>
