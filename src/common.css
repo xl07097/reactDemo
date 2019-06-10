@@ -27,7 +27,4 @@ ul li {
   list-style-type: none;
 }
 /* ================= start antd 样式重写==================  */
-.ant-layout-content .main-container {
-  min-height: calc(60%);
-}
 /* ================= end antd 样式重写 ====================  */
