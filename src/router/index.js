@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 
-const Chart = lazy(() => import('../components/Chart'));
-const Other = lazy(() => import('../components/Chart'));
+const Chart = lazy(() => import('../components/charts/Chart'));
+const Other = lazy(() => import('../components/charts/Charts'));
 const Product1 = lazy(() => import('../views/product/product1/product1'));
 const Product2 = lazy(() => import('../views/product/product2/product1'));
 const Product3 = lazy(() => import('../views/product/product3/product'));

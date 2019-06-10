@@ -2,8 +2,8 @@ import React, { Suspense, lazy} from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 
-const Chart = lazy(() => import('@/components/Chart'));
-const Charts = lazy(() => import('@/components/Charts'));
+const Chart = lazy(() => import('@/components/charts/Chart'));
+const Charts = lazy(() => import('@/components/charts/Charts'));
 const Other = lazy(() => import('@/views/other/other'));
 
 // import routes from '@/router/index';
