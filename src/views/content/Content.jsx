@@ -1,10 +1,6 @@
-import React, { Suspense, lazy} from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Router from '@/router/index'
-
-const Chart = lazy(() => import('@/components/charts/Chart'));
-const Charts = lazy(() => import('@/components/charts/Charts'));
-const Other = lazy(() => import('@/views/other/other'));
+import React, { Suspense} from 'react';
+import {Spin} from 'antd';
+import Router from '@/router/index';
 
 import './content.less';
 
@@ -23,7 +19,7 @@ class Content extends React.Component {
     render() {
         return (
             <main className="main-container">
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Spin />}>
                     {this.props.children}
                     <Router></Router>
                 </Suspense>
