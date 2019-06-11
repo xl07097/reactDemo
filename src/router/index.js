@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
-import router from './router'
+import router from './router';
 
 function renderRoutes(routes, contextPath){
     let child = [];
@@ -18,7 +18,7 @@ function renderRoutes(routes, contextPath){
         if (route.component && route.childRoutes){
             let childRoutes = renderRoutes(route.childRoutes, childPath);
 
-            child.push(<Route key={childPath} 
+            child.push(<Route key={childPath}
                 render={props => <route.component {...props}>{childRoutes}</route.component>}
                 path={childPath}>
                 </Route>)
@@ -35,7 +35,7 @@ function renderRoutes(routes, contextPath){
 
 
 export default function Router(props){
+    // 还需要处理权限，拉取 权限 过滤路由
     let child = renderRoutes(router, '/');
-    console.log(child)
     return <Switch>{child}</Switch>
 }

@@ -6,6 +6,9 @@ import routes from '@/router/router';
 
 function renderSubMenu(route, parentRoute){
     return route.map(item => {
+        if (item.path === '*'){
+            return false;
+        }
         let newPath;
         if (/^\//.test(item.path)) {
             newPath = `${item.path}`;
