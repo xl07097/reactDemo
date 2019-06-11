@@ -11,7 +11,7 @@ module.exports = merge(baseConfig, {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'js/[name].[hash].js',
-        publicPath: './'
+        publicPath: '/' // 使用 ./ 时  嵌套路由资源获取不到？
     },
     module: {
         rules: [{
@@ -71,8 +71,7 @@ module.exports = merge(baseConfig, {
             dry: false
         }),
         new MiniCssExtractPlugin({
-            filename: 'css/[name].[hash].css',
-            // chunkFilename: 'css/[name].[hash].css'
+            filename: 'css/[name].[hash].css'
         }),
         new OptimizeCssAssetsWebpackPlugin({
             assetNameRegExp: /\.css$/g,
