@@ -18,7 +18,7 @@ function renderRoutes(routes, contextPath){
         if (route.component && route.childRoutes){
             let childRoutes = renderRoutes(route.childRoutes, childPath);
 
-            child.push(<Route key={childPath}
+            child.push(<Route key={childPath} exact
                 render={props => <route.component {...props}>{childRoutes}</route.component>}
                 path={childPath}>
                 </Route>)

@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy } from 'react'; // 懒加载
 
 const Chart = lazy(() => import('../components/charts/Chart'));
 const Other = lazy(() => import('../components/charts/Charts'));
