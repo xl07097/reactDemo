@@ -1,8 +1,9 @@
 import axios from "axios";
 import {message} from 'antd';
-
+import path from './path';
+console.log(path)
 let instance = axios.create({
-    baseURL: 'http://192.168.1.49:9000/api',
+    baseURL: path.BASE_URL,
     // baseURL: '/api',
     timeout: 10000,
     headers: {

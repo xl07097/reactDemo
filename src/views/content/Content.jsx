@@ -1,16 +1,10 @@
 import React, { Suspense, lazy} from 'react';
 import { Switch, Route } from 'react-router-dom';
-
+import Router from '@/router/index'
 
 const Chart = lazy(() => import('@/components/charts/Chart'));
 const Charts = lazy(() => import('@/components/charts/Charts'));
 const Other = lazy(() => import('@/views/other/other'));
-
-// import routes from '@/router/index';
-
-// import Chart from '@/components/Chart';
-// import Charts from '@/components/Charts';
-// import Other from '@/views/other/other';
 
 import './content.less';
 
@@ -25,43 +19,13 @@ class Content extends React.Component {
 
         console.log(Array.from(new Set([...arr])));
     }
-    renderRouter = (route) => {
-        let r = route.map(item => {
-
-            if (item.component && item.childRoutes) {
-                const child = this.renderRouter(item.childRoutes)
-                if (item.path === '/') {
-                    return (<Route key={item.path} exact path="/">index</Route>)
-                } else {
-                    return (<Route key={item.path} path={item.path} render={props => <item.component {...props}>{child}</item.component>}></Route>)
-                }
-            } else if (item.component) {
-                if (item.path === '/') {
-                    return (<Route key={item.path} exact path="/">index</Route>)
-                } else {
-                    return (<Route key={item.path} path={item.path} component={item.component}></Route>)
-                }
-            } else if (item.childRoutes) {
-                
-            }
-
-        })
-        console.log(r)
-        return r
-    }
 
     render() {
         return (
             <main className="main-container">
                 <Suspense fallback={<div>Loading...</div>}>
                     {this.props.children}
-                    <Switch>
-                        <Route key='/' exact path="/">index</Route>
-                        <Route path="/chart" component={Chart}></Route>
-                    
-                        <Route path="/other" component={Other}></Route>
-                        <Route path="/other/chart" component={Charts}></Route>
-                    </Switch>
+                    <Router></Router>
                 </Suspense>
             </main>
         )
