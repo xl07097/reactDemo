@@ -7,7 +7,7 @@ import routes from '@/router/router';
 function renderSubMenu(route, parentRoute){
     return route.map(item => {
         if (item.path === '*'){
-            return false;
+            return null;
         }
         let newPath;
         if (/^\//.test(item.path)) {
@@ -26,9 +26,6 @@ function renderSubMenu(route, parentRoute){
             </Menu.Item>)
         }
     })
-}
-function renderItemMenu(){
-
 }
 
 function Side(props){
