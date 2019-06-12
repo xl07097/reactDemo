@@ -3,7 +3,7 @@ import {Layout} from 'antd'
 
 import Headers from '../components/header/header'
 import Contents from './content/Content.jsx'
-import Footers from "../components/footer/footer";
+// import Footers from "../components/footer/footer";
 import Side from '@/components/sidemenu/Side.js'
 
 const {Content, Sider } = Layout;
@@ -19,7 +19,6 @@ function App(){
                     </Sider>
                     <Content>
                         <Contents name="jack1"> <span>haha1</span> <span>hah2</span> </Contents>
-                        <Footers></Footers>
                     </Content>
                 </Layout>
             </Layout>
