@@ -8,7 +8,7 @@ const path = require('path')
 const spinner = ora('building is start...\n');
 
 spinner.start();
-rm(path.join(path.resolve(__dirname, '../dist')), err => {
+rm(path.join(path.resolve(__dirname)), err => {
     if (err) {
         throw new Error(err)
     }
