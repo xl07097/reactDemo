@@ -2,15 +2,15 @@ import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 import router from './router';
 
-function renderRoutes(routes, contextPath){
+function renderRoutes(routes, rootPath){
     let child = [];
 
-    function renderRoute(route, path){
+    function renderRoute(route, parentPath){
         let childPath; 
         if (/^\//.test(route)){
             childPath = `${route.path}`;
         }else{
-            childPath = `${path}/${route.path}`;
+            childPath = `${parentPath}/${route.path}`;
         }
     
         childPath = childPath.replace(/\/+/g, '/');
@@ -28,7 +28,7 @@ function renderRoutes(routes, contextPath){
             route.childRoutes.map(item => renderRoute(item, childPath))
         }
     }
-    routes.map(item => renderRoute(item, contextPath));
+    routes.map(item => renderRoute(item, rootPath));
 
     return child
 }
