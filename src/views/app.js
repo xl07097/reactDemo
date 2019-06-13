@@ -18,7 +18,10 @@ function App(){
                         <Side></Side>
                     </Sider>
                     <Content>
-                        <Contents name="jack1"> <span>haha1</span> <span>hah2</span> </Contents>
+                        <Contents name="jack1">
+                            <span>haha1</span>
+                            <span>hah2</span>
+                        </Contents>
                     </Content>
                 </Layout>
             </Layout>

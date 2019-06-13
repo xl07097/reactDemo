@@ -7,6 +7,10 @@ const Product1 = lazy(() => import('@/views/product/product1/product1'));
 const Product2 = lazy(() => import('@/views/product/product2/product1'));
 const Product3 = lazy(() => import('@/views/product/product3/product'));
 const Product4 = lazy(() => import('@/views/product/product4/product'));
+
+const buttonGroup = lazy(() => import("@/views/button/index"))
+
+
 const NoPage = lazy(() => import('@/components/p404'));
 const routes = [
     {
@@ -26,7 +30,8 @@ const routes = [
         path: '/button',
         meta: {
             title: '按钮'
-        }
+        },
+        component: buttonGroup
     },
     {
         path: '/icon',
