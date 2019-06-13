@@ -19,8 +19,7 @@ function App(){
                     </Sider>
                     <Content>
                         <Contents name="jack1">
-                            <span>haha1</span>
-                            <span>hah2</span>
+
                         </Contents>
                     </Content>
                 </Layout>
