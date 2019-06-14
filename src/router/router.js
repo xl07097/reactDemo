@@ -77,7 +77,15 @@ const routes = [
                 meta: {
                     title: '产品1'
                 },
-                component: Product1
+                childRoutes: [
+                    {
+                        path: 'product1_1',
+                        meta: {
+                            title: '产品1_1'
+                        },
+                        component: Product1
+                    }
+                ]
             },
             {
                 path: 'product2',
