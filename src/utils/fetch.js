@@ -1,7 +1,6 @@
 import axios from "axios";
 import {message} from 'antd';
 import path from './path';
-console.log(path)
 let instance = axios.create({
     baseURL: path.BASE_URL,
     // baseURL: '/api',

@@ -1,12 +1,17 @@
 import { lazy } from 'react'; // 懒加载
 
-const Chart = lazy(() => import('../components/charts/Chart'));
-const Other = lazy(() => import('../components/charts/Charts'));
-const Product1 = lazy(() => import('../views/product/product1/product1'));
-const Product2 = lazy(() => import('../views/product/product2/product1'));
-const Product3 = lazy(() => import('../views/product/product3/product'));
-const Product4 = lazy(() => import('../views/product/product4/product'));
-const NoPage = lazy(() => import('../components/p404'));
+const Chart = lazy(() => import('@/components/charts/Chart'));
+const Charts = lazy(() => import('@/components/charts/Charts'));
+const Other = lazy(() => import('@/views/other/other'));
+const Product1 = lazy(() => import('@/views/product/product1/product1'));
+const Product2 = lazy(() => import('@/views/product/product2/product1'));
+const Product3 = lazy(() => import('@/views/product/product3/product'));
+const Product4 = lazy(() => import('@/views/product/product4/product'));
+
+const buttonGroup = lazy(() => import("@/views/button/index"))
+
+
+const NoPage = lazy(() => import('@/components/p404'));
 const routes = [
     {
         path: '/',
@@ -25,7 +30,8 @@ const routes = [
         path: '/button',
         meta: {
             title: '按钮'
-        }
+        },
+        component: buttonGroup
     },
     {
         path: '/icon',
@@ -37,7 +43,8 @@ const routes = [
         path: '/card',
         meta: {
             title: '卡片'
-        }
+        },
+        component: Other
     },
     {
         path: '/form',
@@ -57,12 +64,12 @@ const routes = [
         meta: {
             title: '其他'
         },
-        component: Other,
+        component: Charts,
     },
     {
         path: '/product',
         meta: {
-            title: '其他'
+            title: '产品'
         },
         childRoutes: [
             {
@@ -70,7 +77,15 @@ const routes = [
                 meta: {
                     title: '产品1'
                 },
-                component: Product1
+                childRoutes: [
+                    {
+                        path: 'product1_1',
+                        meta: {
+                            title: '产品1_1'
+                        },
+                        component: Product1
+                    }
+                ]
             },
             {
                 path: 'product2',
@@ -87,7 +102,7 @@ const routes = [
                 component: Product3
             },
             {
-                path: 'product4',
+                path: '/product4',
                 meta: {
                     title: '产品4'
                 },
