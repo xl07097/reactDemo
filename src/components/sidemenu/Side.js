@@ -53,7 +53,7 @@ class Side extends Component{
     constructor(props){
         super(props)
         console.log(props)
-        let openKeys = this.getOpnekeys(props.location.pathname);
+        let openKeys = this.getOpenkeys(props.location.pathname);
         this.state = {
             defaultSelectedKeys: [props.location.pathname],
             defaultOpenKeys: openKeys,
@@ -64,21 +64,22 @@ class Side extends Component{
     componentDidMount(){
         console.log(this.state)
         const { history } = this.props;
-        history.listen((p) => {
+        history.listen((item) => {
+            let openKeys = this.getOpenkeys(item.pathname);
             this.setState({
-                selectKeys: [p.pathname]
+                selectKeys: [item.pathname],
+                openKeys: openKeys
             })
         })
     }
     titleClick = ({ key, domEvent })=>{
-        let openKeys = this.getOpnekeys(key);
+        let openKeys = this.getOpenkeys(key);
         this.setState({
             openKeys: openKeys
         })
     }
-    getOpnekeys = (key) =>{
-        let path = key.split('/');
-        let openKeys = path.map((item, index, arr) => {
+    getOpenkeys = (key) =>{
+        let openKeys = key.split('/').map((item, index, arr) => {
             return arr.slice(0, index + 1).join("/");
         })
         openKeys.shift()
@@ -88,6 +89,7 @@ class Side extends Component{
 
     }
     openChange = (openKeys) =>{
+        console.log(openKeys)
         this.setState({
             openKeys: openKeys
         })
