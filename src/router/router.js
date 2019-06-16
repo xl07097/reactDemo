@@ -10,7 +10,7 @@ const Product4 = lazy(() => import('@/views/product/product4/product'));
 
 const buttonGroup = lazy(() => import("@/views/button/index"))
 
-
+const MiddlePage = lazy(() => import("@/components/MiddlePage"))
 const NoPage = lazy(() => import('@/components/p404'));
 const routes = [
     {
@@ -71,12 +71,14 @@ const routes = [
         meta: {
             title: '产品'
         },
+        component: MiddlePage,
         childRoutes: [
             {
                 path: 'product1',
                 meta: {
                     title: '产品1'
                 },
+                component: MiddlePage,
                 childRoutes: [
                     {
                         path: 'product1_1',
@@ -102,7 +104,7 @@ const routes = [
                 component: Product3
             },
             {
-                path: '/product4',
+                path: 'product4',
                 meta: {
                     title: '产品4'
                 },

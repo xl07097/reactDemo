@@ -18,12 +18,13 @@ function renderRoutes(routes, rootPath){
         if (route.component && route.childRoutes){
             let childRoutes = renderRoutes(route.childRoutes, childPath);
 
-            child.push(<Route key={childPath} exact
+            child.push(<Route
+                key={childPath}
                 render={props => <route.component {...props}>{childRoutes}</route.component>}
                 path={childPath}>
                 </Route>)
         } else if (route.component){
-            child.push(<Route key={childPath} path={childPath} component={route.component} exact></Route>)
+            child.push(<Route path={childPath} component={route.component} key={childPath} exact></Route>)
         } else if (route.childRoutes){
             route.childRoutes.map(item => renderRoute(item, childPath))
         }

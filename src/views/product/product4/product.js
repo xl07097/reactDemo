@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-function Product() {
-    return (<h2>product4</h2>)
+function Product(props) {
+    return (<h2>product4{props.children}</h2>)
 }
 
 export default Product
