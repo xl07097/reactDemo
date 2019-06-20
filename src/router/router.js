@@ -7,6 +7,7 @@ const Product1 = lazy(() => import('@/views/product/product1/product1'));
 const Product2 = lazy(() => import('@/views/product/product2/product1'));
 const Product3 = lazy(() => import('@/views/product/product3/product'));
 const Product4 = lazy(() => import('@/views/product/product4/product'));
+const FormDemo = lazy(() => import('@/views/form/FormDemo'))
 
 const buttonGroup = lazy(() => import("@/views/button/index"))
 
@@ -50,7 +51,8 @@ const routes = [
         path: '/form',
         meta: {
             title: '表单'
-        }
+        },
+        component: FormDemo
     },
     {
         path: '/chart',
