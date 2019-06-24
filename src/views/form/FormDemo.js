@@ -52,12 +52,17 @@ const residences = [
 
 class RegistrationForm extends React.Component {
     state = {
+        req:{
+            email: '123@163.com',
+            password: ''
+        },
         confirmDirty: false,
         autoCompleteResult: [],
     };
 
     handleSubmit = e => {
         e.preventDefault();
+   
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
@@ -73,7 +78,7 @@ class RegistrationForm extends React.Component {
     compareToFirstPassword = (rule, value, callback) => {
         const form = this.props.form;
         if (value && value !== form.getFieldValue('password')) {
-            callback('Two passwords that you enter is inconsistent!');
+            callback('两次密码不一致');
         } else {
             callback();
         }
@@ -140,17 +145,18 @@ class RegistrationForm extends React.Component {
             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                 <Form.Item label="邮箱">
                     {getFieldDecorator('email', {
+                        initialValue: '123@163.com',
                         rules: [
                             {
                                 type: 'email',
-                                message: 'The input is not valid E-mail!',
+                                message: 'email不合法',
                             },
                             {
                                 required: true,
                                 message: '邮箱不能为空',
                             },
                         ],
-                    })(<Input />)}
+                    })(<Input onChange={e => this.setState({req:{email: e.target.value}})}/>)}
                 </Form.Item>
                 <Form.Item label="密码" hasFeedback>
                     {getFieldDecorator('password', {
@@ -163,14 +169,14 @@ class RegistrationForm extends React.Component {
                                 validator: this.validateToNextPassword,
                             },
                         ],
-                    })(<Input.Password />)}
+                    })(<Input.Password onChange={e => this.setState({ req: { email: e.target.value } })}/>)}
                 </Form.Item>
                 <Form.Item label="确认密码" hasFeedback>
                     {getFieldDecorator('confirm', {
                         rules: [
                             {
                                 required: true,
-                                message: 'Please confirm your password!',
+                                message: '请确认密码',
                             },
                             {
                                 validator: this.compareToFirstPassword,
@@ -182,7 +188,7 @@ class RegistrationForm extends React.Component {
                     label={
                         <span>
                             昵称&nbsp;
-                            <Tooltip title="What do you want others to call you?">
+                            <Tooltip title="你想要别人怎么称呼你">
                                 <Icon type="question-circle-o" />
                             </Tooltip>
                         </span>
@@ -192,7 +198,7 @@ class RegistrationForm extends React.Component {
                         rules: [
                             { 
                                 required: true, 
-                                message: 'Please input your nickname!', 
+                                message: '请输入昵称',
                                 whitespace: true 
                             }
                         ],
@@ -202,18 +208,18 @@ class RegistrationForm extends React.Component {
                     {getFieldDecorator('residence', {
                         initialValue: ['zhejiang', 'hangzhou', 'xihu'],
                         rules: [
-                            { type: 'array', required: true, message: 'Please select your habitual residence!' },
+                            { type: 'array', required: true, message: '请选择地址' },
                         ],
                     })(<Cascader options={residences} />)}
                 </Form.Item>
                 <Form.Item label="电话号码">
                     {getFieldDecorator('phone', {
-                        rules: [{ required: true, message: 'Please input your phone number!' }],
+                        rules: [{ required: true, message: '请输入电话号码' }],
                     })(<Input addonBefore={prefixSelector} style={{ width: '100%' }} />)}
                 </Form.Item>
                 <Form.Item label="网址">
                     {getFieldDecorator('website', {
-                        rules: [{ required: true, message: 'Please input website!' }],
+                        rules: [{ required: true, message: '请输入网址' }],
                     })(
                         <AutoComplete
                             dataSource={websiteOptions}
@@ -238,7 +244,7 @@ class RegistrationForm extends React.Component {
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">
-                        Register
+                        提交
                     </Button>
                 </Form.Item>
             </Form>

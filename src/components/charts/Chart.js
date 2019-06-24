@@ -27,7 +27,7 @@ class Chart extends React.Component{
         this.chart.interval().position('genre*sold').color('genre');
         this.chart.render();
 
-        var data = [{
+        var data1 = [{
             "name": "London",
             "月份": "Jan.",
             "月均降雨量": 18.9
@@ -92,17 +92,17 @@ class Chart extends React.Component{
             "月份": "Aug.",
             "月均降雨量": 42.4
         }];
-        var chart = new G2.Chart({
-            container: 'mountNode',
-            forceFit: true,
-            height: window.innerHeight
-        });
-        chart.source(data);
-        chart.interval().position('月份*月均降雨量').color('name').adjust([{
-            type: 'dodge',
-            marginRatio: 1 / 32
-        }]);
-        chart.render();
+        // var chart = new G2.Chart({
+        //     container: 'mountNode',
+        //     forceFit: true,
+        //     height: window.innerHeight
+        // });
+        // chart.source(data);
+        // chart.interval().position('月份*月均降雨量').color('name').adjust([{
+        //     type: 'dodge',
+        //     marginRatio: 1 / 32
+        // }]);
+        // chart.render();
     }
 
     render(){
