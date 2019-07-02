@@ -18,15 +18,15 @@ const AutoCompleteOption = AutoComplete.Option;
 const residences = [
     {
         value: 'zhejiang',
-        label: 'Zhejiang',
+        label: '浙江',
         children: [
             {
                 value: 'hangzhou',
-                label: 'Hangzhou',
+                label: '杭州',
                 children: [
                     {
                         value: 'xihu',
-                        label: 'West Lake',
+                        label: '西湖',
                     },
                 ],
             },
@@ -34,15 +34,15 @@ const residences = [
     },
     {
         value: 'jiangsu',
-        label: 'Jiangsu',
+        label: '江苏',
         children: [
             {
                 value: 'nanjing',
-                label: 'Nanjing',
+                label: '南京',
                 children: [
                     {
                         value: 'zhonghuamen',
-                        label: 'Zhong Hua Men',
+                        label: '中华门',
                     },
                 ],
             },
@@ -52,10 +52,6 @@ const residences = [
 
 class RegistrationForm extends React.Component {
     state = {
-        req:{
-            email: '123@163.com',
-            password: ''
-        },
         confirmDirty: false,
         autoCompleteResult: [],
     };
@@ -156,7 +152,7 @@ class RegistrationForm extends React.Component {
                                 message: '邮箱不能为空',
                             },
                         ],
-                    })(<Input onChange={e => this.setState({req:{email: e.target.value}})}/>)}
+                    })(<Input />)}
                 </Form.Item>
                 <Form.Item label="密码" hasFeedback>
                     {getFieldDecorator('password', {
@@ -169,7 +165,7 @@ class RegistrationForm extends React.Component {
                                 validator: this.validateToNextPassword,
                             },
                         ],
-                    })(<Input.Password onChange={e => this.setState({ req: { email: e.target.value } })}/>)}
+                    })(<Input.Password />)}
                 </Form.Item>
                 <Form.Item label="确认密码" hasFeedback>
                     {getFieldDecorator('confirm', {

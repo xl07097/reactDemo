@@ -27,7 +27,6 @@ instance.interceptors.request.use(config => { // 请求拦截器
 })
 
 instance.interceptors.response.use(res => {
-    window.console.log(res);
     let data = res.data;
 
     switch (data.code) {
