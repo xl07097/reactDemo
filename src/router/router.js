@@ -15,6 +15,18 @@ import { lazy } from 'react'; // 懒加载
 // const NoPage = lazy(() => import('@/components/p404'));
 
 const routes = [
+
+    {
+        path: '*',
+        meta: {
+            title: '404',
+            role: '404'
+        },
+        component: lazy(() => import('@/components/p404'))
+    }
+]
+
+const asynRouter = [
     {
         path: '/',
         meta: {
@@ -122,14 +134,5 @@ const routes = [
             },
         ]
     },
-    {
-        path: '*',
-        meta: {
-            title: '404',
-            role: '404'
-        },
-        component: lazy(() => import('@/components/p404'))
-    }
 ]
-
-export default routes;
+export {routes, asynRouter}

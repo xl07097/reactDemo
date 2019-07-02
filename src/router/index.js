@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
-import router from './router';
-
+import { routes, asynRouter} from './router';
+const allRouter = [...asynRouter, ...routes]
 function renderRoutes(routes, rootPath){
     let child = [];
 
@@ -37,6 +37,6 @@ function renderRoutes(routes, rootPath){
 
 export default function Router(props){
     // 还需要处理权限，拉取 权限 过滤路由
-    let child = renderRoutes(router, '/');
+    let child = renderRoutes(allRouter, '/');
     return <Switch>{child}</Switch>
 }

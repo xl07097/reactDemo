@@ -6,15 +6,20 @@ import Contents from './content/Content.jsx'
 // import Footers from "../components/footer/footer";
 import Side from '@/components/sidemenu/Side.js'
 
+
 const {Content, Sider } = Layout;
+
+const style = {
+    boxShadow: '2px 0 6px rgba(0, 21, 41, .35)'
+}
 
 function App(){
     return (
-        <div style={{display:'flex',height: '100%'}}>
+        <div style={{display:'flex',minHeight: 'calc(100%)'}}>
             <Layout>
                 <Headers></Headers>
                 <Layout>
-                    <Sider width={234}>
+                    <Sider width={234} style={style}>
                         <Side></Side>
                     </Sider>
                     <Content>
