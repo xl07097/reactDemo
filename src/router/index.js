@@ -20,11 +20,12 @@ function renderRoutes(routes, rootPath){
 
             child.push(<Route
                 key={childPath}
+                meta={route}
                 render={props => <route.component {...props}>{childRoutes}</route.component>}
                 path={childPath}>
                 </Route>)
         } else if (route.component){
-            child.push(<Route path={childPath} component={route.component} key={childPath} exact></Route>)
+            child.push(<Route meta={route} path={childPath} component={route.component} key={childPath} exact></Route>)
         } else if (route.childRoutes){
             route.childRoutes.map(item => renderRoute(item, childPath))
         }
