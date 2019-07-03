@@ -7,7 +7,7 @@ import './content.less';
 function Content(){
     return (
         <main className="main-container">
-            <Suspense fallback={<Spin />}>
+            <Suspense fallback={<div style={{textAlign:'center',paddingTop:100,background:'rgba(255,255,255,.1)'}}><Spin size="large" /></div>}>
                 <Router></Router>
             </Suspense>
         </main>

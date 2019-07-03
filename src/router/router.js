@@ -48,7 +48,8 @@ const asynRouter = [
         meta: {
             title: '图标',
             role: 'icon'
-        }
+        },
+        component: lazy(() => import("@/views/icons/Icon"))
     },
     {
         path: '/card',
@@ -69,7 +70,7 @@ const asynRouter = [
     {
         path: '/chart',
         meta: {
-            title: '图标',
+            title: '图表',
             role: 'chart'
         },
         component: lazy(() => import('@/components/charts/Chart'))
