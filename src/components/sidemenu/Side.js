@@ -1,8 +1,12 @@
-import React,{useState, Component} from 'react';
+import React,{Component} from 'react';
 import { Link ,withRouter} from 'react-router-dom';
 import { Menu} from 'antd';
 
-import routes from '@/router/router';
+import { asynRouter } from '@/router/router';
+const style = {
+    width: 234
+}
+
 
 class Side extends Component{
     constructor(props){
@@ -72,7 +76,7 @@ class Side extends Component{
     }
 
     render(){
-        return (<div className='sidebar' style={{ width: 234 }}>
+        return (<div className='sidebar' style={style}>
             <Menu theme="dark" mode="inline"
                 onClick={this.clickMenu}
                 onOpenChange={this.openChange}
@@ -82,7 +86,7 @@ class Side extends Component{
                 openKeys={this.state.openKeys}
                 >
                 {
-                    this.renderSubMenu(routes, '/')
+                    this.renderSubMenu(asynRouter, '/')
                 }
             </Menu>
         </div>)
