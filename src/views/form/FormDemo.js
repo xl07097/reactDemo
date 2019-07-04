@@ -97,6 +97,9 @@ class RegistrationForm extends React.Component {
         }
         this.setState({ autoCompleteResult });
     };
+    componentDidMount(){
+        console.log(process.env.BASE_URI)
+    }
 
     render() {
         const { getFieldDecorator } = this.props.form;
