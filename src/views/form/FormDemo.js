@@ -108,24 +108,24 @@ class RegistrationForm extends React.Component {
         const formItemLayout = {
             labelCol: {
                 xs: { span: 12 },
-                sm: { span: 4 },
+                sm: { span: 4 }
             },
             wrapperCol: {
                 xs: { span: 12 },
-                sm: { span: 4 },
-            },
+                sm: { span: 4 }
+            }
         };
         const tailFormItemLayout = {
             wrapperCol: {
                 xs: {
                     span: 12,
-                    offset: 0,
+                    offset: 0
                 },
                 sm: {
                     span: 12,
-                    offset: 0,
-                },
-            },
+                    offset: 0
+                }
+            }
         };
         const prefixSelector = getFieldDecorator('prefix', {
             initialValue: '86',

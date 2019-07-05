@@ -29,7 +29,7 @@ class Other extends React.Component {
             count: t
         })
         console.timeEnd("label")
-        console.log(Array.from(Array(10).keys()))
+        console.log(Array.from(Array.apply(null,{length:10}).keys()))
     }
     render() {
         let count = this.state.count;
