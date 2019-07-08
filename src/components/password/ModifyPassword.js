@@ -3,7 +3,7 @@ import { Drawer, Form, Input, Button } from 'antd'
 
 class ModifyPassword extends React.Component {
     state = {
-        confirmDirty: false,
+        confirmDirty: false
     };
 
     constructor(props) {
@@ -61,7 +61,7 @@ class ModifyPassword extends React.Component {
                                     validator: this.validateToNextPassword
                                 }
                             ]
-                        })(<Input.Password />)}
+                        })(<Input type="password" />)}
                     </Form.Item>
                     <Form.Item label="确认密码" hasFeedback>
                         {getFieldDecorator('confirm', {
@@ -74,7 +74,7 @@ class ModifyPassword extends React.Component {
                                     validator: this.compareToFirstPassword
                                 }
                             ]
-                        })(<Input.Password onBlur={this.handleConfirmBlur} />)}
+                        })(<Input type="password" onBlur={this.handleConfirmBlur} />)}
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit">提交</Button>
