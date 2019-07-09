@@ -1,17 +1,10 @@
 import React from 'react';
-import { Drawer, Form, Input, Button } from 'antd'
+import { Form, Input, Button } from 'antd'
 
 class ModifyPassword extends React.Component {
     state = {
         confirmDirty: false
     };
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            visible: props.visible
-        }
-    }
 
     handleSubmit = e => {
         e.preventDefault();
@@ -48,39 +41,37 @@ class ModifyPassword extends React.Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <div>
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Item label="新密码" hasFeedback>
-                        {getFieldDecorator('password', {
-                            rules: [
-                                {
-                                    required: true,
-                                    message: '密码不能为空'
-                                },
-                                {
-                                    validator: this.validateToNextPassword
-                                }
-                            ]
-                        })(<Input type="password" />)}
-                    </Form.Item>
-                    <Form.Item label="确认密码" hasFeedback>
-                        {getFieldDecorator('confirm', {
-                            rules: [
-                                {
-                                    required: true,
-                                    message: '请确认密码'
-                                },
-                                {
-                                    validator: this.compareToFirstPassword
-                                }
-                            ]
-                        })(<Input type="password" onBlur={this.handleConfirmBlur} />)}
-                    </Form.Item>
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit">提交</Button>
-                    </Form.Item>
-                </Form>
-            </div>
+            <Form onSubmit={this.handleSubmit}>
+                <Form.Item label="新密码" hasFeedback>
+                    {getFieldDecorator('password', {
+                        rules: [
+                            {
+                                required: true,
+                                message: '密码不能为空'
+                            },
+                            {
+                                validator: this.validateToNextPassword
+                            }
+                        ]
+                    })(<Input type="password" />)}
+                </Form.Item>
+                <Form.Item label="确认密码" hasFeedback>
+                    {getFieldDecorator('confirm', {
+                        rules: [
+                            {
+                                required: true,
+                                message: '请确认密码'
+                            },
+                            {
+                                validator: this.compareToFirstPassword
+                            }
+                        ]
+                    })(<Input type="password" onBlur={this.handleConfirmBlur} />)}
+                </Form.Item>
+                <Form.Item>
+                    <Button type="primary" htmlType="submit">提交</Button>
+                </Form.Item>
+            </Form>
         )
     }
 }
