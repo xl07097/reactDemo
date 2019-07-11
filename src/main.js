@@ -13,5 +13,6 @@ import $axios from '@/utils/fetch'
 window.$axios = $axios;
 
 // moment.locale('zh-cn');
+console.log(React)
 
 ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
