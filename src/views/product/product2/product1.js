@@ -122,7 +122,7 @@ class Product extends React.Component {
         })
      
         this.db.transaction(async (tx) => {
-            console.log(tx)
+
             tx.executeSql('CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
             let result = await dbUtil(tx, 'select * from user where _id=?', [data['_id']]);
             console.log(result)
