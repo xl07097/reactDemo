@@ -1,8 +1,155 @@
 import React from 'react';
+import { Table, Pagination, Button, Modal, Input } from 'antd';
 
+import $fetch from '@/utils/fetch';
+import path from '@/utils/path';
 
-function Product() {
-    return (<h2 style={{height: 2000}}>product2</h2>)
+class Product extends React.Component {
+    columns = [
+        {
+            title: '姓名',
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: '年龄',
+            dataIndex: 'age',
+            key: 'age',
+        },
+        {
+            title: '性别',
+            dataIndex: 'gender',
+            key: 'gender',
+            render: (data, record, index) => {
+                return data === 1 ? '男' : '女'
+            }
+        },
+        {
+            title: '头像',
+            dataIndex: 'avatar',
+            key: 'avatar',
+            render: (data, record, index) => {
+                return <img src={data} title='avatar' />
+            }
+        },
+        {
+            title: '状态',
+            dataIndex: 'status',
+            key: 'status',
+            render: (data, record, index) => {
+                return data === 1 ? '启用' : '禁用'
+            }
+        },
+        {
+            title: '操作',
+            dataIndex: 'action',
+            key: 'action',
+            render: (data, record, index) => {
+                return <Button onClick={() => this.edit(record)}>编辑</Button>
+            }
+        }
+    ]
+
+    state = {
+        tableData: [],
+        visible: false,
+        loading: true,
+        page: 1,
+        size: 10,
+        total: 0,
+        pageSizeOptions: ['10', '20', '50']
+    }
+
+    getUserList = (page, size) => {
+
+        $fetch.post(path.userList, {
+            page: page,
+            size: size
+        }).then(data => {
+            this.setState({
+                loading: false
+            })
+            if (data.code === 200) {
+                this.setState({
+                    tableData: data.data,
+                    total: data.total
+                })
+                window.scrollTo(0, 0)
+            }
+        })
+    }
+
+    onShowSizeChange = (page, size) => {
+        this.setState({
+            page: 1,
+            size: size
+        })
+        this.getUserList(1, size);
+    }
+
+    pageChange = (page) => {
+        this.setState({
+            page: page,
+        })
+        const { size } = this.state;
+        this.getUserList(page, size);
+    }
+
+    componentDidMount = () => {
+        const { page, size } = this.state;
+        this.getUserList(page, size);
+    }
+
+    edit = (data) => {
+        this.setState({
+            visible: true
+        })
+        console.log(data)
+    }
+
+    confirms= () => {
+        this.setState({
+            visible: false
+        })
+    }
+
+    modalCancel =() => {
+        this.setState({
+            visible: false
+        })
+    }
+
+    render() {
+        console.log(this.props)
+        const { tableData, page, size, total, pageSizeOptions, loading } = this.state;
+        const columns = this.columns;
+        return (
+            <div>
+                <Table rowKey="_id" dataSource={tableData} columns={columns} pagination={false} loading={loading}></Table>
+                <div className="page">
+                    <Pagination
+                        showSizeChanger
+                        onShowSizeChange={this.onShowSizeChange}
+                        onChange={this.pageChange}
+                        pageSizeOptions={pageSizeOptions}
+                        current={page}
+                        pageSize={size}
+                        total={total}
+                    />
+                </div>
+                <Modal
+                    title="编辑"
+                    keyboard={false}
+                    maskClosable={false}
+                    destroyOnClose={true}
+                    visible={this.state.visible}
+                    onOk={this.confirms}
+                    onCancel={this.modalCancel}>
+                    <Input></Input>
+                </Modal>
+            </div>
+        )
+    }
 }
 
 export default Product

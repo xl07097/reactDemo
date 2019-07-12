@@ -2,7 +2,7 @@ import axios from "axios";
 import {message} from 'antd';
 import path from './path';
 let instance = axios.create({
-    baseURL: path.BASE_URL,
+    baseURL: path.BASE_URI,
     // baseURL: '/api',
     timeout: 10000,
     headers: {
@@ -12,6 +12,7 @@ let instance = axios.create({
 })
 
 instance.interceptors.request.use(config => { // 请求拦截器
+    console.log(config)
     // window.console.log(process.env.BASE_URL)
     // let params = {};
     // if(config.method.toLowerCase() === 'get' && config.data){

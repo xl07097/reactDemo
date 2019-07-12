@@ -6,7 +6,6 @@ function NoPage() {
             <h1>哈哈哈，找不到了吧！！！</h1>
             <img src={require("@/assets/huaji.jpg")} />
         </div>
-
     )
 }
 

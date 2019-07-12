@@ -1,7 +1,7 @@
 let BASIC_URI = '';
 
-if(window.location.hostname === 'localhost'){ // 本地开发状态
-    BASIC_URI = 'http://192.168.1.49:9100';
+if (window.location.hostname === 'localhost'){ // 本地开发状态
+    BASIC_URI = 'http://192.168.1.49:3002';
 }else{
     BASIC_URI = window.location.protocol + '//' + window.location.hostname + ':8080'; //要发布在同一服务器上
 }
@@ -11,7 +11,8 @@ let path  = {
     userLogin: '/user/login', // 登录
     getLoginUserInfo: '/user/loginUserInfo',// 当前登录用户信息
     userLogout: '/user/logout', //退出登录
-    getUser: '/user/checkuser'
+    getUser: '/user/checkuser',
+    userList: '/users/userList'
 }
 
 export default path
