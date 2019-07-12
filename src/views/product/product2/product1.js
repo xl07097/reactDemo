@@ -3,6 +3,7 @@ import { Table, Pagination, Button, Modal, Input } from 'antd';
 
 import $fetch from '@/utils/fetch';
 import path from '@/utils/path';
+import dbUtil from '@/utils/dbUtil'
 
 class Product extends React.Component {
     columns = [
@@ -119,16 +120,19 @@ class Product extends React.Component {
         this.setState({
             visible: true
         })
-        console.log(data)
-        this.db.transaction(function (tx) {
+     
+        this.db.transaction(async (tx) => {
+            console.log(tx)
             tx.executeSql('CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
-            tx.executeSql('select * from user where _id=?', [data['_id']], function(result){
-                if(!Object.keys(result).length){
-                    tx.executeSql('INSERT INTO user (_id, name, password,age,avatar,gender,status,createtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [data['_id'], data['name'], data['password'], data['age'], data['avatar'], data['gender'], data['status'], data['createtime']]);
-                }
-                console.log(Object.prototype.toString.call(result))
-            });
-            // tx.executeSql('INSERT INTO user (_id, name, password,age,avatar,gender,status,createtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [data['_id'], data['name'], data['password'], data['age'], data['avatar'], data['gender'], data['status'], data['createtime']]);
+            let result = await dbUtil(tx, 'select * from user where _id=?', [data['_id']]);
+            console.log(result)
+            if (!result.rows.length) {
+                let res = await dbUtil(tx, 'INSERT INTO user(_id, name, password, age, avatar, gender, status, createtime) VALUES(?, ?, ?, ?, ?, ?, ?, ?)', [data['_id'], data['name'], data['password'], data['age'], data['avatar'], data['gender'], data['status'], data['createtime']]);
+                console.log(res);
+                // insertId: 5
+                // rows: SQLResultSetRowList { length: 0 }
+                // rowsAffected: 1
+            }
         });
     }
 
