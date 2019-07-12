@@ -7,14 +7,22 @@ import path from '@/utils/path';
 class Product extends React.Component {
     columns = [
         {
+            title: '序号',
+            type: 'index',
+            key: 'index',
+            render: (data, record, index) => {
+                return index + 1
+            }
+        },
+        {
             title: '姓名',
             dataIndex: 'name',
-            key: 'name',
+            key: 'name'
         },
         {
             title: '年龄',
             dataIndex: 'age',
-            key: 'age',
+            key: 'age'
         },
         {
             title: '性别',
@@ -60,6 +68,8 @@ class Product extends React.Component {
         pageSizeOptions: ['10', '20', '50']
     }
 
+    db = '';
+
     getUserList = (page, size) => {
 
         $fetch.post(path.userList, {
@@ -98,6 +108,11 @@ class Product extends React.Component {
     componentDidMount = () => {
         const { page, size } = this.state;
         this.getUserList(page, size);
+
+        this.db = openDatabase("car", '1.0', 'Test DB', 20 * 1024 * 1024)
+        this.db.transaction(function (tx) {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
+        });
     }
 
     edit = (data) => {
@@ -105,27 +120,37 @@ class Product extends React.Component {
             visible: true
         })
         console.log(data)
+        this.db.transaction(function (tx) {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
+            tx.executeSql('select * from user where _id=?', [data['_id']], function(result){
+                if(!Object.keys(result).length){
+                    tx.executeSql('INSERT INTO user (_id, name, password,age,avatar,gender,status,createtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [data['_id'], data['name'], data['password'], data['age'], data['avatar'], data['gender'], data['status'], data['createtime']]);
+                }
+                console.log(Object.prototype.toString.call(result))
+            });
+            // tx.executeSql('INSERT INTO user (_id, name, password,age,avatar,gender,status,createtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [data['_id'], data['name'], data['password'], data['age'], data['avatar'], data['gender'], data['status'], data['createtime']]);
+        });
     }
 
-    confirms= () => {
+    confirms = () => {
         this.setState({
             visible: false
         })
     }
 
-    modalCancel =() => {
+    modalCancel = () => {
         this.setState({
             visible: false
         })
     }
 
     render() {
-        console.log(this.props)
+
         const { tableData, page, size, total, pageSizeOptions, loading } = this.state;
         const columns = this.columns;
         return (
             <div>
-                <Table rowKey="_id" dataSource={tableData} columns={columns} pagination={false} loading={loading}></Table>
+                <Table bordered={true} rowKey="_id" dataSource={tableData} columns={columns} pagination={false} loading={loading}></Table>
                 <div className="page">
                     <Pagination
                         showSizeChanger
