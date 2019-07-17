@@ -64,9 +64,9 @@ class Product extends React.Component {
         visible: false,
         loading: true,
         page: 1,
-        size: 10,
+        size: 15,
         total: 0,
-        pageSizeOptions: ['10', '20', '50']
+        pageSizeOptions: ['15', '20', '50']
     }
 
     db = '';
@@ -76,6 +76,10 @@ class Product extends React.Component {
         $fetch.post(path.userList, {
             page: page,
             size: size
+        },{
+            params:{
+                name: 'jack'
+            }
         }).then(data => {
             this.setState({
                 loading: false
@@ -125,10 +129,10 @@ class Product extends React.Component {
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
             let result = await dbUtil(tx, 'select * from user where _id=?', [data['_id']]);
-            console.log(result)
+
             if (!result.rows.length) {
                 let res = await dbUtil(tx, 'INSERT INTO user(_id, name, password, age, avatar, gender, status, createtime) VALUES(?, ?, ?, ?, ?, ?, ?, ?)', [data['_id'], data['name'], data['password'], data['age'], data['avatar'], data['gender'], data['status'], data['createtime']]);
-                console.log(res);
+
                 // insertId: 5
                 // rows: SQLResultSetRowList { length: 0 }
                 // rowsAffected: 1
