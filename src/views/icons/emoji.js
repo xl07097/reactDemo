@@ -24,13 +24,12 @@ let emoji = {
         'meetup', 
         'microchip', 
         'podcast', 
-        'quora', 
+
         'ravelry', 
         's15', 
         'shower', 
         'snowflake-o', 
-        'superpowers', 
-        'telegram', 
+
         'thermometer', 
         'thermometer-0', 
         'thermometer-1', 
@@ -54,7 +53,6 @@ let emoji = {
         "music",
         "search",
         "envelope-o",
-        "heart",
         "star",
         "star-o",
         "film",
@@ -170,7 +168,7 @@ let emoji = {
         "arrows-v",
         "arrows-h",
         "bar-chart",
-        "twitter-square",
+    
         "facebook-square",
         "camera-retro",
         "key",
@@ -192,7 +190,7 @@ let emoji = {
         "square-o",
         "bookmark-o",
         "phone-square",
-        "twitter",
+  
         "facebook",
         "github",
         "unlock",
@@ -267,10 +265,10 @@ let emoji = {
         "file-text-o",
         "building-o",
         "hospital-o",
-        "ambulance",
+
         "medkit",
         "fighter-jet",
-        "h-square",
+
         "plus-square",
         "angle-double-left",
         "angle-double-right",
@@ -365,31 +363,30 @@ let emoji = {
         "sort-numeric-desc",
         "thumbs-up",
         "thumbs-down",
-        "youtube-square",
-        "youtube",
-        "xing",
-        "xing-square",
-        "youtube-play",
+
+
+     
+
         "dropbox",
-        "stack-overflow",
+
         "instagram",
         "flickr",
         "adn",
         "bitbucket",
         "bitbucket-square",
-        "tumblr",
-        "tumblr-square",
+
+
         "long-arrow-down",
         "long-arrow-up",
         "long-arrow-left",
         "long-arrow-right",
-        "windows",
+   
         "android",
         "linux",
         "dribbble",
-        "skype",
+
         "foursquare",
-        "trello",
+ 
         "female",
         "male",
         "gratipay",
@@ -397,31 +394,29 @@ let emoji = {
         "moon-o",
         "archive",
         "bug",
-        "vk",
-        "weibo",
-        "renren",
+
+    
+   
         "pagelines",
-        "stack-exchange",
+  
         "arrow-circle-o-right",
         "arrow-circle-o-left",
         "caret-square-o-left",
         "dot-circle-o",
-        "vimeo-square",
+     
         "try",
         "plus-square-o",
         "space-shuttle",
-        "slack",
+
         "envelope-square",
-        "wordpress",
+     
         "openid",
         "university",
         "graduation-cap",
-        "yahoo",
+
         "google",
-        "reddit",
-        "reddit-square",
-        "stumbleupon-circle",
-        "stumbleupon",
+
+
         "delicious",
         "digg",
         "pied-piper",
@@ -439,14 +434,14 @@ let emoji = {
         "behance",
         "behance-square",
         "steam",
-        "steam-square",
+
         "recycle",
         "car",
         "taxi",
         "tree",
-        "spotify",
+
         "deviantart",
-        "soundcloud",
+ 
         "database",
         "file-pdf-o",
         "file-word-o",
@@ -457,34 +452,33 @@ let emoji = {
         "file-audio-o",
         "file-video-o",
         "file-code-o",
-        "vine",
+    
         "codepen",
         "jsfiddle",
         "life-ring",
         "circle-o-notch",
-        "rebel",
+
         "empire",
         "git-square",
         "git",
         "hacker-news",
-        "tencent-weibo",
-        "qq",
-        "weixin",
+ 
+   
         "paper-plane",
         "paper-plane-o",
         "circle-thin",
         "header",
         "paragraph",
         "sliders",
-        "share-alt",
-        "share-alt-square",
+
+
         "bomb",
         "futbol-o",
         "tty",
         "binoculars",
         "plug",
-        "slideshare",
-        "twitch",
+
+  
         "yelp",
         "newspaper-o",
         "wifi",
@@ -524,10 +518,10 @@ let emoji = {
         "dashcube",
         "forumbee",
         "leanpub",
-        "sellsy",
-        "shirtsinbulk",
-        "simplybuilt",
-        "skyatlas",
+ 
+
+ 
+    
         "cart-plus",
         "cart-arrow-down",
         "diamond",
@@ -550,11 +544,11 @@ let emoji = {
         "neuter",
         "facebook-official",
         "pinterest-p",
-        "whatsapp",
+    
         "server",
         "user-plus",
         "user-times",
-        "viacoin",
+ 
         "train",
         "subway",
         "medium",
@@ -579,12 +573,12 @@ let emoji = {
         "motorcycle",
         "neuter",
         "pinterest-p",
-        "sellsy",
+  
         "server",
         "ship",
-        "shirtsinbulk",
-        "simplybuilt",
-        "skyatlas",
+
+
+
         "street-view",
         "subway",
         "train",
@@ -596,8 +590,8 @@ let emoji = {
         "venus",
         "venus-double",
         "venus-mars",
-        "viacoin",
-        "whatsapp",
+
+   
         "adjust",
         "anchor",
         "archive",
@@ -746,8 +740,7 @@ let emoji = {
         "group",
         "hdd-o",
         "headphones",
-        "heart-o",
-        "heartbeat",
+
         "history",
         "home",
         "hotel",
@@ -837,8 +830,8 @@ let emoji = {
         "send-o",
         "server",
         "share",
-        "share-alt",
-        "share-alt-square",
+
+
         "share-square",
         "share-square-o",
         "shield",
@@ -922,7 +915,7 @@ let emoji = {
         "volume-up",
         "warning",
         "wifi",
-        "ambulance",
+
         "automobile",
         "bicycle",
         "bus",
@@ -1140,7 +1133,7 @@ let emoji = {
         "step-backward",
         "step-forward",
         "stop",
-        "youtube-play",
+
         "report",
         "adn",
         "android",
@@ -1212,12 +1205,21 @@ let emoji = {
         "pinterest",
         "pinterest-p",
         "pinterest-square",
+
+
+        
         "qq",
+        'quora',
         "ra",
+        'ravelry',
         "rebel",
         "reddit",
+        'reddit-alien',
         "reddit-square",
         "renren",
+        'resistance',
+        'safari',
+        'scribd',
         "sellsy",
         "share-alt",
         "share-alt-square",
@@ -1227,22 +1229,34 @@ let emoji = {
         "skype",
         "slack",
         "slideshare",
+        'snapchat',
+        'snapchat-ghost',
+        'snapchat-square',
         "soundcloud",
         "spotify",
         "stack-exchange",
         "stack-overflow",
         "steam",
         "steam-square",
+
         "stumbleupon",
         "stumbleupon-circle",
+        'superpowers',
+        'telegram',
         "tencent-weibo",
+        'themeisle',
         "trello",
+        'tripadvisor',
         "tumblr",
         "tumblr-square",
         "twitch",
         "twitter",
         "twitter-square",
+        'usb',
         "viacoin",
+        'viadeo',
+        'viadeo-square',
+        'vimeo',
         "vimeo-square",
         "vine",
         "vk",
@@ -1250,23 +1264,38 @@ let emoji = {
         "weibo",
         "weixin",
         "whatsapp",
+        'wikipedia-w',
         "windows",
         "wordpress",
+
+        'wpbeginner',
+        'wpexplorer',
+        'wpforms',
         "xing",
         "xing-square",
+        'y-combinator',
+        'y-combinator-square',
         "yahoo",
+        'yc',
+        'yc-square',
         "yelp",
+        'yoast',
         "youtube",
         "youtube-play",
         "youtube-square",
+
         "ambulance",
         "h-square",
+        'heart',
+        'heart-o',
+        "heartbeat",
         "hospital-o",
         "medkit",
         "plus-square",
         "stethoscope",
         "user-md",
-        "wheelchair"
+        "wheelchair",
+        'wheelchair-alt'
     ]
 }
 
