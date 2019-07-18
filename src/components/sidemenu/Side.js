@@ -11,16 +11,23 @@ const style = {
 class Side extends Component{
     constructor(props){
         super(props)
-        let openKeys = this.getOpenkeys(props.location.pathname);
+
         this.state = {
             defaultSelectedKeys: [props.location.pathname],
-            defaultOpenKeys: openKeys,
+            defaultOpenKeys: [],
             selectKeys: [props.location.pathname],
-            openKeys: openKeys
+            openKeys: []
         }
     }
     componentDidMount(){
-        const { history } = this.props;
+        const { history, location } = this.props;
+        let openKeys = this.getOpenkeys(location.pathname);
+        this.setState({
+            defaultOpenKeys: openKeys,
+            openKeys: openKeys
+        })
+
+
         history.listen((item) => {
             let openKeys = this.getOpenkeys(item.pathname);
             this.setState({
