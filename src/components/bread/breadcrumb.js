@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
 
 import { asynRouter } from '@/router/router';
-let menu = new Map();
+let breadReflect = new Map();
 
 function po(router, path){
     router.forEach(element => {
@@ -11,7 +11,7 @@ function po(router, path){
         if(element.path){
             key = `${path}/${element.path}`;
             key = key.replace(/\/+/, '/');
-            menu.set(key, element.meta.title);
+            breadReflect.set(key, element.meta.title);
         }
         let children = element.children || [];
         po(children, key);
@@ -42,7 +42,7 @@ function MyBread(props) {
         let key = arr.slice(0, index + 1).join('/');
         return (
             <Breadcrumb.Item key={key}>
-                <Link to={`/${key}`}>{menu.get(`/${key}`)}</Link>
+                <Link to={`/${key}`}>{breadReflect.get(`/${key}`)}</Link>
             </Breadcrumb.Item>
         )
     })
