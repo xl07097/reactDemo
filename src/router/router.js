@@ -90,7 +90,7 @@ const asynRouter = [
             role: 'product'
         },
         component: lazy(() => import("@/components/MiddlePage")),
-        childRoutes: [
+        children: [
             {
                 path: 'product1',
                 meta: {
@@ -98,7 +98,7 @@ const asynRouter = [
                     role: 'product1'
                 },
                 component: lazy(() => import("@/components/MiddlePage")),
-                childRoutes: [
+                children: [
                     {
                         path: 'product1_1',
                         meta: {

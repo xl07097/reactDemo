@@ -15,19 +15,19 @@ function renderRoutes(routes, rootPath){
     
         childPath = childPath.replace(/\/+/g, '/');
 
-        if (route.component && route.childRoutes){
-            let childRoutes = renderRoutes(route.childRoutes, childPath);
+        if (route.component && route.children){
+            let children = renderRoutes(route.children, childPath);
 
             child.push(<Route
                 key={childPath}
                 meta={route}
-                render={props => <route.component {...props}>{childRoutes}</route.component>}
+                render={props => <route.component {...props}>{children}</route.component>}
                 path={childPath}>
                 </Route>)
         } else if (route.component){
             child.push(<Route meta={route} path={childPath} component={route.component} key={childPath} exact></Route>)
-        } else if (route.childRoutes){
-            route.childRoutes.map(item => renderRoute(item, childPath))
+        } else if (route.children){
+            route.children.map(item => renderRoute(item, childPath))
         }
     }
     routes.map(item => renderRoute(item, rootPath));

@@ -69,10 +69,10 @@ class Side extends Component{
                 newPath = `${parentRoute}/${item.path}`;
             }
             newPath = newPath.replace(/\/+/g, '/');
-            if (item.childRoutes) {
+            if (item.children) {
                 return (<Menu.SubMenu path={newPath} key={newPath} title={item.meta.title}
                     onTitleClick={this.titleClick}>
-                    {item.childRoutes && this.renderSubMenu(item.childRoutes, newPath)}
+                    {item.children && this.renderSubMenu(item.children, newPath)}
                 </Menu.SubMenu>)
             } else {
                 return (<Menu.Item path={newPath} key={newPath}>
