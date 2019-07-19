@@ -2,9 +2,9 @@ import React from 'react';
 import {Layout} from 'antd'
 
 import Headers from '../components/header/header'
-import Contents from './content/Content.jsx'
+import Contents from './content/Content'
 // import Footers from "../components/footer/footer";
-import Side from '@/components/sidemenu/Side.js'
+import Side from '@/components/sidemenu/Side'
 
 
 const {Content, Sider } = Layout;

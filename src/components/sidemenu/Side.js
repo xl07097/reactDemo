@@ -1,6 +1,6 @@
-import React,{Component} from 'react';
-import { Link ,withRouter} from 'react-router-dom';
-import { Menu} from 'antd';
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { Menu } from 'antd';
 
 import { asynRouter } from '@/router/router';
 const style = {
@@ -8,27 +8,28 @@ const style = {
 }
 
 
-class Side extends Component{
-    constructor(props){
+class Side extends Component {
+    constructor(props) {
         super(props)
 
         this.state = {
-            defaultSelectedKeys: [props.location.pathname],
-            defaultOpenKeys: [],
+            // defaultSelectedKeys: [props.location.pathname],
+            // defaultOpenKeys: [],
             selectKeys: [props.location.pathname],
             openKeys: []
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         const { history, location } = this.props;
         let openKeys = this.getOpenkeys(location.pathname);
         this.setState({
-            defaultOpenKeys: openKeys,
+            // defaultOpenKeys: openKeys,
             openKeys: openKeys
         })
 
 
         history.listen((item) => {
+            console.log(item)
             let openKeys = this.getOpenkeys(item.pathname);
             this.setState({
                 selectKeys: [item.pathname],
@@ -36,13 +37,13 @@ class Side extends Component{
             })
         })
     }
-    titleClick = ({ key, domEvent })=>{
+    titleClick = ({ key, domEvent }) => {
         let openKeys = this.getOpenkeys(key);
         this.setState({
             openKeys: openKeys
         })
     }
-    getOpenkeys = (key) =>{
+    getOpenkeys = (key) => {
         let openKeys = key.split('/').map((item, index, arr) => {
             return arr.slice(0, index + 1).join("/");
         })
@@ -52,7 +53,7 @@ class Side extends Component{
     clickMenu = ({ item, key, keyPath, domEvent }) => {
 
     }
-    openChange = (openKeys) =>{
+    openChange = (openKeys) => {
         this.setState({
             openKeys: openKeys
         })
@@ -82,15 +83,15 @@ class Side extends Component{
         })
     }
 
-    render(){
+    render() {
         return (<div className='sidebar' style={style}>
             <Menu theme="dark" mode="inline"
                 onOpenChange={this.openChange}
-                defaultSelectedKeys={this.state.defaultSelectedKeys}
-                defaultOpenKeys={this.state.defaultOpenKeys}
+                // defaultSelectedKeys={this.state.defaultSelectedKeys}
+                // defaultOpenKeys={this.state.defaultOpenKeys}
                 selectedKeys={this.state.selectKeys}
                 openKeys={this.state.openKeys}
-                >
+            >
                 {
                     this.renderSubMenu(asynRouter, '/')
                 }
