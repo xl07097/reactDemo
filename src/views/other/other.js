@@ -1,9 +1,9 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Button } from 'antd';
 
-function Other(props){
+function Other(props) {
     let [count, setCount] = useState([]);
-    function randoms(){
+    function randoms() {
         console.time("label")
         let arr = [];
         function r() {
@@ -13,9 +13,12 @@ function Other(props){
             }
             return n;
         }
-        for (let i = 0; i < 80; i++) {
-            arr.push(r())
+        let i = 0;
+        while (i < 80) {
+            arr.push(r());
+            i++
         }
+
         setCount(arr)
         console.timeEnd("label")
         console.log(Array.from(Array.apply(null, { length: 10 }).keys()))
@@ -23,11 +26,10 @@ function Other(props){
 
     return (
         <div style={{ width: 800, margin: 'auto' }}>
-            <Button type="primary">hahahah</Button>
             <Button type="primary" onClick={randoms}>下一个</Button>
             <ul>
                 {count.map(item => {
-                    return (<li key={item}>{item}</li>)
+                    return (<li style={{display:'inline-block',padding:'0 10px'}} key={item}>{item}</li>)
                 })}
             </ul>
             {props.children}
