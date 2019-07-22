@@ -1,9 +1,8 @@
 import React from 'react';
 import { Table, Pagination, Button, Modal, Input } from 'antd';
 
-import $fetch from '@/utils/fetch';
-import path from '@/utils/path';
-import dbUtil from '@/utils/dbUtil'
+import dbUtil from '@/utils/dbUtil';
+import {getUserList} from '@/api/product'
 
 class Product extends React.Component {
     columns = [
@@ -71,16 +70,14 @@ class Product extends React.Component {
 
     db = '';
 
-    getUserList = (page, size) => {
-
-        $fetch.post(path.userList, {
+    search = (page, size) => {
+        console.log(this.state.page)
+        console.log(this.state.size)
+        let req = {
             page: page,
             size: size
-        },{
-            params:{
-                name: 'jack'
-            }
-        }).then(data => {
+        }
+        getUserList(req).then(data => {
             this.setState({
                 loading: false
             })
@@ -99,7 +96,7 @@ class Product extends React.Component {
             page: 1,
             size: size
         })
-        this.getUserList(1, size);
+        this.search(1, size);
     }
 
     pageChange = (page) => {
@@ -107,12 +104,12 @@ class Product extends React.Component {
             page: page,
         })
         const { size } = this.state;
-        this.getUserList(page, size);
+        this.search(page, size);
     }
 
     componentDidMount = () => {
         const { page, size } = this.state;
-        this.getUserList(page, size);
+        this.search(page, size);
 
         this.db = openDatabase("car", '1.0', 'Test DB', 20 * 1024 * 1024)
         this.db.transaction(function (tx) {
