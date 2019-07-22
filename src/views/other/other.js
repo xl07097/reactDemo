@@ -1,51 +1,39 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Button } from 'antd';
 
-class Other extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            count: []
-        };
-    }
-    componentDidMount() {
-
-    }
-    randoms = () => {
+function Other(props){
+    let [count, setCount] = useState([]);
+    function randoms(){
         console.time("label")
-
-        let t = [];
+        let arr = [];
         function r() {
             let n = ~~(Math.random() * 5000);
-            if (t.indexOf(n) !== -1) {
+            if (arr.indexOf(n) !== -1) {
                 return r();
             }
             return n;
         }
         for (let i = 0; i < 80; i++) {
-            t.push(r())
+            arr.push(r())
         }
-        this.setState({
-            count: t
-        })
+        setCount(arr)
         console.timeEnd("label")
-        console.log(Array.from(Array.apply(null,{length:10}).keys()))
+        console.log(Array.from(Array.apply(null, { length: 10 }).keys()))
     }
-    render() {
-        let count = this.state.count;
-        return (
-            <div style={{ width: 800, margin: 'auto' }}>
-                <Button type="primary">hahahah</Button>
-                <Button type="primary" onClick={this.randoms}>下一个</Button>
-                <ul>
-                    {count.map(item => {
-                        return (<li key={item}>{item}</li>)
-                    })}
-                </ul>
-                {this.props.children}
-            </div>
-        )
-    }
+
+    return (
+        <div style={{ width: 800, margin: 'auto' }}>
+            <Button type="primary">hahahah</Button>
+            <Button type="primary" onClick={randoms}>下一个</Button>
+            <ul>
+                {count.map(item => {
+                    return (<li key={item}>{item}</li>)
+                })}
+            </ul>
+            {props.children}
+        </div>
+    )
 }
+
 
 export default Other
