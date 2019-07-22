@@ -1,11 +1,18 @@
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: " ";
-}
+.clearfix() {
+  zoom: 1;
 
-.clearfix:after {
-  clear: both;
+  &::before,
+  &::after {
+    display: table;
+    content: ' ';
+  }
+
+  &::after {
+    clear: both;
+    height: 0;
+    font-size: 0;
+    visibility: hidden;
+  }
 }
 
 
