@@ -2,13 +2,6 @@ import axios from "axios";
 import {message} from 'antd';
 import path from './path';
 
-export interface ResData {
-    code: number,
-    data?: object | Array<any> | string,
-    msg?: string,
-    total?: number
-}
-
 let instance = axios.create({
     baseURL: path.BASE_URI,
     // baseURL: '/api',
@@ -19,7 +12,7 @@ let instance = axios.create({
     }
 })
 
-instance.interceptors.request.use(config => { // 请求拦截器
+instance.interceptors.request.use((config: any) => { // 请求拦截器
     console.log(config)
     // window.console.log(process.env.BASE_URL)
     // let params = {};
