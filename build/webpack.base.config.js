@@ -7,10 +7,15 @@ module.exports = {
         app: path.resolve(__dirname, '../src/main.js')
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.(js|jsx)$/,
                 use: 'babel-loader',
                 exclude: /^node_modules$/
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                use: 'ts-loader'
             },
             {
                 test: /\.(png|svg|jpe?g|gif)$/,
@@ -47,6 +52,6 @@ module.exports = {
         alias: {
             '@': path.resolve(__dirname, '../src')
         },
-        extensions: ['.js','.jsx', '.json']
+        extensions: ['.js','.jsx','.ts','.tsx', '.json']
     }
 }

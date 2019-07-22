@@ -14,6 +14,7 @@ import { lazy } from 'react'; // 懒加载
 // const MiddlePage = lazy(() => import("@/components/MiddlePage"))
 // const NoPage = lazy(() => import('@/components/p404'));
 
+
 const routes = [
 
     {
