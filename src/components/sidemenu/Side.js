@@ -29,7 +29,7 @@ class Side extends Component {
 
 
         history.listen((item) => {
-            console.log(item)
+
             let openKeys = this.getOpenkeys(item.pathname);
             this.setState({
                 selectKeys: [item.pathname],

@@ -1,20 +1,5 @@
 import { lazy } from 'react'; // 懒加载
 
-// const Chart = lazy(() => import('@/components/charts/Chart'));
-// const Charts = lazy(() => import('@/components/charts/Charts'));
-// const Other = lazy(() => import('@/views/other/other'));
-// const Product1 = lazy(() => import('@/views/product/product1/product1'));
-// const Product2 = lazy(() => import('@/views/product/product2/product1'));
-// const Product3 = lazy(() => import('@/views/product/product3/product'));
-// const Product4 = lazy(() => import('@/views/product/product4/product'));
-// const FormDemo = lazy(() => import('@/views/form/FormDemo'))
-
-// const buttonGroup = lazy(() => import("@/views/button/index"))
-
-// const MiddlePage = lazy(() => import("@/components/MiddlePage"))
-// const NoPage = lazy(() => import('@/components/p404'));
-
-
 const routes = [
 
     {
