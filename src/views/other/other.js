@@ -27,7 +27,7 @@ function Other(props) {
     return (
         <div style={{ width: 800, margin: 'auto' }}>
             <Button type="primary" onClick={randoms}>下一个</Button>
-            <ul>
+            <ul style={{textAlign:'jutisfy'}}>
                 {count.map(item => {
                     return (<li style={{display:'inline-block',padding:'0 10px'}} key={item}>{item}</li>)
                 })}
