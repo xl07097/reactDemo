@@ -112,8 +112,8 @@ class Product extends React.Component {
         this.search(page, size);
 
         this.db = openDatabase("car", '1.0', 'Test DB', 20 * 1024 * 1024)
-        this.db.transaction(function (tx) {
-            tx.executeSql('CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
+        this.db.transaction(async (tx) => {
+            await dbUtil('CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
         });
     }
 
