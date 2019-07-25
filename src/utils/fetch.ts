@@ -7,12 +7,15 @@ let instance = axios.create({
     // baseURL: '/api',
     timeout: 10000,
     headers: {
-        'Content-Type': 'application/json',
-        'token': sessionStorage.getItem('token')
+        'Content-Type': 'application/json'
     }
 })
 
 instance.interceptors.request.use((config: any) => { // 请求拦截器
+    let token = sessionStorage.getItem('token');
+    if (token){
+        config.headers['token'] = token;
+    }
     console.log(config)
     // window.console.log(process.env.BASE_URL)
     // let params = {};
