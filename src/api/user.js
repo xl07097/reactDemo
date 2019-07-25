@@ -1,19 +1,19 @@
-import $axios from '@/utils/fetch';
+import $fetch from '@/utils/fetch';
 import path from '@/utils/path';
 
 export function userLogin(data){
-    return $axios({
+    return $fetch({
         url: path.userLogin,
         data: data.data
     })
 }
 
 export function getLoginUserInfo(){
-    return $axios.get(path.getLoginUserInfo)
+    return $fetch.get(path.getLoginUserInfo)
 }
 
 export function userLogout(){
-    return $axios({
+    return $fetch({
         url: path.userLogout
     })
 }
