@@ -2,10 +2,7 @@ import $fetch from '@/utils/fetch';
 import path from '@/utils/path';
 
 export function userLogin(data){
-    return $fetch({
-        url: path.userLogin,
-        data: data.data
-    })
+    return $fetch.post(path.userLogin, data)
 }
 
 export function getLoginUserInfo(){
@@ -13,7 +10,5 @@ export function getLoginUserInfo(){
 }
 
 export function userLogout(){
-    return $fetch({
-        url: path.userLogout
-    })
+    return $fetch.post(path.userLogout)
 }
