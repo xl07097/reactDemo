@@ -16,7 +16,8 @@ instance.interceptors.request.use((config: any) => { // 请求拦截器
     if (token){
         config.headers['token'] = token;
     }
-    console.log(config)
+    // console.log(config)
+    
     // window.console.log(process.env.BASE_URL)
     // let params = {};
     // if(config.method.toLowerCase() === 'get' && config.data){

@@ -71,8 +71,7 @@ class Product extends React.Component {
     db = '';
 
     search = (page, size) => {
-        console.log(this.state.page)
-        console.log(this.state.size)
+
         let req = {
             page: page,
             size: size
