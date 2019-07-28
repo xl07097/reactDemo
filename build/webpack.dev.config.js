@@ -52,7 +52,7 @@ module.exports = merge(base, {
         contentBase: path.join(__dirname, "../dist"),
         proxy:{
             '/api':{
-                target: "http://192.168.1.49:3002",
+                target: "http://localhost:3002",
                 changeOrigin: true,
                 // pathRewrite: {
                 //     "/api": ""

@@ -33,7 +33,7 @@ function Product(props: any) {
 
     useEffect(() => {
         userList({})
-    }, [total])
+    }, [])
 
 
     return (<h2>product4{tableData.map((data: UserInfo) => {
