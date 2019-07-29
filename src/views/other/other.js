@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Button } from 'antd';
+import React, { useState } from "react";
+import { Button } from "antd";
 
 function Other(props) {
     let [count, setCount] = useState([]);
     function randoms() {
-        console.time("label")
+        console.time("label");
         let arr = [];
         function r() {
             let n = ~~(Math.random() * 5000);
@@ -16,26 +16,26 @@ function Other(props) {
         let i = 0;
         while (i < 80) {
             arr.push(r());
-            i++
+            i++;
         }
 
-        setCount(arr)
-        console.timeEnd("label")
-        console.log(Array.from(Array.apply(null, { length: 10 }).keys()))
+        setCount(arr);
+        console.timeEnd("label");
+        console.log(Array.from(Array.apply(null, { length: 10 }).keys()));
     }
 
     return (
-        <div style={{ width: 800, margin: 'auto' }}>
+        <div style={{ width: 800, margin: "auto" }}>
             <Button type="primary" onClick={randoms}>下一个</Button>
-            <ul style={{textAlign:'jutisfy'}}>
+            <ul style={{textAlign:"jutisfy"}}>
                 {count.map(item => {
-                    return (<li style={{display:'inline-block',padding:'0 10px'}} key={item}>{item}</li>)
+                    return (<li style={{display:"inline-block",padding:"0 10px"}} key={item}>{item}</li>);
                 })}
             </ul>
             {props.children}
         </div>
-    )
+    );
 }
 
 
-export default Other
+export default Other;

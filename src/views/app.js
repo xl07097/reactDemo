@@ -1,21 +1,21 @@
-import React from 'react';
-import {Layout} from 'antd'
+import React from "react";
+import {Layout} from "antd";
 
-import Headers from '../components/header/header'
-import Contents from './content/Content'
+import Headers from "../components/header/header";
+import Contents from "./content/Content";
 // import Footers from "../components/footer/footer";
-import Side from '@/components/sidemenu/Side'
+import Side from "@/components/sidemenu/Side";
 
 
 const {Content, Sider } = Layout;
 
 const style = {
-    boxShadow: '2px 0 6px rgba(0, 21, 41, .35)'
-}
+    boxShadow: "2px 0 6px rgba(0, 21, 41, .35)"
+};
 
 function App(){
     return (
-        <div style={{display:'flex',minHeight: 'calc(100%)'}}>
+        <div style={{display:"flex",minHeight: "calc(100%)"}}>
             <Layout>
                 <Headers></Headers>
                 <Layout>
@@ -30,7 +30,7 @@ function App(){
                 </Layout>
             </Layout>
         </div>
-    )
+    );
 }
 
 export default App;

@@ -1,13 +1,13 @@
-import { asynRouter } from '@/router/router';
+import { asynRouter } from "@/router/router";
 
 let BreadMap = new Map();
 
 function dealRouter(router, path) {
     router.forEach(element => {
-        let key = '';
+        let key = "";
         if (element.path) {
             key = `${path}/${element.path}`;
-            key = key.replace(/\/+/, '/');
+            key = key.replace(/\/+/, "/");
             BreadMap.set(key, element.meta.title);
         }
         let children = element.children || [];
@@ -15,6 +15,6 @@ function dealRouter(router, path) {
     });
 }
 
-dealRouter(asynRouter, '');
+dealRouter(asynRouter, "");
 
-export default BreadMap
+export default BreadMap;

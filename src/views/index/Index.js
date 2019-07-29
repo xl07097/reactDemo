@@ -1,9 +1,9 @@
-import React from 'react';
-import { Row, Col, Card } from 'antd';
+import React from "react";
+import { Row, Col, Card } from "antd";
 
 function RenderButton() {
     return (
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: "center" }}>
             <Row gutter={20}>
                 <Col span={6}>
                     <Card title="Card title" bordered={false}>
@@ -15,7 +15,7 @@ function RenderButton() {
             </Row>
 
         </div>
-    )
+    );
 }
 
 export default RenderButton;

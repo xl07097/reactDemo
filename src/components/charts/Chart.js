@@ -1,11 +1,11 @@
-import React from 'react';
-import G2 from '@antv/g2';
+import React from "react";
+import G2 from "@antv/g2";
 
 class Chart extends React.Component{
     constructor(state){
         super(state);
         this.myRef = React.createRef();
-        this.chart = '';
+        this.chart = "";
     }
 
     componentDidMount(){
@@ -16,15 +16,15 @@ class Chart extends React.Component{
         });
 
         const data = [
-            { genre: 'Sports', sold: 275 },
-            { genre: 'Strategy', sold: 115 },
-            { genre: 'Action', sold: 120 },
-            { genre: 'Shooter', sold: 350 },
-            { genre: 'Other', sold: 150 }
+            { genre: "Sports", sold: 275 },
+            { genre: "Strategy", sold: 115 },
+            { genre: "Action", sold: 120 },
+            { genre: "Shooter", sold: 350 },
+            { genre: "Other", sold: 150 }
         ];
 
         this.chart.source(data);
-        this.chart.interval().position('genre*sold').color('genre');
+        this.chart.interval().position("genre*sold").color("genre");
         this.chart.render();
 
         var data1 = [{
@@ -113,7 +113,7 @@ class Chart extends React.Component{
                 </div>
             
             </div>
-        )
+        );
     }
 }
 

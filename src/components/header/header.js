@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Icon, Drawer } from 'antd';
-import ModifyPassword from '@/components/password/ModifyPassword'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Icon, Drawer } from "antd";
+import ModifyPassword from "@/components/password/ModifyPassword";
 
-import './header.less'
+import "./header.less";
 
 
 function Header() {
-    const [visible, setVisible] = useState(false)
+    const [visible, setVisible] = useState(false);
 
     function onClose() {
-        setVisible(false)
+        setVisible(false);
     }
 
     function open() {
-        setVisible(true)
+        setVisible(true);
     }
 
     return (
@@ -35,7 +35,7 @@ function Header() {
                 <ModifyPassword onClose={onClose}></ModifyPassword>
             </Drawer>
         </div>
-    )
+    );
 }
 
-export default Header
+export default Header;

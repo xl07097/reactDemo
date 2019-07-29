@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const divStyle = {
     position: fixed,
@@ -8,7 +8,7 @@ const divStyle = {
     bottom: 0,
     zIndex: 33333,
     background: rgba(0, 0, 0, 0.2)
-}
+};
 
 function ImgPup(props) {
 
@@ -20,7 +20,7 @@ function ImgPup(props) {
 
             </div>
         </div>
-    )
+    );
 }
 
-export default ImgPup
+export default ImgPup;

@@ -1,11 +1,11 @@
-import React from 'react';
-import G2 from '@antv/g2';
+import React from "react";
+import G2 from "@antv/g2";
 
 class Chart extends React.Component {
     constructor(state) {
         super(state);
         this.myRef = React.createRef();
-        this.chart = '';
+        this.chart = "";
     }
 
     componentDidMount() {
@@ -16,14 +16,14 @@ class Chart extends React.Component {
         });
 
         const data = [
-            { collect: '第一季', grade: 9.4 },
-            { collect: '第二季', grade: 9.5 },
-            { collect: '第三季', grade: 9.5 },
-            { collect: '第四季', grade: 9.6 },
-            { collect: '第五季', grade: 9.3 },
-            { collect: '第六季', grade: 9.5 },
-            { collect: '第七季', grade: 9.3 },
-            { collect: '第八季', grade: 9.8 }
+            { collect: "第一季", grade: 9.4 },
+            { collect: "第二季", grade: 9.5 },
+            { collect: "第三季", grade: 9.5 },
+            { collect: "第四季", grade: 9.6 },
+            { collect: "第五季", grade: 9.3 },
+            { collect: "第六季", grade: 9.5 },
+            { collect: "第七季", grade: 9.3 },
+            { collect: "第八季", grade: 9.8 }
         ];
 
         this.chart.source(data,{
@@ -36,10 +36,10 @@ class Chart extends React.Component {
         });
         this.chart.tooltip({
             crosshairs: {
-                type: 'line'
+                type: "line"
             }
         });
-        this.chart.line().position('collect*grade').color('red');
+        this.chart.line().position("collect*grade").color("red");
         // this.chart.interval().position('collect*grade').color('genre');
         this.chart.render();
     }
@@ -47,13 +47,13 @@ class Chart extends React.Component {
     render() {
         return (
             <div>
-            <h2>权利的游戏八季评分</h2>
+                <h2>权利的游戏八季评分</h2>
                 <div id='chart' ref={this.myRef}>
 
                 </div>
 
             </div>
-        )
+        );
     }
 }
 

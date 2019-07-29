@@ -1,8 +1,8 @@
-import React,{useState} from 'react';
-import { Button, Radio, Icon } from 'antd';
+import React,{useState} from "react";
+import { Button, Radio, Icon } from "antd";
 
 function RenderButton() {
-    const [size, setSize] = useState('small')
+    const [size, setSize] = useState("small");
 
     return (
         <div>
@@ -23,7 +23,7 @@ function RenderButton() {
                 </Button>
             </Button.Group>
         </div>
-    )
+    );
 }
 
 export default RenderButton;

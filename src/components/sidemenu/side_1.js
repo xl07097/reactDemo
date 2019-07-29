@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import { Menu } from 'antd';
-import { asynRouter } from '@/router/router';
+import React, { useState } from "react";
+import { withRouter, Link } from "react-router-dom";
+import { Menu } from "antd";
+import { asynRouter } from "@/router/router";
 
 const style = {
     width: 234
-}
+};
 
 
 function getOpenkeys(key) {
-    let openKeys = key.split('/').map((item, index, arr) => {
+    let openKeys = key.split("/").map((item, index, arr) => {
         return arr.slice(0, index + 1).join("/");
-    })
-    openKeys.shift()
+    });
+    openKeys.shift();
     return openKeys;
 }
 function Side(props) {
-    const { location} = props
+    const { location} = props;
 
     // const defaultSelectedKeys = [location.pathname];
 
@@ -38,7 +38,7 @@ function Side(props) {
 
     function renderSubMenu(route, parentRoute) {
         return route.map(item => {
-            if (item.path === '*') {
+            if (item.path === "*") {
                 return null;
             }
             let newPath;
@@ -47,18 +47,18 @@ function Side(props) {
             } else {
                 newPath = `${parentRoute}/${item.path}`;
             }
-            newPath = newPath.replace(/\/+/g, '/');
+            newPath = newPath.replace(/\/+/g, "/");
             if (item.children) {
                 return (<Menu.SubMenu path={newPath} key={newPath} title={item.meta.title}
                     onTitleClick={titleClick}>
                     {item.children && renderSubMenu(item.children, newPath)}
-                </Menu.SubMenu>)
+                </Menu.SubMenu>);
             } else {
                 return (<Menu.Item path={newPath} key={newPath}>
                     <Link to={newPath}>{item.meta.title}</Link>
-                </Menu.Item>)
+                </Menu.Item>);
             }
-        })
+        });
     }
     function openChange(openKeys) {
         setOpenKeys(openKeys);
@@ -66,7 +66,7 @@ function Side(props) {
 
     function clickMenu({ item, key, keyPath, domEvent }){
         setOpenKeys(keyPath.reverse());
-        console.log(keyPath)
+        console.log(keyPath);
     }
 
     return (<div className='sidebar' style={style}>
@@ -79,10 +79,10 @@ function Side(props) {
             onClick={clickMenu}
         >
             {
-                renderSubMenu(asynRouter, '/')
+                renderSubMenu(asynRouter, "/")
             }
         </Menu>
-    </div>)
+    </div>);
 }
 
 export default withRouter(Side);
