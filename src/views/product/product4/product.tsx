@@ -28,6 +28,12 @@ function Product(props: any) {
                 setTableData(data.data);
                 window.scrollTo(0, 0)
             }
+            return getUserList({
+                page: 1,
+                size: 100
+            })
+        }).then(data => {
+            console.log(data)
         })
     }
 
