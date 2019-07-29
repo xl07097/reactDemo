@@ -1,13 +1,13 @@
 import React from "react";
 
 const divStyle = {
-    position: fixed,
+    position: "fixed",
     left: 0,
     right: 0,
     top: 0,
     bottom: 0,
     zIndex: 33333,
-    background: rgba(0, 0, 0, 0.2)
+    background: "rgba(0, 0, 0, 0.2)"
 };
 
 function ImgPup(props) {

@@ -4,7 +4,7 @@ import { Button } from "antd";
 function Other(props) {
     let [count, setCount] = useState([]);
     function randoms() {
-        console.time("label");
+        window.console.time("label");
         let arr = [];
         function r() {
             let n = ~~(Math.random() * 5000);
@@ -20,8 +20,8 @@ function Other(props) {
         }
 
         setCount(arr);
-        console.timeEnd("label");
-        console.log(Array.from(Array.apply(null, { length: 10 }).keys()));
+        window.console.timeEnd("label");
+        window.console.log(Array.from(Array.apply(null, { length: 10 }).keys()));
     }
 
     return (

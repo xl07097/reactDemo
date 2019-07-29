@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Input, Button } from 'antd'
 
 class ModifyPassword extends React.Component {
+    
     state = {
         confirmDirty: false
     };
