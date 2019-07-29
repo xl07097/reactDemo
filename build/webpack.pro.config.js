@@ -1,22 +1,22 @@
-const path = require('path')
-const merge = require('webpack-merge')
-const baseConfig = require('./webpack.base.config')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const path = require("path")
+const merge = require("webpack-merge")
+const baseConfig = require("./webpack.base.config")
+const CleanWebpackPlugin = require("clean-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin")
 
 module.exports = merge(baseConfig, {
-    mode: 'production',
+    mode: "production",
     devtool: "cheap-module-source-map",
     output: {
-        path: path.resolve(__dirname, '../dist'),
-        filename: 'js/[name].[hash].js',
-        publicPath: '/' // 使用 ./ 时  嵌套路由资源获取不到？
+        path: path.resolve(__dirname, "../dist"),
+        filename: "js/[name].[hash].js",
+        publicPath: "/" // 使用 ./ 时  嵌套路由资源获取不到？
     },
     module: {
         rules: [{
             test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+            use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
         },
 
         {
@@ -26,13 +26,13 @@ module.exports = merge(baseConfig, {
                     loader: MiniCssExtractPlugin.loader,
                 },
                 {
-                    loader: 'css-loader',
+                    loader: "css-loader",
                 },
                 {
-                    loader: 'postcss-loader',
+                    loader: "postcss-loader",
                 },
                 {
-                    loader: 'less-loader',
+                    loader: "less-loader",
                     options: {
                         javascriptEnabled: true
                     }
@@ -42,7 +42,7 @@ module.exports = merge(baseConfig, {
         },
         {
             test: /\.(scss|sass)$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
+            use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
         }
         ]
     },
@@ -56,28 +56,28 @@ module.exports = merge(baseConfig, {
             name: true,
             cacheGroups: {
                 vendor: {
-                    name: 'vendor',
+                    name: "vendor",
                     test: /[\\/]node_modules[\\/]/,
-                    chunks: 'all',
+                    chunks: "all",
                     priority: 10
                 }
             }
         }
     },
     plugins: [
-        new CleanWebpackPlugin(['dist/'], {
-            root: path.resolve(__dirname, '../'),
+        new CleanWebpackPlugin(["dist/"], {
+            root: path.resolve(__dirname, "../"),
             verbose: true,
             dry: false
         }),
         new MiniCssExtractPlugin({
-            filename: 'css/[name].[hash].css'
+            filename: "css/[name].[hash].css"
         }),
         new OptimizeCssAssetsWebpackPlugin({
             assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
+            cssProcessor: require("cssnano"),
             cssProcessorPluginOptions: {
-                preset: ['default', { discardComments: { removeAll: true } }],
+                preset: ["default", { discardComments: { removeAll: true } }],
             },
             canPrint: true
         })
