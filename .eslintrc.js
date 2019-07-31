@@ -23,6 +23,7 @@ module.exports = {
         "semi": ["error", "always"],
         "quotes": ["error", "double"],
         "no-unused-vars": [0],
-        "no-consoles": [0]
+        "no-consoles": [0],
+        "no-undef": [0]
     }
 };

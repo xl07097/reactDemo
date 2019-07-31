@@ -1,9 +1,9 @@
-const path = require("path")
-const merge = require("webpack-merge")
-const baseConfig = require("./webpack.base.config")
-const CleanWebpackPlugin = require("clean-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin")
+const path = require("path");
+const merge = require("webpack-merge");
+const baseConfig = require("./webpack.base.config");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = merge(baseConfig, {
     mode: "production",
@@ -82,4 +82,4 @@ module.exports = merge(baseConfig, {
             canPrint: true
         })
     ]
-})
+});
