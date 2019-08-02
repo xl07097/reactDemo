@@ -2,7 +2,7 @@ import React from 'react';
 import { Table, Pagination, Button, Modal, Input } from 'antd';
 
 import dbUtil from '@/utils/dbUtil';
-import {getUserList} from '@/api/product'
+import { getUserList } from '@/api/product';
 
 class Product extends React.Component {
     columns = [
@@ -11,7 +11,7 @@ class Product extends React.Component {
             type: 'index',
             key: 'index',
             render: (data, record, index) => {
-                return index + 1
+                return index + 1;
             }
         },
         {
@@ -29,7 +29,7 @@ class Product extends React.Component {
             dataIndex: 'gender',
             key: 'gender',
             render: (data, record, index) => {
-                return data === 1 ? '男' : '女'
+                return data === 1 ? '男' : '女';
             }
         },
         {
@@ -37,7 +37,7 @@ class Product extends React.Component {
             dataIndex: 'avatar',
             key: 'avatar',
             render: (data, record, index) => {
-                return <img src={data} title='avatar' style={{width:'40px'}} />
+                return <img src={data} title='avatar' style={{ width: '40px' }} />;
             }
         },
         {
@@ -45,7 +45,7 @@ class Product extends React.Component {
             dataIndex: 'status',
             key: 'status',
             render: (data, record, index) => {
-                return data === 1 ? '启用' : '禁用'
+                return data === 1 ? '启用' : '禁用';
             }
         },
         {
@@ -53,7 +53,7 @@ class Product extends React.Component {
             dataIndex: 'action',
             key: 'action',
             render: (data, record, index) => {
-                return <Button onClick={() => this.edit(record)}>编辑</Button>
+                return <Button onClick={() => this.edit(record)}>编辑</Button>;
             }
         }
     ]
@@ -73,35 +73,35 @@ class Product extends React.Component {
     search = (page, size) => {
 
         let req = {
-            page: page,
-            size: size
-        }
+            page,
+            size
+        };
         getUserList(req).then(data => {
             this.setState({
                 loading: false
-            })
+            });
             if (data.code === 200) {
                 this.setState({
                     tableData: data.data,
                     total: data.total
-                })
-                window.scrollTo(0, 0)
+                });
+                window.scrollTo(0, 0);
             }
-        })
+        });
     }
 
     onShowSizeChange = (page, size) => {
         this.setState({
             page: 1,
-            size: size
-        })
+            size
+        });
         this.search(1, size);
     }
 
     pageChange = (page) => {
         this.setState({
-            page: page,
-        })
+            page
+        });
         const { size } = this.state;
         this.search(page, size);
     }
@@ -110,7 +110,7 @@ class Product extends React.Component {
         const { page, size } = this.state;
         this.search(page, size);
 
-        this.db = openDatabase("car", '1.0', 'Test DB', 20 * 1024 * 1024)
+        this.db = openDatabase("car", '1.0', 'Test DB', 20 * 1024 * 1024);
         this.db.transaction(async (tx) => {
             await dbUtil(tx, 'CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
         });
@@ -119,7 +119,7 @@ class Product extends React.Component {
     edit = (data) => {
         this.setState({
             visible: true
-        })
+        });
      
         this.db.transaction(async (tx) => {
             await dbUtil(tx, 'CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
@@ -138,13 +138,13 @@ class Product extends React.Component {
     confirms = () => {
         this.setState({
             visible: false
-        })
+        });
     }
 
     modalCancel = () => {
         this.setState({
             visible: false
-        })
+        });
     }
 
     render() {
@@ -176,8 +176,8 @@ class Product extends React.Component {
                     <Input></Input>
                 </Modal>
             </div>
-        )
+        );
     }
 }
 
-export default Product
+export default Product;

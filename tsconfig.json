@@ -19,6 +19,9 @@
         "allowJs": true,
         "experimentalDecorators": true,
         "strict": true,
+        "types": [
+            "node"
+        ],
         "paths": {
             "@/*": [
                 "./src/*"
