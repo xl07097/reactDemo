@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { Menu } from 'antd';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { Menu } from "antd";
 
-import { asynRouter } from '@/router/router';
+import { asynRouter } from "@/router/router";
 const style = {
     width: 234
-}
+};
 
 
 class Side extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             // defaultSelectedKeys: [props.location.pathname],
             // defaultOpenKeys: [],
             selectKeys: [props.location.pathname],
             openKeys: []
-        }
+        };
     }
     componentDidMount() {
         const { history, location } = this.props;
@@ -25,7 +25,7 @@ class Side extends Component {
         this.setState({
             // defaultOpenKeys: openKeys,
             openKeys: openKeys
-        })
+        });
 
 
         history.listen((item) => {
@@ -34,20 +34,20 @@ class Side extends Component {
             this.setState({
                 selectKeys: [item.pathname],
                 openKeys: openKeys
-            })
-        })
+            });
+        });
     }
     titleClick = ({ key, domEvent }) => {
         let openKeys = this.getOpenkeys(key);
         this.setState({
             openKeys: openKeys
-        })
+        });
     }
     getOpenkeys = (key) => {
-        let openKeys = key.split('/').map((item, index, arr) => {
+        let openKeys = key.split("/").map((item, index, arr) => {
             return arr.slice(0, index + 1).join("/");
-        })
-        openKeys.shift()
+        });
+        openKeys.shift();
         return openKeys;
     }
     clickMenu = ({ item, key, keyPath, domEvent }) => {
@@ -56,11 +56,11 @@ class Side extends Component {
     openChange = (openKeys) => {
         this.setState({
             openKeys: openKeys
-        })
+        });
     }
     renderSubMenu = (route, parentRoute) => {
         return route.map(item => {
-            if (item.path === '*') {
+            if (item.path === "*") {
                 return null;
             }
             let newPath;
@@ -69,18 +69,18 @@ class Side extends Component {
             } else {
                 newPath = `${parentRoute}/${item.path}`;
             }
-            newPath = newPath.replace(/\/+/g, '/');
+            newPath = newPath.replace(/\/+/g, "/");
             if (item.children) {
                 return (<Menu.SubMenu path={newPath} key={newPath} title={item.meta.title}
                     onTitleClick={this.titleClick}>
                     {item.children && this.renderSubMenu(item.children, newPath)}
-                </Menu.SubMenu>)
+                </Menu.SubMenu>);
             } else {
                 return (<Menu.Item path={newPath} key={newPath}>
                     <Link to={newPath}>{item.meta.title}</Link>
-                </Menu.Item>)
+                </Menu.Item>);
             }
-        })
+        });
     }
 
     render() {
@@ -93,10 +93,10 @@ class Side extends Component {
                 openKeys={this.state.openKeys}
             >
                 {
-                    this.renderSubMenu(asynRouter, '/')
+                    this.renderSubMenu(asynRouter, "/")
                 }
             </Menu>
-        </div>)
+        </div>);
     }
 }
 

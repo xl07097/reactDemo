@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, Input, Button } from 'antd'
+import React from "react";
+import { Form, Input, Button } from "antd";
 
 class ModifyPassword extends React.Component {
     
@@ -12,7 +12,7 @@ class ModifyPassword extends React.Component {
 
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                console.log("Received values of form: ", values);
             }
         });
     }
@@ -25,15 +25,15 @@ class ModifyPassword extends React.Component {
     validateToNextPassword = (rule, value, callback) => {
         const form = this.props.form;
         if (value && this.state.confirmDirty) {
-            form.validateFields(['confirm'], { force: true });
+            form.validateFields(["confirm"], { force: true });
         }
         callback();
     }
 
     compareToFirstPassword = (rule, value, callback) => {
         const form = this.props.form;
-        if (value && value !== form.getFieldValue('password')) {
-            callback('两次密码不一致');
+        if (value && value !== form.getFieldValue("password")) {
+            callback("两次密码不一致");
         } else {
             callback();
         }
@@ -44,11 +44,11 @@ class ModifyPassword extends React.Component {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <Form.Item label="新密码" hasFeedback>
-                    {getFieldDecorator('password', {
+                    {getFieldDecorator("password", {
                         rules: [
                             {
                                 required: true,
-                                message: '密码不能为空'
+                                message: "密码不能为空"
                             },
                             {
                                 validator: this.validateToNextPassword
@@ -57,11 +57,11 @@ class ModifyPassword extends React.Component {
                     })(<Input type="password" />)}
                 </Form.Item>
                 <Form.Item label="确认密码" hasFeedback>
-                    {getFieldDecorator('confirm', {
+                    {getFieldDecorator("confirm", {
                         rules: [
                             {
                                 required: true,
-                                message: '请确认密码'
+                                message: "请确认密码"
                             },
                             {
                                 validator: this.compareToFirstPassword
@@ -73,9 +73,9 @@ class ModifyPassword extends React.Component {
                     <Button type="primary" htmlType="submit">提交</Button>
                 </Form.Item>
             </Form>
-        )
+        );
     }
 }
 
 
-export default Form.create({ name: 'modify' })(ModifyPassword);
+export default Form.create({ name: "modify" })(ModifyPassword);

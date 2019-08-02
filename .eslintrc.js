@@ -8,6 +8,7 @@ module.exports = {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
+    "parser": 'babel-eslint',
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -16,14 +17,15 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
+        "import",
         "react"
     ],
     "rules": {
-        "indent": [1, 4],
+        "indent": ["error", 4],
         "semi": ["error", "always"],
-        "quotes": ["error", "double"],
-        "no-unused-vars": [0],
-        "no-consoles": [0],
-        "no-undef": [0]
+        "quotes": ["off", "double"],
+        "no-unused-vars": ["off"],
+        "no-console": ["off"],
+        "no-undef": ["off"]
     }
 };

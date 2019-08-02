@@ -1,125 +1,126 @@
-import { lazy } from 'react'; // 懒加载
+import { lazy } from "react"; // 懒加载
 
 const routes = [
 
     {
-        path: '*',
+        path: "*",
         meta: {
-            title: '404',
-            role: '404'
+            title: "404",
+            role: "404"
         },
-        component: lazy(() => import('@/components/p404'))
+        component: lazy(() => import("@/components/p404"))
     }
-]
+];
 
 const asynRouter = [
     {
-        path: '/',
+        path: "/",
         meta: {
-            title: '首页',
-            role: 'index'
+            title: "首页",
+            role: "index"
         },
-        component: lazy(() => import('@/views/index/Index'))
+        component: lazy(() => import("@/views/index/Index"))
     },
     {
-        path: '/button',
+        path: "/button",
         meta: {
-            title: '按钮',
-            role: 'button'
+            title: "按钮",
+            role: "button"
         },
         component: lazy(() => import("@/views/button/index"))
     },
     {
-        path: '/icon',
+        path: "/icon",
         meta: {
-            title: '图标',
-            role: 'icon'
+            title: "图标",
+            role: "icon"
         },
         component: lazy(() => import("@/views/icons/Icon"))
     },
     {
-        path: '/card',
+        path: "/card",
         meta: {
-            title: '卡片',
-            role: 'card'
+            title: "卡片",
+            role: "card"
         },
-        component: lazy(() => import('@/views/other/other'))
+        component: lazy(() => import("@/views/other/other"))
     },
     {
-        path: '/form',
+        path: "/form",
         meta: {
-            title: '表单',
-            role: 'form'
+            title: "表单",
+            role: "form"
         },
-        component: lazy(() => import('@/views/form/FormDemo'))
+        component: lazy(() => import("@/views/form/FormDemo"))
     },
     {
-        path: '/chart',
+        path: "/chart",
         meta: {
-            title: '图表',
-            role: 'chart'
+            title: "图表",
+            role: "chart"
         },
-        component: lazy(() => import('@/components/charts/Chart'))
+        component: lazy(() => import("@/components/charts/Chart"))
     },
     {
-        path: '/other',
+        path: "/other",
         meta: {
-            title: '其他',
-            role: 'other'
+            title: "其他",
+            role: "other"
         },
-        component: lazy(() => import('@/components/charts/Charts')),
+        component: lazy(() => import("@/components/charts/Charts")),
     },
     {
-        path: '/product',
+        path: "/product",
         meta: {
-            title: '产品',
-            role: 'product'
+            title: "产品",
+            role: "product"
         },
         component: lazy(() => import("@/components/MiddlePage")),
         children: [
             {
-                path: 'product1',
+                path: "product1",
                 meta: {
-                    title: '产品1',
-                    role: 'product1'
+                    title: "产品1",
+                    role: "product1"
                 },
                 component: lazy(() => import("@/components/MiddlePage")),
                 children: [
                     {
-                        path: 'product1_1',
+                        path: "product1_1",
                         meta: {
-                            title: '产品1_1',
-                            role: 'product1_1'
+                            title: "产品1_1",
+                            role: "product1_1"
                         },
-                        component: lazy(() => import('@/views/product/product1/product1'))
+                        component: lazy(() => import("@/views/product/product1/product1"))
                     }
                 ]
             },
             {
-                path: 'product2',
+                path: "product2",
                 meta: {
-                    title: '产品2',
-                    role: 'product2'
+                    title: "产品2",
+                    role: "product2"
                 },
-                component: lazy(() => import('@/views/product/product2/product1'))
+                component: lazy(() => import("@/views/product/product2/product1"))
             },
             {
-                path: 'product3',
+                path: "product3",
                 meta: {
-                    title: '产品3',
-                    role: 'product3'
+                    title: "产品3",
+                    role: "product3"
                 },
-                component: lazy(() => import('@/views/product/product3/product'))
+                component: lazy(() => import("@/views/product/product3/product"))
             },
             {
-                path: 'product4',
+                path: "product4",
                 meta: {
-                    title: '产品4',
-                    role: 'product4'
+                    title: "产品4",
+                    role: "product4"
                 },
-                component: lazy(() => import('@/views/product/product4/product'))
+                component: lazy(() => import("@/views/product/product4/product"))
             },
         ]
     },
-]
-export {routes, asynRouter}
+];
+
+export { routes, asynRouter };
