@@ -11,21 +11,23 @@ import { createStore } from 'redux';
  * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)
  * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。
  */
-function counter(state = 0,action) {
+function counter(state = {}, action) {
     switch (action.type) {
     case 'INCREMENT':
-        return state++;
+        return Object.assign({}, state, { count: state.count + 1 });
     case 'DECREMENT':
-        return state--;
+        return Object.assign({}, state, { count: state.count - 1 });
     default:
         return state;
     }
 }
-
+let state = {
+    count: 0
+};
 
 // 创建 Redux store 来存放应用的状态。
 // API 是 { subscribe, dispatch, getState }。
-const store = createStore(counter);
+const store = createStore(counter, state);
 
 
 

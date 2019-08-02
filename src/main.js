@@ -1,8 +1,10 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter} from "react-router-dom";
-import { LocaleProvider} from "antd";
+import { Provider } from 'react-redux';
+import store from '@/model/store';
+import { BrowserRouter } from "react-router-dom";
+import { LocaleProvider } from "antd";
 
 import zh_CN from "antd/lib/locale-provider/zh_CN";
 import moment from "moment";
@@ -13,10 +15,14 @@ import "./common.less";
 
 import App from "./views/app";
 
-import $axios from "@/utils/fetch";
-
-window.$axios = $axios;
-
 moment.locale("zh-cn");
 
-ReactDOM.render(<BrowserRouter><LocaleProvider locale={zh_CN}><App /></LocaleProvider></BrowserRouter>, document.getElementById("root"));
+ReactDOM.render(
+    <Provider store={store}>
+        <BrowserRouter>
+            <LocaleProvider locale={zh_CN}>
+                <App />
+            </LocaleProvider>
+        </BrowserRouter >
+    </Provider >,
+    document.getElementById("root"));
