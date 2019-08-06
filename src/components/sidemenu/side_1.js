@@ -31,7 +31,7 @@ function Side(props) {
     // let [selectKeys, setSelectKeys] = useState([location.pathname])
     let selectKeys = [location.pathname];
 
-    function titleClick({ key, domEvent }) {
+    function titleClick({ key }) {
         let openKeys = getOpenkeys(key);
         setOpenKeys(openKeys);
     }

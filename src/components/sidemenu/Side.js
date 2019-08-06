@@ -85,7 +85,9 @@ class Side extends Component {
 
     render() {
         return (<div className='sidebar' style={style}>
-            <Menu theme="dark" mode="inline"
+            <Menu
+                theme="dark"
+                mode="inline"
                 onOpenChange={this.openChange}
                 // defaultSelectedKeys={this.state.defaultSelectedKeys}
                 // defaultOpenKeys={this.state.defaultOpenKeys}
