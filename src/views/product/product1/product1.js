@@ -22,4 +22,18 @@ function Product(props) {
     );
 }
 
-export default connect((state) => ({count: state.count}))(Product);
+//将state.count 绑定到 props 的 count
+const mapStateToProps = (state) => {
+    return {
+        count: state.count
+    };
+};
+
+//将action的所有方法绑定到props上
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        INCREMENT: (...args) => dispatch(actions.INCREMENT(...args))
+    };
+};
+
+export default connect((state) => ({ count: state.count }))(Product);
