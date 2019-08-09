@@ -1,6 +1,6 @@
 import React, { Suspense} from "react";
 import {Spin} from "antd";
-import MyBread from "@/components/bread/breadcrumb"
+import MyBread from "@/components/bread/breadcrumb";
 import Router from "@/router/index";
 
 import "./content.less";

@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 /**
  * 这是一个 reducer，形式为 (state, action) => state 的纯函数。
@@ -25,9 +26,19 @@ let state = {
     count: 0
 };
 
+function asyncAdd() {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch({
+                type: 'INCREMENT'
+            });
+        }, 1000);
+    };
+}
+
 // 创建 Redux store 来存放应用的状态。
 // API 是 { subscribe, dispatch, getState }。
-const store = createStore(counter, state);
+const store = createStore(counter, state, applyMiddleware(thunk));
 
 
 
