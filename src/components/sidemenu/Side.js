@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { Link, withRouter } from "react-router-dom";
 import { Menu } from "antd";
 
@@ -84,10 +85,11 @@ class Side extends Component {
     }
 
     render() {
-        return (<div className='sidebar' style={style}>
+        const { collapse } = this.props;
+        return (<div className='sidebar'>
             <Menu
                 theme="dark"
-                mode="inline"
+                mode={collapse?'vertical':'inline'}
                 onOpenChange={this.openChange}
                 // defaultSelectedKeys={this.state.defaultSelectedKeys}
                 // defaultOpenKeys={this.state.defaultOpenKeys}
@@ -102,4 +104,4 @@ class Side extends Component {
     }
 }
 
-export default withRouter(Side);
+export default connect(state => ({ collapse: state.collapse}))(withRouter(Side));

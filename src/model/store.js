@@ -18,12 +18,16 @@ function counter(state = {}, action) {
         return Object.assign({}, state, { count: state.count + 1 });
     case 'DECREMENT':
         return Object.assign({}, state, { count: state.count - 1 });
+    case 'collapse':
+        console.log(state);
+        return Object.assign({}, state, { collapse: !state.collapse });
     default:
         return state;
     }
 }
 let state = {
-    count: 0
+    count: 0,
+    collapse: false
 };
 
 function asyncAdd() {

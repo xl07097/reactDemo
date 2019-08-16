@@ -1,5 +1,6 @@
 import React from "react";
-import {Layout} from "antd";
+import { Layout } from "antd";
+import { connect } from 'react-redux';
 
 import Headers from "../components/header/header";
 import Contents from "./content/Content";
@@ -13,13 +14,15 @@ const style = {
     boxShadow: "2px 0 6px rgba(0, 21, 41, .35)"
 };
 
-function App(){
+function App(props) {
+    const { collapse } = props;
+    console.log(collapse);
     return (
         <div style={{display:"flex",minHeight: "calc(100%)"}}>
             <Layout>
                 <Headers></Headers>
                 <Layout>
-                    <Sider width={234} style={style}>
+                    <Sider className={collapse ? "sider-collapsed" : null} width={collapse ? 80 : 234} style={style}>
                         <Side></Side>
                     </Sider>
                     <Content>
@@ -33,4 +36,4 @@ function App(){
     );
 }
 
-export default App;
+export default connect(state => ({ collapse: state.collapse }))(App);

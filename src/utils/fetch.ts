@@ -2,6 +2,7 @@ import axios from "axios";
 import {message} from 'antd';
 import path from './path';
 
+
 let instance = axios.create({
     baseURL: path.BASE_URI,
     // baseURL: '/api',
@@ -22,8 +23,8 @@ instance.interceptors.request.use((config: any) => { // 请求拦截器
     Promise.reject(err)
 })
 
-instance.interceptors.response.use(res=> {
-    let data:any = res.data;
+instance.interceptors.response.use((res:any) => {
+    let data: any = res.data;
 
     switch (data.code) {
         case 200:
