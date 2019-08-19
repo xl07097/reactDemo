@@ -5,20 +5,6 @@ import BreadMap from "./BreadRouterMap";
 
 function MyBread(props) {
 
-    // function itemRender(route, params, routes, paths) {
-    //     console.log(route);
-    //     // console.log(params);
-    //     // console.log(routes);
-    //     // console.log(paths);
-    //     // console.log(routes.indexOf(route))
-    //     const last = routes.indexOf(route) === routes.length - 1;
-    //     return last ? (
-    //         <span>{route.meta.title}</span>
-    //     ) : (
-    //             <Link to={paths.join('/')}>{route.meta.title}</Link>
-    //         );
-    // }
-
     const { location } = props;
     const locationArr = location.pathname.split("/").filter(i => i);
 
@@ -26,7 +12,8 @@ function MyBread(props) {
         let key = arr.slice(0, index + 1).join("/");
         return (
             <Breadcrumb.Item key={key}>
-                <Link to={`/${key}`}>{BreadMap.get(`/${key}`)}</Link>
+                <span>{BreadMap.get(`/${key}`)}</span>
+                {/**<Link to={`/${key}`}>{BreadMap.get(`/${key}`)}</Link> */}
             </Breadcrumb.Item>
         );
     });

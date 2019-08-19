@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { Link, withRouter } from "react-router-dom";
-import { Menu } from "antd";
+import { Menu, Icon } from "antd";
 
 import { asynRouter } from "@/router/router";
 const style = {
@@ -78,7 +78,8 @@ class Side extends Component {
                 </Menu.SubMenu>);
             } else {
                 return (<Menu.Item path={newPath} key={newPath}>
-                    <Link to={newPath}>{item.meta.title}</Link>
+                    <Icon type="sketch" />
+                    <span><Link to={newPath}>{item.meta.title}</Link></span>
                 </Menu.Item>);
             }
         });
