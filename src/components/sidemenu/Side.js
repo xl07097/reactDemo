@@ -72,25 +72,32 @@ class Side extends Component {
             }
             newPath = newPath.replace(/\/+/g, "/");
             if (item.children) {
-                return (<Menu.SubMenu path={newPath} key={newPath} title={item.meta.title}
+                return (<Menu.SubMenu
+                    path={newPath}
+                    key={newPath}
+                    title={
+                        <span>
+                            <Icon type="mail" />
+                            <span>{item.meta.title}</span>
+                        </span>
+                    }
                     onTitleClick={this.titleClick}>
                     {item.children && this.renderSubMenu(item.children, newPath)}
                 </Menu.SubMenu>);
             } else {
                 return (<Menu.Item path={newPath} key={newPath}>
-                    <Icon type="sketch" />
-                    <span><Link to={newPath}>{item.meta.title}</Link></span>
+                    <Link to={newPath}>{item.meta.title}</Link>
                 </Menu.Item>);
             }
         });
     }
 
     render() {
-        const { collapse } = this.props;
+        const { mode } = this.props;
         return (<div className='sidebar'>
             <Menu
                 theme="dark"
-                mode={collapse?'vertical':'inline'}
+                mode={mode}
                 onOpenChange={this.openChange}
                 // defaultSelectedKeys={this.state.defaultSelectedKeys}
                 // defaultOpenKeys={this.state.defaultOpenKeys}
@@ -105,4 +112,4 @@ class Side extends Component {
     }
 }
 
-export default connect(state => ({ collapse: state.collapse}))(withRouter(Side));
+export default connect(state => ({ collapse: state.collapse, mode: state.collapse ? 'vertical' : 'inline'}))(withRouter(Side));
