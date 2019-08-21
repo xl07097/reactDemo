@@ -10,6 +10,7 @@ import {
     Col,
     Button,
     AutoComplete,
+    DatePicker
 } from "antd";
 
 const { Option } = Select;
@@ -60,6 +61,7 @@ class RegistrationForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                console.log(values['times'].format('YYYY-MM-DD HH:mm:ss'))
                 console.log("Received values of form: ", values);
             }
         });
@@ -201,6 +203,15 @@ class RegistrationForm extends React.Component {
                             }
                         ],
                     })(<Input />)}
+                </Form.Item>
+                <Form.Item label="时间">
+                    {
+                        getFieldDecorator("times", {
+                            rules: [
+                                { type:'object', required:true, message:'请选择时间'}
+                            ]
+                        })(<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />)
+                    }
                 </Form.Item>
                 <Form.Item label="eHabitual Residenc">
                     {getFieldDecorator("residence", {

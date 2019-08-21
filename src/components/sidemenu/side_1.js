@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux';
 import { withRouter, Link } from "react-router-dom";
 import { Menu } from "antd";
 import { asynRouter } from "@/router/router";
@@ -16,7 +17,7 @@ function getOpenkeys(key) {
     return openKeys;
 }
 function Side(props) {
-    const { location} = props;
+    const { location } = props;
 
     // const defaultSelectedKeys = [location.pathname];
 
@@ -64,25 +65,31 @@ function Side(props) {
         setOpenKeys(openKeys);
     }
 
-    function clickMenu({ item, key, keyPath, domEvent }){
+    function clickMenu({ item, key, keyPath, domEvent }) {
         setOpenKeys(keyPath.reverse());
         console.log(keyPath);
     }
-
-    return (<div className='sidebar' style={style}>
-        <Menu theme="dark" mode="inline"
-            // onOpenChange={openChange}
-            // defaultSelectedKeys={defaultSelectedKeys}
-            // defaultOpenKeys={defaultOpenKeys}
-            selectedKeys={selectKeys}
-            openKeys={openKeys}
-            onClick={clickMenu}
-        >
-            {
-                renderSubMenu(asynRouter, "/")
-            }
-        </Menu>
-    </div>);
+    const { mode } = props;
+    console.log(mode)
+    
+    return (
+        <div className='sidebar'>
+            <Menu
+                theme="dark"
+                mode={mode}
+                // onOpenChange={openChange}
+                // defaultSelectedKeys={defaultSelectedKeys}
+                // defaultOpenKeys={defaultOpenKeys}
+                selectedKeys={selectKeys}
+                openKeys={openKeys}
+                onClick={clickMenu}
+            >
+                {
+                    renderSubMenu(asynRouter, "/")
+                }
+            </Menu>
+        </div>
+    );
 }
-
-export default withRouter(Side);
+export default connect(state => ({ collapse: state.collapse, mode: state.collapse ? 'vertical' : 'inline' }))(withRouter(Side));
+// export default withRouter(Side);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import {message} from 'antd';
+// import {message} from 'antd';
 import path from './path';
 
 
@@ -26,20 +26,20 @@ instance.interceptors.request.use((config: any) => { // 请求拦截器
 instance.interceptors.response.use((res:any) => {
     let data: any = res.data;
 
-    switch (data.code) {
-        case 200:
-            break;
-        case 201:
-            message.error(data.msg);
-            break;
-        case 300:
-            message.error(data.msg);
-            localStorage.clear();
-            break;
-        case 500:
-            message.error(data.msg);
-            break;
-    }
+    // switch (data.code) {
+    //     case 200:
+    //         break;
+    //     case 201:
+    //         message.error(data.msg);
+    //         break;
+    //     case 300:
+    //         message.error(data.msg);
+    //         localStorage.clear();
+    //         break;
+    //     case 500:
+    //         message.error(data.msg);
+    //         break;
+    // }
 
     return data
 

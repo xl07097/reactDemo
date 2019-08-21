@@ -46,7 +46,14 @@ ul{
   padding: 4px !important;
 }
 
-
+.sider-collapsed .ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-item .anticon+span,
+.sider-collapsed .ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-submenu>.ant-menu-submenu-title .anticon+span,
+.sider-collapsed .ant-menu-item .anticon+span,
+.sider-collapsed .ant-menu-submenu>.ant-menu-submenu-title .anticon+span {
+  display: inline-block;
+  max-width: 0;
+  opacity: 0;
+}
 
 /* ================= end------ antd 样式重写 ====================  */
 
