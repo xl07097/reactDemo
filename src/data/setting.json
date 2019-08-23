@@ -1,0 +1,54 @@
+{
+    "editor.fontSize": 17,
+    "files.autoSave": "afterDelay",
+    "liveServer.settings.host": "localhost",
+    "liveServer.settings.port": 0,
+    "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
+    "npm.enableScriptExplorer": true,
+    "maven.executable.path": "D:\\Program Files\\maven\\bin\\mvn",
+    "spring.initializr.defaultPackaging": "WAR",
+    "java.home": "D:\\Program Files\\Java\\jdk1.8.0_151",
+    "java.configuration.maven.userSettings": "D:\\Program Files\\maven\\conf\\settings.xml",
+    "liveServer.settings.CustomBrowser": "chrome",
+    "git.autofetch": true,
+    "open-in-browser.default": "chrome",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.colorTheme": "Monokai",
+    "workbench.colorCustomizations": {
+        "editorLineNumber.foreground": "#17a346",
+        "editorCursor.foreground": "#fa1e0a",
+        "editor.lineHighlightBackground": "#5e5a5a"
+    },
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "files.exclude": {
+        "**/.idea": true
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "liveServer.settings.donotVerifyTags": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "leetcode.endpoint": "leetcode",
+    "spring.initializr.defaultLanguage": "Java",
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.projectDetection.disableDetect": true,
+    "python.jediEnabled": false,
+    "remote.onstartup": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "editor.formatOnType": true
+}
