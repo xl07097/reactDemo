@@ -34,9 +34,11 @@ function Header(props) {
                     <Link to='/chart'>chart</Link>
                     <Link to='/other'>other</Link>
                     <Link to='/other/chart'>link4</Link>
-                    {/**    <a href="javascript:void(0)">
+                    {/**    
+                    <a href="javascript:void(0)">
                         <Icon type="bars" style={{ fontSize: '22px', color: '#08c' }} onClick={collapse}></Icon>
-                    </a> */}
+                    </a> 
+                    */} 
                 
                 </div>
                 <div className="header-right">
@@ -50,4 +52,4 @@ function Header(props) {
     );
 }
 
-export default connect()(Header);
+export default connect(null)(Header);

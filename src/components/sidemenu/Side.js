@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from 'react-redux';
 import { Link, withRouter } from "react-router-dom";
 import { Menu, Icon } from "antd";
@@ -9,7 +9,7 @@ const style = {
 };
 
 
-class Side extends Component {
+class Side extends PureComponent {
     constructor(props) {
         super(props);
 
