@@ -38,11 +38,6 @@ module.exports = merge(baseConfig, {
                     }
                 }
             ]
-            // use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
-        },
-        {
-            test: /\.(scss|sass)$/,
-            use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
         }
         ]
     },
