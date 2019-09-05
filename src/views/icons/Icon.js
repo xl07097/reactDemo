@@ -1,5 +1,4 @@
 import React from "react";
-import { Spin } from "antd";
 import "font-awesome/css/font-awesome.min.css";
 import emoji from "./emoji";
 import "./icon.css";

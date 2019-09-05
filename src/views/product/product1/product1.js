@@ -3,7 +3,6 @@ import { Button } from 'antd';
 import { connect } from 'react-redux';
 
 function Product(props) {
-    window.console.log(props);
     const { count, dispatch } = props;
     
     function add() {

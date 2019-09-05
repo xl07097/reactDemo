@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import store from '@/model/store';
 import { BrowserRouter } from "react-router-dom";
-import { LocaleProvider } from "antd";
+import { ConfigProvider  } from "antd";
 
 import zh_CN from "antd/lib/locale-provider/zh_CN";
 import moment from "moment";
@@ -20,9 +20,9 @@ moment.locale("zh-cn");
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <LocaleProvider locale={zh_CN}>
+            <ConfigProvider  locale={zh_CN}>
                 <App />
-            </LocaleProvider>
+            </ConfigProvider >
         </BrowserRouter >
     </Provider >,
     document.getElementById("root"));

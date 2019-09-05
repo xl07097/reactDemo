@@ -61,7 +61,7 @@ class RegistrationForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log(values['times'].format('YYYY-MM-DD HH:mm:ss'))
+                console.log(values['times'].format('YYYY-MM-DD HH:mm:ss'));
                 console.log("Received values of form: ", values);
             }
         });
@@ -261,5 +261,5 @@ class RegistrationForm extends React.Component {
     }
 }
 
-export default  Form.create({ name: "register" })(RegistrationForm);
+export default  Form.create()(RegistrationForm);
 

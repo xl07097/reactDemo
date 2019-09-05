@@ -70,7 +70,7 @@ function Side(props) {
         console.log(keyPath);
     }
     const { mode } = props;
-    console.log(mode)
+    console.log(mode);
     
     return (
         <div className='sidebar'>
