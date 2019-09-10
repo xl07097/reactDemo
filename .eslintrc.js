@@ -22,7 +22,7 @@ module.exports = {
     ],
     "rules": {
         "indent": ["error", 4],
-        "semi": ["error", "always"],
+        "semi": ["0", "always"],
         "quotes": ["off", "double"],
         "no-unused-vars": ["off"],
         "no-console": ["off"],
