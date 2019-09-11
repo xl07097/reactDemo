@@ -16,18 +16,7 @@ function Product(props) {
         getAllMenu()
             .then(data => {
                 if (data.code === 200) {
-                    let json = data.data.map((item) => {
-                        return {
-                            id: item._id,
-                            title: item.title,
-                            path: item.path,
-                            key: item.path,
-                            pid: item.pid, icon: item.icon,
-                            createtime: item.createtime,
-                            status: item.status
-                        }
-                    });
-                    let zNodes = json;
+                    let zNodes = data.data;
                     let tmpMap = {};
                     let r = [];
                     let key = 'id';

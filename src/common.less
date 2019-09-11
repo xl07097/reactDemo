@@ -16,9 +16,10 @@
 }
 
 
-*{
+* {
   box-sizing: border-box;
 }
+
 html,
 body,
 #root {
@@ -28,24 +29,31 @@ body,
 
 }
 
-ul{
+ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  li{
-      list-style-type: none;
+
+  li {
+    list-style-type: none;
   }
 }
 
 
 /* ================= start---- antd 样式重写==================  */
-.ant-table-thead>tr>th{
-    padding: 10px 4px !important;
+
+// ********************   antd-table css
+.ant-table-thead>tr>th {
+  padding: 10px 4px !important;
 }
-.ant-table-tbody>tr>td{
+
+.ant-table-tbody>tr>td {
   padding: 4px !important;
 }
 
+
+
+// *********************  antd-menu css
 .sider-collapsed .ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-item .anticon+span,
 .sider-collapsed .ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-submenu>.ant-menu-submenu-title .anticon+span,
 .sider-collapsed .ant-menu-item .anticon+span,
@@ -55,10 +63,18 @@ ul{
   opacity: 0;
 }
 
+
+// *********************===   antd-tree css
+.ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  background-color: seagreen !important;
+  color: #FFF !important;
+}
+
+
 /* ================= end------ antd 样式重写 ====================  */
 
 
-.page{
+.page {
   padding: 14px 0;
   text-align: center;
 }
