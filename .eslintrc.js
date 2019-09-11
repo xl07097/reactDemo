@@ -24,7 +24,7 @@ module.exports = {
         "indent": ["error", 4],
         "semi": ["0", "always"],
         "quotes": ["off", "double"],
-        "no-unused-vars": ["off"],
+        "no-unused-vars": 0,
         "no-console": ["off"],
         "no-undef": ["off"]
     }

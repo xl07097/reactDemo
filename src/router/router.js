@@ -124,3 +124,128 @@ const asynRouter = [
 ];
 
 export { routes, asynRouter };
+    
+const router = [
+    {
+        path: '/account',
+        meta: {
+            name: '账户管理',            
+            role: 'account'
+        },
+        children: [
+            {
+                path: 'accountInfo',
+                meta: {
+                    name: '账户信息',
+                    role: 'accountInfo'
+                }
+            }
+        ]
+    },
+    {
+        path: '/notice',
+        meta: {
+            name: '公告管理',
+            role: 'notice'
+        },
+        children: [
+            {
+                path: 'noticeInfo',
+                meta: {
+                    name: '公告信息',
+                    role: 'noticeInfo'
+                }
+            }
+        ]
+    },
+    {
+        path: '/message',
+        meta: {
+            name: '短信管理',
+            role: 'message'
+        },
+        children: [
+            {
+                path: 'messageStatistics',
+                meta: {
+                    name: '短信统计',
+                    role: 'messageStatistics'
+                }
+            },
+            {
+                path: 'templateCheck',
+                meta: {
+                    name: '模板审核',
+                    role: 'templateCheck'
+                }
+            },
+            {
+                path: 'signatureCheck',
+                meta: {
+                    name: '签名审核',
+                    role: 'signatureCheck'
+                }
+            }
+        ]
+    },
+    {
+        path: 'user',
+        meta: {
+            name: '用户管理',
+            role: 'user'
+        },
+        children: [
+            {
+                path: 'department',
+                meta: {
+                    name: '部门信息',
+                    role: 'department'
+                },
+            },
+            {
+                path: 'userInfo',
+                meta: {
+                    name: '用户信息',
+                    role: 'userInfo'
+                },
+            },
+            {
+                path: 'roleInfo',
+                meta: {
+                    name: '角色信息',
+                    role: 'roleInfo'
+                },
+            }
+        ]
+    },
+    {
+        path: 'monitorCenter',
+        meta: {
+            name: '监控中心',
+            role: 'monitorCenter'
+        },
+        children: [
+            {
+                path: 'monitorMsg',
+                meta: {
+                    name: '监控信息',
+                    role: 'monitorMsg'
+                },
+            },
+            {
+                path: 'conLog',
+                meta: {
+                    name: '登录日志',
+                    role: 'conLog'
+                },
+            },
+            {
+                path: 'operationlog',
+                meta: {
+                    name: '操作日志',
+                    role: 'operationlog'
+                },
+            }
+        ]
+    }
+]
