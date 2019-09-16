@@ -101,7 +101,7 @@ class Side extends PureComponent {
                 onOpenChange={this.openChange}
                 // defaultSelectedKeys={this.state.defaultSelectedKeys}
                 // defaultOpenKeys={this.state.defaultOpenKeys}
-                selectedKeys={this.state.selectKeys}
+                selectedKeys={mode === 'inline' ? this.state.selectKeys : []}
                 openKeys={this.state.openKeys}
             >
                 {
@@ -112,4 +112,4 @@ class Side extends PureComponent {
     }
 }
 
-export default connect(state => ({ collapse: state.collapse, mode: state.collapse ? 'vertical' : 'inline'}))(withRouter(Side));
+export default connect(state => ({ collapse: state.collapse, mode: state.collapse ? 'vertical' : 'inline' }))(withRouter(Side));
