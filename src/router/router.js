@@ -43,7 +43,15 @@ const asynRouter = [
             title: "卡片",
             role: "card"
         },
-        component: lazy(() => import("@/views/other/other"))
+        component: lazy(() => import("@/views/card/Card"))
+    },
+    {
+        path: "/drag",
+        meta: {
+            title: "拖放",
+            role: "drag"
+        },
+        component: lazy(() => import("@/views/drag/Drag"))
     },
     {
         path: "/form",
