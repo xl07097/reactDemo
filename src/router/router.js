@@ -70,6 +70,14 @@ const asynRouter = [
         component: lazy(() => import("@/components/charts/Charts")),
     },
     {
+        path: "/tree",
+        meta: {
+            title: "树",
+            role: "tree"
+        },
+        component: lazy(() => import("@/views/tree/Index")),
+    },
+    {
         path: "/product",
         meta: {
             title: "产品",
