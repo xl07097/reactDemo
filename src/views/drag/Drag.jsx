@@ -1,7 +1,12 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 
 function Drag() {
     const dragImg = useRef(null);
+
+    useEffect(() => {
+        console.dir(dragImg);
+    },[])
+
 
     function onDragEnter(event) {
         // 当可拖动的元素进入可放置的目标时高亮目标节点
@@ -15,7 +20,7 @@ function Drag() {
     }
 
     function onDrop(event) {
-        console.dir(dragImg);
+
         event.preventDefault();
         event.target.style.background = "";
         event.target.style.border = '1px solid #0c884f';
