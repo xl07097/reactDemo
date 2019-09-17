@@ -1,11 +1,11 @@
-import React, {useRef, useEffect} from 'react';
+import React, { useRef, useEffect } from 'react';
 
 function Drag() {
     const dragImg = useRef(null);
 
     useEffect(() => {
         console.dir(dragImg);
-    },[])
+    }, [])
 
 
     function onDragEnter(event) {
@@ -15,34 +15,60 @@ function Drag() {
     }
 
     function onDragLeave(event) {
+        console.log(event);
         event.target.style.background = "";
         event.target.style.border = '1px solid #0c884f';
     }
 
     function onDrop(event) {
-
+        console.log(event);
         event.preventDefault();
-        event.target.style.background = "";
-        event.target.style.border = '1px solid #0c884f';
-        let file = event.dataTransfer.files[0];
-        let URL = window.URL || window.webkitURL;
-        let img = new Image();
-        img.src = URL.createObjectURL(file);
-        img.onload = function () {
-            document.querySelector('.drag-img').appendChild(img); //将图片拖到body内
-            img = null;
-            URL.revokeObjectURL(file);
-        }
+
+        // event.target.style.background = "";
+        // event.target.style.border = '1px solid #0c884f';
+        // let file = event.dataTransfer.files[0];
+        // let URL = window.URL || window.webkitURL;
+        // let img = new Image();
+        // img.src = URL.createObjectURL(file);
+        // img.onload = function () {
+        //     document.querySelector('.drag-img').appendChild(img); //将图片拖到body内
+        //     img = null;
+        //     URL.revokeObjectURL(file);
+        // }
     }
+
+    useEffect(() => {
+        const grad = document.querySelector(".grad");
+        grad.onDrop = function (event) {
+            event.preventDefault();
+
+            event.target.style.background = "";
+            event.target.style.border = '1px solid #0c884f';
+            let file = event.dataTransfer.files[0];
+            let URL = window.URL || window.webkitURL;
+            let img = new Image();
+            img.src = URL.createObjectURL(file);
+            img.onload = function () {
+                document.querySelector('.drag-img').appendChild(img); //将图片拖到body内
+                img = null;
+                URL.revokeObjectURL(file);
+            }
+        }
+        // document.execCommand("")
+
+        return () => {
+            grad.onDrop = null;
+        }
+    }, [])
 
     return (
         <div>
             <div
                 onDragEnter={onDragEnter}
                 onDragLeave={onDragLeave}
-                onDrop={onDrop}
+                // onDrop={onDrop}
                 className="grad"
-                style={{'height': '200px','backgroundColor': '#96abbb','border':'1px solid #0c884f'}}>
+                style={{ 'height': '200px', 'backgroundColor': '#96abbb', 'border': '1px solid #0c884f' }}>
             </div>
             <div className="drag-img" ref={dragImg}>
 
