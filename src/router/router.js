@@ -27,7 +27,7 @@ const asynRouter = [
             title: "按钮",
             role: "button"
         },
-        component: lazy(() => import("@/views/button/index"))
+        component: lazy(() => import("@/views/button/Index"))
     },
     {
         path: "/icon",

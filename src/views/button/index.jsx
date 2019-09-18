@@ -1,24 +1,26 @@
 import React, { lazy, Suspense } from "react";
-import { Spin } from 'antd';
+import { Row, Col } from 'antd';
 
-const Button1 = lazy(() => import('./Button1'));
-const Button2 = lazy(() => import('./Button2'));
-const Button3 = lazy(() => import('./Button3'));
-// import Button1 from "./Button1";
-// import Button2 from "./Button2";
-// import Button3 from "./Button3";
+import Button1 from "./Button1";
+import Button2 from "./Button2";
+import Button3 from "./Button3";
 
 function RenderButtonGroup() {
-    return (<div>
-        <Suspense fallback={<Spin />}>
-            <Button1 />
-        </Suspense>
-
-        <br />
-        <Button2 /> 
-        <br />
-        <Button3 />
-    </div>);
+    return (
+        <div>
+            <Row gutter={24}>
+                <Col span={8}>
+                    <Button1 />
+                </Col>
+                <Col span={8}>
+                    <Button2 />
+                </Col>
+                <Col span={8}>
+                    <Button3 />
+                </Col>
+            </Row>
+        </div>
+    );
 }
 
 export default RenderButtonGroup;
