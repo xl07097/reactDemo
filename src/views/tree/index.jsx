@@ -5,11 +5,19 @@ import Tree1 from './Tree';
 
 function Index() {
     return (
-        <Row>
+        <Row gutter={24}>
             <Col span={6}>
-
+                <Tree1></Tree1>
             </Col>
-            <Tree1></Tree1>
+            <Col span={6}>
+                <Tree1></Tree1>
+            </Col>
+            <Col span={6}>
+                <Tree1></Tree1>
+            </Col>
+            <Col span={6}>
+                <Tree1></Tree1>
+            </Col>
         </Row>
     )    
 }

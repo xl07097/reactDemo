@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Pagination, Button, Modal, Input } from 'antd';
+import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progress, Popconfirm  } from 'antd';
 
 import dbUtil from '@/utils/dbUtil';
 import { getUserList } from '@/api/product';
@@ -53,7 +53,15 @@ class Product extends React.Component {
             dataIndex: 'action',
             key: 'action',
             render: (data, record, index) => {
-                return <Button onClick={() => this.edit(record)}>编辑</Button>;
+                return (
+                    <div>
+                        <Button type="primary" onClick={() => this.edit(record)}>编辑</Button>
+                        &emsp;
+                        <Popconfirm placement="top" title="确定删除？" onConfirm={() => this.onConfirm(record)}>
+                            <Button type="danger">删除</Button>
+                        </Popconfirm>
+                    </div>
+                );
             }
         }
     ]
@@ -65,7 +73,8 @@ class Product extends React.Component {
         page: 1,
         size: 15,
         total: 0,
-        pageSizeOptions: ['15', '20', '50']
+        pageSizeOptions: ['15', '20', '50'],
+        percent: 0
     }
 
     db = '';
@@ -120,7 +129,7 @@ class Product extends React.Component {
         this.setState({
             visible: true
         });
-     
+
         this.db.transaction(async (tx) => {
             await dbUtil(tx, 'CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
             let result = await dbUtil(tx, 'select * from user where _id=?', [data['_id']]);
@@ -133,6 +142,35 @@ class Product extends React.Component {
                 // rowsAffected: 1
             }
         });
+    }
+
+    delete = (data) => {
+        
+    }
+
+    onConfirm = (data) => {
+        console.log(data);
+    }
+
+    onChange = ({ file, fileList, event }) => {
+        if (file.status === 'uploading') {
+            if (event) {
+                let percent = (event.loaded / event.total) * 100;
+                this.setState({
+                    percent: Number(percent.toFixed(0))
+                })
+            } else {
+                this.setState({
+                    percent: 0
+                })
+            }
+        } else if (file.status === 'done') {
+            let res = file.response;
+            if (res.code === 200) {
+                let data = res.data[0];
+                console.log(data);
+            }
+        }
     }
 
     confirms = () => {
@@ -173,7 +211,26 @@ class Product extends React.Component {
                     visible={this.state.visible}
                     onOk={this.confirms}
                     onCancel={this.modalCancel}>
-                    <Input></Input>
+                    <Row gutter={24}>
+                        <Col span={12}>
+                            <Input></Input>
+                        </Col>
+                        <Col span={12}>
+                            <Upload
+                                action="http://localhost:9101/api/upload/uploadfile"
+                                onChange={this.onChange}>
+                                <Button>
+                                    <Icon type="upload" /> 上传
+                                </Button>
+                            </Upload>
+                        </Col>
+                    </Row>
+                    <Row gutter={24}>
+                        <Col span={12} offset={12}>
+                            <Progress type="circle" percent={this.state.percent} />
+                        </Col>
+                    </Row>
+
                 </Modal>
             </div>
         );
