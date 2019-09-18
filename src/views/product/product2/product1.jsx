@@ -3,6 +3,7 @@ import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progre
 
 import dbUtil from '@/utils/dbUtil';
 import { getUserList } from '@/api/product';
+import path from '@/utils/path'
 
 class Product extends React.Component {
     columns = [
@@ -57,7 +58,7 @@ class Product extends React.Component {
                     <div>
                         <Button type="primary" onClick={() => this.edit(record)}>编辑</Button>
                         &emsp;
-                        <Popconfirm placement="top" title="确定删除？" onConfirm={() => this.onConfirm(record)}>
+                        <Popconfirm placement="top" title="确定删除？" onConfirm={() => this.delete(record)}>
                             <Button type="danger">删除</Button>
                         </Popconfirm>
                     </div>
@@ -145,11 +146,7 @@ class Product extends React.Component {
     }
 
     delete = (data) => {
-        
-    }
-
-    onConfirm = (data) => {
-        console.log(data);
+        console.log(data);        
     }
 
     onChange = ({ file, fileList, event }) => {
@@ -187,7 +184,7 @@ class Product extends React.Component {
 
     render() {
 
-        const { tableData, page, size, total, pageSizeOptions, loading } = this.state;
+        const { tableData, page, size, total, pageSizeOptions, loading, visible, percent } = this.state;
         const columns = this.columns;
         return (
             <div>
@@ -208,7 +205,7 @@ class Product extends React.Component {
                     keyboard={false}
                     maskClosable={false}
                     destroyOnClose={true}
-                    visible={this.state.visible}
+                    visible={visible}
                     onOk={this.confirms}
                     onCancel={this.modalCancel}>
                     <Row gutter={24}>
@@ -217,7 +214,7 @@ class Product extends React.Component {
                         </Col>
                         <Col span={12}>
                             <Upload
-                                action="http://localhost:9101/api/upload/uploadfile"
+                                action={`${path.BASE_URI}${path.upload}`}
                                 onChange={this.onChange}>
                                 <Button>
                                     <Icon type="upload" /> 上传
@@ -227,10 +224,9 @@ class Product extends React.Component {
                     </Row>
                     <Row gutter={24}>
                         <Col span={12} offset={12}>
-                            <Progress type="circle" percent={this.state.percent} />
+                            <Progress type="circle" percent={percent} />
                         </Col>
                     </Row>
-
                 </Modal>
             </div>
         );

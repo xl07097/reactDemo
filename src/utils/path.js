@@ -6,7 +6,11 @@ if (window.location.hostname === "localhost"){ // 本地开发状态
     BASIC_URI = window.location.protocol + "//" + window.location.hostname + ":8080"; //要发布在同一服务器上
 }
 
-let path  = {
+let path = {
+    upload: '/upload/uploadfile',
+
+
+
     BASE_URI: BASIC_URI + "/api", // 基础地址
     userLogin: "/user/login", // 登录
     getLoginUserInfo: "/user/loginUserInfo",// 当前登录用户信息
