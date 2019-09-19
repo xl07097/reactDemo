@@ -19,7 +19,7 @@ instance.interceptors.request.use((config: any) => { // 请求拦截器
     }
 
     return config
-}, err => {
+}, (err:any) => {
     Promise.reject(err)
 })
 
@@ -43,7 +43,7 @@ instance.interceptors.response.use((res:any) => {
 
     return data
 
-}, err => {
+}, (err:any) => {
     Promise.reject(err)
 })
 

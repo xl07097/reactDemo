@@ -214,7 +214,8 @@ class Product extends React.Component {
                         </Col>
                         <Col span={12}>
                             <Upload
-                                action={`${path.BASE_URI}${path.upload}`}
+                                // action={`${path.BASE_URI}${path.upload}`}
+                                action="http://localhost:3000/api/upload/uploadfile"
                                 onChange={this.onChange}>
                                 <Button>
                                     <Icon type="upload" /> 上传
