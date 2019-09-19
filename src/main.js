@@ -13,7 +13,7 @@ import "moment/locale/zh-cn";
 
 import "./common.less";
 
-import App from "./views/app";
+import App from "./views/App";
 
 moment.locale("zh-cn");
 
