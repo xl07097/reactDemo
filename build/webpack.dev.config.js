@@ -37,11 +37,6 @@ module.exports = merge(base, {
         }
         ]
     },
-    plugins:[
-        new webpack.DefinePlugin({
-            // "process.env.NODE_ENV": "development"
-        })
-    ],
     devServer: {
         port: "9000",
         host:"localhost",
