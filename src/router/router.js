@@ -107,7 +107,7 @@ const asynRouter = [
                             title: "产品1_1",
                             role: "product1_1"
                         },
-                        component: lazy(() => import("@/views/product/product1/product1"))
+                        component: lazy(() => import("@/views/product/product1/Product1"))
                     }
                 ]
             },
@@ -117,7 +117,7 @@ const asynRouter = [
                     title: "产品2",
                     role: "product2"
                 },
-                component: lazy(() => import("@/views/product/product2/product1"))
+                component: lazy(() => import("@/views/product/product2/Product1"))
             },
             {
                 path: "product3",
@@ -125,7 +125,7 @@ const asynRouter = [
                     title: "产品3",
                     role: "product3"
                 },
-                component: lazy(() => import("@/views/product/product3/product"))
+                component: lazy(() => import("@/views/product/product3/Product"))
             },
             {
                 path: "product4",
@@ -133,7 +133,7 @@ const asynRouter = [
                     title: "产品4",
                     role: "product4"
                 },
-                component: lazy(() => import("@/views/product/product4/product"))
+                component: lazy(() => import("@/views/product/product4/Product"))
             },
         ]
     },
