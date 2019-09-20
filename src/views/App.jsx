@@ -2,7 +2,7 @@ import React from "react";
 import { Layout } from "antd";
 import { connect } from 'react-redux';
 
-import Headers from "../components/header/header";
+import Headers from "../components/header/Header";
 import Contents from "./content/Content";
 // import Footers from "../components/footer/footer";
 import Side from "@/components/sidemenu/Side";

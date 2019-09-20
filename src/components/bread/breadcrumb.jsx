@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Breadcrumb } from "antd";
-import BreadMap from "./BreadRouterMap";
+import BreadMap from "./breadRouterMap";
 
 function MyBread(props) {
 
