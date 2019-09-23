@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
 /**
@@ -19,31 +19,24 @@ function counter(state = {}, action) {
     case 'DECREMENT':
         return Object.assign({}, state, { count: state.count - 1 });
     case 'collapse':
-        console.log(state);
         return Object.assign({}, state, { collapse: !state.collapse });
+    case 'fetch_list':
+        return Object.assign({}, state, { list: action.list || [] });
     default:
-        return state;
+        return state; 
     }
 }
+
 let state = {
     count: 0,
-    collapse: false
+    collapse: false,
+    list: []
 };
 
-function asyncAdd() {
-    return dispatch => {
-        setTimeout(() => {
-            dispatch({
-                type: 'INCREMENT'
-            });
-        }, 1000);
-    };
-}
 
 // 创建 Redux store 来存放应用的状态。
 // API 是 { subscribe, dispatch, getState }。
 const store = createStore(counter, state, applyMiddleware(thunk));
-
 
 
 export default store;
