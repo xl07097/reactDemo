@@ -1,0 +1,528 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-min_window {
+  background-image: url(./sprite.png);
+  background-position: 0px 0px;
+  width: 10px;
+  height: 1px;
+}
+.icon-required {
+  background-image: url(./sprite.png);
+  background-position: 0px -5px;
+  width: 9px;
+  height: 9px;
+}
+.icon-checked {
+  background-image: url(./sprite.png);
+  background-position: 0px -18px;
+  width: 12px;
+  height: 10px;
+}
+.icon-normal {
+  background-image: url(./sprite.png);
+  background-position: 0px -32px;
+  width: 10px;
+  height: 10px;
+}
+.icon-full_screen {
+  background-image: url(./sprite.png);
+  background-position: 0px -46px;
+  width: 10px;
+  height: 10px;
+}
+.icon-close-modal {
+  background-image: url(./sprite.png);
+  background-position: 0px -60px;
+  width: 14px;
+  height: 14px;
+}
+.icon-email {
+  background-image: url(./sprite.png);
+  background-position: 0px -78px;
+  width: 17px;
+  height: 14px;
+}
+.icon-file_text {
+  background-image: url(./sprite.png);
+  background-position: 0px -96px;
+  width: 16px;
+  height: 16px;
+}
+.icon-message {
+  background-image: url(./sprite.png);
+  background-position: 0px -116px;
+  width: 19px;
+  height: 17px;
+}
+.icon-tree-title {
+  background-image: url(./sprite.png);
+  background-position: 0px -137px;
+  width: 19px;
+  height: 17px;
+}
+.icon-submit {
+  background-image: url(./sprite.png);
+  background-position: 0px -158px;
+  width: 18px;
+  height: 18px;
+}
+.icon-editpsw {
+  background-image: url(./sprite.png);
+  background-position: 0px -180px;
+  width: 16px;
+  height: 19px;
+}
+.icon-phone {
+  background-image: url(./sprite.png);
+  background-position: 0px -203px;
+  width: 14px;
+  height: 19px;
+}
+.icon-app {
+  background-image: url(./sprite.png);
+  background-position: 0px -226px;
+  width: 15px;
+  height: 19px;
+}
+.icon-detail {
+  background-image: url(./sprite.png);
+  background-position: 0px -249px;
+  width: 20px;
+  height: 20px;
+}
+.icon-delete {
+  background-image: url(./sprite.png);
+  background-position: 0px -273px;
+  width: 19px;
+  height: 20px;
+}
+.icon-awarded_marks {
+  background-image: url(./sprite.png);
+  background-position: 0px -297px;
+  width: 20px;
+  height: 20px;
+}
+.icon-reference_retest {
+  background-image: url(./sprite.png);
+  background-position: 0px -321px;
+  width: 20px;
+  height: 20px;
+}
+.icon-reference_normal {
+  background-image: url(./sprite.png);
+  background-position: 0px -345px;
+  width: 20px;
+  height: 20px;
+}
+.icon-schedule {
+  background-image: url(./sprite.png);
+  background-position: 0px -369px;
+  width: 20px;
+  height: 20px;
+}
+.icon-edit_cover {
+  background-image: url(./sprite.png);
+  background-position: 0px -393px;
+  width: 20px;
+  height: 20px;
+}
+.icon-edit {
+  background-image: url(./sprite.png);
+  background-position: 0px -417px;
+  width: 19px;
+  height: 20px;
+}
+.icon-review {
+  background-image: url(./sprite.png);
+  background-position: 0px -441px;
+  width: 20px;
+  height: 20px;
+}
+.icon-1 {
+  background-image: url(./sprite.png);
+  background-position: 0px -465px;
+  width: 20px;
+  height: 20px;
+}
+.icon-analyze {
+  background-image: url(./sprite.png);
+  background-position: 0px -489px;
+  width: 20px;
+  height: 20px;
+}
+.icon-close {
+  background-image: url(./sprite.png);
+  background-position: 0px -513px;
+  width: 20px;
+  height: 20px;
+}
+.icon-standard_score {
+  background-image: url(./sprite.png);
+  background-position: 0px -537px;
+  width: 20px;
+  height: 20px;
+}
+.icon-goal {
+  background-image: url(./sprite.png);
+  background-position: 0px -561px;
+  width: 20px;
+  height: 20px;
+}
+.icon-more {
+  background-image: url(./sprite.png);
+  background-position: 0px -585px;
+  width: 4px;
+  height: 20px;
+}
+.icon-del {
+  background-image: url(./sprite.png);
+  background-position: 0px -609px;
+  width: 19px;
+  height: 20px;
+}
+.icon-delet {
+  background-image: url(./sprite.png);
+  background-position: 0px -633px;
+  width: 20px;
+  height: 20px;
+}
+.icon-infos {
+  background-image: url(./sprite.png);
+  background-position: 0px -657px;
+  width: 20px;
+  height: 20px;
+}
+.icon-2 {
+  background-image: url(./sprite.png);
+  background-position: 0px -681px;
+  width: 20px;
+  height: 20px;
+}
+.icon-dataCom {
+  background-image: url(./sprite.png);
+  background-position: 0px -705px;
+  width: 22px;
+  height: 22px;
+}
+.icon-reports {
+  background-image: url(./sprite.png);
+  background-position: 0px -731px;
+  width: 22px;
+  height: 22px;
+}
+.icon-thaw {
+  background-image: url(./sprite.png);
+  background-position: 0px -757px;
+  width: 14px;
+  height: 22px;
+}
+.icon-open {
+  background-image: url(./sprite.png);
+  background-position: 0px -783px;
+  width: 22px;
+  height: 22px;
+}
+.icon-export {
+  background-image: url(./sprite.png);
+  background-position: 0px -809px;
+  width: 22px;
+  height: 22px;
+}
+.icon-jurisdiction {
+  background-image: url(./sprite.png);
+  background-position: 0px -835px;
+  width: 20px;
+  height: 22px;
+}
+.icon-import {
+  background-image: url(./sprite.png);
+  background-position: 0px -861px;
+  width: 22px;
+  height: 22px;
+}
+.icon-info {
+  background-image: url(./sprite.png);
+  background-position: 0px -887px;
+  width: 22px;
+  height: 22px;
+}
+.icon-add {
+  background-image: url(./sprite.png);
+  background-position: 0px -913px;
+  width: 22px;
+  height: 22px;
+}
+.icon-notice {
+  background-image: url(./sprite.png);
+  background-position: 0px -939px;
+  width: 24px;
+  height: 24px;
+}
+.icon-user {
+  background-image: url(./sprite.png);
+  background-position: 0px -967px;
+  width: 24px;
+  height: 24px;
+}
+.icon-intervention {
+  background-image: url(./sprite.png);
+  background-position: 0px -995px;
+  width: 24px;
+  height: 24px;
+}
+.icon-action {
+  background-image: url(./sprite.png);
+  background-position: 0px -1023px;
+  width: 24px;
+  height: 24px;
+}
+.icon-role {
+  background-image: url(./sprite.png);
+  background-position: 0px -1051px;
+  width: 24px;
+  height: 24px;
+}
+.icon-alarm {
+  background-image: url(./sprite.png);
+  background-position: 0px -1079px;
+  width: 24px;
+  height: 24px;
+}
+.icon-applet-default {
+  background-image: url(./sprite.png);
+  background-position: 0px -1107px;
+  width: 24px;
+  height: 24px;
+}
+.icon-medicalReport {
+  background-image: url(./sprite.png);
+  background-position: 0px -1135px;
+  width: 24px;
+  height: 24px;
+}
+.icon-statistics {
+  background-image: url(./sprite.png);
+  background-position: 0px -1163px;
+  width: 24px;
+  height: 24px;
+}
+.icon-healthResource {
+  background-image: url(./sprite.png);
+  background-position: 0px -1191px;
+  width: 24px;
+  height: 24px;
+}
+.icon-monitorDataUpload {
+  background-image: url(./sprite.png);
+  background-position: 0px -1219px;
+  width: 24px;
+  height: 24px;
+}
+.icon-monitorReport {
+  background-image: url(./sprite.png);
+  background-position: 0px -1247px;
+  width: 24px;
+  height: 24px;
+}
+.icon-monitorStatisSummary {
+  background-image: url(./sprite.png);
+  background-position: 0px -1275px;
+  width: 24px;
+  height: 24px;
+}
+.icon-healthResource_active {
+  background-image: url(./sprite.png);
+  background-position: 0px -1303px;
+  width: 24px;
+  height: 24px;
+}
+.icon-functional {
+  background-image: url(./sprite.png);
+  background-position: 0px -1331px;
+  width: 24px;
+  height: 24px;
+}
+.icon-upload {
+  background-image: url(./sprite.png);
+  background-position: 0px -1359px;
+  width: 34px;
+  height: 24px;
+}
+.icon-noticeManage {
+  background-image: url(./sprite.png);
+  background-position: 0px -1387px;
+  width: 24px;
+  height: 24px;
+}
+.icon-exchange {
+  background-image: url(./sprite.png);
+  background-position: 0px -1415px;
+  width: 24px;
+  height: 24px;
+}
+.icon-applet {
+  background-image: url(./sprite.png);
+  background-position: 0px -1443px;
+  width: 24px;
+  height: 24px;
+}
+.icon-physicalPrepare {
+  background-image: url(./sprite.png);
+  background-position: 0px -1471px;
+  width: 24px;
+  height: 24px;
+}
+.icon-physicalReport {
+  background-image: url(./sprite.png);
+  background-position: 0px -1499px;
+  width: 24px;
+  height: 24px;
+}
+.icon-prepare {
+  background-image: url(./sprite.png);
+  background-position: 0px -1527px;
+  width: 24px;
+  height: 24px;
+}
+.icon-dictionaryType {
+  background-image: url(./sprite.png);
+  background-position: 0px -1555px;
+  width: 24px;
+  height: 24px;
+}
+.icon-dictionaryInfo {
+  background-image: url(./sprite.png);
+  background-position: 0px -1583px;
+  width: 24px;
+  height: 24px;
+}
+.icon-dataReport {
+  background-image: url(./sprite.png);
+  background-position: 0px -1611px;
+  width: 24px;
+  height: 24px;
+}
+.icon-basicFoundation {
+  background-image: url(./sprite.png);
+  background-position: 0px -1639px;
+  width: 24px;
+  height: 24px;
+}
+.icon-reTest {
+  background-image: url(./sprite.png);
+  background-position: 0px -1667px;
+  width: 24px;
+  height: 24px;
+}
+.icon-basicData {
+  background-image: url(./sprite.png);
+  background-position: 0px -1695px;
+  width: 24px;
+  height: 24px;
+}
+.icon-reset {
+  background-image: url(./sprite.png);
+  background-position: 0px -1723px;
+  width: 19px;
+  height: 26px;
+}
+.icon-time {
+  background-image: url(./sprite.png);
+  background-position: 0px -1753px;
+  width: 26px;
+  height: 26px;
+}
+.icon-print {
+  background-image: url(./sprite.png);
+  background-position: 0px -1783px;
+  width: 28px;
+  height: 28px;
+}
+.icon-login_Activepwd {
+  background-image: url(./sprite.png);
+  background-position: 0px -1815px;
+  width: 22px;
+  height: 28px;
+}
+.icon-login_pwd {
+  background-image: url(./sprite.png);
+  background-position: 0px -1847px;
+  width: 22px;
+  height: 28px;
+}
+.icon-download {
+  background-image: url(./sprite.png);
+  background-position: 0px -1879px;
+  width: 28px;
+  height: 28px;
+}
+.icon-data {
+  background-image: url(./sprite.png);
+  background-position: 0px -1911px;
+  width: 28px;
+  height: 28px;
+}
+.icon-login_activeaccount {
+  background-image: url(./sprite.png);
+  background-position: 0px -1943px;
+  width: 24px;
+  height: 30px;
+}
+.icon-login_account {
+  background-image: url(./sprite.png);
+  background-position: 0px -1977px;
+  width: 24px;
+  height: 30px;
+}
+.icon-logo {
+  background-image: url(./sprite.png);
+  background-position: 0px -2011px;
+  width: 32px;
+  height: 32px;
+}
+.icon-icon3 {
+  background-image: url(./sprite.png);
+  background-position: 0px -2047px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon1 {
+  background-image: url(./sprite.png);
+  background-position: 0px -2097px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon2 {
+  background-image: url(./sprite.png);
+  background-position: 0px -2147px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon4 {
+  background-image: url(./sprite.png);
+  background-position: 0px -2197px;
+  width: 46px;
+  height: 46px;
+}
+.icon-home {
+  background-image: url(./sprite.png);
+  background-position: 0px -2247px;
+  width: 52px;
+  height: 52px;
+}
