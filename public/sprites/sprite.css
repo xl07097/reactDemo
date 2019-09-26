@@ -34,13 +34,13 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 12px;
   height: 10px;
 }
-.icon-normal {
+.icon-full_screen {
   background-image: url(./sprite.png);
   background-position: 0px -32px;
   width: 10px;
   height: 10px;
 }
-.icon-full_screen {
+.icon-normal {
   background-image: url(./sprite.png);
   background-position: 0px -46px;
   width: 10px;
@@ -64,13 +64,13 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 16px;
   height: 16px;
 }
-.icon-message {
+.icon-tree-title {
   background-image: url(./sprite.png);
   background-position: 0px -116px;
   width: 19px;
   height: 17px;
 }
-.icon-tree-title {
+.icon-message {
   background-image: url(./sprite.png);
   background-position: 0px -137px;
   width: 19px;
@@ -94,435 +94,405 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 14px;
   height: 19px;
 }
-.icon-app {
+.icon-reference_retest {
   background-image: url(./sprite.png);
   background-position: 0px -226px;
-  width: 15px;
-  height: 19px;
-}
-.icon-detail {
-  background-image: url(./sprite.png);
-  background-position: 0px -249px;
   width: 20px;
   height: 20px;
 }
-.icon-delete {
+.icon-detail {
   background-image: url(./sprite.png);
-  background-position: 0px -273px;
-  width: 19px;
+  background-position: 0px -250px;
+  width: 20px;
   height: 20px;
 }
 .icon-awarded_marks {
   background-image: url(./sprite.png);
-  background-position: 0px -297px;
-  width: 20px;
-  height: 20px;
-}
-.icon-reference_retest {
-  background-image: url(./sprite.png);
-  background-position: 0px -321px;
+  background-position: 0px -274px;
   width: 20px;
   height: 20px;
 }
 .icon-reference_normal {
   background-image: url(./sprite.png);
-  background-position: 0px -345px;
+  background-position: 0px -298px;
   width: 20px;
   height: 20px;
 }
 .icon-schedule {
   background-image: url(./sprite.png);
-  background-position: 0px -369px;
+  background-position: 0px -322px;
   width: 20px;
   height: 20px;
 }
 .icon-edit_cover {
   background-image: url(./sprite.png);
-  background-position: 0px -393px;
+  background-position: 0px -346px;
   width: 20px;
   height: 20px;
 }
 .icon-edit {
   background-image: url(./sprite.png);
-  background-position: 0px -417px;
+  background-position: 0px -370px;
   width: 19px;
   height: 20px;
 }
 .icon-review {
   background-image: url(./sprite.png);
-  background-position: 0px -441px;
-  width: 20px;
-  height: 20px;
-}
-.icon-1 {
-  background-image: url(./sprite.png);
-  background-position: 0px -465px;
+  background-position: 0px -394px;
   width: 20px;
   height: 20px;
 }
 .icon-analyze {
   background-image: url(./sprite.png);
-  background-position: 0px -489px;
+  background-position: 0px -418px;
+  width: 20px;
+  height: 20px;
+}
+.icon-1 {
+  background-image: url(./sprite.png);
+  background-position: 0px -442px;
   width: 20px;
   height: 20px;
 }
 .icon-close {
   background-image: url(./sprite.png);
-  background-position: 0px -513px;
+  background-position: 0px -466px;
   width: 20px;
   height: 20px;
 }
 .icon-standard_score {
   background-image: url(./sprite.png);
-  background-position: 0px -537px;
+  background-position: 0px -490px;
   width: 20px;
   height: 20px;
 }
 .icon-goal {
   background-image: url(./sprite.png);
-  background-position: 0px -561px;
+  background-position: 0px -514px;
   width: 20px;
   height: 20px;
 }
 .icon-more {
   background-image: url(./sprite.png);
-  background-position: 0px -585px;
+  background-position: 0px -538px;
   width: 4px;
   height: 20px;
 }
 .icon-del {
   background-image: url(./sprite.png);
-  background-position: 0px -609px;
+  background-position: 0px -562px;
   width: 19px;
   height: 20px;
 }
-.icon-delet {
+.icon-delete {
   background-image: url(./sprite.png);
-  background-position: 0px -633px;
-  width: 20px;
+  background-position: 0px -586px;
+  width: 19px;
   height: 20px;
 }
 .icon-infos {
   background-image: url(./sprite.png);
-  background-position: 0px -657px;
+  background-position: 0px -610px;
   width: 20px;
   height: 20px;
 }
 .icon-2 {
   background-image: url(./sprite.png);
-  background-position: 0px -681px;
+  background-position: 0px -634px;
   width: 20px;
   height: 20px;
 }
+.icon-import {
+  background-image: url(./sprite.png);
+  background-position: 0px -658px;
+  width: 22px;
+  height: 22px;
+}
 .icon-dataCom {
   background-image: url(./sprite.png);
-  background-position: 0px -705px;
+  background-position: 0px -684px;
   width: 22px;
   height: 22px;
 }
 .icon-reports {
   background-image: url(./sprite.png);
-  background-position: 0px -731px;
+  background-position: 0px -710px;
   width: 22px;
-  height: 22px;
-}
-.icon-thaw {
-  background-image: url(./sprite.png);
-  background-position: 0px -757px;
-  width: 14px;
   height: 22px;
 }
 .icon-open {
   background-image: url(./sprite.png);
-  background-position: 0px -783px;
+  background-position: 0px -736px;
   width: 22px;
   height: 22px;
 }
 .icon-export {
   background-image: url(./sprite.png);
-  background-position: 0px -809px;
+  background-position: 0px -762px;
   width: 22px;
   height: 22px;
 }
 .icon-jurisdiction {
   background-image: url(./sprite.png);
-  background-position: 0px -835px;
+  background-position: 0px -788px;
   width: 20px;
   height: 22px;
 }
-.icon-import {
+.icon-add {
   background-image: url(./sprite.png);
-  background-position: 0px -861px;
+  background-position: 0px -814px;
   width: 22px;
   height: 22px;
 }
 .icon-info {
   background-image: url(./sprite.png);
-  background-position: 0px -887px;
+  background-position: 0px -840px;
   width: 22px;
   height: 22px;
 }
-.icon-add {
+.icon-thaw {
   background-image: url(./sprite.png);
-  background-position: 0px -913px;
-  width: 22px;
+  background-position: 0px -866px;
+  width: 14px;
   height: 22px;
 }
-.icon-notice {
+.icon-functional {
   background-image: url(./sprite.png);
-  background-position: 0px -939px;
+  background-position: 0px -892px;
   width: 24px;
   height: 24px;
 }
 .icon-user {
   background-image: url(./sprite.png);
-  background-position: 0px -967px;
+  background-position: 0px -920px;
   width: 24px;
   height: 24px;
 }
 .icon-intervention {
   background-image: url(./sprite.png);
-  background-position: 0px -995px;
+  background-position: 0px -948px;
   width: 24px;
   height: 24px;
 }
 .icon-action {
   background-image: url(./sprite.png);
-  background-position: 0px -1023px;
-  width: 24px;
-  height: 24px;
-}
-.icon-role {
-  background-image: url(./sprite.png);
-  background-position: 0px -1051px;
-  width: 24px;
-  height: 24px;
-}
-.icon-alarm {
-  background-image: url(./sprite.png);
-  background-position: 0px -1079px;
-  width: 24px;
-  height: 24px;
-}
-.icon-applet-default {
-  background-image: url(./sprite.png);
-  background-position: 0px -1107px;
-  width: 24px;
-  height: 24px;
-}
-.icon-medicalReport {
-  background-image: url(./sprite.png);
-  background-position: 0px -1135px;
-  width: 24px;
-  height: 24px;
-}
-.icon-statistics {
-  background-image: url(./sprite.png);
-  background-position: 0px -1163px;
-  width: 24px;
-  height: 24px;
-}
-.icon-healthResource {
-  background-image: url(./sprite.png);
-  background-position: 0px -1191px;
-  width: 24px;
-  height: 24px;
-}
-.icon-monitorDataUpload {
-  background-image: url(./sprite.png);
-  background-position: 0px -1219px;
-  width: 24px;
-  height: 24px;
-}
-.icon-monitorReport {
-  background-image: url(./sprite.png);
-  background-position: 0px -1247px;
-  width: 24px;
-  height: 24px;
-}
-.icon-monitorStatisSummary {
-  background-image: url(./sprite.png);
-  background-position: 0px -1275px;
-  width: 24px;
-  height: 24px;
-}
-.icon-healthResource_active {
-  background-image: url(./sprite.png);
-  background-position: 0px -1303px;
-  width: 24px;
-  height: 24px;
-}
-.icon-functional {
-  background-image: url(./sprite.png);
-  background-position: 0px -1331px;
-  width: 24px;
-  height: 24px;
-}
-.icon-upload {
-  background-image: url(./sprite.png);
-  background-position: 0px -1359px;
-  width: 34px;
-  height: 24px;
-}
-.icon-noticeManage {
-  background-image: url(./sprite.png);
-  background-position: 0px -1387px;
-  width: 24px;
-  height: 24px;
-}
-.icon-exchange {
-  background-image: url(./sprite.png);
-  background-position: 0px -1415px;
-  width: 24px;
-  height: 24px;
-}
-.icon-applet {
-  background-image: url(./sprite.png);
-  background-position: 0px -1443px;
-  width: 24px;
-  height: 24px;
-}
-.icon-physicalPrepare {
-  background-image: url(./sprite.png);
-  background-position: 0px -1471px;
-  width: 24px;
-  height: 24px;
-}
-.icon-physicalReport {
-  background-image: url(./sprite.png);
-  background-position: 0px -1499px;
-  width: 24px;
-  height: 24px;
-}
-.icon-prepare {
-  background-image: url(./sprite.png);
-  background-position: 0px -1527px;
-  width: 24px;
-  height: 24px;
-}
-.icon-dictionaryType {
-  background-image: url(./sprite.png);
-  background-position: 0px -1555px;
-  width: 24px;
-  height: 24px;
-}
-.icon-dictionaryInfo {
-  background-image: url(./sprite.png);
-  background-position: 0px -1583px;
-  width: 24px;
-  height: 24px;
-}
-.icon-dataReport {
-  background-image: url(./sprite.png);
-  background-position: 0px -1611px;
+  background-position: 0px -976px;
   width: 24px;
   height: 24px;
 }
 .icon-basicFoundation {
   background-image: url(./sprite.png);
-  background-position: 0px -1639px;
+  background-position: 0px -1004px;
   width: 24px;
   height: 24px;
 }
-.icon-reTest {
+.icon-alarm {
   background-image: url(./sprite.png);
-  background-position: 0px -1667px;
+  background-position: 0px -1032px;
+  width: 24px;
+  height: 24px;
+}
+.icon-applet-default {
+  background-image: url(./sprite.png);
+  background-position: 0px -1060px;
+  width: 24px;
+  height: 24px;
+}
+.icon-medicalReport {
+  background-image: url(./sprite.png);
+  background-position: 0px -1088px;
+  width: 24px;
+  height: 24px;
+}
+.icon-applet {
+  background-image: url(./sprite.png);
+  background-position: 0px -1116px;
+  width: 24px;
+  height: 24px;
+}
+.icon-healthResource {
+  background-image: url(./sprite.png);
+  background-position: 0px -1144px;
+  width: 24px;
+  height: 24px;
+}
+.icon-monitorReport {
+  background-image: url(./sprite.png);
+  background-position: 0px -1172px;
+  width: 24px;
+  height: 24px;
+}
+.icon-monitorStatisSummary {
+  background-image: url(./sprite.png);
+  background-position: 0px -1200px;
+  width: 24px;
+  height: 24px;
+}
+.icon-healthResource_active {
+  background-image: url(./sprite.png);
+  background-position: 0px -1228px;
+  width: 24px;
+  height: 24px;
+}
+.icon-upload {
+  background-image: url(./sprite.png);
+  background-position: 0px -1256px;
+  width: 34px;
+  height: 24px;
+}
+.icon-notice {
+  background-image: url(./sprite.png);
+  background-position: 0px -1284px;
+  width: 24px;
+  height: 24px;
+}
+.icon-noticeManage {
+  background-image: url(./sprite.png);
+  background-position: 0px -1312px;
+  width: 24px;
+  height: 24px;
+}
+.icon-exchange {
+  background-image: url(./sprite.png);
+  background-position: 0px -1340px;
   width: 24px;
   height: 24px;
 }
 .icon-basicData {
   background-image: url(./sprite.png);
-  background-position: 0px -1695px;
+  background-position: 0px -1368px;
+  width: 24px;
+  height: 24px;
+}
+.icon-physicalReport {
+  background-image: url(./sprite.png);
+  background-position: 0px -1396px;
+  width: 24px;
+  height: 24px;
+}
+.icon-prepare {
+  background-image: url(./sprite.png);
+  background-position: 0px -1424px;
+  width: 24px;
+  height: 24px;
+}
+.icon-dictionaryType {
+  background-image: url(./sprite.png);
+  background-position: 0px -1452px;
+  width: 24px;
+  height: 24px;
+}
+.icon-dictionaryInfo {
+  background-image: url(./sprite.png);
+  background-position: 0px -1480px;
+  width: 24px;
+  height: 24px;
+}
+.icon-dataReport {
+  background-image: url(./sprite.png);
+  background-position: 0px -1508px;
+  width: 24px;
+  height: 24px;
+}
+.icon-reTest {
+  background-image: url(./sprite.png);
+  background-position: 0px -1536px;
+  width: 24px;
+  height: 24px;
+}
+.icon-role {
+  background-image: url(./sprite.png);
+  background-position: 0px -1564px;
   width: 24px;
   height: 24px;
 }
 .icon-reset {
   background-image: url(./sprite.png);
-  background-position: 0px -1723px;
+  background-position: 0px -1592px;
   width: 19px;
   height: 26px;
 }
 .icon-time {
   background-image: url(./sprite.png);
-  background-position: 0px -1753px;
+  background-position: 0px -1622px;
   width: 26px;
   height: 26px;
 }
-.icon-print {
+.icon-data {
   background-image: url(./sprite.png);
-  background-position: 0px -1783px;
+  background-position: 0px -1652px;
   width: 28px;
   height: 28px;
 }
-.icon-login_Activepwd {
+.icon-print {
   background-image: url(./sprite.png);
-  background-position: 0px -1815px;
-  width: 22px;
+  background-position: 0px -1684px;
+  width: 28px;
   height: 28px;
 }
 .icon-login_pwd {
   background-image: url(./sprite.png);
-  background-position: 0px -1847px;
+  background-position: 0px -1716px;
   width: 22px;
   height: 28px;
 }
 .icon-download {
   background-image: url(./sprite.png);
-  background-position: 0px -1879px;
+  background-position: 0px -1748px;
   width: 28px;
   height: 28px;
 }
-.icon-data {
+.icon-login_Activepwd {
   background-image: url(./sprite.png);
-  background-position: 0px -1911px;
-  width: 28px;
+  background-position: 0px -1780px;
+  width: 22px;
   height: 28px;
 }
 .icon-login_activeaccount {
   background-image: url(./sprite.png);
-  background-position: 0px -1943px;
+  background-position: 0px -1812px;
   width: 24px;
   height: 30px;
 }
 .icon-login_account {
   background-image: url(./sprite.png);
-  background-position: 0px -1977px;
+  background-position: 0px -1846px;
   width: 24px;
   height: 30px;
 }
 .icon-logo {
   background-image: url(./sprite.png);
-  background-position: 0px -2011px;
+  background-position: 0px -1880px;
   width: 32px;
   height: 32px;
 }
 .icon-icon3 {
   background-image: url(./sprite.png);
-  background-position: 0px -2047px;
+  background-position: 0px -1916px;
   width: 46px;
   height: 46px;
 }
 .icon-icon1 {
   background-image: url(./sprite.png);
-  background-position: 0px -2097px;
+  background-position: 0px -1966px;
   width: 46px;
   height: 46px;
 }
 .icon-icon2 {
   background-image: url(./sprite.png);
-  background-position: 0px -2147px;
+  background-position: 0px -2016px;
   width: 46px;
   height: 46px;
 }
 .icon-icon4 {
   background-image: url(./sprite.png);
-  background-position: 0px -2197px;
+  background-position: 0px -2066px;
   width: 46px;
   height: 46px;
 }
 .icon-home {
   background-image: url(./sprite.png);
-  background-position: 0px -2247px;
+  background-position: 0px -2116px;
   width: 52px;
   height: 52px;
 }

@@ -14,39 +14,31 @@ module.exports = merge(base, {
     module: {
         rules: [{
             test: /\.css$/,
-            use: ["style-loader","css-loader","postcss-loader",]
+            use: ["style-loader", "css-loader", "postcss-loader",]
         },
         {
             test: /\.less$/,
-            use: [{
-                loader: "style-loader",
-            },
-            {
-                loader: "css-loader",
-            },
-            {
-                loader: "postcss-loader",
-            },
-            {
-                loader: "less-loader",
-                options: {
-                    javascriptEnabled: true
+            use: ["style-loader", "css-loader", "postcss-loader",
+                {
+                    loader: "less-loader",
+                    options: {
+                        javascriptEnabled: true
+                    }
                 }
-            }
             ]
         }
         ]
     },
     devServer: {
         port: "9000",
-        host:"localhost",
-        allowedHosts: ["0.0.0.0","192.168.1.49"],
+        host: "localhost",
+        allowedHosts: ["0.0.0.0", "192.168.1.49"],
         open: true,
         hot: true,
         historyApiFallback: true,
         contentBase: path.join(__dirname, "../dist"),
-        proxy:{
-            "/api":{
+        proxy: {
+            "/api": {
                 target: "http://localhost:3002",
                 changeOrigin: true,
                 // pathRewrite: {

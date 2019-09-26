@@ -1,11 +1,10 @@
 import React from 'react';
+import './p.less';
 
-const styles = {
-    background: '#ccc'
-}
 function Product(props) {
+
     return (
-        <div className="icon-wrapper" style={styles}>
+        <div className='icon-wrapper'>
             <i className="icon icon-min_window"></i>
             <i className="icon icon-required"></i>
             <i className="icon icon-checked"></i>
@@ -19,7 +18,6 @@ function Product(props) {
             <i className="icon icon-submit"></i>
             <i className="icon icon-editpsw"></i>
             <i className="icon icon-phone"></i>
-            <i className="icon icon-app"></i>
             <i className="icon icon-detail"></i>
             <i className="icon icon-delete"></i>
             <i className="icon icon-awarded_marks"></i>
@@ -36,7 +34,6 @@ function Product(props) {
             <i className="icon icon-goal"></i>
             <i className="icon icon-more"></i>
             <i className="icon icon-del"></i>
-            <i className="icon icon-delet"></i>
             <i className="icon icon-infos"></i>
             <i className="icon icon-2"></i>
             <i className="icon icon-dataCom"></i>
@@ -56,9 +53,7 @@ function Product(props) {
             <i className="icon icon-alarm"></i>
             <i className="icon icon-applet-default"></i>
             <i className="icon icon-medicalReport"></i>
-            <i className="icon icon-statistics"></i>
             <i className="icon icon-healthResource"></i>
-            <i className="icon icon-monitorDataUpload"></i>
             <i className="icon icon-monitorReport"></i>
             <i className="icon icon-monitorStatisSummary"></i>
             <i className="icon icon-healthResource_active"></i>
@@ -67,7 +62,6 @@ function Product(props) {
             <i className="icon icon-noticeManage"></i>
             <i className="icon icon-exchange"></i>
             <i className="icon icon-applet"></i>
-            <i className="icon icon-physicalPrepare"></i>
             <i className="icon icon-physicalReport"></i>
             <i className="icon icon-prepare"></i>
             <i className="icon icon-dictionaryType"></i>
