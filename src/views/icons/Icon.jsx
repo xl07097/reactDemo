@@ -5,11 +5,15 @@ import "./icon.css";
 
 
 function RenderIcon() {
+    let arr = Array.from(new Set(emoji["font-awesome"]));
+
+    console.log(arr)
+
     return (
         <div style={{background:"rgba(256,256,256,0.4)",textAlign:"justify",minHeight: "calc(100%)"}}>
-            {emoji["font-awesome"].map(item => {
+            {arr.map(item => {
                 let key = `${item}${~~(Math.random()*1000000)}`;
-                return <span key={key} className={`fa fa-${item} fa-3x item`}></span>;
+                return <i key={key} className={`fa fa-${item} fa-3x item`} aria-hidden="true"></i>;
             })}
         </div>
     );
