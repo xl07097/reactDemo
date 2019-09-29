@@ -14,11 +14,40 @@ module.exports = merge(base, {
     module: {
         rules: [{
             test: /\.css$/,
-            use: ["style-loader", "css-loader", "postcss-loader",]
+            include: /node_modules\/antd\.css/,
+            use: [
+                {
+                    loader: "style-loader", 
+                },
+                {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        importLoaders: 1
+                    }
+                },
+                {
+                    loader: "postcss-loader",
+                }
+            ]
         },
         {
             test: /\.less$/,
-            use: ["style-loader", "css-loader", "postcss-loader",
+            include: /node_modules\/antd\.less/,
+            use: [
+                {
+                    loader: "style-loader",
+                },
+                {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        importLoaders: 1
+                    }
+                },
+                {
+                    loader: "postcss-loader",
+                },
                 {
                     loader: "less-loader",
                     options: {
