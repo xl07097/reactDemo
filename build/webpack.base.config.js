@@ -71,6 +71,27 @@ module.exports = {
                 algorithm: 'top-down',
                 padding: 4
             }
+        }),
+        new SpritesmithPlugin({
+            // 目标小图标
+            src: {
+                //下面的路径，根据自己的实际路径配置
+                cwd: path.resolve(__dirname, '../src/assets/flags'),
+                glob: '*.png'
+            },
+            // 输出雪碧图文件及样式文件
+            target: {//下面的路径，根据自己的实际路径配置
+                image: path.resolve(__dirname, '../public/sprites/flags.png'),
+                css: path.resolve(__dirname, '../public/sprites/flags.css')
+            },
+            // 样式文件中调用雪碧图地址写法            
+            apiOptions: {// 这个路径根据自己页面配置
+                cssImageRef: './flags.png'
+            },
+            spritesmithOptions: {
+                algorithm: 'top-down',
+                padding: 4
+            }
         })
     ],
     resolve: {
