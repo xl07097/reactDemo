@@ -13,6 +13,17 @@ function Tree1(props) {
 
 
     function getMenu() {
+        // fetch("http://localhost:9087/note/menu/getMenu", {
+        //     method: 'post',
+        //     headers: {
+        //         "content-type": 'application/json'
+        //     }
+        // })
+        //     .then(data => data.json())
+        //     .then(data => {
+        //         setTreeData(data);
+        //         // console.log(data);
+        //     })
         getAllMenu()
             .then(data => {
                 if (data.code === 200) {

@@ -38,7 +38,7 @@ class Product extends React.Component {
             dataIndex: 'avatar',
             key: 'avatar',
             render: (data, record, index) => {
-                return <img src={data} alt="avatar" title='avatar' style={{ width: '40px' }} />;
+                return <img src={data} alt={record.name} title={record.name} style={{ width: '40px' }} />;
             }
         },
         {

@@ -21,7 +21,16 @@ function Product(props) {
         // };
     }, []);
 
-    return (<h2>product3</h2>);
+    const { list } = props;
+
+
+    return (
+        <React.Fragment>
+            {list.map(item => {
+                return <p>{item._id}</p>
+            })}
+        </React.Fragment>
+    );
 }
 
 export default connect(state => ({ list: state.list }))(Product);
