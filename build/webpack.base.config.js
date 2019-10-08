@@ -50,6 +50,10 @@ module.exports = {
             template: path.resolve(__dirname, "../public/index.html")
         }),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.ContextReplacementPlugin(
+            /moment[\\/]locale$/,
+            /^\.\/(zh-cn)$/
+        ),
         new BundleAnalyzerPlugin(),
         new SpritesmithPlugin({
             // 目标小图标
