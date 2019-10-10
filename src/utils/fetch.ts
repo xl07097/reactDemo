@@ -5,7 +5,7 @@ import path from './path';
 
 let instance = axios.create({
     baseURL: path.BASE_URI,
-    // baseURL: '/api',
+    // baseURL: 'http://localhost:3002/api/',
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json'
