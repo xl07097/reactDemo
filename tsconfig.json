@@ -15,7 +15,7 @@
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
         "suppressImplicitAnyIndexErrors": true,
-        "noUnusedLocals": true,
+        "noUnusedLocals": false,
         "allowJs": true,
         "experimentalDecorators": true,
         "strict": true,
