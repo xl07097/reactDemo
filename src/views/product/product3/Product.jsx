@@ -7,7 +7,7 @@ function Product(props) {
     console.log(props);
     useEffect(() => {
         const { dispatch } = props;
-        dispatch(asyncAdd())
+        dispatch(asyncAdd({ page: 1, size: 100 }))
         // timer = setInterval(() => {
         //     fetch('http://localhost:9087/note/socket/push/1?message=hello')
         //         .then(data => data.text())
