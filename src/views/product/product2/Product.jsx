@@ -1,9 +1,8 @@
 import React from 'react';
 import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progress, Popconfirm } from 'antd';
 
-import dbUtil from '@/utils/dbUtil';
-import { getUserList, switchUserStatus } from '@/api/product';
-
+import { getUserList } from '@/api/product';
+import { switchUserStatus } from '@/api/user';
 class Product extends React.Component {
     columns = [
         {
