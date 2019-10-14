@@ -2,8 +2,7 @@ import React from 'react';
 import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progress, Popconfirm } from 'antd';
 
 import dbUtil from '@/utils/dbUtil';
-import { getUserList } from '@/api/product';
-import path from '@/utils/path'
+import { getUserList, switchUserStatus } from '@/api/product';
 
 class Product extends React.Component {
     columns = [
@@ -54,10 +53,14 @@ class Product extends React.Component {
             dataIndex: 'action',
             key: 'action',
             render: (data, record, index) => {
+                let msg = record.status ? '确定禁用？' : '确定启用？';
                 return (
                     <div>
                         <Button type="primary" onClick={() => this.edit(record)}>编辑</Button>
                         &emsp;
+                        <Popconfirm placement="top" title={msg} onConfirm={() => this.switch(record)}>
+                            <Button type="danger">{record.status === 1 ? '禁用' :'启用'}</Button>
+                        </Popconfirm>
                         <Popconfirm placement="top" title="确定删除？" onConfirm={() => this.delete(record)}>
                             <Button type="danger">删除</Button>
                         </Popconfirm>
@@ -119,29 +122,11 @@ class Product extends React.Component {
     componentDidMount = () => {
         const { page, size } = this.state;
         this.search(page, size);
-
-        this.db = openDatabase("car", '1.0', 'Test DB', 20 * 1024 * 1024);
-        this.db.transaction(async (tx) => {
-            await dbUtil(tx, 'CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
-        });
     }
 
     edit = (data) => {
         this.setState({
             visible: true
-        });
-
-        this.db.transaction(async (tx) => {
-            await dbUtil(tx, 'CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
-            let result = await dbUtil(tx, 'select * from user where _id=?', [data['_id']]);
-
-            if (!result.rows.length) {
-                let res = await dbUtil(tx, 'INSERT INTO user(_id, name, password, age, avatar, gender, status, createtime) VALUES(?, ?, ?, ?, ?, ?, ?, ?)', [data['_id'], data['name'], data['password'], data['age'], data['avatar'], data['gender'], data['status'], data['createtime']]);
-
-                // insertId: 5
-                // rows: SQLResultSetRowList { length: 0 }
-                // rowsAffected: 1
-            }
         });
     }
 
@@ -149,7 +134,7 @@ class Product extends React.Component {
         console.log(data);
     }
 
-    onChange = ({ file, fileList, event }) => {
+    onUploadChange = ({ file, fileList, event }) => {
         if (file.status === 'uploading') {
             if (event) {
                 let percent = (event.loaded / event.total) * 100;
@@ -173,6 +158,18 @@ class Product extends React.Component {
     confirms = () => {
         this.setState({
             visible: false
+        });
+    }
+
+    switch = (data) => {
+        let status = row.status === 1 ? 2 : 1;
+        switchUserStatus({ id: row._id, status: status }).then(data => {
+            if (data.code === 200) {
+                this.$Message.success("用户状态修改成功");
+                this.search();
+            } else {
+                this.$Message.success("用户状态修改失败");
+            }
         });
     }
 
@@ -216,7 +213,7 @@ class Product extends React.Component {
                             <Upload
                                 // action={`${path.BASE_URI}${path.upload}`}
                                 action="http://localhost:3000/api/upload/uploadfile"
-                                onChange={this.onChange}>
+                                onChange={this.onUploadChange}>
                                 <Button>
                                     <Icon type="upload" /> 上传
                                 </Button>

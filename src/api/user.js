@@ -9,6 +9,10 @@ export function getLoginUserInfo(){
     return $fetch.get(path.getLoginUserInfo);
 }
 
+export function switchUserStatus(data) {
+    return $fetch.post(path.userStatus, data);
+}
+
 export function userLogout(){
     return $fetch.post(path.userLogout);
 }
