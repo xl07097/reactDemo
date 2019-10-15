@@ -17,6 +17,7 @@ let path = {
     userLogout: "/user/logout", //退出登录
     getUser: "/user/checkuser",
     userList: "/users/userList",
+    userStatus: '/users/changeUserStatus',
     getAllMenu: '/system/systemMenu'
 };
 
