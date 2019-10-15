@@ -35,4 +35,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
 };
 
-export default connect((state) => ({ count: state.count }))(Product);
+export default connect(mapStateToProps)(Product);
