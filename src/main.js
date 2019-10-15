@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from '@/model/store';
 import { BrowserRouter } from "react-router-dom";
 import { ConfigProvider  } from "antd";
-import App from "./views/App";
+import App from "@/views/App";
 
 import zh_CN from "antd/lib/locale-provider/zh_CN";
 
@@ -14,7 +14,9 @@ import "moment/locale/zh-cn";
 moment.locale("zh-cn");
 
 
-import "./common.less";
+import "@/common.less";
+
+import '@/utils/global';
 
 ReactDOM.render(
     <Provider store={store}>

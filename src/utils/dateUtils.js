@@ -7,29 +7,7 @@ export function datetimeformatFromString(str) {
     } else {
         t = new Date();
     }
-    let year = t.getFullYear();
-    let month = t.getMonth() + 1;
-    if (month < 10) {
-        month = '0' + month;
-    }
-    let day = t.getDate();
-    if (day < 10) {
-        day = '0' + day;
-    }
-    let hour = t.getHours();
-    if (hour < 10) {
-        hour = '0' + hour;
-    }
-    let minute = t.getMinutes();
-    if (minute < 10) {
-        minute = '0' + minute;
-    }
-    let second = t.getSeconds();
-    if (second < 10) {
-        second = '0' + second;
-    }
-
-    return year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':' + second;
+    return t.Format("yyyy/MM/dd hh:mm:ss")
 }
 
 export function timetrans(d) {
@@ -50,26 +28,8 @@ export function stringFromnDate(date) {
         t = new Date(date);
     } else {
         t = new Date();
-    }
-    let year = t.getFullYear();
-    let month = t.getMonth() + 1;
-    if (month < 10) {
-        month = '0' + month;
-    }
-    let day = t.getDate();
-    if (day < 10) {
-        day = '0' + day;
-    }
-    let hour = t.getHours();
-    if (hour < 10) {
-        hour = '0' + hour;
-    }
-    let minute = t.getMinutes();
-    if (minute < 10) {
-        minute = '0' + minute;
-    }
-
-    return year + '年' + month + '月' + day + '日 ' + hour + ':' + minute;
+    } 
+    return t.Format("yyyy年MM月dd日 hh:mm")
 }
 
 export function stringFromnDateToNormal(date) {
