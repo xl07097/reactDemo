@@ -1,8 +1,9 @@
 import React from 'react';
-import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progress, Popconfirm } from 'antd';
+import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progress, Popconfirm, message } from 'antd';
 
 import { getUserList } from '@/api/product';
 import { switchUserStatus } from '@/api/user';
+import { timetrans} from '@/utils/dateUtils'
 class Product extends React.Component {
     columns = [
         {
@@ -40,6 +41,13 @@ class Product extends React.Component {
             }
         },
         {
+            title: "添加时间",
+            dataIndex: "createtime",
+            render: (data, record, index) => {
+                return timetrans(data);
+            }
+        },
+        {
             title: '状态',
             dataIndex: 'status',
             key: 'status',
@@ -50,6 +58,7 @@ class Product extends React.Component {
         {
             title: '操作',
             dataIndex: 'action',
+            width: 260,
             key: 'action',
             render: (data, record, index) => {
                 let msg = record.status ? '确定禁用？' : '确定启用？';
@@ -60,6 +69,7 @@ class Product extends React.Component {
                         <Popconfirm placement="top" title={msg} onConfirm={() => this.switch(record)}>
                             <Button type="danger">{record.status === 1 ? '禁用' :'启用'}</Button>
                         </Popconfirm>
+                        &emsp;
                         <Popconfirm placement="top" title="确定删除？" onConfirm={() => this.delete(record)}>
                             <Button type="danger">删除</Button>
                         </Popconfirm>
@@ -160,14 +170,15 @@ class Product extends React.Component {
         });
     }
 
-    switch = (data) => {
+    switch = (row) => {
         let status = row.status === 1 ? 2 : 1;
         switchUserStatus({ id: row._id, status: status }).then(data => {
             if (data.code === 200) {
-                this.$Message.success("用户状态修改成功");
-                this.search();
+                message.success('用户状态修改成功');
+                const { page, size } = this.state;
+                this.search(page, size);
             } else {
-                this.$Message.success("用户状态修改失败");
+                message.error('用户状态修改失败');
             }
         });
     }
