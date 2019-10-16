@@ -3,7 +3,7 @@ import { Row, Col } from "antd";
 
 import TopRow from './TopRow';
 import MyCalendar from './calendar/MyCalendar';
-// import ChartLine from './chart/ChartLine';
+import ChartLine from './chart/ChartLine';
 
 
 import './index.less';
@@ -18,7 +18,7 @@ function Index() {
                     <MyCalendar></MyCalendar>
                 </Col>
                 <Col span={12}>
-                    {/* <ChartLine></ChartLine> */}
+                    <ChartLine></ChartLine>
                 </Col>
             </Row>
         </div>
