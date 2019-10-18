@@ -50,13 +50,17 @@ function Tree1(props) {
     }, [])
 
     function onCheck(checkedKeys) {
-
+        console.log(checkedKeys)
         setCheckedKeys(checkedKeys);
     }
 
     function onExpand(expandedKeys) {
         setExpandedKeys(expandedKeys);
         setAutoExpandParent(false);
+    }
+
+    function onSelect(selectedKeys, info) {
+        console.log(selectedKeys, info)
     }
 
     return (
@@ -67,6 +71,7 @@ function Tree1(props) {
             onCheck={onCheck}
             expandedKeys={expandedKeys}
             checkedKeys={checkedKeys}
+            onSelect={onSelect}
             // treeData={treeData}
         >
             {renderTreeNodes(treeData)}

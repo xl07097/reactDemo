@@ -67,15 +67,15 @@ const asynRouter = [
             title: "图表",
             role: "chart"
         },
-        component: lazy(() => import("@/components/charts/Chart"))
+        component: lazy(() => import("@/views/charts/Index"))
     },
     {
-        path: "/other",
+        path: "/scroll",
         meta: {
-            title: "其他",
-            role: "other"
+            title: "滑动条",
+            role: "scroll"
         },
-        component: lazy(() => import("@/components/charts/Charts")),
+        component: lazy(() => import("@/views/scroll/Scroll")),
     },
     {
         path: "/tree",
