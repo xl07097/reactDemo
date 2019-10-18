@@ -4,6 +4,7 @@ import { getAllMenu } from '@/api/menu';
 
 import array2Tree from '@/utils/treeUtils';
 
+const { TreeNode } = Tree;
 
 function Tree1(props) {
     let [treeData, setTreeData] = useState([]);
@@ -13,24 +14,36 @@ function Tree1(props) {
 
 
     function getMenu() {
-        // fetch("http://localhost:9087/note/menu/getMenu", {
-        //     method: 'post',
-        //     headers: {
-        //         "content-type": 'application/json'
-        //     }
-        // })
-        //     .then(data => data.json())
-        //     .then(data => {
-        //         setTreeData(data);
-        //         // console.log(data);
-        //     })
-        getAllMenu()
+        fetch("http://localhost:9087/note/menu/getMenu", {
+            method: 'post',
+            headers: {
+                "content-type": 'application/json'
+            }
+        })
+            .then(data => data.json())
             .then(data => {
-                if (data.code === 200) {
-                    setTreeData(array2Tree(data.data));
-                }
+                setTreeData(data);
+                // console.log(data);
             })
+        // getAllMenu()
+        //     .then(data => {
+        //         if (data.code === 200) {
+        //             setTreeData(array2Tree(data.data));
+        //         }
+        //     })
     }
+
+    const renderTreeNodes = data =>
+        data.map(item => {
+            if (item.children) {
+                return (
+                    <TreeNode title={item.name} key={item.id} dataRef={item}>
+                        {renderTreeNodes(item.children)}
+                    </TreeNode>
+                );
+            }
+            return <TreeNode key={item.key} {...item} />;
+        });
 
     useEffect(() => {
         getMenu({})
@@ -54,8 +67,9 @@ function Tree1(props) {
             onCheck={onCheck}
             expandedKeys={expandedKeys}
             checkedKeys={checkedKeys}
-            treeData={treeData}
+            // treeData={treeData}
         >
+            {renderTreeNodes(treeData)}
         </Tree>
     )
 }
