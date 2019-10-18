@@ -4,7 +4,7 @@ import './p.less';
 function Product(props) {
 
     let flag = require.context("@/assets/flags", false, /\.png$/)
-    console.log(flag.keys());
+
     let list = flag.keys().map(item => {
         return item.replace(/\.\//g, '').replace(/\.png/, '');
     })

@@ -7,8 +7,6 @@ import "./icon.css";
 function RenderIcon() {
     let arr = Array.from(new Set(emoji["font-awesome"]));
 
-    console.log(arr)
-
     return (
         <div style={{background:"rgba(256,256,256,0.4)",textAlign:"justify",minHeight: "calc(100%)"}}>
             {arr.map(item => {
