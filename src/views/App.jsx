@@ -18,8 +18,8 @@ function App(props) {
     const { collapse } = props;
     console.log(collapse);
     return (
-        <div style={{display:"flex",minHeight: "calc(100%)"}}>
-            <Layout>
+        <>
+            <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>
                 <Headers></Headers>
                 <Layout>
                     <Sider className={collapse ? "sider-collapsed" : null} width={collapse ? 80 : 234} style={style}>
@@ -32,7 +32,7 @@ function App(props) {
                     </Content>
                 </Layout>
             </Layout>
-        </div>
+        </>
     );
 }
 
