@@ -42,7 +42,7 @@ function Tree1(props) {
                     </TreeNode>
                 );
             }
-            return <TreeNode key={item.key} {...item} />;
+            return <TreeNode key={item.id} title={item.name} {...item} />;
         });
 
     useEffect(() => {
