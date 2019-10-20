@@ -14,28 +14,28 @@ function Tree1(props) {
 
 
     function getMenu() {
-        fetch("http://localhost:9087/note/menu/getMenu", {
-            method: 'post',
-            headers: {
-                "content-type": 'application/json'
-            }
-        })
-            .then(data => data.json())
-            .then(data => {
-                setTreeData(data);
-                // console.log(data);
-            })
-        // getAllMenu()
+        // fetch("http://localhost:9087/note/menu/getMenu", {
+        //     method: 'post',
+        //     headers: {
+        //         "content-type": 'application/json'
+        //     }
+        // })
+        //     .then(data => data.json())
         //     .then(data => {
-        //         if (data.code === 200) {
-        //             setTreeData(array2Tree(data.data));
-        //         }
+        //         setTreeData(data);
+        //         // console.log(data);
         //     })
+        getAllMenu()
+            .then(data => {
+                if (data.code === 200) {
+                    setTreeData(array2Tree(data.data));
+                }
+            })
     }
 
-    const renderTreeNodes = data =>
-        data.map(item => {
-            if (item.children) {
+    const renderTreeNodes = data => {
+        return data.map(item => {
+            if (item.children && item.children.length) {
                 return (
                     <TreeNode title={item.name} key={item.id} dataRef={item}>
                         {renderTreeNodes(item.children)}
@@ -44,6 +44,8 @@ function Tree1(props) {
             }
             return <TreeNode key={item.id} title={item.name} {...item} />;
         });
+    }
+
 
     useEffect(() => {
         getMenu({})
@@ -72,9 +74,9 @@ function Tree1(props) {
             expandedKeys={expandedKeys}
             checkedKeys={checkedKeys}
             onSelect={onSelect}
-            // treeData={treeData}
+            treeData={treeData}
         >
-            {renderTreeNodes(treeData)}
+            {/* {renderTreeNodes(treeData)} */}
         </Tree>
     )
 }
