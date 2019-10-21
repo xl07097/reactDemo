@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { asyncAdd } from '@/model/thunks/thunk';
+
+/**
+ *  useSelector
+ *  useDispatch
+ */
 
 function Product(props) {
     let timer = null;
@@ -8,20 +13,11 @@ function Product(props) {
     useEffect(() => {
         const { dispatch } = props;
         dispatch(asyncAdd({ page: 1, size: 100 }))
-        // timer = setInterval(() => {
-        //     fetch('http://localhost:9087/note/socket/push/1?message=hello')
-        //         .then(data => data.text())
-        //         .then(data => {
-        //             console.log(data);
-        //         });
-        // }, 2000);
-
-        // return () => {
-        //     clearInterval(timer);
-        // };
     }, []);
 
-    const { list } = props;
+    // const { list } = props;
+
+    const list = useSelector(state => state.list);
 
 
     return (
@@ -33,4 +29,5 @@ function Product(props) {
     );
 }
 
-export default connect(state => ({ list: state.list }))(Product);
+// export default connect(state => ({ list: state.list }))(Product);
+export default Product;
