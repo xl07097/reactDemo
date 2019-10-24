@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, useSelector } from "react-redux";
+import { connect, useSelector,useDispatch } from "react-redux";
 import { asyncAdd } from '@/model/thunks/thunk';
 
 /**
@@ -9,16 +9,14 @@ import { asyncAdd } from '@/model/thunks/thunk';
 
 function Product(props) {
     let timer = null;
-    console.log(props);
+    const dispatch = useDispatch()
     useEffect(() => {
-        const { dispatch } = props;
+        // const { dispatch } = props;
         dispatch(asyncAdd({ page: 1, size: 100 }))
     }, []);
 
     // const { list } = props;
-
     const list = useSelector(state => state.list);
-
 
     return (
         <React.Fragment>
