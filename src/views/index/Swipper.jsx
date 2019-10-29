@@ -7,7 +7,7 @@ const styleImg = {
 function Swipper(props) {
     return (
         <div>
-            <Carousel autoplay>
+            {/* <Carousel autoplay>
                 <div>
                     <h3>1</h3>
                 </div>
@@ -20,8 +20,8 @@ function Swipper(props) {
                 <div>
                     <h3>4</h3>
                 </div>
-            </Carousel>
-            {/* <Carousel autoplay effect="fade">
+            </Carousel> */}
+            <Carousel autoplay effect="fade">
                 <div>
                     <img style={styleImg} src={require("@/assets/portfolio/1200x900/01.jpg")} alt="01" />
                 </div>
@@ -34,7 +34,7 @@ function Swipper(props) {
                 <div>
                     <img style={styleImg} src={require("@/assets/portfolio/1200x900/6.jpg")} alt="01" />
                 </div>
-            </Carousel> */}
+            </Carousel>
         </div>
     )
 }
