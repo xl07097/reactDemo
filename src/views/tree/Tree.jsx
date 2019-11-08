@@ -27,9 +27,11 @@ function Tree1(props) {
         //     })
         getAllMenu()
             .then(data => {
-                if (data.code === 200) {
-                    setTreeData(array2Tree(data.data));
-                }
+                setTreeData(data);
+                // if (data.code === 200) {
+                //     setTreeData(data);
+                //     // setTreeData(array2Tree(data.data));
+                // }
             })
     }
 
@@ -42,7 +44,7 @@ function Tree1(props) {
                     </TreeNode>
                 );
             }
-            return <TreeNode key={item.id} title={item.name} {...item} />;
+            return <TreeNode title={item.name} key={item.id} {...item} />;
         });
     }
 
@@ -74,9 +76,9 @@ function Tree1(props) {
             expandedKeys={expandedKeys}
             checkedKeys={checkedKeys}
             onSelect={onSelect}
-            treeData={treeData}
+            // treeData={treeData}
         >
-            {/* {renderTreeNodes(treeData)} */}
+            {renderTreeNodes(treeData)}
         </Tree>
     )
 }
