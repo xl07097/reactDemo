@@ -3,7 +3,7 @@ import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progre
 
 import { getUserList } from '@/api/product';
 import { switchUserStatus } from '@/api/user';
-import { timetrans} from '@/utils/dateUtils'
+import { timetrans } from '@/utils/dateUtils'
 class Product extends React.Component {
     columns = [
         {
@@ -16,8 +16,8 @@ class Product extends React.Component {
         },
         {
             title: '姓名',
-            dataIndex: 'name',
-            key: 'name'
+            dataIndex: 'username',
+            key: 'username'
         },
         {
             title: '年龄',
@@ -67,7 +67,7 @@ class Product extends React.Component {
                         <Button type="primary" onClick={() => this.edit(record)}>编辑</Button>
                         &emsp;
                         <Popconfirm placement="top" title={msg} onConfirm={() => this.switch(record)}>
-                            <Button type="danger">{record.status === 1 ? '禁用' :'启用'}</Button>
+                            <Button type="danger">{record.status === 1 ? '禁用' : '启用'}</Button>
                         </Popconfirm>
                         &emsp;
                         <Popconfirm placement="top" title="确定删除？" onConfirm={() => this.delete(record)}>
@@ -102,13 +102,17 @@ class Product extends React.Component {
             this.setState({
                 loading: false
             });
-            if (data.code === 200) {
-                this.setState({
-                    tableData: data.data,
-                    total: data.total
-                });
-                window.scrollTo(0, 0);
-            }
+            this.setState({
+                tableData: data,
+                total: data.length
+            });
+            // if (data.code === 200) {
+            //     this.setState({
+            //         tableData: data.data,
+            //         total: data.total
+            //     });
+            //     window.scrollTo(0, 0);
+            // }
         });
     }
 
@@ -195,7 +199,7 @@ class Product extends React.Component {
         const columns = this.columns;
         return (
             <div>
-                <Table bordered={true} rowKey="_id" dataSource={tableData} columns={columns} pagination={false} loading={loading}></Table>
+                <Table bordered={true} rowKey="id" dataSource={tableData} columns={columns} pagination={false} loading={loading}></Table>
                 <div className="page">
                     <Pagination
                         showSizeChanger

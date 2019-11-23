@@ -11,7 +11,7 @@ class Chart extends React.Component {
     componentDidMount() {
         this.chart = new G2.Chart({
             container: this.myRef.current,
-            width: 600,
+            // width: 600,
             height: 300
         });
 

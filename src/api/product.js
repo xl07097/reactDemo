@@ -1,8 +1,8 @@
 import $fetch from "@/utils/fetch";
 
-import path from "@/utils/path";
+import urls from "@/utils/urls";
 
 export function getUserList(data) {
-    return $fetch.post(path.userList, data);
+    return $fetch.post(urls.userList, data);
 }
 
