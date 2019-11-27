@@ -46,31 +46,6 @@ export function twoDateTime() {
     let date1 = y + '/' + m + '/01';
     let date2 = null;
     let allDate = new Date(y, m, 0).getDate();
-    // switch (m) {
-    //     case '01':
-    //     case '03':
-    //     case '05':
-    //     case '07':
-    //     case '08':
-    //     case '10':
-    //     case '12':
-    //         date2 = y + '/' + m + '/31';
-    //         break;
-    //     case '04':
-    //     case '06':
-    //     case '09':
-    //     case '11':
-    //         date2 = y + '/' + m + '/30';
-    //         break;
-    //     case '02':
-    //         if ((y % 4 === 0 && y % 100 !== 0) || y % 400 === 0) {
-    //             date2 = y + '/' + m + '/29';
-    //         } else {
-    //             date2 = y + '/' + m + '/28';
-    //         }
-    //         break;
-    // }
-
     return [new Date(date1 + ' 00:00'), new Date(date2+'m'+allDate + ' 23:59')];
 }
 
