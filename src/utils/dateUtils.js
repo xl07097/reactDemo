@@ -1,5 +1,10 @@
 /* eslint-disable indent */
 
+/**
+ * 
+ * @param {*} str 
+ * @return yyyy/MM/dd hh:mm:ss
+ */
 export function datetimeformatFromString(str) {
     let t;
     if (str) {
@@ -10,18 +15,39 @@ export function datetimeformatFromString(str) {
     return t.Format("yyyy/MM/dd hh:mm:ss")
 }
 
+/**
+ * 
+ * @param {*} d 
+ * @return yyyy-MM-dd hh:mm:ss
+ */
 export function timetrans(d) {
     return datetimeformatFromString(d).replace(/\//g, '-');
 }
 
+/**
+ * 
+ * @param {*} str 
+ * @return yyyy-MM-dd
+ */
 export function dateFormatFromString(str) {
     return datetimeformatFromString(str).substr(0, 10)
 }
 
+
+/**
+ *
+ * @param {*} str
+ * @return yyyy-MM-dd hh:mm
+ */
 export function stringFromDate(date) {
-    return datetimeformatFromString(date).substr(0, 16);
+    return datetimeformatFromString(date).substr(0, 20);
 }
 
+/**
+ *
+ * @param {*} str
+ * @return yyyy年MM月dd日 hh:mm
+ */
 export function stringFromnDate(date) {
     let t;
     if (date) {
@@ -32,7 +58,7 @@ export function stringFromnDate(date) {
     return t.Format("yyyy年MM月dd日 hh:mm")
 }
 
-export function stringFromnDateToNormal(date) {
+export function stringFromDateToNormal(date) {
     return stringFromnDate(date).substring(5)
 }
 
