@@ -11,7 +11,7 @@ module.exports = merge(baseConfig, {
     output: {
         path: path.resolve(__dirname, "../dist"),
         filename: "js/[name].[hash].js",
-        publicPath: "/" // 使用 ./ 时  嵌套路由资源获取不到？
+        publicPath: "/"
     },
     module: {
         rules: [{
