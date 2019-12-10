@@ -1,17 +1,14 @@
 import React from 'react';
 import { Upload, Icon, message } from 'antd';
-import { UploadChangeParam } from 'antd/lib/upload';
+import { UploadProps } from 'antd/lib/upload';
 
 const { Dragger } = Upload;
-export interface MyData extends UploadChangeParam{
 
-}
-
-const prop = {
+const prop: UploadProps = {
     name: 'file',
     multiple: false,
     action: 'http://122.51.129.51:8080/note/upload/uploadfile',
-    onChange(data: MyData) {
+    onChange(data) {
         const { status, response } = data.file;
         if (status === 'uploading') {
             // console.log(data.file, data.fileList);
