@@ -86,6 +86,14 @@ const asynRouter = [
         component: lazy(() => import("@/views/tree/Index")),
     },
     {
+        path: "/upload",
+        meta: {
+            title: "上传",
+            role: "upload"
+        },
+        component: lazy(() => import("@/views/upload/Upload")),
+    },
+    {
         path: "/product",
         meta: {
             title: "菜单1",
