@@ -53,7 +53,7 @@ export function dateFormatFromString(str) {
  * @param {*} str
  * @return yyyy-MM-dd hh:mm
  */
-export function stringFromDate(date) {
+export function stringFromDate1(date) {
     if (!str) {
         return '';
     }
@@ -65,7 +65,7 @@ export function stringFromDate(date) {
  * @param {*} str
  * @return yyyy年MM月dd日 hh:mm
  */
-export function stringFromDate(str) {
+export function stringFromDate2(str) {
     if (!str) {
         return '';
     }
@@ -77,7 +77,7 @@ export function stringFromDate(str) {
  * @param {*} str
  * @return yyyy年MM月dd日 hh:mm
  */
-export function stringFromDate1(str) {
+export function stringFromDate3(str) {
     if (!str) {
         return '';
     }
