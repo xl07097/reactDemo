@@ -1,5 +1,6 @@
 const path = require("path");
 const merge = require("webpack-merge");
+const webpack = require("webpack");
 const baseConfig = require("./webpack.base.config");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -57,6 +58,10 @@ module.exports = merge(baseConfig, {
             verbose: true,
             dry: false
         }),
+        new webpack.ContextReplacementPlugin(
+            /moment[\\/]locale$/,
+            /^\.\/(zh-cn)$/
+        ),
         new MiniCssExtractPlugin({
             filename: "css/[name].[hash].css"
         }),

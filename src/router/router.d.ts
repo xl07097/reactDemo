@@ -1,4 +1,3 @@
-
 interface mata{
     title: string,
     role: string,

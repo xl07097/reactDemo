@@ -1,7 +1,5 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
@@ -49,12 +47,6 @@ module.exports = {
             filename: path.resolve(__dirname, "../dist/index.html"),
             template: path.resolve(__dirname, "../public/index.html")
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.ContextReplacementPlugin(
-            /moment[\\/]locale$/,
-            /^\.\/(zh-cn)$/
-        ),
-        new BundleAnalyzerPlugin(),
         new SpritesmithPlugin({
             // 目标小图标
             src: {

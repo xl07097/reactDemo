@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const base = require("./webpack.base.config");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(base, {
     mode: "development",
@@ -48,6 +49,10 @@ module.exports = merge(base, {
         }
         ]
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new BundleAnalyzerPlugin()
+    ],
     devServer: {
         port: "9000",
         host: "localhost",
