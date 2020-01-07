@@ -90,8 +90,6 @@ class Product extends React.Component {
         percent: 0
     }
 
-    db = '';
-
     search = (page, size) => {
 
         let req = {
