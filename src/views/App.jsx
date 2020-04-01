@@ -18,21 +18,25 @@ function App(props) {
     const { collapse } = props;
     console.log(collapse);
     return (
-        <>
-            <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>
-                <Headers></Headers>
-                <Layout>
-                    <Sider className={collapse ? "sider-collapsed" : null} width={collapse ? 80 : 234} style={style}>
-                        <Side></Side>
-                    </Sider>
-                    <Content>
-                        <Contents name="jack1">
-
-                        </Contents>
-                    </Content>
-                </Layout>
-            </Layout>
-        </>
+      <>
+        <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>
+          <Headers></Headers>
+          <Layout>
+            <Sider
+              trigger={null}
+              collapsible
+              collapsed={collapse}
+              width={234}
+              style={style}
+            >
+              <Side></Side>
+            </Sider>
+            <Content>
+              <Contents name="jack1"></Contents>
+            </Content>
+          </Layout>
+        </Layout>
+      </>
     );
 }
 
