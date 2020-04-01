@@ -93,22 +93,23 @@ class Side extends PureComponent {
     }
 
     render() {
-        const { mode } = this.props;
-        return (<div className='sidebar'>
+        const { mode, collapse } = this.props;
+        return (
+          <div className="sidebar">
             <Menu
-                theme="dark"
-                mode={mode}
-                onOpenChange={this.openChange}
-                // defaultSelectedKeys={this.state.defaultSelectedKeys}
-                // defaultOpenKeys={this.state.defaultOpenKeys}
-                selectedKeys={mode === 'inline' ? this.state.selectKeys : []}
-                openKeys={this.state.openKeys}
+              theme="dark"
+              mode="inline"
+              onOpenChange={this.openChange}
+              // defaultSelectedKeys={this.state.defaultSelectedKeys}
+              // defaultOpenKeys={this.state.defaultOpenKeys}
+              inlineCollapsed={collapse}
+              selectedKeys={this.state.selectKeys}
+              openKeys={this.state.openKeys}
             >
-                {
-                    this.renderSubMenu(asynRouter, "/")
-                }
+              {this.renderSubMenu(asynRouter, "/")}
             </Menu>
-        </div>);
+          </div>
+        );
     }
 }
 
