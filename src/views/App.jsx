@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from "react";
 import { Layout } from "antd";
 import { connect } from 'react-redux';
@@ -5,7 +6,7 @@ import { connect } from 'react-redux';
 import Headers from "../components/header/Header";
 import Contents from "./content/Content";
 // import Footers from "../components/footer/footer";
-import Side from "@/components/sidemenu/Side";
+import Side from "@/components/sidemenu/Side.jsx";
 
 
 const {Content, Sider } = Layout;
@@ -16,7 +17,6 @@ const style = {
 
 function App(props) {
     const { collapse } = props;
-    console.log(collapse);
     return (
       <>
         <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>

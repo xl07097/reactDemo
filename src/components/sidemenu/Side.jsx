@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
@@ -5,7 +6,7 @@ import { Menu, Icon } from "antd";
 
 import { asynRouter } from "@/router/router";
 const style = {
-  width: 234
+  width: 234,
 };
 
 class Side extends PureComponent {
@@ -16,32 +17,33 @@ class Side extends PureComponent {
       defaultSelectedKeys: [props.location.pathname],
       defaultOpenKeys: [],
       selectKeys: [props.location.pathname],
-      openKeys: []
+      openKeys: [],
     };
   }
+
   componentDidMount() {
     const { history, location } = this.props;
     let openKeys = this.getOpenkeys(location.pathname);
     this.setState({
       defaultOpenKeys: openKeys,
-      openKeys: openKeys
+      openKeys: openKeys,
     });
 
-    history.listen(item => {
+    history.listen((item) => {
       let openKeys = this.getOpenkeys(item.pathname);
       this.setState({
         selectKeys: [item.pathname],
-        openKeys: openKeys
+        openKeys: openKeys,
       });
     });
   }
   titleClick = ({ key, domEvent }) => {
     let openKeys = this.getOpenkeys(key);
     this.setState({
-      openKeys: openKeys
+      openKeys: openKeys,
     });
   };
-  getOpenkeys = key => {
+  getOpenkeys = (key) => {
     let openKeys = key.split("/").map((item, index, arr) => {
       return arr.slice(0, index + 1).join("/");
     });
@@ -49,13 +51,13 @@ class Side extends PureComponent {
     return openKeys;
   };
   clickMenu = ({ item, key, keyPath, domEvent }) => {};
-  openChange = openKeys => {
+  openChange = (openKeys) => {
     this.setState({
-      openKeys: openKeys
+      openKeys: openKeys,
     });
   };
   renderSubMenu = (route, parentRoute) => {
-    return route.map(item => {
+    return route.map((item) => {
       if (item.path === "*") {
         return null;
       }
@@ -93,18 +95,20 @@ class Side extends PureComponent {
   };
 
   render() {
-      const { mode, collapse } = this.props;
-      console.log(collapse);
+    const { location } = this.props;
+    let openKeys = this.getOpenkeys(location.pathname);
+    console.log(openKeys);
+    console.log(location.pathname);
     return (
       <Menu
         theme="dark"
         mode="inline"
-        inlineCollapsed={collapse}
+        // inlineCollapsed={collapse}
         onOpenChange={this.openChange}
-        // defaultSelectedKeys={this.state.defaultSelectedKeys}
-        // defaultOpenKeys={this.state.defaultOpenKeys}
-        selectedKeys={this.state.selectKeys}
-        openKeys={collapse?null:this.state.openKeys}
+        // defaultSelectedKeys={location.pathname}
+        defaultOpenKeys={openKeys}
+        selectedKeys={location.pathname}
+        // openKeys={openKeys}
       >
         {this.renderSubMenu(asynRouter, "/")}
       </Menu>
@@ -112,7 +116,7 @@ class Side extends PureComponent {
   }
 }
 
-export default connect(state => ({
+export default connect((state) => ({
   collapse: state.collapse,
-  mode: state.collapse ? "vertical" : "inline"
+  mode: state.collapse ? "vertical" : "inline",
 }))(withRouter(Side));

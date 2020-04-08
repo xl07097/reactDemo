@@ -1,95 +1,102 @@
+/* eslint-disable indent */
 import React, { useState } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import { Menu } from "antd";
 import { asynRouter } from "@/router/router";
 
 const style = {
-    width: 234
+  width: 234,
 };
 
-
 function getOpenkeys(key) {
-    let openKeys = key.split("/").map((item, index, arr) => {
-        return arr.slice(0, index + 1).join("/");
-    });
-    openKeys.shift();
-    return openKeys;
+  let openKeys = key.split("/").map((item, index, arr) => {
+    return arr.slice(0, index + 1).join("/");
+  });
+  openKeys.shift();
+  return openKeys;
 }
 function Side(props) {
-    const { location } = props;
+  const { location } = props;
 
-    // const defaultSelectedKeys = [location.pathname];
+  const defaultSelectedKeys = [location.pathname];
 
-    let openKey = getOpenkeys(location.pathname);
+  let openKey = getOpenkeys(location.pathname);
 
-    // let defaultOpenKeys = openKey;
-    let [openKeys, setOpenKeys] = useState(openKey);
-    // let openKeys = getOpenkeys(location.pathname)
+  let defaultOpenKeys = openKey;
+  let [openKeys, setOpenKeys] = useState(openKey);
+  // let openKeys = getOpenkeys(location.pathname)
 
+  // let [selectKeys, setSelectKeys] = useState([location.pathname])
+  let selectKeys = [location.pathname];
 
+  function titleClick({ key }) {
+    let openKeys = getOpenkeys(key);
+    setOpenKeys(openKeys);
+  }
 
-    // let [selectKeys, setSelectKeys] = useState([location.pathname])
-    let selectKeys = [location.pathname];
+  function renderSubMenu(route, parentRoute) {
+    return route.map((item) => {
+      if (item.path === "*") {
+        return null;
+      }
+      let newPath;
+      if (/^\//.test(item.path)) {
+        newPath = `${item.path}`;
+      } else {
+        newPath = `${parentRoute}/${item.path}`;
+      }
+      newPath = newPath.replace(/\/+/g, "/");
+      if (item.children) {
+        return (
+          <Menu.SubMenu
+            path={newPath}
+            key={newPath}
+            title={item.meta.title}
+            onTitleClick={titleClick}
+          >
+            {item.children && renderSubMenu(item.children, newPath)}
+          </Menu.SubMenu>
+        );
+      } else {
+        return (
+          <Menu.Item path={newPath} key={newPath}>
+            <Link to={newPath}>{item.meta.title}</Link>
+          </Menu.Item>
+        );
+      }
+    });
+  }
+  function openChange(openKeys) {
+    setOpenKeys(openKeys);
+  }
 
-    function titleClick({ key }) {
-        let openKeys = getOpenkeys(key);
-        setOpenKeys(openKeys);
-    }
+  function clickMenu({ item, key, keyPath, domEvent }) {
+    setOpenKeys(keyPath.reverse());
+    console.log(keyPath);
+  }
 
-    function renderSubMenu(route, parentRoute) {
-        return route.map(item => {
-            if (item.path === "*") {
-                return null;
-            }
-            let newPath;
-            if (/^\//.test(item.path)) {
-                newPath = `${item.path}`;
-            } else {
-                newPath = `${parentRoute}/${item.path}`;
-            }
-            newPath = newPath.replace(/\/+/g, "/");
-            if (item.children) {
-                return (<Menu.SubMenu path={newPath} key={newPath} title={item.meta.title}
-                    onTitleClick={titleClick}>
-                    {item.children && renderSubMenu(item.children, newPath)}
-                </Menu.SubMenu>);
-            } else {
-                return (<Menu.Item path={newPath} key={newPath}>
-                    <Link to={newPath}>{item.meta.title}</Link>
-                </Menu.Item>);
-            }
-        });
-    }
-    function openChange(openKeys) {
-        setOpenKeys(openKeys);
-    }
+  const openKeyProps = props.collapse ? {} : { openKeys };
+  console.log(openKeyProps);
 
-    function clickMenu({ item, key, keyPath, domEvent }) {
-        setOpenKeys(keyPath.reverse());
-        console.log(keyPath);
-    }
-    const { mode } = props;
-    console.log(mode);
-    
-    return (
-        <div className='sidebar'>
-            <Menu
-                theme="dark"
-                mode={mode}
-                // onOpenChange={openChange}
-                // defaultSelectedKeys={defaultSelectedKeys}
-                // defaultOpenKeys={defaultOpenKeys}
-                selectedKeys={selectKeys}
-                openKeys={openKeys}
-                onClick={clickMenu}
-            >
-                {
-                    renderSubMenu(asynRouter, "/")
-                }
-            </Menu>
-        </div>
-    );
+  return (
+    <Menu
+      theme="dark"
+      mode="inline"
+      {...openKeyProps}
+      // onOpenChange={openChange}
+      // defaultSelectedKeys={defaultSelectedKeys}
+      defaultOpenKeys={defaultOpenKeys}
+      selectedKeys={selectKeys}
+      // openKeys={openKeys}
+      onClick={clickMenu}
+    >
+      {renderSubMenu(asynRouter, "/")}
+    </Menu>
+  );
 }
-export default connect(state => ({ collapse: state.collapse, mode: state.collapse ? 'vertical' : 'inline' }))(withRouter(Side));
+export default connect((state) => ({
+  collapse: state.collapse,
+  mode: state.collapse ? "vertical" : "inline",
+}))(withRouter(Side));
 // export default withRouter(Side);
