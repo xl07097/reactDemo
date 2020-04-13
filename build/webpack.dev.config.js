@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const base = require("./webpack.base.config");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(base, {
     mode: "development",
@@ -14,11 +15,30 @@ module.exports = merge(base, {
     module: {
         rules: [{
             test: /\.css$/,
-            use: ["style-loader", "css-loader", "postcss-loader",]
+            use: [
+                {
+                    loader: "style-loader"
+                },
+                {
+                    loader: 'css-loader'
+                },
+                {
+                    loader: "postcss-loader"
+                }
+            ]
         },
         {
             test: /\.less$/,
-            use: ["style-loader", "css-loader", "postcss-loader",
+            use: [
+                {
+                    loader: "style-loader"
+                },
+                {
+                    loader: 'css-loader'
+                },
+                {
+                    loader: "postcss-loader"
+                },
                 {
                     loader: "less-loader",
                     options: {
@@ -29,6 +49,10 @@ module.exports = merge(base, {
         }
         ]
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new BundleAnalyzerPlugin()
+    ],
     devServer: {
         port: "9000",
         host: "localhost",

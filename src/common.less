@@ -1,11 +1,18 @@
+@import '~antd/dist/antd.less';   // 可以在 .babelrc 里设置
+
+@primary-color: #990d0d;
+
+
+
+
 // 雪碧图 
-.icon{
+.icon {
   display: inline-block;
   margin: 8px;
 }
 
 @import "../public/sprites/sprite.css";
-
+@import "../public/sprites/flags.css";
 
 // 清除浮动
 .clearfix() {
@@ -52,13 +59,25 @@ ul {
 
 /* ================= start---- antd 样式重写==================  */
 
+// layout 布局
+.ant-row {
+  margin-bottom: 16px;
+}
+.ant-layout.ant-layout-has-sider>.ant-layout,
+.ant-layout.ant-layout-has-sider>.ant-layout-content{
+  overflow-y: hidden;
+}
+
+
+
+
 // ********************   antd-table css
 .ant-table-thead>tr>th {
-  padding: 10px 4px !important;
+  padding: 10px 4px;
 }
 
 .ant-table-tbody>tr>td {
-  padding: 4px !important;
+  padding: 4px;
 }
 
 
@@ -75,10 +94,32 @@ ul {
 
 
 // *********************===   antd-tree css
-.ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected {
+.ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected,
+.ant-tree-node-content-wrapper:hover {
   background-color: seagreen !important;
   color: #FFF !important;
 }
+
+
+
+// ***********************    modal css
+.ant-modal-header {
+  padding: 10px 24px !important;
+  background: #000 !important;
+
+  .ant-modal-title {
+    color: #FFF !important;
+  }
+}
+
+.ant-modal-close-x {
+  width: 43px !important;
+  height: 43px !important;
+  line-height: 43px !important;
+  color: aliceblue;
+}
+
+
 
 
 /* ================= end------ antd 样式重写 ====================  */

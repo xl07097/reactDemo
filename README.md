@@ -61,7 +61,7 @@
      * @param {*} prevProps
      * @param {*} prevState
      * @param {*} snapshot
-     *
+     */
     componentDidUpdate(prevProps, prevState, snapshot) {
 
     }
@@ -69,7 +69,7 @@
     /**
      * 卸载之前调用
      */
-    componentWillMount() {
+    componentWillUnmount() {
 
     }
 

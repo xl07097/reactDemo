@@ -1,17 +1,18 @@
 const path = require("path");
 const merge = require("webpack-merge");
+const webpack = require("webpack");
 const baseConfig = require("./webpack.base.config");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = merge(baseConfig, {
     mode: "production",
-    devtool: "cheap-module-source-map",
+    // devtool: "cheap-module-source-map",
     output: {
         path: path.resolve(__dirname, "../dist"),
         filename: "js/[name].[hash].js",
-        publicPath: "/" // 使用 ./ 时  嵌套路由资源获取不到？
+        publicPath: "/"
     },
     module: {
         rules: [{
@@ -52,11 +53,11 @@ module.exports = merge(baseConfig, {
         }
     },
     plugins: [
-        new CleanWebpackPlugin(["dist/"], {
-            root: path.resolve(__dirname, "../"),
-            verbose: true,
-            dry: false
-        }),
+        new CleanWebpackPlugin(),
+        new webpack.ContextReplacementPlugin(
+            /moment[\\/]locale$/,
+            /^\.\/(zh-cn)$/
+        ),
         new MiniCssExtractPlugin({
             filename: "css/[name].[hash].css"
         }),

@@ -1,6 +1,6 @@
 import $fetch from "@/utils/fetch";
-import path from "@/utils/path";
+import urls from "@/utils/urls";
 
 export function getAllMenu() {
-    return $fetch.post(path.getAllMenu)
+    return $fetch.post(urls.getAllMenu)
 }

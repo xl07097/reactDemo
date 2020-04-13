@@ -2,13 +2,16 @@ import React from 'react';
 import './card.less';
 
 function Card() {
+    const date = new Date();
+    const today = date.getDate();
+    const calendar = date.toLocaleDateString();
     return (
         <div className="card">
             <div className="card-header">
-                <h1>1</h1>
+                <h1>{today}</h1>
             </div>
             <div className="card-content">
-                <p>2019-9-16</p>
+                <p>{calendar}</p>
             </div>
         </div>
     );

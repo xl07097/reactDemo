@@ -1,6 +1,6 @@
 function array2Tree(data:any) {
     let zNodes = data;
-    let tmpMap = {};
+    let tmpMap = Object.create(null);
     let tree:any = [];
     let key = 'id';
     let parentKey = 'pid';

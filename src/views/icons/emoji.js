@@ -1189,9 +1189,6 @@ let emoji = {
         "pinterest",
         "pinterest-p",
         "pinterest-square",
-
-
-        
         "qq",
         "quora",
         "ra",

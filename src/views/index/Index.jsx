@@ -1,68 +1,29 @@
 import React from "react";
-import { Row, Col, Card, Statistic, Icon} from "antd";
+import { Row, Col, Carousel } from "antd";
 
-const responsiveProps = {
-    xs: 24,
-    sm: 12,
-    md: 12,
-    lg: 12,
-    xl: 6,
-    style: {
-        marginBottom: '20px'
-    }
-};
+import TopRow from './TopRow';
+import MyCalendar from './calendar/MyCalendar';
+import ChartLine from './chart/ChartLine';
+import Swipper from './Swipper';
+
+import './index.less';
+
 
 function Index() {
     return (
         <div style={{ textAlign: "center" }}>
-            <Row gutter={20}>
-                <Col {...responsiveProps}>
-                    <Card bordered={false}>
-                        <Statistic
-                            title="交易量"
-                            value={11.28}
-                            precision={2}
-                            valueStyle={{ color: '#3f8600' }}
-                            prefix={<Icon type="arrow-up" />}
-                            suffix="%"
-                        />
-                    </Card>
+            <TopRow></TopRow>
+            <Row gutter={16}>
+                <Col span={12}>
+                    <MyCalendar></MyCalendar>
                 </Col>
-                <Col {...responsiveProps}>
-                    <Card bordered={false}>
-                        <Statistic
-                            title="订单量"
-                            value={11.28}
-                            precision={2}
-                            valueStyle={{ color: '#3f8600' }}
-                            prefix={<Icon type="arrow-up" />}
-                            suffix="%"
-                        />
-                    </Card>
+                <Col span={12}>
+                    <ChartLine></ChartLine>
                 </Col>
-                <Col {...responsiveProps}>
-                    <Card bordered={false}>
-                        <Statistic
-                            title="订单量"
-                            value={11.28}
-                            precision={2}
-                            valueStyle={{ color: '#3f8600' }}
-                            prefix={<Icon type="arrow-up" />}
-                            suffix="%"
-                        />
-                    </Card>
-                </Col>
-                <Col {...responsiveProps}>
-                    <Card bordered={false}>
-                        <Statistic
-                            title="订单量"
-                            value={11.28}
-                            precision={2}
-                            valueStyle={{ color: '#3f8600' }}
-                            prefix={<Icon type="arrow-up" />}
-                            suffix="%"
-                        />
-                    </Card>
+            </Row>
+            <Row gutter={16}>
+                <Col span={8}>
+                    <Swipper></Swipper>
                 </Col>
             </Row>
         </div>

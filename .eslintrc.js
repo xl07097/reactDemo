@@ -3,7 +3,8 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["airbnb", "plugin:prettie/recommended"],
+    // "eslint:recommended",
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -21,11 +22,12 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "indent": ["error", 4],
+        // "indent": ["error", 4],
         "semi": [0, "always"],
         "quotes": ["off", "double"],
         "no-unused-vars": 0,
         "no-console": ["off"],
-        "no-undef": ["off"]
+        "no-undef": ["off"],
+        'indent': 'off'
     }
 };

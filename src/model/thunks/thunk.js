@@ -1,14 +1,18 @@
 import { getUserList } from '@/api/product';
 
-export function asyncAdd() {
+export function asyncAdd(req) {
     return dispatch => {
-        getUserList({ page: 1, size: 100 }).then(data => {
-            if (data.code === 200) {
-                dispatch({
-                    type: 'fetch_list',
-                    list: data.data
-                });
-            }
+        getUserList(req).then(data => {
+            dispatch({
+                type: 'fetch_list',
+                list: data
+            });
+            // if (data.code === 200) {
+            //     dispatch({
+            //         type: 'fetch_list',
+            //         list: data.data
+            //     });
+            // }
         });
     };
 }

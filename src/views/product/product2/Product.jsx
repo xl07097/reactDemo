@@ -1,10 +1,9 @@
 import React from 'react';
-import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progress, Popconfirm } from 'antd';
+import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progress, Popconfirm, message } from 'antd';
 
-import dbUtil from '@/utils/dbUtil';
 import { getUserList } from '@/api/product';
-import path from '@/utils/path'
-
+import { switchUserStatus } from '@/api/user';
+import { timetrans } from '@/utils/dateUtils'
 class Product extends React.Component {
     columns = [
         {
@@ -17,8 +16,8 @@ class Product extends React.Component {
         },
         {
             title: '姓名',
-            dataIndex: 'name',
-            key: 'name'
+            dataIndex: 'username',
+            key: 'username'
         },
         {
             title: '年龄',
@@ -38,7 +37,14 @@ class Product extends React.Component {
             dataIndex: 'avatar',
             key: 'avatar',
             render: (data, record, index) => {
-                return <img src={data} alt="avatar" title='avatar' style={{ width: '40px' }} />;
+                return <img src={data} alt={record.name} title={record.name} style={{ width: '40px' }} />;
+            }
+        },
+        {
+            title: "添加时间",
+            dataIndex: "createtime",
+            render: (data, record, index) => {
+                return timetrans(data);
             }
         },
         {
@@ -52,11 +58,17 @@ class Product extends React.Component {
         {
             title: '操作',
             dataIndex: 'action',
+            width: 260,
             key: 'action',
             render: (data, record, index) => {
+                let msg = record.status ? '确定禁用？' : '确定启用？';
                 return (
                     <div>
                         <Button type="primary" onClick={() => this.edit(record)}>编辑</Button>
+                        &emsp;
+                        <Popconfirm placement="top" title={msg} onConfirm={() => this.switch(record)}>
+                            <Button type="danger">{record.status === 1 ? '禁用' : '启用'}</Button>
+                        </Popconfirm>
                         &emsp;
                         <Popconfirm placement="top" title="确定删除？" onConfirm={() => this.delete(record)}>
                             <Button type="danger">删除</Button>
@@ -78,8 +90,6 @@ class Product extends React.Component {
         percent: 0
     }
 
-    db = '';
-
     search = (page, size) => {
 
         let req = {
@@ -90,13 +100,17 @@ class Product extends React.Component {
             this.setState({
                 loading: false
             });
-            if (data.code === 200) {
-                this.setState({
-                    tableData: data.data,
-                    total: data.total
-                });
-                window.scrollTo(0, 0);
-            }
+            this.setState({
+                tableData: data,
+                total: data.length
+            });
+            // if (data.code === 200) {
+            //     this.setState({
+            //         tableData: data.data,
+            //         total: data.total
+            //     });
+            //     window.scrollTo(0, 0);
+            // }
         });
     }
 
@@ -119,29 +133,11 @@ class Product extends React.Component {
     componentDidMount = () => {
         const { page, size } = this.state;
         this.search(page, size);
-
-        this.db = openDatabase("car", '1.0', 'Test DB', 20 * 1024 * 1024);
-        this.db.transaction(async (tx) => {
-            await dbUtil(tx, 'CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
-        });
     }
 
     edit = (data) => {
         this.setState({
             visible: true
-        });
-
-        this.db.transaction(async (tx) => {
-            await dbUtil(tx, 'CREATE TABLE IF NOT EXISTS user (_id unique, name, password,age,avatar,gender,status,createtime)');
-            let result = await dbUtil(tx, 'select * from user where _id=?', [data['_id']]);
-
-            if (!result.rows.length) {
-                let res = await dbUtil(tx, 'INSERT INTO user(_id, name, password, age, avatar, gender, status, createtime) VALUES(?, ?, ?, ?, ?, ?, ?, ?)', [data['_id'], data['name'], data['password'], data['age'], data['avatar'], data['gender'], data['status'], data['createtime']]);
-
-                // insertId: 5
-                // rows: SQLResultSetRowList { length: 0 }
-                // rowsAffected: 1
-            }
         });
     }
 
@@ -149,7 +145,7 @@ class Product extends React.Component {
         console.log(data);
     }
 
-    onChange = ({ file, fileList, event }) => {
+    onUploadChange = ({ file, fileList, event }) => {
         if (file.status === 'uploading') {
             if (event) {
                 let percent = (event.loaded / event.total) * 100;
@@ -176,6 +172,19 @@ class Product extends React.Component {
         });
     }
 
+    switch = (row) => {
+        let status = row.status === 1 ? 2 : 1;
+        switchUserStatus({ id: row._id, status: status }).then(data => {
+            if (data.code === 200) {
+                message.success('用户状态修改成功');
+                const { page, size } = this.state;
+                this.search(page, size);
+            } else {
+                message.error('用户状态修改失败');
+            }
+        });
+    }
+
     modalCancel = () => {
         this.setState({
             visible: false
@@ -188,7 +197,7 @@ class Product extends React.Component {
         const columns = this.columns;
         return (
             <div>
-                <Table bordered={true} rowKey="_id" dataSource={tableData} columns={columns} pagination={false} loading={loading}></Table>
+                <Table bordered={true} rowKey="id" dataSource={tableData} columns={columns} pagination={false} loading={loading}></Table>
                 <div className="page">
                     <Pagination
                         showSizeChanger
@@ -216,7 +225,7 @@ class Product extends React.Component {
                             <Upload
                                 // action={`${path.BASE_URI}${path.upload}`}
                                 action="http://localhost:3000/api/upload/uploadfile"
-                                onChange={this.onChange}>
+                                onChange={this.onUploadChange}>
                                 <Button>
                                     <Icon type="upload" /> 上传
                                 </Button>
