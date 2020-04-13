@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import store from '@/model/store';
 import { BrowserRouter, HashRouter } from "react-router-dom";
-import { ConfigProvider  } from "antd";
+import { ConfigProvider } from "antd";
 import App from "@/views/App";
 
 import zh_CN from "antd/lib/locale-provider/zh_CN";
@@ -20,10 +20,10 @@ import '@/utils/global';
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <HashRouter>
             <ConfigProvider locale={zh_CN}>
                 <App />
             </ConfigProvider>
-        </BrowserRouter>
+        </HashRouter>
     </Provider>,
     document.getElementById("root"));
