@@ -15,5 +15,5 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.reactAction }}
         BRANCH: gh-pages
-        FOLDER: build
+        FOLDER: dist
         BUILD_SCRIPT: npm install && npm run build
