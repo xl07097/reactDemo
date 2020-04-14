@@ -19,6 +19,6 @@ urls.userLogout = "/user/logout"; //退出登录
 urls.getUser = "/user/checkuser";
 urls.userList = "/user/userList";
 urls.userStatus = '/user/changeUserStatus';
-urls.getAllMenu = 'menu/getMenu';
+urls.getAllMenu = '/menu/getMenu';
 
 export default urls;
