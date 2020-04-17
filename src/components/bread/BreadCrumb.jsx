@@ -6,6 +6,7 @@ import BreadMap from "./breadRouterMap";
 function MyBread(props) {
 
     const { location } = props;
+    console.log(location)
     const locationArr = location.pathname.split("/").filter(i => i);
 
     let breadcrumbItems = locationArr.map((item, index, arr) => {
