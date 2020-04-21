@@ -6,9 +6,9 @@
  * @return yyyy/MM/dd hh:mm:ss
  */
 export function datetimeformatFromString(str) {
-    // if (!str) {
-    //     return '';
-    // }
+    if (!str) {
+        return '';
+    }
     return new Date(str).Format("yyyy/MM/dd hh:mm:ss")
 }
 /**
@@ -17,9 +17,9 @@ export function datetimeformatFromString(str) {
  * @return yyyy/MM/dd
  */
 export function datetimeformatFromString1(str) {
-    // if (!str) {
-    //     return '';
-    // }
+    if (!str) {
+        return '';
+    }
     return new Date(str).Format("yyyy/MM/dd")
 }
 
@@ -29,9 +29,9 @@ export function datetimeformatFromString1(str) {
  * @return yyyy-MM-dd hh:mm:ss
  */
 export function timetrans(str) {
-    // if (!str) {
-    //     return '';
-    // }
+    if (!str) {
+        return '';
+    }
     return new Date(str).Format("yyyy-MM-dd hh:mm:ss")
 }
 
@@ -41,9 +41,9 @@ export function timetrans(str) {
  * @return yyyy-MM-dd
  */
 export function dateFormatFromString(str) {
-    // if (!str) {
-    //     return '';
-    // }
+    if (!str) {
+        return '';
+    }
     return new Date(str).Format("yyyy-MM-dd")
 }
 
@@ -54,9 +54,9 @@ export function dateFormatFromString(str) {
  * @return yyyy-MM-dd hh:mm
  */
 export function stringFromDate1(str) {
-    // if (!str) {
-    //     return '';
-    // }
+    if (!str) {
+        return '';
+    }
     return new Date(str).Format("yyyy-MM-dd hh:mm")
 }
 
@@ -66,9 +66,9 @@ export function stringFromDate1(str) {
  * @return yyyy年MM月dd日 hh:mm
  */
 export function stringFromDate2(str) {
-    // if (!str) {
-    //     return '';
-    // }
+    if (!str) {
+        return '';
+    }
     return new Date(str).Format("yyyy年MM月dd日 hh:mm")
 }
 
@@ -78,9 +78,9 @@ export function stringFromDate2(str) {
  * @return yyyy年MM月dd日 hh:mm
  */
 export function stringFromDate3(str) {
-    // if (!str) {
-    //     return '';
-    // }
+    if (!str) {
+        return '';
+    }
     return new Date(str).Format("yyyy年MM月dd日")
 }
 
@@ -90,9 +90,9 @@ export function stringFromDate3(str) {
  * @return yyyy年MM月dd日 hh:mm
  */
 export function stringFromDateToNormal(str) {
-    // if (!str) {
-    //     return '';
-    // }
+    if (!str) {
+        return '';
+    }
     return new Date(str).Format("MM月dd日 hh:mm")
 }
 
