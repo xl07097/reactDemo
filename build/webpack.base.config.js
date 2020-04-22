@@ -23,6 +23,7 @@ module.exports = {
                 use: [{
                     loader: "url-loader",
                     options: {
+                        esModule: false,
                         limit: 10240,
                         name: path.posix.join("static", "img/[name].[hash:8].[ext]")
                     }
@@ -34,6 +35,7 @@ module.exports = {
                 use: [{
                     loader: "url-loader",
                     options: {
+                        esModule: false,
                         limit: 10000,
                         name: path.posix.join("static", "fonts/[name].[hash:8].[ext]")
                     }
