@@ -14,24 +14,12 @@ function Tree1(props) {
 
 
     function getMenu() {
-        // fetch("http://localhost:9087/note/menu/getMenu", {
-        //     method: 'post',
-        //     headers: {
-        //         "content-type": 'application/json'
-        //     }
-        // })
-        //     .then(data => data.json())
-        //     .then(data => {
-        //         setTreeData(data);
-        //         // console.log(data);
-        //     })
         getAllMenu()
             .then(data => {
-                setTreeData(data);
-                // if (data.code === 200) {
-                //     setTreeData(data);
-                //     // setTreeData(array2Tree(data.data));
-                // }
+                if (data.code === 200) {
+                    setTreeData(data.data);
+                    // setTreeData(array2Tree(data.data));
+                }
             })
     }
 
