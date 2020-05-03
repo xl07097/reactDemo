@@ -15,6 +15,7 @@ const routes = [
 const asynRouter = [
     {
         path: "/",
+        exact: true,
         meta: {
             title: "首页",
             role: "index"
@@ -102,7 +103,7 @@ const asynRouter = [
         component: lazy(() => import("@/components/MiddlePage")),
         children: [
             {
-                path: "product1",
+                path: "/product/product1",
                 meta: {
                     title: "二级菜单",
                     role: "product1"
@@ -110,7 +111,7 @@ const asynRouter = [
                 component: lazy(() => import("@/components/MiddlePage")),
                 children: [
                     {
-                        path: "product1_1",
+                        path: "/product/product1/product1_1",
                         meta: {
                             title: "三级菜单",
                             role: "product1_1"
@@ -120,7 +121,7 @@ const asynRouter = [
                 ]
             },
             {
-                path: "product2",
+                path: "/product/product2",
                 meta: {
                     title: "二级菜单",
                     role: "product2"
@@ -128,7 +129,7 @@ const asynRouter = [
                 component: lazy(() => import("@/views/product/product2/Product"))
             },
             {
-                path: "product3",
+                path: "/product/product3",
                 meta: {
                     title: "二级菜单",
                     role: "product3"
@@ -136,7 +137,7 @@ const asynRouter = [
                 component: lazy(() => import("@/views/product/product3/Product"))
             },
             {
-                path: "product4",
+                path: "/product/product4",
                 meta: {
                     title: "二级菜单",
                     role: "product4"
@@ -148,128 +149,3 @@ const asynRouter = [
 ];
 
 export { routes, asynRouter };
-    
-const router = [
-    {
-        path: '/account',
-        meta: {
-            name: '账户管理',            
-            role: 'account'
-        },
-        children: [
-            {
-                path: 'accountInfo',
-                meta: {
-                    name: '账户信息',
-                    role: 'accountInfo'
-                }
-            }
-        ]
-    },
-    {
-        path: '/notice',
-        meta: {
-            name: '公告管理',
-            role: 'notice'
-        },
-        children: [
-            {
-                path: 'noticeInfo',
-                meta: {
-                    name: '公告信息',
-                    role: 'noticeInfo'
-                }
-            }
-        ]
-    },
-    {
-        path: '/message',
-        meta: {
-            name: '短信管理',
-            role: 'message'
-        },
-        children: [
-            {
-                path: 'messageStatistics',
-                meta: {
-                    name: '短信统计',
-                    role: 'messageStatistics'
-                }
-            },
-            {
-                path: 'templateCheck',
-                meta: {
-                    name: '模板审核',
-                    role: 'templateCheck'
-                }
-            },
-            {
-                path: 'signatureCheck',
-                meta: {
-                    name: '签名审核',
-                    role: 'signatureCheck'
-                }
-            }
-        ]
-    },
-    {
-        path: 'user',
-        meta: {
-            name: '用户管理',
-            role: 'user'
-        },
-        children: [
-            {
-                path: 'department',
-                meta: {
-                    name: '部门信息',
-                    role: 'department'
-                },
-            },
-            {
-                path: 'userInfo',
-                meta: {
-                    name: '用户信息',
-                    role: 'userInfo'
-                },
-            },
-            {
-                path: 'roleInfo',
-                meta: {
-                    name: '角色信息',
-                    role: 'roleInfo'
-                },
-            }
-        ]
-    },
-    {
-        path: 'monitorCenter',
-        meta: {
-            name: '监控中心',
-            role: 'monitorCenter'
-        },
-        children: [
-            {
-                path: 'monitorMsg',
-                meta: {
-                    name: '监控信息',
-                    role: 'monitorMsg'
-                },
-            },
-            {
-                path: 'conLog',
-                meta: {
-                    name: '登录日志',
-                    role: 'conLog'
-                },
-            },
-            {
-                path: 'operationlog',
-                meta: {
-                    name: '操作日志',
-                    role: 'operationlog'
-                },
-            }
-        ]
-    }
-]

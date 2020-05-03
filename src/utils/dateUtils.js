@@ -8,7 +8,7 @@
 export function datetimeformatFromString(str) {
     if (!str) {
         return '';
-    } 
+    }
     return new Date(str).Format("yyyy/MM/dd hh:mm:ss")
 }
 /**
@@ -28,7 +28,7 @@ export function datetimeformatFromString1(str) {
  * @param {*} d 
  * @return yyyy-MM-dd hh:mm:ss
  */
-export function timetrans(d) {
+export function timetrans(str) {
     if (!str) {
         return '';
     }
@@ -53,7 +53,7 @@ export function dateFormatFromString(str) {
  * @param {*} str
  * @return yyyy-MM-dd hh:mm
  */
-export function stringFromDate1(date) {
+export function stringFromDate1(str) {
     if (!str) {
         return '';
     }
@@ -106,7 +106,7 @@ export function twoDateTime() {
     let date1 = y + '/' + m + '/01';
     let date2 = null;
     let allDate = new Date(y, m, 0).getDate();
-    return [new Date(date1 + ' 00:00'), new Date(date2+'m'+allDate + ' 23:59')];
+    return [new Date(date1 + ' 00:00'), new Date(date2 + 'm' + allDate + ' 23:59')];
 }
 
 export function getDay(time1, time2) {
