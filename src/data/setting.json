@@ -3,30 +3,29 @@
     "files.autoSave": "afterDelay",
     "liveServer.settings.host": "localhost",
     "liveServer.settings.port": 0,
-    "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
+    "git.path": "D:\\Program Files\\Git\\bin\\git.exe",
     "npm.enableScriptExplorer": true,
-    "maven.executable.path": "D:\\Program Files\\maven\\bin\\mvn",
+    "maven.executable.path": "D:\\Program Files\\apache-maven-3.6.3\\bin\\mvn",
     "spring.initializr.defaultPackaging": "WAR",
     "java.home": "D:\\Program Files\\Java\\jdk1.8.0_151",
-    "java.configuration.maven.userSettings": "D:\\Program Files\\maven\\conf\\settings.xml",
+    "java.configuration.maven.userSettings": "D:\\Program Files\\apache-maven-3.6.3\\conf\\settings.xml",
     "liveServer.settings.CustomBrowser": "chrome",
     "git.autofetch": true,
-    "open-in-browser.default": "chrome",
     "liveServer.settings.donotShowInfoMsg": true,
-    "workbench.colorTheme": "Monokai",
     "workbench.colorCustomizations": {
         "editorLineNumber.foreground": "#17a346",
         "editorCursor.foreground": "#fa1e0a",
         "editor.lineHighlightBackground": "#5e5a5a"
     },
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "editor.tokenColorCustomizations": {},
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
     "java.configuration.checkProjectSettingsExclusions": false,
     "java.errors.incompleteClasspath.severity": "ignore",
     "files.exclude": {
-        "**/.idea": true
+        "**/.idea": true,
+        "**/.settings": true
     },
     "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.formatOnPaste": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
@@ -39,16 +38,53 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "auto-close-tag.activationOnLanguage": [
+        "*"
+    ],
     "liveServer.settings.donotVerifyTags": true,
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "leetcode.endpoint": "leetcode",
     "spring.initializr.defaultLanguage": "Java",
     "workbench.iconTheme": "vscode-icons",
     "vsicons.projectDetection.disableDetect": true,
-    "python.jediEnabled": false,
-    "remote.onstartup": true,
     "vsicons.dontShowNewVersionMessage": true,
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "files.associations": {
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript",
+        "*.properties": "ini"
+    },
+    "emmet.includeLanguages": {
+        "wxml": "html"
+    },
+    "java.import.gradle.home": "D:\\Program Files\\gradle-5.6.2",
+    "extensions.showRecommendationsOnlyOnDemand": true,
+    "merge-conflict.autoNavigateNextConflict.enabled": true,
+    "git.confirmSync": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "npm.enableRunFromFolder": true,
+    "spring.initializr.defaultGroupId": "com.xueliang",
+    "terminal.integrated.rendererType": "dom",
+    "remote.SSH.remotePlatform": {
+        "122.51.129.51": "linux"
+    },
+    "prettier.tabWidth": 4,
+    "prettier.useTabs": true,
+    "prettier.vueIndentScriptAndStyle": true,
+    "dart.debugExternalLibraries": true,
+    "dart.debugSdkLibraries": true,
+    "dart.openDevTools": "flutter",
+    "java.requirements.JDK11Warning": false,
+    "workbench.colorTheme": "Monokai",
+    "editor.accessibilitySupport": "off",
+    "java.semanticHighlighting.enabled": true,
+    "editor.lineHeight": 24,
+    "editor.tabCompletion": "on",
+    "timeline.pageSize": 0,
+    "terminal.integrated.unicodeVersion": "11"
 }
