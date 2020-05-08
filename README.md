@@ -14,7 +14,7 @@
     }
 
     /**
-     * render 之后，组建 虚拟 dom 之后，实际挂载之前，获取新的 props 或 state；
+     * render 之后，组件 虚拟 dom 之后，实际挂载之前，获取新的 props 或 state；
      * 接收新的 props 之后
      *
      * 返回一个对象作为新的 state

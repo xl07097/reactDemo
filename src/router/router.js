@@ -23,6 +23,15 @@ const asynRouter = [
         component: lazy(() => import("@/views/index/Index"))
     },
     {
+        path: "/lifecycle",
+        exact: true,
+        meta: {
+            title: "组件生命周期",
+            role: "lifecycle"
+        },
+        component: lazy(() => import("@/views/lifecycle/LifeCycle"))
+    },
+    {
         path: "/button",
         meta: {
             title: "按钮",
