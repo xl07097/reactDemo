@@ -1,6 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
-
 class LifeCycle extends React.Component {
     constructor(props) {
         super(props);
@@ -63,4 +61,4 @@ class LifeCycle extends React.Component {
         );
     }
 }
-export default withRouter(LifeCycle);
+export default LifeCycle;
