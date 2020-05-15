@@ -8,7 +8,7 @@ const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plug
 
 module.exports = merge(baseConfig, {
     mode: "production",
-    // devtool: "cheap-module-source-map",
+    devtool: "cheap-module-source-map",
     output: {
         path: path.resolve(__dirname, "../dist"),
         filename: "js/[name].[hash].js",
@@ -36,17 +36,17 @@ module.exports = merge(baseConfig, {
     },
     optimization: {
         splitChunks: {
-            chunks: "all",
+            chunks: "async",
             minSize: 20000,
             minChunks: 1,
-            maxAsyncRequests: 5,
+            maxAsyncRequests: 3,
             maxInitialRequests: 3,
             name: true,
             cacheGroups: {
                 vendor: {
                     name: "vendor",
                     test: /[\\/]node_modules[\\/]/,
-                    chunks: "all",
+                    maxSize: 500* 1024,
                     priority: 10
                 }
             }
