@@ -11,8 +11,8 @@ class Chart extends React.Component {
     componentDidMount() {
         this.chart = new G2.Chart({
             container: this.myRef.current,
-            // width: 600,
-            height: 300
+            width: this.myRef.current.clientWidth - 20,
+            height: 300,
         });
 
         const data = [
@@ -46,13 +46,10 @@ class Chart extends React.Component {
 
     render() {
         return (
-            <div>
+            <>
                 <h2>权利的游戏八季评分</h2>
-                <div id='chart' ref={this.myRef}>
-
-                </div>
-
-            </div>
+                <div style={{ padding: 10 }} id="chart2" ref={this.myRef}></div>
+            </>
         );
     }
 }

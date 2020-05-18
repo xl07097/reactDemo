@@ -8,11 +8,12 @@ class Chart extends React.Component{
         this.chart = "";
     }
 
-    componentDidMount(){
+    componentDidMount() {
+        console.dir(this.myRef.current);
         this.chart = new G2.Chart({
             container: this.myRef.current,
-            // width: 600,
-            height: 300
+            width: this.myRef.current.clientWidth - 20,
+            height: 300,
         });
 
         const data = [
@@ -107,12 +108,10 @@ class Chart extends React.Component{
 
     render(){
         return (
-            <div>
-                <div id='chart' ref={this.myRef}>
-                
+            <>
+                <div style={{ padding: 10, width: '100%' }} id='chart1' ref={this.myRef}>
                 </div>
-            
-            </div>
+            </>
         );
     }
 }
