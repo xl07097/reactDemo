@@ -8,11 +8,11 @@ if (window.location.hostname === "localhost"){ // 本地开发状态
 }
 let urls = {};
 
-
-urls.upload = 'http://122.51.129.51/note/upload/uploadfile';
-
 urls.BASE_URI = BASIC_URI + "/note"; // 基础地址
-    
+
+
+urls.upload = urls.BASE_URI + '/upload/uploadfile';
+
 urls.userLogin = "/user/login"; // 登录
 urls.getLoginUserInfo = "/user/loginUserInfo";// 当前登录用户信息
 urls.userLogout = "/user/logout"; //退出登录
