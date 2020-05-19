@@ -11,6 +11,7 @@ class Chart extends React.Component {
     componentDidMount() {
         this.chart = new G2.Chart({
             container: this.myRef.current,
+            forceFit: true,
             width: this.myRef.current.clientWidth - 20,
             height: 300,
         });
@@ -23,21 +24,21 @@ class Chart extends React.Component {
             { collect: "第五季", grade: 9.3 },
             { collect: "第六季", grade: 9.5 },
             { collect: "第七季", grade: 9.3 },
-            { collect: "第八季", grade: 9.8 }
+            { collect: "第八季", grade: 9.8 },
         ];
 
-        this.chart.source(data,{
+        this.chart.source(data, {
             collect: {
-                alias: "季" //定义别名
+                alias: "季", //定义别名
             },
             grade: {
-                alias: "豆瓣评分"
-            }
+                alias: "豆瓣评分",
+            },
         });
         this.chart.tooltip({
             crosshairs: {
-                type: "line"
-            }
+                type: "line",
+            },
         });
         this.chart.line().position("collect*grade").color("red");
         // this.chart.interval().position('collect*grade').color('genre');

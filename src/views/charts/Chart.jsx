@@ -10,23 +10,23 @@ class Chart extends React.Component{
 
     componentDidMount() {
         console.dir(this.myRef.current);
-        this.chart = new G2.Chart({
-            container: this.myRef.current,
-            width: this.myRef.current.clientWidth - 20,
-            height: 300,
-        });
+        // this.chart = new G2.Chart({
+        //     container: this.myRef.current,
+        //     width: this.myRef.current.clientWidth - 20,
+        //     height: 300,
+        // });
 
-        const data = [
-            { genre: "Sports", sold: 275 },
-            { genre: "Strategy", sold: 115 },
-            { genre: "Action", sold: 120 },
-            { genre: "Shooter", sold: 350 },
-            { genre: "Other", sold: 150 }
-        ];
+        // const data = [
+        //     { genre: "Sports", sold: 275 },
+        //     { genre: "Strategy", sold: 115 },
+        //     { genre: "Action", sold: 120 },
+        //     { genre: "Shooter", sold: 350 },
+        //     { genre: "Other", sold: 150 }
+        // ];
 
-        this.chart.source(data);
-        this.chart.interval().position("genre*sold").color("genre");
-        this.chart.render();
+        // this.chart.source(data);
+        // this.chart.interval().position("genre*sold").color("genre");
+        // this.chart.render();
 
         var data1 = [{
             "name": "London",
@@ -93,17 +93,18 @@ class Chart extends React.Component{
             "月份": "Aug.",
             "月均降雨量": 42.4
         }];
-        // var chart = new G2.Chart({
-        //     container: 'mountNode',
-        //     forceFit: true,
-        //     height: window.innerHeight
-        // });
-        // chart.source(data);
-        // chart.interval().position('月份*月均降雨量').color('name').adjust([{
-        //     type: 'dodge',
-        //     marginRatio: 1 / 32
-        // }]);
-        // chart.render();
+        var chart = new G2.Chart({
+            container: "chart1",
+            forceFit: true,
+            width: this.myRef.current.clientWidth - 20,
+            height: 300,
+        });
+        chart.source(data1);
+        chart.interval().position('月份*月均降雨量').color('name').adjust([{
+            type: 'dodge',
+            marginRatio: 1 / 32
+        }]);
+        chart.render();
     }
 
     render(){
