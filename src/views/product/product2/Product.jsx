@@ -100,17 +100,13 @@ class Product extends React.Component {
             this.setState({
                 loading: false
             });
-            this.setState({
-                tableData: data,
-                total: data.length
-            });
-            // if (data.code === 200) {
-            //     this.setState({
-            //         tableData: data.data,
-            //         total: data.total
-            //     });
-            //     window.scrollTo(0, 0);
-            // }
+            if (data.code === 200) {
+                this.setState({
+                    tableData: data.data,
+                    total: data.length
+                });
+                window.scrollTo(0, 0);
+            }
         });
     }
 

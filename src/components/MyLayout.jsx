@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import Headers from "@/components/header/Header";
 import Contents from "@/views/content/Content";
-import Side from "@/components/sidemenu/Side.jsx";
+import MySide from "@/components/sidemenu/MySide.jsx";
 
 const { Content, Sider } = Layout;
 
@@ -17,17 +17,17 @@ function MyLayout(props) {
     const { collapse } = props;
     return (
         // <>
-            <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>
-                <Headers></Headers>
-                <Layout>
-                    <Sider trigger={null} collapsible collapsed={collapse} width={234} style={style}>
-                        <Side></Side>
-                    </Sider>
-                    <Content>
-                        <Contents></Contents>
-                    </Content>
-                </Layout>
+        <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>
+            <Headers></Headers>
+            <Layout>
+                <Sider trigger={null} collapsible collapsed={collapse} width={234} style={style}>
+                    <MySide></MySide>
+                </Sider>
+                <Content>
+                    <Contents></Contents>
+                </Content>
             </Layout>
+        </Layout>
         // </>
     );
 }

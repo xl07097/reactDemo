@@ -15,13 +15,13 @@ import thunk from 'redux-thunk';
 function counter(state = {}, action) {
     switch (action.type) {
     case 'INCREMENT':
-        return Object.assign({}, state, { count: state.count + 1 });
+            return { ...state, ...{ count: state.count + 1}};
     case 'DECREMENT':
-        return Object.assign({}, state, { count: state.count - 1 });
+            return { ...state, ...{ count: state.count - 1}};
     case 'collapse':
-        return Object.assign({}, state, { collapse: !state.collapse });
+            return { ...state, ...{ collapse: !state.collapse }};
     case 'fetch_list':
-        return Object.assign({}, state, { list: action.list || [] });
+            return { ...state, ...{ list: action.list || [] }};
     default:
         return state; 
     }
