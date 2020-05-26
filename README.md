@@ -14,8 +14,7 @@
     }
 
     /**
-     * render 之后，组件 虚拟 dom 之后，实际挂载之前，获取新的 props 或 state；
-     * 接收新的 props 之后
+     * render 之前，新的 props 或 state；
      *
      * 返回一个对象作为新的 state
      * 返回 null 不更新 state
@@ -47,7 +46,7 @@
 
     /**
      * 组件更新阶段
-     * 组件 渲染之前
+     * 组件 render 之后
      * 返回一个值作为 componentDidUpdate 第三个参数
      * @param {*} prevProps
      * @param {*} prevState
