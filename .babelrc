@@ -1,32 +1,40 @@
 {
-  	"presets": [
-    	"@babel/preset-react",
-    	["@babel/preset-env", {
-        	"useBuiltIns": "usage",
-        	"corejs": 3,
-        	"modules": false,
-        	"targets": {
-          		"browsers": [
-            		"> 1%",
-            		"last 2 versions",
-            		"not ie <= 8"
-          		]
-        	}
-      	}]
-  	],
-  	"plugins": [
+	"presets": [
+		"@babel/preset-react",
+		[
+			"@babel/preset-env",
+				{
+				"useBuiltIns": "usage",
+				"corejs": 3,
+				"modules": false,
+				"targets": {
+			  		"browsers": [
+			    		"> 1%",
+			    		"last 2 versions",
+			    		"not ie <= 8"
+			  		]
+				}
+			  }
+		]
+	],
+	"plugins": [
 		"@babel/plugin-proposal-class-properties",
 		"@babel/plugin-syntax-dynamic-import",
-		["@babel/plugin-transform-runtime",{
-			"corejs": 3,
-			"helpers": true,
-			"regenerator": true,
-			"useESModules": false
-		}],
-    	["import", {
-      		"libraryName": "antd",
-      		"libraryDirectory": "es",
-      		"style": false
-    	}]
-  	]
+		"@babel/plugin-transform-runtime",
+		
+		// ["@babel/plugin-transform-runtime",{
+		// 	// "corejs": 3,
+		// 	"helpers": true,
+		// 	"regenerator": true,
+		// 	"useESModules": false
+		// }],
+		[
+			"import",
+			{
+				"libraryName": "antd",
+				"libraryDirectory": "es",
+				"style": false
+			}
+		]
+	]
 }
