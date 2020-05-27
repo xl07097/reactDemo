@@ -4,9 +4,7 @@ import { Breadcrumb } from "antd";
 import BreadMap from "./breadRouterMap";
 
 function MyBread(props) {
-
     const { location } = props;
-    console.log(location)
     const locationArr = location.pathname.split("/").filter(i => i);
 
     let breadcrumbItems = locationArr.map((item, index, arr) => {
@@ -24,7 +22,6 @@ function MyBread(props) {
         </Breadcrumb.Item>
     ));
 
-
     return (
         <div style={{ padding: "8px 6px", marginBottom: "8px", background: "#FFFFFF" }}>
             <Breadcrumb>
@@ -32,9 +29,6 @@ function MyBread(props) {
             </Breadcrumb>
         </div>
     );
-
-    // return <Breadcrumb itemRender={itemRender} routes={asynRouter} />;
-
 }
 
 export default withRouter(MyBread);

@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "antd";
 class LifeCycle extends React.Component {
     constructor(props) {
         super(props);
@@ -51,12 +52,14 @@ class LifeCycle extends React.Component {
         });
     };
     render() {
-        console.log("render");
+        console.log("render===>>");
         return (
-            <div className="haha">
+            <div className="haha" style={{ textAlign: "center" }}>
                 <p>组件内生命周期</p>
                 <span>{this.state.name}</span>
-                <button onClick={this.index}>变化</button>
+                <Button type="primary" onClick={this.index}>
+                    变化
+                </Button>
             </div>
         );
     }
