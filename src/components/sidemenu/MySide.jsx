@@ -9,21 +9,21 @@ class Side extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            selectKeys: [props.location.pathname],
+            selectKeys: [props.location.pathname||'/'],
             openKeys: [],
         };
     }
     componentDidMount() {
         const { history, location } = this.props;
-        let openKeys = this.getOpenkeys(location.pathname);
+        let openKeys = this.getOpenkeys(location.pathname || "/");
         this.setState({
             openKeys: openKeys,
         });
 
         history.listen((item) => {
-            let openKeys = this.getOpenkeys(item.pathname);
+            let openKeys = this.getOpenkeys(item.pathname || "/");
             this.setState({
-                selectKeys: [item.pathname],
+                selectKeys: [item.pathname || "/"],
                 openKeys: openKeys,
             });
         });
