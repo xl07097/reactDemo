@@ -10,8 +10,8 @@ class Side extends PureComponent {
         super(props);
 
         this.state = {
-            // defaultSelectedKeys: [props.location.pathname],
-            // defaultOpenKeys: [],
+            defaultSelectedKeys: [props.location.pathname],
+            defaultOpenKeys: [],
             selectKeys: [props.location.pathname],
             openKeys: [],
         };
@@ -20,7 +20,7 @@ class Side extends PureComponent {
         const { history, location } = this.props;
         let openKeys = this.getOpenkeys(location.pathname);
         this.setState({
-            // defaultOpenKeys: openKeys,
+            defaultOpenKeys: openKeys,
             openKeys: openKeys,
         });
 
@@ -93,6 +93,9 @@ class Side extends PureComponent {
     };
 
     render() {
+        console.log(this.props);
+        const { collapsed } = this.props;
+        const defaultProps = collapsed ? {} : { openKeys: this.state.openKeys };
         return (
             <Menu
                 theme="dark"
@@ -101,7 +104,7 @@ class Side extends PureComponent {
                 // defaultSelectedKeys={this.state.defaultSelectedKeys}
                 // defaultOpenKeys={this.state.defaultOpenKeys}
                 selectedKeys={this.state.selectKeys}
-                openKeys={this.state.openKeys}
+                {...defaultProps}
             >
                 {this.renderSubMenu(asynRouter, "/")}
             </Menu>

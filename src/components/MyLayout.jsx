@@ -21,7 +21,7 @@ function MyLayout(props) {
             <Headers></Headers>
             <Layout>
                 <Sider trigger={null} collapsible collapsed={collapse} width={234} style={style}>
-                    <MySide></MySide>
+                    <MySide collapsed={collapse}></MySide>
                 </Sider>
                 <Content>
                     <Contents></Contents>
