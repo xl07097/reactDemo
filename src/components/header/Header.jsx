@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import { Icon, Drawer } from "antd";
 import ModifyPassword from "@/components/password/ModifyPassword";
 
 import "./header.less";
-
 
 function Header(props) {
     const [visible, setVisible] = useState(false);
@@ -21,7 +20,7 @@ function Header(props) {
     }
     function collapse() {
         dispatch({
-            type: 'collapse'
+            type: "collapse",
         });
     }
 
@@ -31,15 +30,13 @@ function Header(props) {
                 <div className="header-left">
                     <h1 className="header-title">创客</h1>
                     <Link to="/">index</Link>
-                    <Link to='/chart'>chart</Link>
-                    <Link to='/other'>other</Link>
-                    <Link to='/other/chart'>link4</Link>
+                    <Link to="/chart">chart</Link>
+                    <Link to="/other">other</Link>
+                    <Link to="/other/chart">link4</Link>
 
-                    <a href="#">
-                        <Icon type="bars" style={{ fontSize: '22px', color: '#08c' }} onClick={collapse}></Icon>
-                    </a>
-
-
+                    <span>
+                        <Icon type="bars" style={{ fontSize: "22px", color: "#08c" }} onClick={collapse}></Icon>
+                    </span>
                 </div>
                 <div className="header-right">
                     <Icon type="bars" onClick={open} />
