@@ -1,133 +1,132 @@
-@import '~antd/dist/antd.less';   // 可以在 .babelrc 里设置
+@import "~antd/dist/antd.less"; // 可以在 .babelrc 里设置
 
 @primary-color: #990d0d;
 
-
-
-
-// 雪碧图 
+// 雪碧图
 .icon {
-  display: inline-block;
-  margin: 8px;
+    display: inline-block;
+    margin: 8px;
 }
 
 // 清除浮动
 .clearfix() {
-  zoom: 1;
+    zoom: 1;
 
-  &::before,
-  &::after {
-    display: table;
-    content: ' ';
-  }
+    &::before,
+    &::after {
+        display: table;
+        content: " ";
+    }
 
-  &::after {
-    clear: both;
-    height: 0;
-    font-size: 0;
-    visibility: hidden;
-  }
+    &::after {
+        clear: both;
+        height: 0;
+        font-size: 0;
+        visibility: hidden;
+    }
 }
 
-
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html,
 body,
 #root {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-
-  li {
+    margin: 0;
+    padding: 0;
     list-style-type: none;
-  }
-}
 
+    li {
+        list-style-type: none;
+    }
+}
 
 /* ================= start---- antd 样式重写==================  */
 
 // layout 布局
 .ant-row {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
-.ant-layout.ant-layout-has-sider>.ant-layout,
-.ant-layout.ant-layout-has-sider>.ant-layout-content{
-  overflow-y: hidden;
+.ant-layout.ant-layout-has-sider > .ant-layout,
+.ant-layout.ant-layout-has-sider > .ant-layout-content {
+    overflow-y: hidden;
 }
-
-
-
 
 // ********************   antd-table css
-.ant-table-thead>tr>th {
-  padding: 10px 4px;
+.ant-table-thead > tr > th {
+    padding: 10px 4px;
 }
 
-.ant-table-tbody>tr>td {
-  padding: 4px;
+.ant-table-tbody > tr > td {
+    padding: 4px;
 }
-
-
 
 // *********************  antd-menu css
-.sider-collapsed .ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-item .anticon+span,
-.sider-collapsed .ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-submenu>.ant-menu-submenu-title .anticon+span,
-.sider-collapsed .ant-menu-item .anticon+span,
-.sider-collapsed .ant-menu-submenu>.ant-menu-submenu-title .anticon+span {
-  display: inline-block;
-  max-width: 0;
-  opacity: 0;
+.sider-collapsed .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .anticon + span,
+.sider-collapsed
+    .ant-menu-item-group
+    > .ant-menu-item-group-list
+    > .ant-menu-submenu
+    > .ant-menu-submenu-title
+    .anticon
+    + span,
+.sider-collapsed .ant-menu-item .anticon + span,
+.sider-collapsed .ant-menu-submenu > .ant-menu-submenu-title .anticon + span {
+    display: inline-block;
+    max-width: 0;
+    opacity: 0;
 }
 
-.ant-menu-dark.ant-menu-inline .ant-menu-item, .ant-menu-dark.ant-menu-inline .ant-menu-submenu-title{
-  margin-top: 0;
-  margin-bottom: 0;
+.ant-menu-vertical .ant-menu-item:not(:last-child),
+.ant-menu-vertical-left .ant-menu-item:not(:last-child),
+.ant-menu-vertical-right .ant-menu-item:not(:last-child),
+.ant-menu-inline .ant-menu-item:not(:last-child),
+.ant-menu-vertical .ant-menu-item,
+.ant-menu-vertical-left .ant-menu-item,
+.ant-menu-vertical-right .ant-menu-item,
+.ant-menu-inline .ant-menu-item,
+.ant-menu-vertical .ant-menu-submenu-title,
+.ant-menu-vertical-left .ant-menu-submenu-title,
+.ant-menu-vertical-right .ant-menu-submenu-title,
+.ant-menu-inline .ant-menu-submenu-title {
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
 
 // *********************===   antd-tree css
 .ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected,
 .ant-tree-node-content-wrapper:hover {
-  background-color: seagreen !important;
-  color: #FFF !important;
+    background-color: seagreen !important;
+    color: #fff !important;
 }
-
-
 
 // ***********************    modal css
 .ant-modal-header {
-  padding: 10px 24px !important;
-  background: #000 !important;
+    padding: 10px 24px !important;
+    background: #000 !important;
 
-  .ant-modal-title {
-    color: #FFF !important;
-  }
+    .ant-modal-title {
+        color: #fff !important;
+    }
 }
 
 .ant-modal-close-x {
-  width: 43px !important;
-  height: 43px !important;
-  line-height: 43px !important;
-  color: aliceblue;
+    width: 43px !important;
+    height: 43px !important;
+    line-height: 43px !important;
+    color: aliceblue;
 }
-
-
-
 
 /* ================= end------ antd 样式重写 ====================  */
 
-
 .page {
-  padding: 14px 0;
-  text-align: center;
+    padding: 14px 0;
+    text-align: center;
 }

@@ -9,6 +9,7 @@ import "./header.less";
 
 function Header(props) {
     const [visible, setVisible] = useState(false);
+    const [type, setType] = useState("menu-fold");
     const { dispatch } = props;
 
     function onClose() {
@@ -22,6 +23,7 @@ function Header(props) {
         dispatch({
             type: "collapse",
         });
+        setType(type === "menu-fold" ? "menu-unfold" : "menu-fold");
     }
 
     return (
@@ -34,12 +36,13 @@ function Header(props) {
                     <Link to="/other">other</Link>
                     <Link to="/other/chart">link4</Link>
 
-                    <span>
-                        <Icon type="bars" style={{ fontSize: "22px", color: "#08c" }} onClick={collapse}></Icon>
+                    <span style={{marginLeft:'10px'}}>
+                        <Icon type={type} style={{ fontSize: "22px" }} onClick={collapse} />
+                        {/* <Icon type="bars" style={{ fontSize: "22px", color: "#08c" }} onClick={collapse}></Icon> */}
                     </span>
                 </div>
                 <div className="header-right">
-                    <Icon type="bars" onClick={open} />
+                    <Icon type="bars" onClick={open} style={{ fontSize: "20px" }} />
                 </div>
             </header>
             <Drawer visible={visible} onClose={onClose} maskClosable={false} destroyOnClose={true}>
