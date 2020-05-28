@@ -38,7 +38,6 @@ function Header(props) {
 
                     <span style={{marginLeft:'10px'}}>
                         <Icon type={type} style={{ fontSize: "22px" }} onClick={collapse} />
-                        {/* <Icon type="bars" style={{ fontSize: "22px", color: "#08c" }} onClick={collapse}></Icon> */}
                     </span>
                 </div>
                 <div className="header-right">

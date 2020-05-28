@@ -16,7 +16,6 @@ const style = {
 function MyLayout(props) {
     const { collapse } = props;
     return (
-        // <>
         <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>
             <Headers></Headers>
             <Layout>
@@ -28,7 +27,6 @@ function MyLayout(props) {
                 </Content>
             </Layout>
         </Layout>
-        // </>
     );
 }
 

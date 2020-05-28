@@ -8,10 +8,7 @@ import { asynRouter } from "@/router/router";
 class Side extends PureComponent {
     constructor(props) {
         super(props);
-
         this.state = {
-            defaultSelectedKeys: [props.location.pathname],
-            defaultOpenKeys: [],
             selectKeys: [props.location.pathname],
             openKeys: [],
         };
@@ -20,7 +17,6 @@ class Side extends PureComponent {
         const { history, location } = this.props;
         let openKeys = this.getOpenkeys(location.pathname);
         this.setState({
-            defaultOpenKeys: openKeys,
             openKeys: openKeys,
         });
 
@@ -101,8 +97,6 @@ class Side extends PureComponent {
                 theme="dark"
                 mode="inline"
                 onOpenChange={this.openChange}
-                // defaultSelectedKeys={this.state.defaultSelectedKeys}
-                // defaultOpenKeys={this.state.defaultOpenKeys}
                 selectedKeys={this.state.selectKeys}
                 {...defaultProps}
             >
