@@ -5,7 +5,7 @@ import { UploadProps } from 'antd/lib/upload';
 const { Dragger } = Upload;
 
 const prop: UploadProps = {
-    name: 'file',
+    name: 'upfile',
     multiple: false,
     action: 'http://122.51.129.51:8080/note/upload/uploadfile',
     onChange(data) {

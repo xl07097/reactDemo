@@ -7,21 +7,30 @@ function renderRoutes(routes) {
 
     function renderRoute(route) {
         if (route.children) {
-            child.push(<Route
-                exact={route.exact}
-                key={route.path}
-                meta={route}
-                render={props => <route.component {...props}>{renderRoutes(route.children)}</route.component>}
-                path={route.path}
-            ></Route>)
+            child.push(
+                <Route
+                    exact={route.exact}
+                    key={route.path}
+                    meta={route.meta}
+                    render={(props) => <route.component {...props}>{renderRoutes(route.children)}</route.component>}
+                    path={route.path}
+                ></Route>
+            );
         } else {
-            child.push(<Route exact={route.exact} meta={route} path={route.path} component={route.component} key={route.path}></Route>);
+            child.push(
+                <Route
+                    exact={route.exact}
+                    meta={route.meta}
+                    path={route.path}
+                    component={route.component}
+                    key={route.path}
+                ></Route>
+            );
         }
     }
-    routes.map(item => renderRoute(item));
+    routes.map((item) => renderRoute(item));
     return child;
 }
-
 
 export default function Router(props) {
     // 还需要处理权限，拉取 权限 过滤路由
