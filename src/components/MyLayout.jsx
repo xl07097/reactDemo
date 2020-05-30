@@ -16,19 +16,17 @@ const style = {
 function MyLayout(props) {
     const { collapse } = props;
     return (
-        // <>
         <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>
             <Headers></Headers>
             <Layout>
                 <Sider trigger={null} collapsible collapsed={collapse} width={234} style={style}>
-                    <MySide></MySide>
+                    <MySide collapsed={collapse}></MySide>
                 </Sider>
                 <Content>
                     <Contents></Contents>
                 </Content>
             </Layout>
         </Layout>
-        // </>
     );
 }
 

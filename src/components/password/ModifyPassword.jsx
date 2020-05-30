@@ -142,6 +142,9 @@ class ModifyPassword extends React.Component {
                 <Form.Item>
                     <Button type="primary" htmlType="submit">
                         提交
+                    </Button>&emsp;
+                    <Button type="default" onClick={this.props.onClose}>
+                        关闭
                     </Button>
                 </Form.Item>
             </Form>

@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const base = require("./webpack.base.config");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = merge(base, {
     mode: "development",
@@ -10,48 +10,34 @@ module.exports = merge(base, {
     output: {
         path: path.resolve(__dirname, "../dist"),
         filename: "js/[name].js",
-        publicPath: "/"
+        publicPath: "/",
     },
     module: {
-        rules: [{
-            test: /\.css$/,
-            use: [
-                {
-                    loader: "style-loader"
-                },
-                {
-                    loader: 'css-loader'
-                },
-                {
-                    loader: "postcss-loader"
-                }
-            ]
-        },
-        {
-            test: /\.less$/,
-            use: [
-                {
-                    loader: "style-loader"
-                },
-                {
-                    loader: 'css-loader'
-                },
-                {
-                    loader: "postcss-loader"
-                },
-                {
-                    loader: "less-loader",
-                    options: {
-                        javascriptEnabled: true
-                    }
-                }
-            ]
-        }
-        ]
+        rules: [
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader", "postcss-loader"],
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "postcss-loader",
+                    {
+                        loader: "less-loader",
+                        options: {
+                            javascriptEnabled: true,
+                        },
+                    },
+                ],
+            },
+        ],
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new BundleAnalyzerPlugin()
+        new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(zh-cn)$/),
+        new BundleAnalyzerPlugin(),
     ],
     devServer: {
         port: "9000",
@@ -68,7 +54,7 @@ module.exports = merge(base, {
                 // pathRewrite: {
                 //     "/api": ""
                 // },
-            }
-        }
-    }
+            },
+        },
+    },
 });

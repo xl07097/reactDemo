@@ -8,26 +8,22 @@ import { asynRouter } from "@/router/router";
 class Side extends PureComponent {
     constructor(props) {
         super(props);
-
         this.state = {
-            // defaultSelectedKeys: [props.location.pathname],
-            // defaultOpenKeys: [],
-            selectKeys: [props.location.pathname],
+            selectKeys: [props.location.pathname||'/'],
             openKeys: [],
         };
     }
     componentDidMount() {
         const { history, location } = this.props;
-        let openKeys = this.getOpenkeys(location.pathname);
+        let openKeys = this.getOpenkeys(location.pathname || "/");
         this.setState({
-            // defaultOpenKeys: openKeys,
             openKeys: openKeys,
         });
 
         history.listen((item) => {
-            let openKeys = this.getOpenkeys(item.pathname);
+            let openKeys = this.getOpenkeys(item.pathname || "/");
             this.setState({
-                selectKeys: [item.pathname],
+                selectKeys: [item.pathname || "/"],
                 openKeys: openKeys,
             });
         });
@@ -93,15 +89,16 @@ class Side extends PureComponent {
     };
 
     render() {
+        console.log(this.props);
+        const { collapsed } = this.props;
+        const defaultProps = collapsed ? {} : { openKeys: this.state.openKeys };
         return (
             <Menu
                 theme="dark"
                 mode="inline"
                 onOpenChange={this.openChange}
-                // defaultSelectedKeys={this.state.defaultSelectedKeys}
-                // defaultOpenKeys={this.state.defaultOpenKeys}
                 selectedKeys={this.state.selectKeys}
-                openKeys={this.state.openKeys}
+                {...defaultProps}
             >
                 {this.renderSubMenu(asynRouter, "/")}
             </Menu>

@@ -8,7 +8,7 @@ const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plug
 
 module.exports = merge(baseConfig, {
     mode: "production",
-    devtool: "cheap-module-source-map",
+    // devtool: "source-map",
     output: {
         path: path.resolve(__dirname, "../dist"),
         filename: "js/[name].[hash].js",
