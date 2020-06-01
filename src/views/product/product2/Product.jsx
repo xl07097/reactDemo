@@ -192,7 +192,7 @@ class Product extends React.Component {
         const { tableData, page, size, total, pageSizeOptions, loading, visible, percent } = this.state;
         const columns = this.columns;
         return (
-            <div>
+            <>
                 <Table bordered={true} rowKey="id" dataSource={tableData} columns={columns} pagination={false} loading={loading}></Table>
                 <div className="page">
                     <Pagination
@@ -234,7 +234,7 @@ class Product extends React.Component {
                         </Col>
                     </Row>
                 </Modal>
-            </div>
+            </>
         );
     }
 }

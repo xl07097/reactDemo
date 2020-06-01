@@ -11,7 +11,7 @@
 
     .ant-statistic-title,
     .ant-statistic-content {
-        color: #FFF !important;
+        color: #fff !important;
     }
 
     .more {
@@ -22,8 +22,8 @@
         text-transform: uppercase;
         font-weight: 300;
         font-size: 11px;
-        color: #FFF;
-        opacity: .7;
+        color: #fff;
+        opacity: 0.7;
         cursor: pointer;
     }
 
@@ -66,13 +66,27 @@
 }
 
 .ant-card.purple {
-    background-color: #8E44AD;
+    background-color: #8e44ad;
 
     .more {
         background-color: #823e9e;
     }
 }
 
+.ant-fullcalendar-content {
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #000000;
+    }
+}
 
 .ant-carousel .slick-slide {
     text-align: center;

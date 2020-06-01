@@ -11,13 +11,13 @@ function Product(props) {
     }
 
     return (
-        <div>
+        <>
             <h2>
                 product1
             </h2>
             {count}
             <Button type="primary" onClick={add}>add</Button>
-        </div>
+        </>
     );
 }
 

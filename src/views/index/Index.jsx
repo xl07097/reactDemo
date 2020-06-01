@@ -22,7 +22,7 @@ function Index() {
                 </Col>
             </Row>
             <Row gutter={16}>
-                <Col span={8}>
+                <Col span={12}>
                     <Swipper></Swipper>
                 </Col>
             </Row>
