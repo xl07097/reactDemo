@@ -103,7 +103,7 @@ class Product extends React.Component {
             });
             if (data.code === 200) {
                 this.setState({
-                    tableData: data.data,
+                    tableData: data.data.slice(0, 10),
                     total: data.length,
                 });
                 window.scrollTo(0, 0);

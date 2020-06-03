@@ -37,7 +37,9 @@ module.exports = merge(base, {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(zh-cn)$/),
-        new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            analyzerPort: 8881,
+        }),
     ],
     devServer: {
         port: "9000",
