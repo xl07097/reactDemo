@@ -37,7 +37,7 @@ class Product extends React.Component {
             dataIndex: "avatar",
             key: "avatar",
             render: (data, record, index) => {
-                return <img src={data} alt={record.name} title={record.name} style={{ width: "40px" }} />;
+                return <img src={data} alt={record.name} title={record.name} style={{ height: "34px" }} />;
             },
         },
         {
@@ -97,14 +97,15 @@ class Product extends React.Component {
             page,
             size,
         };
-        getUserList(req).then((data) => {
+        getUserList(req).then((res) => {
             this.setState({
                 loading: false,
             });
-            if (data.code === 200) {
+            if (res.code === 200) {
+                const { data = [], total } = res.data;
                 this.setState({
-                    tableData: data.data.slice(0, 10),
-                    total: data.length,
+                    tableData: data,
+                    total: total,
                 });
                 window.scrollTo(0, 0);
             }

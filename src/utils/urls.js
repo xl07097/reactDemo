@@ -1,8 +1,8 @@
 let BASIC_URI = "";
 
 if (window.location.hostname === "localhost"){ // 本地开发状态
-    BASIC_URI = "http://122.51.129.51:8080";
-    // BASIC_URI = "http://localhost:9087";
+    // BASIC_URI = "http://122.51.129.51:8080";
+    BASIC_URI = "http://localhost:9087";
 }else{
     BASIC_URI = window.location.protocol + "//" + window.location.hostname + ":8080"; //要发布在同一服务器上
 }
