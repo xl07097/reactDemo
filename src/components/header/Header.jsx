@@ -27,7 +27,7 @@ function Header(props) {
     }
 
     return (
-        <div>
+        <>
             <header className="header">
                 <div className="header-left">
                     <h1 className="header-title">创客</h1>
@@ -47,7 +47,7 @@ function Header(props) {
             <Drawer visible={visible} onClose={onClose} maskClosable={false} destroyOnClose={true}>
                 <ModifyPassword onClose={onClose}></ModifyPassword>
             </Drawer>
-        </div>
+        </>
     );
 }
 

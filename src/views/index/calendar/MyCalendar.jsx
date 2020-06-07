@@ -64,7 +64,7 @@ function MyCalendar() {
         return listData || [];
     }
 
-    return (<Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />)
+    return <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
 }
 
 export default MyCalendar;

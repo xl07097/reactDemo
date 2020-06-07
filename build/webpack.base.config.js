@@ -11,18 +11,34 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 include: path.resolve(__dirname, "../src"),
-                loader: require.resolve("babel-loader"),
-                options: {
-                    cacheDirectory: true,
-                    cacheCompression: false,
-                    // eslintPath: require.resolve('eslint'),
-                },
+                use: [
+                    {
+                        loader: "thread-loader",
+                        options: {
+                            worker: 2,
+                            workerParallelJobs: 30,
+                            poolTimeout: 2000,
+                            poolParallelJobs: 50,
+                        }
+                    },
+                    {
+                        loader: require.resolve("babel-loader"),
+                        options: {
+                            cacheDirectory: true,
+                            cacheCompression: false,
+                            // eslintPath: require.resolve('eslint'),
+                        },
+                    }
+                ],
+
                 exclude: /^node_modules$/,
             },
             {
                 test: /\.(ts|tsx)$/,
                 include: path.resolve(__dirname, "../src"),
-                use: "ts-loader",
+                use: [
+                    'ts-loader'
+                ],
                 exclude: /^node_modules$/,
             },
             {

@@ -143,7 +143,7 @@ function ChartLine(props) {
         chart.render();
     }, [])
 
-    return (<div id="mountNode"></div>)
+    return <div id="mountNode"></div>
 }
 
 export default ChartLine;
