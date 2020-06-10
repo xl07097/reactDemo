@@ -4,6 +4,8 @@ import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progre
 import { getUserList } from "@/api/product";
 import { switchUserStatus } from "@/api/user";
 import { timetrans } from "@/utils/dateUtils";
+import url from '@/utils/urls';
+
 class Product extends React.Component {
     columns = [
         {
@@ -228,8 +230,9 @@ class Product extends React.Component {
                         </Col>
                         <Col span={12}>
                             <Upload
-                                // action={`${path.BASE_URI}${path.upload}`}
-                                action="http://localhost:3000/api/upload/uploadfile"
+                                action={`${url.upload}`}
+                                name="upfile"
+                                // action="http://localhost:3000/api/upload/uploadfile"
                                 onChange={this.onUploadChange}
                             >
                                 <Button>

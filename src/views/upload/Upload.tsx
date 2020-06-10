@@ -1,13 +1,14 @@
 import React from 'react';
 import { Upload, Icon, message } from 'antd';
 import { UploadProps } from 'antd/lib/upload';
+import url from '@/utils/urls';
 
 const { Dragger } = Upload;
 
 const prop: UploadProps = {
     name: 'upfile',
     multiple: false,
-    action: 'http://122.51.129.51:8080/note/upload/uploadfile',
+    action: `${url.upload}`,
     onChange(data) {
         const { status, response } = data.file;
         if (status === 'uploading') {
