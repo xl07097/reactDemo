@@ -14,14 +14,14 @@ function Index() {
         <div style={{ textAlign: "center" }}>
             <TopRow></TopRow>
             <Row gutter={16}>
-                <Col span={12}>
+                <Col span={24}>
                     <MyCalendar></MyCalendar>
-                </Col>
-                <Col span={12}>
-                    <ChartLine></ChartLine>
                 </Col>
             </Row>
             <Row gutter={16}>
+                <Col span={12}>
+                    <ChartLine></ChartLine>
+                </Col>
                 <Col span={12}>
                     <Swipper></Swipper>
                 </Col>
