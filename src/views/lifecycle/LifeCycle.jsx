@@ -55,8 +55,9 @@ class LifeCycle extends React.Component {
         console.log("render===>>");
         return (
             <div className="haha" style={{ textAlign: "center" }}>
-                <p>组件内生命周期</p>
+                <h1>组件内生命周期</h1>
                 <span>{this.state.name}</span>
+                <pre>打开控制台，看打印</pre>
                 <Button type="primary" onClick={this.index}>
                     变化
                 </Button>
