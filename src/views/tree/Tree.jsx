@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Tree } from 'antd';
 import { getAllMenu } from '@/api/menu';
+import json from './data';
 
-import array2Tree from '@/utils/treeUtils';
+// import array2Tree from '@/utils/treeUtils';
 
 const { TreeNode } = Tree;
 
@@ -14,13 +15,15 @@ function Tree1(props) {
 
 
     function getMenu() {
-        getAllMenu()
-            .then(data => {
-                if (data.code === 200) {
-                    setTreeData(data.data);
-                    // setTreeData(array2Tree(data.data));
-                }
-            })
+        // console.log(json);
+        setTreeData(json.data);
+        // getAllMenu()
+        //     .then(data => {
+        //         if (data.code === 200) {
+        //             setTreeData(data.data);
+        //             // setTreeData(array2Tree(data.data));
+        //         }
+        //     })
     }
 
     const renderTreeNodes = data => {
