@@ -4,7 +4,7 @@ import { Layout } from "antd";
 import { connect } from "react-redux";
 
 import Headers from "@/components/header/Header";
-import Contents from "@/views/content/Content";
+import MyContents from "@/views/content/Content";
 import MySide from "@/components/sidemenu/MySide.jsx";
 
 const { Content, Sider } = Layout;
@@ -16,14 +16,14 @@ const style = {
 function MyLayout(props) {
     const { collapse } = props;
     return (
-        <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>
+        <Layout style={{ minHeight: "calc(100%)" }}>
             <Headers></Headers>
             <Layout>
                 <Sider trigger={null} collapsible collapsed={collapse} width={234} style={style}>
                     <MySide collapsed={collapse}></MySide>
                 </Sider>
                 <Content>
-                    <Contents></Contents>
+                    <MyContents></MyContents>
                 </Content>
             </Layout>
         </Layout>

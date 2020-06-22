@@ -6,10 +6,17 @@ import Child2 from "./Child2";
 
 export default function Parent(props) {
     let [value, setValue] = useState(["jack", "tom"]);
+    let [value1, setValue1] = useState(895);
     function pushs() {
         const arr = ["lpl", ...value];
         setValue(arr);
     }
+
+    function push1() {
+        const arr = Math.random().toFixed(4);
+        setValue1(arr);
+    }
+
     return (
         <context.Provider value={value}>
             <Row gutter={16}>
@@ -19,8 +26,14 @@ export default function Parent(props) {
                 <Col span={4}>
                     <Child2></Child2>
                 </Col>
-                <Col>
+                <Col span={4}>
                     <Button type="primary" onClick={pushs}>
+                        添加
+                    </Button>
+                </Col>
+                <Col span={4}>
+                    <span>{value1}</span>
+                    <Button type="primary" onClick={push1}>
                         添加
                     </Button>
                 </Col>
