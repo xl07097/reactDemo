@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { Icon, Drawer } from "antd";
 import ModifyPassword from "@/components/password/ModifyPassword";
@@ -10,7 +10,7 @@ import "./header.less";
 function Header(props) {
     const [visible, setVisible] = useState(false);
     const [type, setType] = useState("menu-fold");
-    const { dispatch } = props;
+    const dispatch = useDispatch();
 
     function onClose() {
         setVisible(false);
@@ -51,4 +51,4 @@ function Header(props) {
     );
 }
 
-export default connect(null)(Header);
+export default Header;

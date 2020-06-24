@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import React from "react";
 import { Layout } from "antd";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Headers from "@/components/header/Header";
 import MyContents from "@/views/content/Content";
@@ -14,7 +14,7 @@ const style = {
 };
 
 function MyLayout(props) {
-    const { collapse } = props;
+    const collapse = useSelector((state) => state.collapse);
     return (
         <Layout style={{ minHeight: "calc(100%)" }}>
             <Headers></Headers>
@@ -30,4 +30,4 @@ function MyLayout(props) {
     );
 }
 
-export default connect((state) => ({ collapse: state.collapse }))(MyLayout);
+export default MyLayout;
