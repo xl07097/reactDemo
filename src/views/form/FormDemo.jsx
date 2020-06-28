@@ -1,17 +1,5 @@
 import React from "react";
-import {
-    Form,
-    Input,
-    Tooltip,
-    Icon,
-    Cascader,
-    Select,
-    Row,
-    Col,
-    Button,
-    AutoComplete,
-    DatePicker
-} from "antd";
+import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Button, AutoComplete, DatePicker } from "antd";
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -57,17 +45,17 @@ class RegistrationForm extends React.Component {
         autoCompleteResult: [],
     };
 
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log(values['times'].format('YYYY-MM-DD HH:mm:ss'));
+                console.log(values["times"].format("YYYY-MM-DD HH:mm:ss"));
                 console.log("Received values of form: ", values);
             }
         });
     };
 
-    handleConfirmBlur = e => {
+    handleConfirmBlur = (e) => {
         const value = e.target.value;
         this.setState({ confirmDirty: this.state.confirmDirty || !!value });
     };
@@ -89,19 +77,19 @@ class RegistrationForm extends React.Component {
         callback();
     };
 
-    handleWebsiteChange = value => {
+    handleWebsiteChange = (value) => {
         let autoCompleteResult;
         if (!value) {
             autoCompleteResult = [];
         } else {
-            autoCompleteResult = [".com", ".org", ".net"].map(domain => `${value}${domain}`);
+            autoCompleteResult = [".com", ".org", ".net"].map((domain) => `${value}${domain}`);
         }
         this.setState({ autoCompleteResult });
     };
-    componentDidMount(){
+    componentDidMount() {
         console.log(process.env);
     }
-    
+
     render() {
         const { getFieldDecorator } = this.props.form;
         const { autoCompleteResult } = this.state;
@@ -113,20 +101,20 @@ class RegistrationForm extends React.Component {
             },
             wrapperCol: {
                 xs: { span: 12 },
-                sm: { span: 4 }
-            }
+                sm: { span: 4 },
+            },
         };
         const tailFormItemLayout = {
             wrapperCol: {
                 xs: {
-                    span: 12,
-                    offset: 0
+                    span: 4,
+                    offset: 4,
                 },
                 sm: {
-                    span: 12,
-                    offset: 0
-                }
-            }
+                    span: 4,
+                    offset: 4,
+                },
+            },
         };
         const prefixSelector = getFieldDecorator("prefix", {
             initialValue: "86",
@@ -134,10 +122,10 @@ class RegistrationForm extends React.Component {
             <Select style={{ width: 70 }}>
                 <Option value="86">+86</Option>
                 <Option value="87">+87</Option>
-            </Select>,
+            </Select>
         );
 
-        const websiteOptions = autoCompleteResult.map(website => (
+        const websiteOptions = autoCompleteResult.map((website) => (
             <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
         ));
 
@@ -196,29 +184,23 @@ class RegistrationForm extends React.Component {
                 >
                     {getFieldDecorator("nickname", {
                         rules: [
-                            { 
-                                required: true, 
+                            {
+                                required: true,
                                 message: "请输入昵称",
-                                whitespace: true 
-                            }
+                                whitespace: true,
+                            },
                         ],
                     })(<Input />)}
                 </Form.Item>
                 <Form.Item label="时间">
-                    {
-                        getFieldDecorator("times", {
-                            rules: [
-                                { type:'object', required:true, message:'请选择时间'}
-                            ]
-                        })(<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />)
-                    }
+                    {getFieldDecorator("times", {
+                        rules: [{ type: "object", required: true, message: "请选择时间" }],
+                    })(<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />)}
                 </Form.Item>
                 <Form.Item label="eHabitual Residenc">
                     {getFieldDecorator("residence", {
                         initialValue: ["zhejiang", "hangzhou", "xihu"],
-                        rules: [
-                            { type: "array", required: true, message: "请选择地址" },
-                        ],
+                        rules: [{ type: "array", required: true, message: "请选择地址" }],
                     })(<Cascader options={residences} />)}
                 </Form.Item>
                 <Form.Item label="电话号码">
@@ -236,7 +218,7 @@ class RegistrationForm extends React.Component {
                             placeholder="website"
                         >
                             <Input />
-                        </AutoComplete>,
+                        </AutoComplete>
                     )}
                 </Form.Item>
                 <Form.Item label="验证码" extra="我们确保您不是机器人">
@@ -252,14 +234,17 @@ class RegistrationForm extends React.Component {
                     </Row>
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>
-                    <Button type="primary" htmlType="submit">
-                        提交
-                    </Button>
+                    <Row gutter={8}>
+                        <Col span={12}>
+                            <Button type="primary" htmlType="submit">
+                                提交
+                            </Button>
+                        </Col>
+                    </Row>
                 </Form.Item>
             </Form>
         );
     }
 }
 
-export default  Form.create()(RegistrationForm);
-
+export default Form.create()(RegistrationForm);
