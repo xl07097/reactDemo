@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, useSelector,useDispatch } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { asyncAdd } from '@/model/thunks/thunk';
 
 /**
@@ -8,14 +8,11 @@ import { asyncAdd } from '@/model/thunks/thunk';
  */
 
 function Product(props) {
-    let timer = null;
     const dispatch = useDispatch()
     useEffect(() => {
-        // const { dispatch } = props;
         dispatch(asyncAdd({ page: 1, size: 100 }))
     }, []);
 
-    // const { list } = props;
     const list = useSelector(state => state.list);
 
     return (
@@ -27,5 +24,4 @@ function Product(props) {
     );
 }
 
-// export default connect(state => ({ list: state.list }))(Product);
 export default Product;

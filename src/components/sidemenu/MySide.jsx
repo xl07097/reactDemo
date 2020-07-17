@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { Menu, Icon } from "antd";
 
@@ -89,7 +88,7 @@ class Side extends PureComponent {
     };
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         const { collapsed } = this.props;
         const defaultProps = collapsed ? {} : { openKeys: this.state.openKeys };
         return (

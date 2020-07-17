@@ -1,10 +1,10 @@
-interface mata{
+interface Mata{
     title: string,
     role: string,
 }
 
-interface item {
+interface Item {
     path: string,
-    meta: mata,
+    meta: Mata,
     component: React.Component
 }

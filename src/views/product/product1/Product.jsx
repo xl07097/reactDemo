@@ -13,7 +13,7 @@ function Product(props) {
     return (
         <>
             <h2>
-                product1
+                redux
             </h2>
             {count}
             <Button type="primary" onClick={add}>add</Button>

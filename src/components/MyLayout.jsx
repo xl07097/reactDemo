@@ -1,10 +1,10 @@
 /* eslint-disable indent */
 import React from "react";
 import { Layout } from "antd";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Headers from "@/components/header/Header";
-import Contents from "@/views/content/Content";
+import MyContents from "@/views/content/Content";
 import MySide from "@/components/sidemenu/MySide.jsx";
 
 const { Content, Sider } = Layout;
@@ -14,20 +14,20 @@ const style = {
 };
 
 function MyLayout(props) {
-    const { collapse } = props;
+    const collapse = useSelector((state) => state.collapse);
     return (
-        <Layout style={{ display: "flex", minHeight: "calc(100%)" }}>
+        <Layout style={{ minHeight: "calc(100%)" }}>
             <Headers></Headers>
             <Layout>
                 <Sider trigger={null} collapsible collapsed={collapse} width={234} style={style}>
                     <MySide collapsed={collapse}></MySide>
                 </Sider>
                 <Content>
-                    <Contents></Contents>
+                    <MyContents></MyContents>
                 </Content>
             </Layout>
         </Layout>
     );
 }
 
-export default connect((state) => ({ collapse: state.collapse }))(MyLayout);
+export default MyLayout;

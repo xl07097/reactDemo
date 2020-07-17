@@ -4,7 +4,7 @@ function ChartCard(props) {
     return (
         <div class="dashboard-stat blue">
             <div class="visual">
-                <i class="fa fa-comments"></i>.
+                <i class="fa fa-comments"></i>
             </div>
             <div class="details">
                 <div class="number">

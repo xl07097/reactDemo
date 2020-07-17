@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Carousel } from "antd";
+import { Row, Col } from "antd";
 
 import TopRow from './TopRow';
 import MyCalendar from './calendar/MyCalendar';
