@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 20px;
+  line-height: 50px;
+  color: #fff;
+  background-color: #000;
+}
+.header .header-left {
+  display: flex;
+  justify-content: flex-start;
+}
+.header .header-left a {
+  width: 40px;
+  text-align: center;
+}
+.header .header-title {
+  margin: 0 20px 0 0;
+  font-family: cursive;
+  color: olivedrab;
+  cursor: pointer;
+}
+.header .header-logout {
+  margin: 0;
+  padding: 0 8px;
+  list-style: none;
+  color: olivedrab;
+  cursor: pointer;
+}
