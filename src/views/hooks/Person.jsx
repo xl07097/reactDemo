@@ -3,10 +3,6 @@ import usePerson from "./usePerson";
 
 const Person = ({ personId }) => {
     const [loading, data] = usePerson(personId);
-
-    console.log("1", loading);
-    console.log("2", data);
-
     if (loading) {
         return <p>Loading ...</p>;
     }

@@ -103,6 +103,14 @@ const asynRouter = [
         component: lazy(() => import("@/views/upload/Upload")),
     },
     {
+        path: "/hook",
+        meta: {
+            title: "hook test",
+            role: "hook",
+        },
+        component: lazy(() => import("@/views/hooks/Index")),
+    },
+    {
         path: "/refs",
         meta: {
             title: "ref 转发",
