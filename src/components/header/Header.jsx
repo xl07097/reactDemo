@@ -37,7 +37,7 @@ function Header(props) {
                     <Link to="/other/chart">link4</Link>
 
                     <span style={{marginLeft:'10px'}}>
-                        <Icon type={type} style={{ fontSize: "22px" }} onClick={collapse} />
+                        <Icon type={type} style={{ fontSize: "20px" }} onClick={collapse} />
                     </span>
                 </div>
                 <div className="header-right">
