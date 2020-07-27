@@ -3,16 +3,16 @@ import Person from "./Person";
 import { Button } from "antd";
 
 const Index = () => {
-    let [count, setCount] = useState(0);
+    let [count, setCount] = useState(10);
     function random() {
-        setCount(Math.random());
+        setCount(~~(Math.random()*20));
     }
     return (
         <>
             <Button type="primary" onClick={random}>
                 随机数
             </Button>
-            <Person personId={count}></Person>
+            <Person size={count}></Person>
         </>
     );
 };

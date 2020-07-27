@@ -1,8 +1,8 @@
 import React from "react";
 import usePerson from "./usePerson";
 
-const Person = ({ personId }) => {
-    const [loading, data] = usePerson(personId);
+const Person = ({ size }) => {
+    const [loading, data] = usePerson(size);
     if (loading) {
         return <p>Loading ...</p>;
     }
@@ -10,7 +10,7 @@ const Person = ({ personId }) => {
     return (
         <ul>
             {data.map((item) => (
-                <span key={item.id}>{item.deptname}</span>
+                <li key={item.id}>{item.username}</li>
             ))}
         </ul>
     );
