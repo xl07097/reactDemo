@@ -8,8 +8,9 @@ class Side extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            selectKeys: [props.location.pathname||'/'],
+            selectKeys: [props.location.pathname || "/"],
             openKeys: [],
+            menuItem: '',
         };
     }
     componentDidMount() {
@@ -26,6 +27,7 @@ class Side extends PureComponent {
                 openKeys: openKeys,
             });
         });
+        this.setState({ menuItem: this.renderSubMenu(asynRouter, "/") });
     }
     titleClick = ({ key, domEvent }) => {
         let openKeys = this.getOpenkeys(key);
@@ -90,16 +92,17 @@ class Side extends PureComponent {
     render() {
         // console.log(this.props);
         const { collapsed } = this.props;
-        const defaultProps = collapsed ? {} : { openKeys: this.state.openKeys };
+        const { openKeys, selectKeys, menuItem } = this.state;
+        const defaultProps = collapsed ? {} : { openKeys };
         return (
             <Menu
                 theme="dark"
                 mode="inline"
                 onOpenChange={this.openChange}
-                selectedKeys={this.state.selectKeys}
+                selectedKeys={selectKeys}
                 {...defaultProps}
             >
-                {this.renderSubMenu(asynRouter, "/")}
+                {menuItem}
             </Menu>
         );
     }
