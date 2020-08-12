@@ -1,7 +1,7 @@
 import React from "react";
-import G2 from "@antv/g2";
+import { Chart } from "@antv/g2";
 
-class Chart extends React.Component {
+class BaseChart extends React.Component {
     constructor(state) {
         super(state);
         this.myRef = React.createRef();
@@ -10,7 +10,7 @@ class Chart extends React.Component {
 
     componentDidMount() {
         console.dir(this.myRef.current);
-        // this.chart = new G2.Chart({
+        // this.chart = new Chart({
         //     container: this.myRef.current,
         //     width: this.myRef.current.clientWidth - 20,
         //     height: 300,
@@ -110,7 +110,7 @@ class Chart extends React.Component {
                 月均降雨量: 42.4,
             },
         ];
-        var chart = new G2.Chart({
+        var chart = new Chart({
             container: "chart1",
             forceFit: true,
             width: this.myRef.current.clientWidth - 20,
@@ -135,4 +135,4 @@ class Chart extends React.Component {
     }
 }
 
-export default Chart;
+export default BaseChart;
