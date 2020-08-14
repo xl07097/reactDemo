@@ -1,10 +1,10 @@
 import React from "react";
-import { Table, Pagination, Button, Modal, Input, Row, Col, Upload, Icon, Progress, Popconfirm, message } from "antd";
+import { Table, Pagination, Button, Popconfirm, message } from "antd";
+import BaseModal from './BaseModal';
 
 import { getUserList } from "@/api/product";
 import { switchUserStatus } from "@/api/user";
 import { timetrans } from "@/utils/dateUtils";
-import url from '@/utils/urls';
 
 class Product extends React.Component {
     columns = [
@@ -91,7 +91,6 @@ class Product extends React.Component {
         size: 15,
         total: 0,
         pageSizeOptions: ["15", "20", "50"],
-        percent: 0,
     };
 
     search = (page, size) => {
@@ -145,32 +144,11 @@ class Product extends React.Component {
         console.log(data);
     };
 
-    onUploadChange = ({ file, fileList, event }) => {
-        if (file.status === "uploading") {
-            if (event) {
-                let percent = (event.loaded / event.total) * 100;
-                this.setState({
-                    percent: Number(percent.toFixed(0)),
-                });
-            } else {
-                this.setState({
-                    percent: 0,
-                });
-            }
-        } else if (file.status === "done") {
-            let res = file.response;
-            if (res.code === 200) {
-                let data = res.data[0];
-                console.log(data);
-            }
-        }
-    };
-
-    confirms = () => {
+    modalClose = (flag) => {
         this.setState({
             visible: false,
         });
-    };
+    }
 
     switch = (row) => {
         let status = row.status === 1 ? 2 : 1;
@@ -185,14 +163,8 @@ class Product extends React.Component {
         });
     };
 
-    modalCancel = () => {
-        this.setState({
-            visible: false,
-        });
-    };
-
     render() {
-        const { tableData, page, size, total, pageSizeOptions, loading, visible, percent } = this.state;
+        const { tableData, page, size, total, pageSizeOptions, loading, visible } = this.state;
         const columns = this.columns;
         return (
             <>
@@ -215,38 +187,7 @@ class Product extends React.Component {
                         total={total}
                     />
                 </div>
-                <Modal
-                    title="编辑"
-                    keyboard={false}
-                    maskClosable={false}
-                    destroyOnClose={true}
-                    visible={visible}
-                    onOk={this.confirms}
-                    onCancel={this.modalCancel}
-                >
-                    <Row gutter={24}>
-                        <Col span={12}>
-                            <Input></Input>
-                        </Col>
-                        <Col span={12}>
-                            <Upload
-                                action={`${url.upload}`}
-                                name="upfile"
-                                // action="http://localhost:3000/api/upload/uploadfile"
-                                onChange={this.onUploadChange}
-                            >
-                                <Button>
-                                    <Icon type="upload" /> 上传
-                                </Button>
-                            </Upload>
-                        </Col>
-                    </Row>
-                    <Row gutter={24}>
-                        <Col span={12} offset={12}>
-                            <Progress type="circle" percent={percent} />
-                        </Col>
-                    </Row>
-                </Modal>
+                <BaseModal visible={visible} modalClose={this.modalClose}></BaseModal>
             </>
         );
     }
