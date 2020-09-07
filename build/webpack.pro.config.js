@@ -2,7 +2,7 @@ const path = require("path");
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 const baseConfig = require("./webpack.base.config");
-const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 
