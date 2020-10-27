@@ -5,12 +5,12 @@ import store from "@/model/store";
 import { BrowserRouter, HashRouter } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import App from "@/views/App";
-
+import 'dayjs/locale/zh-cn'
 import zh_CN from "antd/lib/locale-provider/zh_CN";
 
-import moment from "moment";
-import "moment/locale/zh-cn";
-moment.locale("zh-cn");
+// import moment from "moment";
+// import "moment/locale/zh-cn";
+// moment.locale("zh-cn");
 
 import "@/common.less";
 

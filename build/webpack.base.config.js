@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const SpritesmithPlugin = require("webpack-spritesmith");
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -70,6 +71,10 @@ module.exports = {
         ],
     },
     plugins: [
+        // new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(zh-cn)$/),
+        new AntdDayjsWebpackPlugin({
+            preset: 'antdv3'
+        }),
         new HtmlWebpackPlugin({
             title: "创客",
             filename: path.resolve(__dirname, "../dist/index.html"),

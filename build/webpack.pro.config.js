@@ -56,7 +56,6 @@ module.exports = merge(baseConfig, {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(zh-cn)$/),
         new MiniCssExtractPlugin({
             filename: "css/[name].[hash].css",
         }),
