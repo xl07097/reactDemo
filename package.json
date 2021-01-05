@@ -19,7 +19,7 @@
     "@antv/data-set": "^0.10.2",
     "@antv/g2": "^3.5.7",
     "antd": "^3.26.14",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.2.1",
     "crypto-js": "^4.0.0",
