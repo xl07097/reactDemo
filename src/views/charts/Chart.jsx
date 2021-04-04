@@ -2,8 +2,8 @@ import React from "react";
 import { Chart } from "@antv/g2";
 
 class BaseChart extends React.Component {
-    constructor(state) {
-        super(state);
+    constructor(props) {
+        super();
         this.myRef = React.createRef();
         this.chart = "";
     }

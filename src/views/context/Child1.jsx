@@ -3,7 +3,7 @@ import { context } from "./context";
 
 export default class Child1 extends React.Component {
     constructor(props) {
-        super(props);
+        super();
     }
     componentDidMount() {
         console.log(this.context);

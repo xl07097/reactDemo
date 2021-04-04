@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Button, Radio, Icon } from "antd";
+import { Button, Radio } from "antd";
 
 function RenderButton() {
     const [size, setSize] = useState("small");
@@ -14,12 +14,12 @@ function RenderButton() {
             <br />
             <Button.Group size={size}>
                 <Button type="primary">
-                    <Icon type="left" />
+                    {/* <Icon type="left" /> */}
                     Backward
                 </Button>
                 <Button type="primary">
                     Forward
-                    <Icon type="right" />
+                    {/* <Icon type="right" /> */}
                 </Button>
             </Button.Group>
         </div>

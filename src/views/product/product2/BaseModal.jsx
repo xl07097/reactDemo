@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { Modal, Input, Row, Col, Upload, Icon, Progress, Button } from "antd";
-
+import { Modal, Input, Row, Col, Upload, Progress, Button } from "antd";
+import {UploadOutlined } from "@ant-design/icons"
 import url from "@/utils/urls";
 
 function BaseModal(props) {
@@ -58,7 +58,7 @@ function BaseModal(props) {
                         onChange={onUploadChange}
                     >
                         <Button>
-                            <Icon type="upload" /> 上传
+                            <UploadOutlined /> 上传
                         </Button>
                     </Upload>
                 </Col>

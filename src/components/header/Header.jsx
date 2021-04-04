@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { Icon, Drawer } from "antd";
+import { Drawer } from "antd";
+import { UnorderedListOutlined } from "@ant-design/icons";
 import ModifyPassword from "@/components/password/ModifyPassword";
 
 import "./header.less";
@@ -37,11 +38,11 @@ function Header(props) {
                     <Link to="/other/chart">link4</Link>
 
                     <span style={{marginLeft:'10px'}}>
-                        <Icon type={type} style={{ fontSize: "20px" }} onClick={collapse} />
+                        <UnorderedListOutlined style={{ fontSize: "20px" }} onClick={collapse} />
                     </span>
                 </div>
                 <div className="header-right">
-                    <Icon type="bars" onClick={open} style={{ fontSize: "20px" }} />
+                    <UnorderedListOutlined onClick={open} style={{ fontSize: "20px" }} />
                 </div>
             </header>
             <Drawer visible={visible} onClose={onClose} maskClosable={false} destroyOnClose={true}>

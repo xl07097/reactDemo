@@ -1,12 +1,12 @@
 import React, { PureComponent } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Menu, Icon } from "antd";
-
+import { Menu } from "antd";
+import {MailOutlined} from "@ant-design/icons"
 import { asynRouter } from "@/router/router";
 
 class Side extends PureComponent {
     constructor(props) {
-        super(props);
+        super();
         this.state = {
             selectKeys: [props.location.pathname || "/"],
             openKeys: [],
@@ -67,7 +67,7 @@ class Side extends PureComponent {
                         key={newPath}
                         title={
                             <span>
-                                <Icon type="mail" />
+                                <MailOutlined />
                                 <span>{item.meta.title}</span>
                             </span>
                         }
@@ -80,7 +80,7 @@ class Side extends PureComponent {
                 return (
                     <Menu.Item path={newPath} key={newPath}>
                         <Link to={newPath}>
-                            <Icon type="mail" />
+                            <MailOutlined />
                             <span>{item.meta.title}</span>
                         </Link>
                     </Menu.Item>

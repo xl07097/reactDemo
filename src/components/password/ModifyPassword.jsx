@@ -5,6 +5,7 @@ class ModifyPassword extends React.Component {
     state = {
         confirmDirty: false,
     };
+    formRef = React.createRef();
 
     /**
      * 加载时候调用 一次
@@ -13,7 +14,7 @@ class ModifyPassword extends React.Component {
      * @param {*} props
      */
     constructor(props) {
-        super(props);
+        super();
     }
 
     /**
@@ -80,11 +81,14 @@ class ModifyPassword extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                console.log("Received values of form: ", values);
-            }
-        });
+       this.formRef.current
+           .validateFields()
+           .then((values) => {
+               console.log(values);
+           })
+           .catch((err) => {
+               console.log(err);
+           });
     };
 
     handleConfirmBlur = (e) => {
@@ -92,57 +96,63 @@ class ModifyPassword extends React.Component {
         this.setState({ confirmDirty: this.state.confirmDirty || !!value });
     };
 
-    validateToNextPassword = (rule, value, callback) => {
-        const form = this.props.form;
+    validateToNextPassword = (rule, value) => {
+        const form = this.formRef.current;
         if (value && this.state.confirmDirty) {
             form.validateFields(["confirm"], { force: true });
         }
-        callback();
+        return Promise.resolve();
     };
 
-    compareToFirstPassword = (rule, value, callback) => {
-        const form = this.props.form;
+    compareToFirstPassword = (rule, value) => {
+        const form = this.formRef.current;
         if (value && value !== form.getFieldValue("password")) {
-            callback("两次密码不一致");
+            return Promise.resolve("两次密码不一致");
         } else {
-            callback();
+            return Promise.resolve();
         }
     };
 
     render() {
-        const { getFieldDecorator } = this.props.form;
         return (
-            <Form onSubmit={this.handleSubmit}>
-                <Form.Item label="新密码" hasFeedback>
-                    {getFieldDecorator("password", {
-                        rules: [
-                            {
-                                required: true,
-                                message: "密码不能为空",
-                            },
-                            {
-                                validator: this.validateToNextPassword,
-                            },
-                        ],
-                    })(<Input type="password" />)}
+            <Form ref={this.formRef} onFinish={this.handleSubmit}>
+                <Form.Item
+                    label="新密码"
+                    name="password"
+                    rules={[
+                        {
+                            required: true,
+                            message: "密码不能为空",
+                        },
+                        {
+                            validator: this.validateToNextPassword,
+                        },
+                    ]}
+                    hasFeedback
+                >
+                    <Input type="password" />
                 </Form.Item>
-                <Form.Item label="确认密码" hasFeedback>
-                    {getFieldDecorator("confirm", {
-                        rules: [
-                            {
-                                required: true,
-                                message: "请确认密码",
-                            },
-                            {
-                                validator: this.compareToFirstPassword,
-                            },
-                        ],
-                    })(<Input type="password" onBlur={this.handleConfirmBlur} />)}
+                <Form.Item
+                    label="确认密码"
+                    name="confirm"
+                    rules={[
+                        {
+                            required: true,
+                            message: "请确认密码",
+                        },
+                        {
+                            validator: this.compareToFirstPassword,
+                        },
+                    ]}
+                    hasFeedback
+                >
+                    <Input type="password" onBlur={this.handleConfirmBlur} />
                 </Form.Item>
                 <Form.Item>
                     <Button type="primary" htmlType="submit">
                         提交
-                    </Button>&emsp;
+                    </Button>
+                    &emsp;
                     <Button type="default" onClick={this.props.onClose}>
                         关闭
                     </Button>
@@ -152,4 +162,4 @@ class ModifyPassword extends React.Component {
     }
 }
 
-export default Form.create()(ModifyPassword);
+export default ModifyPassword;

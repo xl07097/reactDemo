@@ -1,6 +1,6 @@
 import React from 'react';
-import { Row, Col, Card, Statistic, Icon } from "antd";
-
+import { Row, Col, Card, Statistic } from "antd";
+import { ArrowUpOutlined }from "@ant-design/icons"
 const responsiveProps = {
     xs: 24,
     sm: 12,
@@ -22,7 +22,7 @@ function TopRow() {
                         value={11.28}
                         precision={2}
                         valueStyle={{ color: '#3f8600' }}
-                        prefix={<Icon type="arrow-up" />}
+                        prefix={<ArrowUpOutlined />}
                         suffix="%"
                     />
                     <div className="more">
@@ -38,7 +38,7 @@ function TopRow() {
                         value={11.28}
                         precision={2}
                         valueStyle={{ color: '#3f8600' }}
-                        prefix={<Icon type="arrow-up" />}
+                        prefix={<ArrowUpOutlined />}
                         suffix="%"
                     />
                     <div className="more">
@@ -54,7 +54,7 @@ function TopRow() {
                         value={11.28}
                         precision={2}
                         valueStyle={{ color: '#3f8600' }}
-                        prefix={<Icon type="arrow-up" />}
+                        prefix={<ArrowUpOutlined />}
                         suffix="%"
                     />
                     <div className="more">
@@ -70,7 +70,7 @@ function TopRow() {
                         value={11.28}
                         precision={2}
                         valueStyle={{ color: '#3f8600' }}
-                        prefix={<Icon type="arrow-up" />}
+                        prefix={<ArrowUpOutlined />}
                         suffix="%"
                     />
                     <div className="more">

@@ -1,13 +1,16 @@
 import React from 'react';
-import { Upload, Icon, message } from 'antd';
+import { Upload,  message } from 'antd';
+import { InboxOutlined } from '@ant-design/icons';
 import { UploadProps } from 'antd/lib/upload';
 import url from '@/utils/urls';
 
 const { Dragger } = Upload;
 
-const prop: UploadProps = {
+const prop = {
+    method:"POST",
     name: 'upfile',
     multiple: false,
+    data: {},
     action: `${url.upload}`,
     onChange(data) {
         const { status, response } = data.file;
@@ -22,11 +25,11 @@ const prop: UploadProps = {
     }
 }
 
-const MyUpload: React.FC<{}> = props => {
+const MyUpload = props => {
     return (
         <Dragger {...prop}>
             <p className="ant-upload-drag-icon">
-                <Icon type="inbox" />
+                <InboxOutlined />
             </p>
             <p className="ant-upload-text">Click or drag file to this area to upload</p>
             <p className="ant-upload-hint">

@@ -10,7 +10,6 @@ class Product extends React.Component {
     columns = [
         {
             title: "序号",
-            type: "index",
             key: "index",
             render: (data, record, index) => {
                 return index + 1;
