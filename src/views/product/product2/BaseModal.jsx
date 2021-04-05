@@ -53,7 +53,7 @@ function BaseModal(props) {
                         action={`${url.upload}`}
                         name="upfile"
                         headers={{
-                            token: sessionStorage.getItem("token"),
+                            token: "dc91f324d3a641209a4b129ee1261ec7",
                         }}
                         onChange={onUploadChange}
                     >

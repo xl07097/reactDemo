@@ -10,7 +10,9 @@ const prop: UploadProps = {
     method: "POST",
     name: "upfile",
     multiple: false,
-    data: {},
+    headers: {
+        token: "dc91f324d3a641209a4b129ee1261ec7",
+    },
     action: `${url.upload}`,
     onChange(data) {
         const { status, response } = data.file;
