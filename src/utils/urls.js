@@ -22,4 +22,6 @@ urls.userList = "/user/userList";
 urls.userStatus = '/user/changeUserStatus';
 urls.getAllMenu = '/menu/getMenu';
 
+urls.fileList = '/file/alioss/list'
+
 export default urls;

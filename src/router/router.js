@@ -103,6 +103,14 @@ const asynRouter = [
         component: lazy(() => import("@/views/upload/Upload")),
     },
     {
+        path: "/fileManager",
+        meta: {
+            title: "文件管理",
+            role: "fileManager",
+        },
+        component: lazy(() => import("@/views/file/File")),
+    },
+    {
         path: "/hook",
         meta: {
             title: "hook test",
