@@ -112,19 +112,12 @@ class Product extends React.Component {
         });
     };
 
-    onShowSizeChange = (page, size) => {
-        this.setState({
-            page: 1,
-            size,
-        });
-        this.search(1, size);
-    };
-
-    pageChange = (page) => {
+    pageChange = (page, size) => {
         this.setState({
             page,
+            size,
         });
-        const { size } = this.state;
+        console.log(90);
         this.search(page, size);
     };
 
@@ -147,7 +140,7 @@ class Product extends React.Component {
         this.setState({
             visible: false,
         });
-    }
+    };
 
     switch = (row) => {
         let status = row.status === 1 ? 2 : 1;
@@ -178,7 +171,6 @@ class Product extends React.Component {
                 <div className="page">
                     <Pagination
                         showSizeChanger
-                        onShowSizeChange={this.onShowSizeChange}
                         onChange={this.pageChange}
                         pageSizeOptions={pageSizeOptions}
                         current={page}
