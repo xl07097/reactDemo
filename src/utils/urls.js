@@ -1,8 +1,8 @@
 let BASIC_URI = "";
 
 if (window.location.hostname === "localhost"){ // 本地开发状态
-    BASIC_URI = "https://tomcat.zhiqiuge.com";
-    // BASIC_URI = "http://localhost:9087";
+    // BASIC_URI = "https://tomcat.zhiqiuge.com";
+    BASIC_URI = "http://localhost:9087";
 } else {
     BASIC_URI = "https://tomcat.zhiqiuge.com";
     // BASIC_URI = window.location.protocol + "//" + window.location.hostname + ":8080"; //要发布在同一服务器上
@@ -23,5 +23,5 @@ urls.userStatus = '/user/changeUserStatus';
 urls.getAllMenu = '/menu/getMenu';
 
 urls.fileList = '/file/alioss/list'
-
+urls.deleteFile = '/file/alioss/delete'
 export default urls;

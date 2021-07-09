@@ -1,7 +1,7 @@
 import React from "react";
 import { Table, Pagination, Button, Popconfirm, Image } from "antd";
 
-import { getFileList } from "@/api/file";
+import { getFileList, deletefile } from "@/api/file";
 
 class File extends React.Component {
     columns = [
@@ -118,6 +118,12 @@ class File extends React.Component {
 
     delete = (data) => {
         console.log(data);
+         const { page, size } = this.state;
+        deletefile(data).then(res => {
+            if (res.code == 200) {
+                this.search(page, size);
+            }
+        })
     };
 
     render() {
