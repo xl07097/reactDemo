@@ -127,6 +127,14 @@ const asynRouter = [
         component: lazy(() => import("@/views/refs/Index")),
     },
     {
+        path: "/crypto",
+        meta: {
+            title: "加密",
+            role: "crypto",
+        },
+        component: lazy(() => import("@/views/crypto/crypto")),
+    },
+    {
         path: "/high",
         meta: {
             title: "高阶函数",
