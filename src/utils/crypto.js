@@ -1,6 +1,6 @@
 import CryptoJS from "crypto-js";
 
-//APP AES
+//AES/CBC
 // 加密
 export function Encrypt(word, aeskey, ivkey) {
     //APP AES
@@ -17,7 +17,7 @@ export function Encrypt(word, aeskey, ivkey) {
     return encrypted.ciphertext.toString().toLowerCase();
 }
 
-// 解密
+// 解密  AES/CBC
 export function Decrypt(word, aeskey, ivkey) {
     //APP AES
     var key = CryptoJS.enc.Utf8.parse(aeskey);
@@ -34,12 +34,12 @@ export function Decrypt(word, aeskey, ivkey) {
     return decryptedStr.toString();
 }
 
-var key = 'BOTWAVEE';
-//CBC模式加密
-function encryptByDESModeCBC(message) {
+var key = 'notesecute';
+//CBC模式加密  DES/CBC
+export function encryptByDESModeCBC(message) {
     var keyHex = CryptoJS.enc.Utf8.parse(key);
     var ivHex = CryptoJS.enc.Utf8.parse(key);
-    encrypted = CryptoJS.DES.encrypt(message, keyHex, {
+    let encrypted = CryptoJS.DES.encrypt(message, keyHex, {
         iv: ivHex,
         mode: CryptoJS.mode.CBC,
         padding: CryptoJS.pad.Pkcs7
@@ -47,7 +47,7 @@ function encryptByDESModeCBC(message) {
     return encrypted.ciphertext.toString();
 }
 //CBC模式解密
-function decryptByDESModeCBC(ciphertext2) {
+export function decryptByDESModeCBC(ciphertext2) {
     var keyHex = CryptoJS.enc.Utf8.parse(key);
     var ivHex = CryptoJS.enc.Utf8.parse(key);
     // direct decrypt ciphertext
@@ -64,8 +64,8 @@ function decryptByDESModeCBC(ciphertext2) {
 }
 
 
-//DES  ECB模式加密
-function encryptByDESModeEBC(message) {
+//DES/ECB模式加密
+export function encryptByDESModeEBC(message) {
     var keyHex = CryptoJS.enc.Utf8.parse(key);
     var encrypted = CryptoJS.DES.encrypt(message, keyHex, {
         mode: CryptoJS.mode.ECB,
@@ -75,8 +75,8 @@ function encryptByDESModeEBC(message) {
 }
 
 
-//DES  ECB模式解密
-function decryptByDESModeEBC(ciphertext) {
+//DES/ECB模式解密
+export function decryptByDESModeEBC(ciphertext) {
     var keyHex = CryptoJS.enc.Utf8.parse(key);
     var decrypted = CryptoJS.DES.decrypt({
         ciphertext: CryptoJS.enc.Hex.parse(ciphertext)

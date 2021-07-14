@@ -2,7 +2,7 @@ const path = require("path");
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 const baseConfig = require("./webpack.base.config");
-const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 
@@ -15,24 +15,26 @@ module.exports = merge(baseConfig, {
         publicPath: "/reactDemo/"
     },
     module: {
-        rules: [{
-            test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
-        },
-
-        {
-            test: /.less$/,
-            use: [
-                MiniCssExtractPlugin.loader, "css-loader", "postcss-loader",
-                {
-                    loader: "less-loader",
-                    options: {
-                        javascriptEnabled: true
-                    }
-                }
-            ]
-        }
-        ]
+        rules: [
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+            },
+            {
+                test: /.less$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "postcss-loader",
+                    {
+                        loader: "less-loader",
+                        options: {
+                            javascriptEnabled: true,
+                        },
+                    },
+                ],
+            },
+        ],
     },
     optimization: {
         splitChunks: {
@@ -46,20 +48,16 @@ module.exports = merge(baseConfig, {
                 vendor: {
                     name: "vendor",
                     test: /[\\/]node_modules[\\/]/,
-                    maxSize: 500* 1024,
-                    priority: 10
-                }
-            }
-        }
+                    maxSize: 500 * 1024,
+                    priority: 10,
+                },
+            },
+        },
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new webpack.ContextReplacementPlugin(
-            /moment[\\/]locale$/,
-            /^\.\/(zh-cn)$/
-        ),
         new MiniCssExtractPlugin({
-            filename: "css/[name].[hash].css"
+            filename: "css/[name].[hash].css",
         }),
         new OptimizeCssAssetsWebpackPlugin({
             assetNameRegExp: /\.css$/g,
@@ -67,7 +65,7 @@ module.exports = merge(baseConfig, {
             cssProcessorPluginOptions: {
                 preset: ["default", { discardComments: { removeAll: true } }],
             },
-            canPrint: true
-        })
-    ]
+            canPrint: true,
+        }),
+    ],
 });

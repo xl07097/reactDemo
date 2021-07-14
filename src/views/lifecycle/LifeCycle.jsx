@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "antd";
 class LifeCycle extends React.Component {
     constructor(props) {
-        super(props);
+        super();
         this.state = {
             name: "jack",
         };

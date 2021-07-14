@@ -1,15 +1,16 @@
 import React, { PureComponent } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Menu, Icon } from "antd";
-
+import { Menu } from "antd";
+import {MailOutlined} from "@ant-design/icons"
 import { asynRouter } from "@/router/router";
 
 class Side extends PureComponent {
     constructor(props) {
-        super(props);
+        super();
         this.state = {
-            selectKeys: [props.location.pathname||'/'],
+            selectKeys: [props.location.pathname || "/"],
             openKeys: [],
+            menuItem: '',
         };
     }
     componentDidMount() {
@@ -26,6 +27,7 @@ class Side extends PureComponent {
                 openKeys: openKeys,
             });
         });
+        this.setState({ menuItem: this.renderSubMenu(asynRouter, "/") });
     }
     titleClick = ({ key, domEvent }) => {
         let openKeys = this.getOpenkeys(key);
@@ -65,7 +67,7 @@ class Side extends PureComponent {
                         key={newPath}
                         title={
                             <span>
-                                <Icon type="mail" />
+                                <MailOutlined />
                                 <span>{item.meta.title}</span>
                             </span>
                         }
@@ -78,7 +80,7 @@ class Side extends PureComponent {
                 return (
                     <Menu.Item path={newPath} key={newPath}>
                         <Link to={newPath}>
-                            <Icon type="mail" />
+                            <MailOutlined />
                             <span>{item.meta.title}</span>
                         </Link>
                     </Menu.Item>
@@ -90,16 +92,17 @@ class Side extends PureComponent {
     render() {
         // console.log(this.props);
         const { collapsed } = this.props;
-        const defaultProps = collapsed ? {} : { openKeys: this.state.openKeys };
+        const { openKeys, selectKeys, menuItem } = this.state;
+        const defaultProps = collapsed ? {} : { openKeys };
         return (
             <Menu
                 theme="dark"
                 mode="inline"
                 onOpenChange={this.openChange}
-                selectedKeys={this.state.selectKeys}
+                selectedKeys={selectKeys}
                 {...defaultProps}
             >
-                {this.renderSubMenu(asynRouter, "/")}
+                {menuItem}
             </Menu>
         );
     }

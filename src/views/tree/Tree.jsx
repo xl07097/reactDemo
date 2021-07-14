@@ -16,6 +16,14 @@ function Tree1(props) {
 
     function getMenu() {
         // console.log(json);
+        console.log(json);
+        const data = json.data.map(item => {
+            return {
+                key: item.id,
+                title: item.name,
+                ...item
+            }
+        })
         setTreeData(json.data);
         // getAllMenu()
         //     .then(data => {
@@ -30,12 +38,12 @@ function Tree1(props) {
         return data.map(item => {
             if (item.children && item.children.length) {
                 return (
-                    <TreeNode title={item.name} key={item.id} dataRef={item}>
+                    <TreeNode title={<span>{item.name}</span>} key={item.id}>
                         {renderTreeNodes(item.children)}
                     </TreeNode>
                 );
             }
-            return <TreeNode title={item.name} key={item.id} {...item} />;
+            return <TreeNode title={<span>{item.name}</span>} key={item.id} {...item} />;
         });
     }
 
@@ -67,9 +75,9 @@ function Tree1(props) {
             expandedKeys={expandedKeys}
             checkedKeys={checkedKeys}
             onSelect={onSelect}
-            // treeData={treeData}
+            treeData={treeData}
         >
-            {renderTreeNodes(treeData)}
+            {/* {renderTreeNodes(treeData)} */}
         </Tree>
     )
 }

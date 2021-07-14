@@ -19,7 +19,8 @@ module.exports = {
     },
     "plugins": [
         "import",
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
         // "indent": ["error", 4],

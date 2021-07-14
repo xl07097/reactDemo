@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import G2 from '@antv/g2'
+import {Chart } from '@antv/g2'
 import { DataSet } from '@antv/data-set'
 
 
@@ -61,7 +61,7 @@ function ChartLine(props) {
         }];
 
     useEffect(() => {
-        var chart = new G2.Chart({
+        var chart = new Chart({
             container: 'mountNode',
             forceFit: true,
             height: 400,

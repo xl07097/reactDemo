@@ -1,77 +1,61 @@
 import React from "react";
-import { Table, Pagination, Button, Popconfirm, message } from "antd";
-import BaseModal from './BaseModal';
+import { Table, Pagination, Button, Popconfirm, Image } from "antd";
 
-import { getUserList } from "@/api/product";
-import { switchUserStatus } from "@/api/user";
-import { timetrans } from "@/utils/dateUtils";
+import { getFileList, deletefile } from "@/api/file";
 
-class Product extends React.Component {
+class File extends React.Component {
     columns = [
         {
             title: "序号",
             key: "index",
+            width: 60,
+            align: 'center',
             render: (data, record, index) => {
                 return index + 1;
             },
         },
         {
-            title: "姓名",
-            dataIndex: "username",
-            key: "username",
-        },
-        {
-            title: "年龄",
-            dataIndex: "age",
-            key: "age",
-        },
-        {
-            title: "性别",
-            dataIndex: "gender",
-            key: "gender",
+            title: "预览",
+            dataIndex: "url",
+            key: "preview",
+            width: 160,
             render: (data, record, index) => {
-                return data === 1 ? "男" : "女";
+                if (data.endsWith("png") || data.endsWith("jpg") || data.endsWith("jpeg")) {
+                    return <Image width={160} src={data} />;
+                }
             },
         },
         {
-            title: "头像",
-            dataIndex: "avatar",
-            key: "avatar",
-            render: (data, record, index) => {
-                return <img src={data} alt={record.name} title={record.name} style={{ height: "34px" }} />;
-            },
+            title: "文件名称",
+            dataIndex: "name",
+            key: "name",
+            width: 100,
+            textWrap: "word-break",
         },
         {
-            title: "添加时间",
-            dataIndex: "createtime",
-            render: (data, record, index) => {
-                return timetrans(data);
-            },
+            title: "地址",
+            dataIndex: "url",
+            key: "url",
+            width: 300,
+            textWrap: "word-break",
         },
         {
-            title: "状态",
-            dataIndex: "status",
-            key: "status",
-            render: (data, record, index) => {
-                return data === 1 ? "启用" : "禁用";
-            },
+            title: "描述",
+            dataIndex: "description",
+            width: 100,
+            key: "description",
         },
         {
             title: "操作",
             dataIndex: "action",
-            width: 260,
+            width: 180,
             key: "action",
             render: (data, record, index) => {
-                let msg = record.status ? "确定禁用？" : "确定启用？";
                 return (
                     <div>
                         <Button type="primary" onClick={() => this.edit(record)}>
                             编辑
                         </Button>
-                        &emsp;
-                        <Popconfirm placement="top" title={msg} onConfirm={() => this.switch(record)}>
-                            <Button type="danger">{record.status === 1 ? "禁用" : "启用"}</Button>
-                        </Popconfirm>
                         &emsp;
                         <Popconfirm placement="top" title="确定删除？" onConfirm={() => this.delete(record)}>
                             <Button type="danger">删除</Button>
@@ -97,7 +81,7 @@ class Product extends React.Component {
             page,
             size,
         };
-        getUserList(req).then((res) => {
+        getFileList(req).then((res) => {
             this.setState({
                 loading: false,
             });
@@ -113,11 +97,11 @@ class Product extends React.Component {
     };
 
     pageChange = (page, size) => {
+        console.log(page, size)
         this.setState({
             page,
             size,
         });
-        console.log(90);
         this.search(page, size);
     };
 
@@ -134,33 +118,21 @@ class Product extends React.Component {
 
     delete = (data) => {
         console.log(data);
-    };
-
-    modalClose = (flag) => {
-        this.setState({
-            visible: false,
-        });
-    };
-
-    switch = (row) => {
-        let status = row.status === 1 ? 2 : 1;
-        switchUserStatus({ id: row._id, status: status }).then((data) => {
-            if (data.code === 200) {
-                message.success("用户状态修改成功");
-                const { page, size } = this.state;
+         const { page, size } = this.state;
+        deletefile(data).then(res => {
+            if (res.code == 200) {
                 this.search(page, size);
-            } else {
-                message.error("用户状态修改失败");
             }
-        });
+        })
     };
 
     render() {
-        const { tableData, page, size, total, pageSizeOptions, loading, visible } = this.state;
+        const { tableData, page, size, total, pageSizeOptions, loading } = this.state;
         const columns = this.columns;
         return (
             <>
                 <Table
+                    scroll={{ x: "100%" }}
                     bordered={true}
                     rowKey="id"
                     dataSource={tableData}
@@ -178,10 +150,9 @@ class Product extends React.Component {
                         total={total}
                     />
                 </div>
-                <BaseModal visible={visible} modalClose={this.modalClose}></BaseModal>
             </>
         );
     }
 }
 
-export default Product;
+export default File;
