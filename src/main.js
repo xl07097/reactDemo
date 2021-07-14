@@ -18,7 +18,7 @@ import "@/utils/global";
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename="/reactDemo">
             <ConfigProvider locale={zh_CN}>
                 <App />
             </ConfigProvider>
