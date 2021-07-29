@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Pagination, Button, Popconfirm, message } from "antd";
+import { Table, Pagination, Button, Popconfirm, message, Image } from "antd";
 import BaseModal from './BaseModal';
 
 import { getUserList } from "@/api/product";
@@ -37,8 +37,9 @@ class Product extends React.Component {
             title: "头像",
             dataIndex: "avatar",
             key: "avatar",
+            with: 110,
             render: (data, record, index) => {
-                return <img src={data} alt={record.name} title={record.name} style={{ height: "34px" }} />;
+                return <Image src={data} alt={record.name} title={record.name} width={100} />;
             },
         },
         {

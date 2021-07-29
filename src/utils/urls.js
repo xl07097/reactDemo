@@ -12,7 +12,7 @@ let urls = {};
 urls.BASE_URI = BASIC_URI + "/note"; // 基础地址
 
 
-urls.upload = urls.BASE_URI + '/upload/uploadfile';
+urls.upload = urls.BASE_URI + '/upload/alioss/upload';
 
 urls.userLogin = "/user/login"; // 登录
 urls.getLoginUserInfo = "/user/loginUserInfo";// 当前登录用户信息
@@ -22,6 +22,6 @@ urls.userList = "/user/userList";
 urls.userStatus = '/user/changeUserStatus';
 urls.getAllMenu = '/menu/getMenu';
 
-urls.fileList = '/file/alioss/list'
-urls.deleteFile = '/file/alioss/delete'
+urls.fileList = '/file/list'
+urls.deleteFile = '/file/delete'
 export default urls;
