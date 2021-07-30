@@ -12,12 +12,12 @@ function RenderButton() {
                 <Radio.Button value="small">Small</Radio.Button>
             </Radio.Group>
             <br />
-            <Button.Group size={size}>
-                <Button type="primary">
+            <Button.Group>
+                <Button type="primary" size={size}>
                     {/* <Icon type="left" /> */}
                     Backward
                 </Button>
-                <Button type="primary">
+                <Button type="primary" size={size}>
                     Forward
                     {/* <Icon type="right" /> */}
                 </Button>
