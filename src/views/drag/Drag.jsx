@@ -37,8 +37,8 @@ function Drag() {
         img.src = URL.createObjectURL(file);
         img.onload = function () {
             document.querySelector(".drag-img").appendChild(img); //将图片拖到body内
-            img = null;
-            URL.revokeObjectURL(file);
+            
+            URL.revokeObjectURL(img.src);
         };
     }
 

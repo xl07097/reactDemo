@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import { Button, Radio } from "antd";
+import { LeftOutlined, RightOutlined} from '@ant-design/icons';
 
 function RenderButton() {
     const [size, setSize] = useState("small");
@@ -14,12 +15,12 @@ function RenderButton() {
             <br />
             <Button.Group>
                 <Button type="primary" size={size}>
-                    {/* <Icon type="left" /> */}
+                    <LeftOutlined />
                     Backward
                 </Button>
                 <Button type="primary" size={size}>
+                    <RightOutlined />
                     Forward
-                    {/* <Icon type="right" /> */}
                 </Button>
             </Button.Group>
         </div>
