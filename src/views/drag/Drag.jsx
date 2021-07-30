@@ -4,12 +4,6 @@ function Drag() {
     const dragImg = useRef(null);
 
     useEffect(() => {
-        window.ondragover = function (event) {
-            event.preventDefault();
-        };
-        return () => {
-            window.ondragover = null;
-        }
         console.dir(dragImg);
     }, []);
 
