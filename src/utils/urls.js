@@ -1,6 +1,6 @@
 let BASIC_URI = "";
 
-if (window.location.hostname === "localhost"){ // 本地开发状态
+if (window.location.hostname === "localhost") { // 本地开发状态
     BASIC_URI = "https://tomcat.zhiqiuge.com";
     // BASIC_URI = "http://localhost:9087";
 } else {
@@ -12,7 +12,7 @@ let urls = {};
 urls.BASE_URI = BASIC_URI + "/note"; // 基础地址
 
 
-urls.upload = urls.BASE_URI + '/upload/alioss/upload';
+urls.upload = urls.BASE_URI + '/upload/alioss/file';
 
 urls.userLogin = "/user/login"; // 登录
 urls.getLoginUserInfo = "/user/loginUserInfo";// 当前登录用户信息

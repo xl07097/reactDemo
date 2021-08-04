@@ -11,7 +11,7 @@ const prop: UploadProps = {
     name: "upfile",
     multiple: false,
     headers: {
-        token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ4dWVsaWFuZyIsImV4cCI6MTYyNjcxNDA3MCwidXNlcklkIjoiMSIsImlhdCI6MTYyNjcwNjg3MH0.SICJtW_3ljZSI1W2VvyQRPVxb9zbhc30rfMxI3OBU5c",
+        token: sessionStorage.getItem('token') || "",
     },
     action: `${url.upload}`,
     onChange(data) {

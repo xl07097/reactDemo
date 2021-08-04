@@ -21,6 +21,7 @@ class Side extends PureComponent {
         });
 
         history.listen((item) => {
+            console.log("change");
             let openKeys = this.getOpenkeys(item.pathname || "/");
             this.setState({
                 selectKeys: [item.pathname || "/"],
@@ -31,9 +32,9 @@ class Side extends PureComponent {
     }
     titleClick = ({ key, domEvent }) => {
         let openKeys = this.getOpenkeys(key);
-        this.setState({
-            openKeys: openKeys,
-        });
+        // this.setState({
+        //     openKeys: openKeys,
+        // });
     };
     getOpenkeys = (key) => {
         let openKeys = key.split("/").map((item, index, arr) => {
