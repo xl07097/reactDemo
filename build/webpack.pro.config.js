@@ -2,17 +2,18 @@ const path = require("path");
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 const baseConfig = require("./webpack.base.config");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = merge(baseConfig, {
     mode: "production",
-    // devtool: "source-map",
+    devtool: false,
     output: {
         path: path.resolve(__dirname, "../dist"),
         filename: "js/[name].[hash].js",
-        publicPath: "/reactDemo/",
+        publicPath: "https://files.zhiqiuge.com/xiangshuye/reactDemo/",
     },
     module: {
         rules: [
@@ -67,5 +68,8 @@ module.exports = merge(baseConfig, {
             },
             canPrint: true,
         }),
+        // new CompressionPlugin({
+        //     algorithm: "gzip",
+        // })
     ],
 });
