@@ -1,11 +1,9 @@
 const path = require("path");
 const merge = require("webpack-merge");
-const webpack = require("webpack");
 const baseConfig = require("./webpack.base.config");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = merge(baseConfig, {
     mode: "production",
@@ -41,7 +39,7 @@ module.exports = merge(baseConfig, {
         splitChunks: {
             chunks: "async",
             minSize: 20000,
-            minChunks: 2,
+            minChunks: 1,
             maxAsyncRequests: 3,
             maxInitialRequests: 3,
             name: true,
@@ -50,8 +48,14 @@ module.exports = merge(baseConfig, {
                     name: "vendor",
                     test: /[\\/]node_modules[\\/]/,
                     maxSize: 500 * 1024,
-                    priority: 10,
+                    priority: 0,
                 },
+                antd: {
+                    name: "antd",
+                    test: /[\\/]antd[\\/]/,
+                    maxSize: 500 * 1024,
+                    priority: 10,
+                }
             },
         },
     },
