@@ -1,6 +1,7 @@
 let BASIC_URI = "";
 
-if (window.location.hostname === "localhost") { // 本地开发状态
+if (window.location.hostname === "localhost") {
+    // 本地开发状态
     BASIC_URI = "https://tomcat.zhiqiuge.com";
     // BASIC_URI = "http://localhost:9087";
 } else {
@@ -11,17 +12,17 @@ let urls = {};
 
 urls.BASE_URI = BASIC_URI + "/note"; // 基础地址
 
-
-urls.upload = urls.BASE_URI + '/upload/alioss/file';
+urls.upload = urls.BASE_URI + "/upload/alioss/file";
 
 urls.userLogin = "/user/login"; // 登录
-urls.getLoginUserInfo = "/user/loginUserInfo";// 当前登录用户信息
+urls.getLoginUserInfo = "/user/loginUserInfo"; // 当前登录用户信息
 urls.userLogout = "/user/logout"; //退出登录
 urls.getUser = "/user/checkuser";
 urls.userList = "/user/userList";
-urls.userStatus = '/user/changeUserStatus';
-urls.getAllMenu = '/menu/getMenu';
+urls.userStatus = "/user/changeUserStatus";
+urls.getAllMenu = "/menu/getMenu";
 
-urls.fileList = '/file/list'
-urls.deleteFile = '/file/delete'
+urls.fileList = "/file/list";
+urls.deleteFile = "/file/delete";
+
 export default urls;

@@ -93,12 +93,10 @@ class Product extends React.Component {
         pageSizeOptions: ["15", "20", "50"],
     };
 
-    search = (page, size) => {
-        let req = {
-            page,
-            size,
-        };
-        getUserList(req).then((res) => {
+    search = () => {
+        const { page, size, } = this.state
+
+        getUserList({ page, size }).then((res) => {
             this.setState({
                 loading: false,
             });
@@ -117,14 +115,14 @@ class Product extends React.Component {
         this.setState({
             page,
             size,
+        }, () => {
+            console.log(90);
+            this.search();
         });
-        console.log(90);
-        this.search(page, size);
     };
 
     componentDidMount = () => {
-        const { page, size } = this.state;
-        this.search(page, size);
+        this.search();
     };
 
     edit = (data) => {
@@ -148,8 +146,7 @@ class Product extends React.Component {
         switchUserStatus({ id: row._id, status: status }).then((data) => {
             if (data.code === 200) {
                 message.success("用户状态修改成功");
-                const { page, size } = this.state;
-                this.search(page, size);
+                this.search();
             } else {
                 message.error("用户状态修改失败");
             }
