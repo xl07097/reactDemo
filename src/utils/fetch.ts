@@ -8,7 +8,6 @@ let instance = axios.create({
     // baseURL: 'http://localhost:3002/api/',
     timeout: 10000,
     headers: {
-        token: "dc91f324d3a641209a4b129ee1261ec7",
         'Content-Type': 'application/json'
     }
 })

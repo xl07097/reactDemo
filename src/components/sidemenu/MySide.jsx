@@ -1,8 +1,9 @@
 import React, { PureComponent } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Menu } from "antd";
-import {MailOutlined} from "@ant-design/icons"
+import { MailOutlined } from "@ant-design/icons"
 import { asynRouter } from "@/router/router";
+import { BrowserRouter } from "react-router-dom";
 
 class Side extends PureComponent {
     constructor(props) {
@@ -21,19 +22,21 @@ class Side extends PureComponent {
         });
 
         history.listen((item) => {
+            console.log("change");
             let openKeys = this.getOpenkeys(item.pathname || "/");
             this.setState({
                 selectKeys: [item.pathname || "/"],
                 openKeys: openKeys,
             });
+            window.scrollTo(0, 10)
         });
         this.setState({ menuItem: this.renderSubMenu(asynRouter, "/") });
     }
     titleClick = ({ key, domEvent }) => {
         let openKeys = this.getOpenkeys(key);
-        this.setState({
-            openKeys: openKeys,
-        });
+        // this.setState({
+        //     openKeys: openKeys,
+        // });
     };
     getOpenkeys = (key) => {
         let openKeys = key.split("/").map((item, index, arr) => {
@@ -42,7 +45,7 @@ class Side extends PureComponent {
         openKeys.shift();
         return openKeys;
     };
-    clickMenu = ({ item, key, keyPath, domEvent }) => {};
+    clickMenu = ({ item, key, keyPath, domEvent }) => { };
     openChange = (openKeys) => {
         this.setState({
             openKeys: openKeys,

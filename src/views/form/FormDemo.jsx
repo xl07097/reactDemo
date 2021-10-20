@@ -91,7 +91,6 @@ class RegistrationForm extends React.Component {
     }
 
     render() {
-        const { getFieldDecorator } = this.formRef;
         const { autoCompleteResult } = this.state;
 
         const formItemLayout = {
@@ -101,7 +100,7 @@ class RegistrationForm extends React.Component {
             },
             wrapperCol: {
                 xs: { span: 12 },
-                sm: { span: 4 },
+                sm: { span: 12 },
             },
         };
         const tailFormItemLayout = {
