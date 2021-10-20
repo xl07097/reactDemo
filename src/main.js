@@ -18,11 +18,11 @@ import "@/utils/global";
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter basename="/reactDemo">
+        <HashRouter>
             <ConfigProvider locale={zh_CN}>
                 <App />
             </ConfigProvider>
-        </BrowserRouter>
+        </HashRouter>
     </Provider>,
     document.getElementById("root")
 );
