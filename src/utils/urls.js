@@ -14,7 +14,7 @@ urls.BASE_URI = BASIC_URI + "/note"; // 基础地址
 
 urls.upload = urls.BASE_URI + "/upload/alioss/file";
 
-urls.userLogin = "/user/login"; // 登录
+urls.userLogin = "/user/userLogin"; // 登录
 urls.getLoginUserInfo = "/user/loginUserInfo"; // 当前登录用户信息
 urls.userLogout = "/user/logout"; //退出登录
 urls.getUser = "/user/checkuser";
