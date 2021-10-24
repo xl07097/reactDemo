@@ -71,9 +71,9 @@ class File extends React.Component {
     visible: false,
     loading: true,
     page: 1,
-    size: 15,
+    size: 20,
     total: 0,
-    pageSizeOptions: ["15", "20", "50"],
+    pageSizeOptions: ["20", "50", 100],
   };
 
   search = () => {

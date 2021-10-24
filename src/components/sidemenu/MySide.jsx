@@ -28,7 +28,9 @@ class Side extends PureComponent {
         selectKeys: [item.pathname || "/"],
         openKeys: openKeys,
       });
-      window.scrollTo(0, 0);
+      document.scrollingElement.scrollIntoView({
+        behavior: "smooth",
+      });
     });
     this.setState({ menuItem: this.renderSubMenu(asynRouter, "/") });
   }
