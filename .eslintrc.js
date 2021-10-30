@@ -1,17 +1,17 @@
 module.exports = {
   root: true,
-  // settings: {
-  //   "import/resolver": {
-  //     webpack: {
-  //       config: "build/webpack.base.config.js",
-  //     },
-  //   },
-  // },
+  settings: {
+    "import/resolver": {
+      webpack: {
+        config: "build/webpack.base.config.js",
+      },
+    },
+  },
   env: {
     browser: true,
     es6: true,
   },
-  extends: ["airbnb", "plugin:prettier/recommended"],
+  extends: ["plugin:prettier/recommended"],
   // "eslint:recommended",
   globals: {
     Atomics: "readonly",
