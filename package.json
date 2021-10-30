@@ -64,14 +64,18 @@
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
+    "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.4",
+    "husky": "^7.0.4",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "lint-staged": "^11.2.3",
     "mini-css-extract-plugin": "^0.8.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "ora": "^4.0.3",
@@ -90,5 +94,21 @@
     "webpack-dev-server": "^3.8.0",
     "webpack-merge": "^4.2.2",
     "webpack-spritesmith": "^1.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/*.{js,jsx,mjs,ts,tsx}": [
+      "node_modules/.bin/eslint --fix",
+      "node_modules/.bin/prettier --write",
+      "git add"
+    ],
+    "src/*.{css,scss,less,json,html,md,markdown}": [
+      "node_modules/.bin/prettier --write",
+      "git add"
+    ]
   }
 }
