@@ -1,29 +1,33 @@
 import axios from "axios";
 // import {message} from 'antd';
-import urls from './urls';
-
+import urls from "./urls";
 
 let instance = axios.create({
-    baseURL: urls.BASE_URI,
-    // baseURL: 'http://localhost:3002/api/',
-    timeout: 10000,
-    headers: {
-        'Content-Type': 'application/json'
+  baseURL: urls.BASE_URI,
+  // baseURL: 'http://localhost:3002/api/',
+  timeout: 10000,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+instance.interceptors.request.use(
+  (config: any) => {
+    // 请求拦截器
+    let token = sessionStorage.getItem("token");
+    if (token) {
+      config.headers["token"] = token;
     }
-})
 
-instance.interceptors.request.use((config: any) => { // 请求拦截器
-    let token = sessionStorage.getItem('token');
-    if (token){
-        config.headers['token'] = token;
-    }
+    return config;
+  },
+  (err: any) => {
+    Promise.reject(err);
+  }
+);
 
-    return config
-}, (err:any) => {
-    Promise.reject(err)
-})
-
-instance.interceptors.response.use((res:any) => {
+instance.interceptors.response.use(
+  (res: any) => {
     let data: any = res.data;
 
     // switch (data.code) {
@@ -41,10 +45,11 @@ instance.interceptors.response.use((res:any) => {
     //         break;
     // }
 
-    return data
+    return data;
+  },
+  (err: any) => {
+    Promise.reject(err);
+  }
+);
 
-}, (err:any) => {
-    Promise.reject(err)
-})
-
-export default instance
+export default instance;
