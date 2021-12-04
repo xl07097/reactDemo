@@ -4,14 +4,17 @@ on:
     branches:
       - master
 jobs:
-  build-and-deploy:
+  install:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-
-    - name: Build and Deploy
-      env:
-        ACCESS_TOKEN: ${{ secrets.reactAction }}
-        BRANCH: gh-pages
-        FOLDER: dist
-        BUILD_SCRIPT: npm install && npm run build
+      - name: install
+        env:
+          ACCESS_TOKEN: ${{ secrets.reactAction }}
+          BRANCH: gh-pages
+          BUILD_SCRIPT: npm install
+      - name: build
+        env:
+          ACCESS_TOKEN: ${{ secrets.reactAction }}
+          BRANCH: gh-pages
+          FOLDER: dist
+          BUILD_SCRIPT: npm run build
