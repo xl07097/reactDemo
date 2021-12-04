@@ -1,15 +1,15 @@
 module.exports = {
   root: true,
-  settings: {
-    "import/resolver": {
-      webpack: {
-        config: "build/webpack.base.config.js",
-      },
-    },
-  },
+  // settings: {
+  //   "import/resolver": {
+  //     webpack: {
+  //       config: "build/webpack.base.config.js",
+  //     },
+  //   },
+  // },
   env: {
     browser: true,
-    es6: true,
+    ecma2020: true,
   },
   extends: ["plugin:prettier/recommended"],
   // "eslint:recommended",
@@ -25,16 +25,16 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: "module",
   },
-  plugins: ["import", "react", "react-hooks", "jsx-a11y"],
+  plugins: ["import", "react", "react-hooks"],
   rules: {
     indent: ["error", 2],
-    "import/extensions": [
-      "error",
-      "always",
-      {
-        js: "never",
-      },
-    ],
+    // "import/extensions": [
+    //   "error",
+    //   "always",
+    //   {
+    //     js: "never",
+    //   },
+    // ],
     semi: [0, "always"],
     quotes: ["off", "double"],
     "no-unused-vars": 0,
