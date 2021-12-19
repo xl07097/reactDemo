@@ -12,8 +12,8 @@ function usePerson(size) {
     }).then((res) => {
       setLoading(false);
       if (res.code === 200) {
-        let { list = [] } = res.data;
-        setData(list);
+        let { records = [] } = res.data;
+        setData(records);
       }
     });
   }, [size]);

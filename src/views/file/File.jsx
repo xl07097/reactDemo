@@ -83,9 +83,9 @@ class File extends React.Component {
         loading: false,
       });
       if (res.code === 200) {
-        const { list = [], total } = res.data;
+        const { records = [], total } = res.data;
         this.setState({
-          tableData: list,
+          tableData: records,
           total: total,
         });
         window.scrollTo(0, 0);
