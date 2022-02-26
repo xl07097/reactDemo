@@ -11,7 +11,7 @@ module.exports = merge(baseConfig, {
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "js/[name].[hash].js",
-    publicPath: "https://files.zhiqiuge.com/xiangshuye/reactDemo/",
+    publicPath: "https://files.zhiqiuge.com/website/react/",
   },
   module: {
     rules: [
