@@ -18,7 +18,7 @@ function Product(props) {
   return (
     <React.Fragment>
       {list.map((item) => {
-        return <p key={item.id}>{item.username}</p>;
+        return <p key={item.id}>{item.name}</p>;
       })}
     </React.Fragment>
   );

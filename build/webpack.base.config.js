@@ -71,7 +71,6 @@ module.exports = {
         ],
     },
     plugins: [
-        // new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(zh-cn)$/),
         new AntdDayjsWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: "创客",

@@ -18,7 +18,7 @@ urls.userLogin = "/login"; // 登录
 urls.getLoginUserInfo = "/user/loginUserInfo"; // 当前登录用户信息
 urls.userLogout = "/logout"; //退出登录
 urls.getUser = "/user/checkuser";
-urls.userList = "/user/userList";
+urls.userList = "/user/list";
 urls.userStatus = "/user/updateUserStatus";
 urls.getAllMenu = "/menu/getMenu";
 
