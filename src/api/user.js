@@ -1,18 +1,18 @@
-import $fetch from "@/utils/fetch";
+import { get, post } from "@/http/request";
 import urls from "@/utils/urls";
 
-export function userLogin(data){
-    return $fetch.post(urls.userLogin, data);
+export function userLogin(data) {
+    return post(urls.userLogin, data);
 }
 
-export function getLoginUserInfo(){
-    return $fetch.get(urls.getLoginUserInfo);
+export function getLoginUserInfo() {
+    return get(urls.getLoginUserInfo);
 }
 
 export function switchUserStatus(data) {
-    return $fetch.post(urls.userStatus, data);
+    return post(urls.userStatus, data);
 }
 
-export function userLogout(){
-    return $fetch.post(urls.userLogout);
+export function userLogout() {
+    return post(urls.userLogout);
 }

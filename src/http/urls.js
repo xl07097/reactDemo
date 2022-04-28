@@ -1,18 +1,19 @@
-let BASIC_URI = "";
+let baseURL = ''
+
+export const OSSURIPrefix = 'https://files.zhiqiuge.com/'
 
 if (window.location.hostname === "localhost") {
   // 本地开发状态
-  // BASIC_URI = "https://tomcat.zhiqiuge.com";
-  BASIC_URI = "http://localhost:9087";
+  baseURL = "https://tomcat.zhiqiuge.com";
+  // baseURL = "http://localhost:9087";
 } else {
-  BASIC_URI = "https://tomcat.zhiqiuge.com";
-  // BASIC_URI = window.location.protocol + "//" + window.location.hostname + ":8080"; //要发布在同一服务器上
+  baseURL = "https://tomcat.zhiqiuge.com";
 }
 let urls = {};
 
-urls.BASE_URI = BASIC_URI + "/note"; // 基础地址
+urls.BASE_URI = baseURL + "/note"; // 基础地址
 
-urls.upload = urls.BASE_URI + "/upload/alioss/file";
+urls.upload = urls.baseURL + "/upload/alioss/file";
 
 urls.userLogin = "/login"; // 登录
 urls.getLoginUserInfo = "/user/loginUserInfo"; // 当前登录用户信息
