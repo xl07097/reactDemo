@@ -116,7 +116,7 @@ class File extends React.Component {
   };
 
   delete = (data) => {
-    deletefile(data).then((res) => {
+    deletefile(data.id).then((res) => {
       if (res.code == 200) {
         this.search();
       }

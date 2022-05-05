@@ -1,6 +1,5 @@
 import $http from './base'
 import { downloadHandle } from './httpHandle.js'
-import { OSSURIPrefix } from './urls'
 const qs = require('qs')
 
 /**
@@ -117,6 +116,7 @@ export const downloadPost = (url, data = {}, config = {}) => {
  * @param {*} data
  * @returns
  */
+export const OSSURIPrefix = 'https://files.zhiqiuge.com/'
 
 export const downloadOss = (url, data = {}) => {
   window.location.href = `${OSSURIPrefix}${url}`

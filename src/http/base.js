@@ -1,10 +1,9 @@
 import axios from "axios";
 // import {message} from 'antd';
-import urls from "./urls";
+import urls from "@/utils/urls";
 
 const instance = axios.create({
   baseURL: urls.BASE_URI,
-  // baseURL: 'http://localhost:3002/api/',
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
