@@ -2,7 +2,8 @@ let BASIC_URI = "";
 
 if (window.location.hostname === "localhost") {
   // 本地开发状态
-  BASIC_URI = "http://localhost:9087";
+  // BASIC_URI = "http://localhost:9087";
+  BASIC_URI = "https://www.zhiqiuge.com";
 } else {
   BASIC_URI = "https://www.zhiqiuge.com";
 }
