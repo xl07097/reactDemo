@@ -67,12 +67,12 @@ module.exports = merge(base, {
     historyApiFallback: true,
     contentBase: path.join(__dirname, "../dist"),
     proxy: {
-      "/api": {
-        target: "http://localhost:3002",
+      "/note": {
+        target: "https://note.zhiqiuge.com",
         changeOrigin: true,
-        // pathRewrite: {
-        //     "/api": ""
-        // },
+        pathRewrite: {
+            "/note": ""
+        },
       },
     },
   },
