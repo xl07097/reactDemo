@@ -1,9 +1,9 @@
-import { post } from "@/http/request";
+import { post, get } from "@/http/request";
 
 import urls from "@/utils/urls";
 
 export function getFileList(data) {
-  return post(urls.fileList, data);
+  return get(urls.fileList, data);
 }
 
 export function deletefile(id) {

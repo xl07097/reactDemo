@@ -1,12 +1,11 @@
 const path = require("path");
 const webpack = require("webpack");
-const merge = require("webpack-merge");
+const {merge} = require("webpack-merge");
 const base = require("./webpack.base.config");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = merge(base, {
   mode: "development",
-  devtool: "source-map",
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "js/[name].js",
@@ -45,7 +44,9 @@ module.exports = merge(base, {
           {
             loader: "less-loader",
             options: {
-              javascriptEnabled: true,
+              lessOptions: {
+                javascriptEnabled: true,
+              },
             },
           },
         ],
@@ -60,12 +61,9 @@ module.exports = merge(base, {
   ],
   devServer: {
     port: "9000",
-    host: "localhost",
-    allowedHosts: ["0.0.0.0", "192.168.1.49"],
     open: true,
     hot: true,
     historyApiFallback: true,
-    contentBase: path.join(__dirname, "../dist"),
     proxy: {
       "/note": {
         target: "https://note.zhiqiuge.com",

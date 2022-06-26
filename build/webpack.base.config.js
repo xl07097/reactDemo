@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const SpritesmithPlugin = require("webpack-spritesmith");
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+const WebpackDayjsPlugin = require('antd-dayjs-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -11,35 +11,12 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, "../src"),
-        use: [
-          // {
-          //   loader: "thread-loader",
-          //   options: {
-          //     worker: 2,
-          //     workerParallelJobs: 30,
-          //     poolTimeout: 2000,
-          //     poolParallelJobs: 50,
-          //   }
-          // },
-          {
-            loader: require.resolve("babel-loader"),
-            options: {
-              cacheDirectory: true,
-              cacheCompression: false,
-              // eslintPath: require.resolve('eslint'),
-            },
-          }
-        ],
-
+        use: "babel-loader",
         exclude: /^node_modules$/,
       },
       {
         test: /\.(ts|tsx)$/,
-        include: path.resolve(__dirname, "../src"),
-        use: [
-          'ts-loader'
-        ],
+        use: 'ts-loader',
         exclude: /^node_modules$/,
       },
       {
@@ -71,7 +48,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new AntdDayjsWebpackPlugin(),
+    new WebpackDayjsPlugin(),
     new HtmlWebpackPlugin({
       title: "创客",
       filename: path.resolve(__dirname, "../dist/index.html"),
