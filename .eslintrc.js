@@ -1,18 +1,10 @@
 module.exports = {
   root: true,
-  // settings: {
-  //   "import/resolver": {
-  //     webpack: {
-  //       config: "build/webpack.base.config.js",
-  //     },
-  //   },
-  // },
   env: {
     browser: true,
-    ecma2020: true,
+    es6: true,
   },
-  extends: ["plugin:prettier/recommended"],
-  // "eslint:recommended",
+  extends: ["plugin:react/recommended"],
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
@@ -28,13 +20,6 @@ module.exports = {
   plugins: ["import", "react", "react-hooks"],
   rules: {
     indent: ["error", 2],
-    // "import/extensions": [
-    //   "error",
-    //   "always",
-    //   {
-    //     js: "never",
-    //   },
-    // ],
     semi: [0, "always"],
     quotes: ["off", "double"],
     "no-unused-vars": 0,

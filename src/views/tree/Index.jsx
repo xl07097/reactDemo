@@ -1,23 +1,14 @@
 import React from "react";
 import { Row, Col } from "antd";
 
-import Tree1 from "./Tree";
+import Tree from "./Tree";
 
 function Index() {
   return (
     <Row gutter={24}>
-      <Col span={12}>
-        <Tree1></Tree1>
+      <Col span={24}>
+        <Tree></Tree>
       </Col>
-      <Col span={12}>
-        <Tree1></Tree1>
-      </Col>
-      {/* <Col span={6}>
-                <Tree1></Tree1>
-            </Col>
-            <Col span={6}>
-                <Tree1></Tree1>
-            </Col> */}
     </Row>
   );
 }
