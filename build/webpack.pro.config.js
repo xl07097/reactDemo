@@ -1,16 +1,16 @@
 const path = require("path");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const baseConfig = require("./webpack.base.config");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = merge(baseConfig, {
   mode: "production",
   output: {
     path: path.resolve(__dirname, "../dist"),
-    filename: "js/[name].[hash].js",
+    filename: "js/[name].[fullhash].js",
     publicPath: "https://files.zhiqiuge.com/website/react/",
   },
   module: {
@@ -28,7 +28,9 @@ module.exports = merge(baseConfig, {
           {
             loader: "less-loader",
             options: {
-              javascriptEnabled: true,
+              lessOptions: {
+                javascriptEnabled: true,
+              },
             },
           },
         ],
@@ -73,13 +75,13 @@ module.exports = merge(baseConfig, {
         vendor: {
           name: "vendor",
           test: /[\\/]node_modules[\\/]/,
-          maxSize: 500 * 1024,
+          // maxSize: 500 * 1024,
           priority: 0,
         },
         antd: {
           name: "antd",
           test: /[\\/]antd[\\/]/,
-          maxSize: 500 * 1024,
+          // maxSize: 500 * 1024,
           priority: 10,
         },
       },
@@ -88,7 +90,7 @@ module.exports = merge(baseConfig, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "css/[name].[hash].css",
+      filename: "css/[name].[contenthash].css",
     }),
     // new CompressionPlugin({
     //     algorithm: "gzip",

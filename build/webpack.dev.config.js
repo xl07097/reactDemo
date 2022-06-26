@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const {merge} = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const base = require("./webpack.base.config");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
@@ -15,16 +15,20 @@ module.exports = merge(base, {
     rules: [
       {
         test: /\.css$/,
-        use: [{
-          loader: "style-loader",
-        }, {
-          loader: "css-loader",
-          options: {
-            esModule: false
-          }
-        }, {
-          loader: "postcss-loader"
-        }],
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {
+              esModule: false,
+            },
+          },
+          {
+            loader: "postcss-loader",
+          },
+        ],
       },
       {
         test: /\.less$/,
@@ -35,11 +39,11 @@ module.exports = merge(base, {
           {
             loader: "css-loader",
             options: {
-              esModule: false
-            }
+              esModule: false,
+            },
           },
           {
-            loader: "postcss-loader"
+            loader: "postcss-loader",
           },
           {
             loader: "less-loader",
@@ -69,7 +73,7 @@ module.exports = merge(base, {
         target: "https://note.zhiqiuge.com",
         changeOrigin: true,
         pathRewrite: {
-            "/note": ""
+          "/note": "",
         },
       },
     },
