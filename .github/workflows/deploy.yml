@@ -1,0 +1,16 @@
+name: reactAction
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and Deploy
+        uses: actions/checkout@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.reactAction }}
+          BRANCH: gh-pages
+          FOLDER: dist
+          BUILD_SCRIPT: npm install && npm run build
