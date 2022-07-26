@@ -11,7 +11,7 @@ const File = function () {
   const [page, setPage] = useState(1);
   const [size, setSize] = useState(20);
   const [total, setTotal] = useState(0);
-  const pageSizeOptions = ["20", "50", 100];
+  const pageSizeOptions = [20, 50, 100];
 
   useEffect(() => {
     search();
@@ -33,11 +33,8 @@ const File = function () {
     setSize(size);
   }
 
-  function edit(data) {
-    setVisible(true);
-  }
-
   function dels(data) {
+    debugger;
     deletefile(data.id).then((res) => {
       if (res.code == 200) {
         search();
@@ -96,15 +93,9 @@ const File = function () {
       key: "action",
       render: (data, record, index) => {
         return (
-          <>
-            <Button type="primary" onClick={() => edit(record)}>
-              编辑
-            </Button>
-            &emsp;
-            <Popconfirm placement="top" title="确定删除？" onConfirm={() => dels(record)}>
-              <Button type="danger">删除</Button>
-            </Popconfirm>
-          </>
+          <Popconfirm placement="top" title="确定删除？" onConfirm={() => dels(record)}>
+            <Button type="danger">删除</Button>
+          </Popconfirm>
         );
       },
     },
