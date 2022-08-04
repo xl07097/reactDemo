@@ -7,5 +7,5 @@ export function getFileList(data) {
 }
 
 export function deletefile(id) {
-  return post(`${urls.deleteFile}/${id}`);
+  return get(`${urls.deleteFile}/${id}`);
 }
