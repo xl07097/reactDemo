@@ -1,32 +1,32 @@
-const path = require("path");
-const { merge } = require("webpack-merge");
-const baseConfig = require("./webpack.base.config");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+const path = require('path')
+const { merge } = require('webpack-merge')
+const baseConfig = require('./webpack.base.config')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = merge(baseConfig, {
-  mode: "production",
+  mode: 'production',
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "js/[name].[fullhash].js",
-    publicPath: "https://files.zhiqiuge.com/website/react/",
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'js/[name].[contenthash:8].js',
+    publicPath: 'https://files.zhiqiuge.com/website/react/',
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /.less$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
+          'css-loader',
+          'postcss-loader',
           {
-            loader: "less-loader",
+            loader: 'less-loader',
             options: {
               lessOptions: {
                 javascriptEnabled: true,
@@ -65,7 +65,7 @@ module.exports = merge(baseConfig, {
       }),
     ],
     splitChunks: {
-      chunks: "async",
+      chunks: 'async',
       // minSize: 20000,
       minChunks: 1,
       maxAsyncRequests: 3,
@@ -73,13 +73,13 @@ module.exports = merge(baseConfig, {
       // name: true,
       cacheGroups: {
         vendor: {
-          name: "vendor",
+          name: 'vendor',
           test: /[\\/]node_modules[\\/]/,
           // maxSize: 500 * 1024,
           priority: 0,
         },
         antd: {
-          name: "antd",
+          name: 'antd',
           test: /[\\/]antd[\\/]/,
           // maxSize: 500 * 1024,
           priority: 10,
@@ -90,10 +90,10 @@ module.exports = merge(baseConfig, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "css/[name].[contenthash].css",
+      filename: 'css/[name].[contenthash:8].css',
     }),
     // new CompressionPlugin({
     //     algorithm: "gzip",
     // })
   ],
-});
+})
