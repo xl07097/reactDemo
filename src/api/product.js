@@ -1,9 +1,7 @@
-import $fetch from "@/utils/fetch";
+import { get } from "@/http/request";
 
 import urls from "@/utils/urls";
 
 export function getUserList(data) {
-    return $fetch.get(urls.userList, {
-        params: data,
-    });
+    return get(urls.userList, data);
 }

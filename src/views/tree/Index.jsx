@@ -1,25 +1,16 @@
-import React from 'react';
-import { Row, Col } from 'antd';
+import React from "react";
+import { Row, Col } from "antd";
 
-import Tree1 from './Tree';
+import Tree from "./Tree";
 
 function Index() {
-    return (
-        <Row gutter={24}>
-            <Col span={6}>
-                <Tree1></Tree1>
-            </Col>
-            <Col span={6}>
-                <Tree1></Tree1>
-            </Col>
-            <Col span={6}>
-                <Tree1></Tree1>
-            </Col>
-            <Col span={6}>
-                <Tree1></Tree1>
-            </Col>
-        </Row>
-    )
+  return (
+    <Row gutter={24}>
+      <Col span={24}>
+        <Tree></Tree>
+      </Col>
+    </Row>
+  );
 }
 
 export default Index;

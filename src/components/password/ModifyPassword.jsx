@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Input, Button, message } from "antd";
 import { userLogin } from "@/api/user";
+import { encryptByDESModeCBC } from "@/utils/crypto";
 class ModifyPassword extends React.Component {
   state = {
     confirmDirty: false,
@@ -82,7 +83,7 @@ class ModifyPassword extends React.Component {
     this.formRef.current
       .validateFields()
       .then((values) => {
-        console.log(values);
+        values.password = encryptByDESModeCBC(values.password);
         userLogin(values).then((res) => {
           if (res.code === 200) {
             sessionStorage.setItem("token", res.data.token);
@@ -103,7 +104,7 @@ class ModifyPassword extends React.Component {
       <Form ref={this.formRef} onFinish={this.handleSubmit}>
         <Form.Item
           label="用户名"
-          name="username"
+          name="name"
           rules={[
             {
               required: true,

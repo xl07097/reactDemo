@@ -1,5 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const MiddlePage: React.FC = props => <>{ props.children }</>;
+interface FCProps {
+  children: React.ReactElement;
+}
 
-export default MiddlePage
+const MiddlePage: React.FC<FCProps> = (props) => <>{props.children}</>;
+
+export default MiddlePage;

@@ -17,8 +17,8 @@ class Product extends React.Component {
     },
     {
       title: "姓名",
-      dataIndex: "username",
-      key: "username",
+      dataIndex: "name",
+      key: "name",
     },
     {
       title: "年龄",
@@ -69,10 +69,10 @@ class Product extends React.Component {
             <Button type="primary" onClick={() => this.edit(record)}>
               编辑
             </Button>
-            &emsp;
+            {/* &emsp;
             <Popconfirm placement="top" title={msg} onConfirm={() => this.switch(record)}>
               <Button type="danger">{record.status === 1 ? "禁用" : "启用"}</Button>
-            </Popconfirm>
+            </Popconfirm> */}
             &emsp;
             <Popconfirm placement="top" title="确定删除？" onConfirm={() => this.delete(record)}>
               <Button type="danger">删除</Button>
@@ -101,9 +101,9 @@ class Product extends React.Component {
         loading: false,
       });
       if (res.code === 200) {
-        const { list = [], total } = res.data;
+        const { records = [], total } = res.data;
         this.setState({
-          tableData: list,
+          tableData: records,
           total: total,
         });
         window.scrollTo(0, 0);

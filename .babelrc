@@ -4,7 +4,7 @@
 		[
 			"@babel/preset-env",
 			{
-				"useBuiltIns": "usage",
+				"useBuiltIns": "entry",
 				"corejs": 3,
 				"modules": false,
 				"targets": {
@@ -20,15 +20,6 @@
 	"plugins": [
 		"@babel/plugin-proposal-class-properties",
 		"@babel/plugin-syntax-dynamic-import",
-		[
-			"@babel/plugin-transform-runtime",
-			{
-				"corejs": 3,
-				"helpers": true,
-				"regenerator": true,
-				"useESModules": false
-			}
-		],
 		[
 			"import",
 			{

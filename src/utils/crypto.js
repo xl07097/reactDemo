@@ -35,7 +35,7 @@ export function DecryptByAES(word, aeskey, ivkey) {
 }
 
 //CBC模式加密  DES/CBC
-export function encryptByDESModeCBC(message, key = "notesecute") {
+export function encryptByDESModeCBC(message, key = "NOTESIGN") {
   var keyHex = CryptoJS.enc.Utf8.parse(key);
   var ivHex = CryptoJS.enc.Utf8.parse(key);
   let encrypted = CryptoJS.DES.encrypt(message, keyHex, {
@@ -46,7 +46,7 @@ export function encryptByDESModeCBC(message, key = "notesecute") {
   return encrypted.ciphertext.toString();
 }
 //CBC模式解密
-export function decryptByDESModeCBC(ciphertext2, key = "notesecute") {
+export function decryptByDESModeCBC(ciphertext2, key = "NOTESIGN") {
   var keyHex = CryptoJS.enc.Utf8.parse(key);
   var ivHex = CryptoJS.enc.Utf8.parse(key);
   // direct decrypt ciphertext
@@ -66,7 +66,7 @@ export function decryptByDESModeCBC(ciphertext2, key = "notesecute") {
 }
 
 //DES/ECB模式加密
-export function encryptByDESModeEBC(message, key = "notesecute") {
+export function encryptByDESModeEBC(message, key = "NOTESIGN") {
   var keyHex = CryptoJS.enc.Utf8.parse(key);
   var encrypted = CryptoJS.DES.encrypt(message, keyHex, {
     mode: CryptoJS.mode.ECB,
@@ -76,7 +76,7 @@ export function encryptByDESModeEBC(message, key = "notesecute") {
 }
 
 //DES/ECB模式解密
-export function decryptByDESModeEBC(ciphertext, key = "notesecute") {
+export function decryptByDESModeEBC(ciphertext, key = "NOTESIGN") {
   var keyHex = CryptoJS.enc.Utf8.parse(key);
   var decrypted = CryptoJS.DES.decrypt(
     {

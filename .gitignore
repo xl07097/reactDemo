@@ -20,4 +20,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
-
+upload.js

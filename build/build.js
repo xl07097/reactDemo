@@ -8,30 +8,34 @@ const path = require("path");
 const spinner = ora("building is start...\n");
 
 spinner.start();
-rm(path.join(path.resolve(__dirname, "../dist")), err => {
-    if (err) {
-        throw new Error(err);
-    }
-    webpack(config, (err, stats) => {
-        spinner.stop();
-        if(err) throw err;
-        process.stdout.write(stats.toString({
-            colors: true,
-            modules: false,
-            children: false,
-            chunks: false,
-            chunkModules: false
-        })+ "\n\n");
+rm(path.join(path.resolve(__dirname, "../dist")), (err) => {
+	if (err) {
+		throw new Error(err);
+	}
+	webpack(config, (err, stats) => {
+		spinner.stop();
+		if (err) throw err;
+		process.stdout.write(
+			stats.toString({
+				colors: true,
+				modules: false,
+				children: false,
+				chunks: false,
+				chunkModules: false,
+			}) + "\n\n"
+		);
 
-        if(stats.hasErrors()){
-            console.log(chalk.red("Build faild with errors. \n"));
-            process.exit(1);
-        }
+		if (stats.hasErrors()) {
+			console.log(chalk.red("Build faild with errors. \n"));
+			process.exit(1);
+		}
 
-        console.log(chalk.cyan(" Build complete.\n"));
-        console.log(chalk.yellow(
-            "  Tip: built files are meant to be served over an HTTP server.\n" +
-            "  Opening index.html over file:// won't work.\n"
-        ));
-    });
+		console.log(chalk.cyan(" Build complete.\n"));
+		console.log(
+			chalk.yellow(
+				"  Tip: built files are meant to be served over an HTTP server.\n" +
+				"  Opening index.html over file:// won't work.\n"
+			)
+		);
+	});
 });

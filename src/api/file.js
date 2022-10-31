@@ -1,11 +1,11 @@
-import $fetch from "@/utils/fetch";
+import { post, get } from "@/http/request";
 
 import urls from "@/utils/urls";
 
 export function getFileList(data) {
-  return $fetch.post(urls.fileList, data);
+  return get(urls.fileList, data);
 }
 
-export function deletefile(data) {
-  return $fetch.post(urls.deleteFile, data);
+export function deletefile(id) {
+  return get(`${urls.deleteFile}/${id}`);
 }
