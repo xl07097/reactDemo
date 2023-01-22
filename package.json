@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --progress --config build/webpack.dev.config.js",
     "build": "node ./build/build.js",
+    "build:github": "cross-env stage=github node ./build/build.js",
     "lint": "eslint --fix, src"
   },
   "author": "xueliang",
@@ -52,6 +53,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "compression-webpack-plugin": "^10.0.0",
     "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
     "eslint": "^7.32.0",

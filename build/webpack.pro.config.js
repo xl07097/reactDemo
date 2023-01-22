@@ -6,12 +6,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
+const publicPath = process.env.stage === 'github' ? './' : 'https://files.zhiqiuge.com/website/react/'
 module.exports = merge(baseConfig, {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].[contenthash:8].js',
-    publicPath: 'https://files.zhiqiuge.com/website/react/',
+    publicPath: publicPath,
   },
   module: {
     rules: [

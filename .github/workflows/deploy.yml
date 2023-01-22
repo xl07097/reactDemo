@@ -4,19 +4,19 @@ on:
     branches:
       - master
   label:
-     branches:
+    branches:
       - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout  ️
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Install and Build # 安装依赖、打包，如果提前已打包好无需这一步
         run: |
           npm install
-          npm run build
+          npm run build:github
 
       - name: Deploy
         # uses: actions/checkout@master
