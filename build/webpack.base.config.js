@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const SpritesmithPlugin = require('webpack-spritesmith')
 const WebpackDayjsPlugin = require('antd-dayjs-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
   entry: {
@@ -89,6 +90,9 @@ module.exports = {
         algorithm: 'top-down',
         padding: 4,
       },
+    }),
+    new webpack.DefinePlugin({
+      'process.env.stage': JSON.stringify(process.env.stage),
     }),
   ],
   resolve: {

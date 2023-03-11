@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --config build/webpack.dev.config.js",
+    "dev": "cross-env stage=github webpack-dev-server --progress --config build/webpack.dev.config.js",
     "build": "node ./build/build.js",
     "build:github": "cross-env stage=github node ./build/build.js",
     "lint": "eslint --fix, src"
