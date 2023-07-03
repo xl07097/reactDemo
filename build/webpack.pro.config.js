@@ -5,6 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const SwRegisterWebpackPlugin = require('sw-register-webpack-plugin')
 
 const publicPath = process.env.stage === 'github' ? '/reactDemo/' : 'https://files.zhiqiuge.com/website/react/'
 module.exports = merge(baseConfig, {
@@ -92,6 +94,20 @@ module.exports = merge(baseConfig, {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      directoryIndex: './dist', // 缓存的目录
+      // globPatterns: ['**/*.{html,js,css}'], //缓存的静态文件类型, 可以是html，js，css等
+      swDest: path.join(__dirname, '../dist/sw.js'), // sw生成后路径
+      clientsClaim: true, // sw立即接管网页
+      skipWaiting: true, // 新旧sw更新等待
+    }),
+    new SwRegisterWebpackPlugin({
+      filePath: path.resolve(__dirname, '../src/sw-register.js'),
+      // filePath 文件路径
+      // prefix 文件前缀，解决cdn路径问题
+      // output sw-register输出文件
+      // excludes 排除某些不需要sw的页面
     }),
     // new CompressionPlugin({
     //     algorithm: "gzip",
