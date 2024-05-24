@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Tree } from 'antd'
-import { post } from '@/http/request'
+import { get, post } from '@/http/request'
 
 const { TreeNode } = Tree
 
@@ -29,7 +29,7 @@ function Tree1(props) {
   let [autoExpandParent, setAutoExpandParent] = useState(true)
 
   useEffect(() => {
-    post('/sysArea/list', { size: 100, parentCode: '0' }).then((res) => {
+    get('/area/list', { size: 100, parentCode: '0' }).then((res) => {
       setTreeData(res.data.records || [])
     })
   }, [])
@@ -50,7 +50,7 @@ function Tree1(props) {
 
   function loadData(node) {
     return new Promise((resolve) => {
-      post('/sysArea/list', {
+      get('/area/list', {
         parentCode: node.areaCode,
         size: 100,
       }).then((res) => {

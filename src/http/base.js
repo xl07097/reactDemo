@@ -1,29 +1,29 @@
-import axios from "axios";
+import axios from 'axios'
 // import {message} from 'antd';
-import urls from "@/utils/urls";
+import urls from '@/utils/urls'
 
 const instance = axios.create({
   baseURL: '/note',
   timeout: 10000,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
-});
+})
 
 instance.interceptors.request.use(
   (config) => {
     // 请求拦截器
-    let token = sessionStorage.getItem("token");
+    let token = sessionStorage.getItem('token')
     if (token) {
-      config.headers["token"] = token;
+      config.headers['AuthToken'] = token
     }
 
-    return config;
+    return config
   },
   (err) => {
-    Promise.reject(err);
+    Promise.reject(err)
   }
-);
+)
 
 instance.interceptors.response.use(
   (res) => {
@@ -49,16 +49,14 @@ instance.interceptors.response.use(
     //         break;
     // }
 
-    return data;
+    return data
   },
   (err) => {
     let response = err.response
     const { status } = response
-    let errorMessage = response.data.error
-      ? response.data.error
-      : err.message
-    Promise.reject(response);
+    let errorMessage = response.data.error ? response.data.error : err.message
+    Promise.reject(response)
   }
-);
+)
 
-export default instance;
+export default instance

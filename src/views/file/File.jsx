@@ -58,7 +58,7 @@ const File = function () {
       width: 80,
       render: (data, record, index) => {
         if (data.endsWith('png') || data.endsWith('jpg') || data.endsWith('jpeg')) {
-          return <Image width={70} src={data} />
+          return <Image width={70} src={`${record.endpoint}${data}`} />
         }
       },
     },
@@ -66,7 +66,7 @@ const File = function () {
       title: '文件名称',
       dataIndex: 'name',
       key: 'name',
-      width: 120,
+      width: 150,
       render: (data, record, index) => {
         return <span style={{ wordBreak: 'break-all', overflowWrap: 'break-word' }}>{data}</span>
       },
@@ -104,7 +104,8 @@ const File = function () {
   return (
     <>
       <Table
-        scroll={{ x: '100%' }}
+        scroll={{ x: '100%', y: '400px' }}
+        tableLayout="fixed"
         bordered={true}
         rowKey="id"
         dataSource={tableData}
