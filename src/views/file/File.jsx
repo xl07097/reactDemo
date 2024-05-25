@@ -8,17 +8,17 @@ const File = function () {
 
   const [visible, setVisible] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [page, setPage] = useState(1)
-  const [size, setSize] = useState(20)
+  const [pageNo, setPage] = useState(1)
+  const [pageSize, setSize] = useState(20)
   const [total, setTotal] = useState(0)
   const pageSizeOptions = [20, 50, 100]
 
   useEffect(() => {
     search()
-  }, [page, size])
+  }, [pageNo, pageSize])
 
   function search() {
-    getFileList({ page, size, fileTag: 1 }).then((res) => {
+    getFileList({ pageNo, pageSize, fileTag: 1 }).then((res) => {
       setLoading(false)
       if (res.code === 200) {
         const { records = [], total } = res.data
@@ -118,8 +118,8 @@ const File = function () {
           showSizeChanger
           onChange={pageChange}
           pageSizeOptions={pageSizeOptions}
-          current={page}
-          pageSize={size}
+          current={pageNo}
+          pageSize={pageSize}
           total={total}
         />
       </div>
