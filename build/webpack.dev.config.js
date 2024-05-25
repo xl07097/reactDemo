@@ -1,15 +1,15 @@
-const path = require("path");
-const webpack = require("webpack");
-const { merge } = require("webpack-merge");
-const base = require("./webpack.base.config");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const path = require('path')
+const webpack = require('webpack')
+const { merge } = require('webpack-merge')
+const base = require('./webpack.base.config')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = merge(base, {
-  mode: "development",
+  mode: 'development',
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "js/[name].js",
-    publicPath: "/",
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'js/[name].js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -17,16 +17,16 @@ module.exports = merge(base, {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               esModule: false,
             },
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
           },
         ],
       },
@@ -34,19 +34,19 @@ module.exports = merge(base, {
         test: /\.less$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               esModule: false,
             },
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
           },
           {
-            loader: "less-loader",
+            loader: 'less-loader',
             options: {
               lessOptions: {
                 javascriptEnabled: true,
@@ -64,18 +64,18 @@ module.exports = merge(base, {
     }),
   ],
   devServer: {
-    port: "9000",
+    port: '9000',
     open: true,
     hot: true,
     historyApiFallback: true,
     proxy: {
-      "/note": {
-        target: "https://note.zhiqiuge.com",
+      '/note': {
+        target: 'http://localhost:3003',
         changeOrigin: true,
         pathRewrite: {
-          "/note": "",
+          '/note': '',
         },
       },
     },
   },
-});
+})

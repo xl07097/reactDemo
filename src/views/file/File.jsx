@@ -8,17 +8,17 @@ const File = function () {
 
   const [visible, setVisible] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [page, setPage] = useState(1)
-  const [size, setSize] = useState(20)
+  const [pageNo, setPage] = useState(1)
+  const [pageSize, setSize] = useState(20)
   const [total, setTotal] = useState(0)
   const pageSizeOptions = [20, 50, 100]
 
   useEffect(() => {
     search()
-  }, [page, size])
+  }, [pageNo, pageSize])
 
   function search() {
-    getFileList({ page, size, fileTag: 1 }).then((res) => {
+    getFileList({ pageNo, pageSize, fileTag: 1 }).then((res) => {
       setLoading(false)
       if (res.code === 200) {
         const { records = [], total } = res.data
@@ -58,7 +58,7 @@ const File = function () {
       width: 80,
       render: (data, record, index) => {
         if (data.endsWith('png') || data.endsWith('jpg') || data.endsWith('jpeg')) {
-          return <Image width={70} src={data} />
+          return <Image width={70} src={`${record.endpoint}${data}`} />
         }
       },
     },
@@ -66,7 +66,7 @@ const File = function () {
       title: '文件名称',
       dataIndex: 'name',
       key: 'name',
-      width: 120,
+      width: 150,
       render: (data, record, index) => {
         return <span style={{ wordBreak: 'break-all', overflowWrap: 'break-word' }}>{data}</span>
       },
@@ -104,7 +104,8 @@ const File = function () {
   return (
     <>
       <Table
-        scroll={{ x: '100%' }}
+        scroll={{ x: '100%', y: '400px' }}
+        tableLayout="fixed"
         bordered={true}
         rowKey="id"
         dataSource={tableData}
@@ -117,8 +118,8 @@ const File = function () {
           showSizeChanger
           onChange={pageChange}
           pageSizeOptions={pageSizeOptions}
-          current={page}
-          pageSize={size}
+          current={pageNo}
+          pageSize={pageSize}
           total={total}
         />
       </div>

@@ -8,7 +8,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const SwRegisterWebpackPlugin = require('sw-register-webpack-plugin')
 
-const publicPath = process.env.stage === 'github' ? '/reactDemo/' : 'https://files.zhiqiuge.com/website/react/'
+const publicPath = process.env.stage === 'github' ? '/reactDemo/' : '/' // 'https://files.zhiqiuge.com/website/react/'
 module.exports = merge(baseConfig, {
   mode: 'production',
   output: {
