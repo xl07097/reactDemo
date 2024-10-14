@@ -6,6 +6,6 @@ export function getFileList(data) {
   return get(urls.fileList, data);
 }
 
-export function deletefile(id) {
-  return get(`${urls.deleteFile}/${id}`);
+export function deletefile(name) {
+  return get(`${urls.deleteFile}?name=${name}`)
 }

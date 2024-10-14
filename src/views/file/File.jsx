@@ -34,8 +34,7 @@ const File = function () {
   }
 
   function dels(data) {
-    debugger
-    deletefile(data.id).then((res) => {
+    deletefile(data.url).then((res) => {
       if (res.code == 200) {
         search()
       }
