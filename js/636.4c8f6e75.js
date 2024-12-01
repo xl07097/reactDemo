@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreactdemo=self.webpackChunkreactdemo||[]).push([[636],{57636:(e,t,a)=>{a.r(t),a.d(t,{default:()=>r});var c=a(35466);const r=e=>c.createElement(c.Fragment,null,e.children)}}]);
